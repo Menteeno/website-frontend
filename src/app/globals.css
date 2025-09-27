@@ -127,6 +127,17 @@
   }
 }
 
+@layer components {
+  .terminal-no-scroll {
+    overflow: hidden !important;
+  }
+
+  .terminal-content {
+    max-height: 100%;
+    overflow: hidden;
+  }
+}
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
