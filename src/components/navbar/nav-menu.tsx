@@ -12,35 +12,48 @@ import { HomeIcon, NewspaperIcon, PhoneIcon } from "lucide-react";
 import Link from "next/link";
 
 export const NavMenu = (props: NavigationMenuProps) => {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
+  const isRTL = locale === "fa";
+
+  const menuItems = [
+    {
+      href: "/",
+      icon: HomeIcon,
+      text: t("messages.navbar.home"),
+    },
+    {
+      href: "/",
+      icon: PhoneIcon,
+      text: t("messages.navbar.contact-us"),
+    },
+    {
+      href: "#",
+      icon: NewspaperIcon,
+      text: t("messages.navbar.blog"),
+    },
+  ];
+
+  // Reverse the order for RTL layout
+  const orderedMenuItems = isRTL ? [...menuItems].reverse() : menuItems;
 
   return (
     <NavigationMenu {...props}>
       <NavigationMenuList className="gap-6 space-x-0 data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-start">
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild>
-            <Link href="/">
-              <HomeIcon className="size-[1.25rem] stroke-accent-foreground" />
-              <span>{t("messages.navbar.home")}</span>
-            </Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild>
-            <Link href="/">
-              <PhoneIcon className="size-[1.25rem] stroke-accent-foreground" />
-              <span>{t("messages.navbar.contact-us")}</span>
-            </Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild>
-            <Link href="#">
-              <NewspaperIcon className="size-[1.25rem] stroke-accent-foreground" />
-              <span>{t("messages.navbar.blog")}</span>
-            </Link>
-          </NavigationMenuLink>
-        </NavigationMenuItem>
+        {orderedMenuItems.map((item, index) => (
+          <NavigationMenuItem key={index}>
+            <NavigationMenuLink asChild>
+              <Link
+                href={item.href}
+                className={`flex items-center gap-2 ${
+                  isRTL ? "flex-row-reverse" : "flex-row"
+                }`}
+              >
+                <item.icon className="size-[1.25rem] stroke-accent-foreground" />
+                <span>{item.text}</span>
+              </Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+        ))}
       </NavigationMenuList>
     </NavigationMenu>
   );
