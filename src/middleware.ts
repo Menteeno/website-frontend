@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const locales = ["en", "fa"];
-const defaultLocale = "en";
+const defaultLocale = "fa";
 
 export function middleware(request: NextRequest) {
   // Check if there is any supported locale in the pathname
@@ -25,20 +25,8 @@ export function middleware(request: NextRequest) {
 
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
-    // Get locale from Accept-Language header
-    const acceptLanguage = request.headers.get("accept-language");
-    let locale = defaultLocale;
-
-    if (acceptLanguage) {
-      const preferredLocale = acceptLanguage
-        .split(",")
-        .map((lang) => lang.split(";")[0].trim())
-        .find((lang) => locales.includes(lang.split("-")[0]));
-
-      if (preferredLocale) {
-        locale = preferredLocale.split("-")[0];
-      }
-    }
+    // Always use the default locale (fa)
+    const locale = defaultLocale;
 
     // Redirect to the pathname with the locale
     return NextResponse.redirect(new URL(`/${locale}${pathname}`, request.url));

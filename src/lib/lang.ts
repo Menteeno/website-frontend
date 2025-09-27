@@ -30,7 +30,7 @@ const replacePlaceholders = (
 export const useTranslation = () => {
   const router = useRouter();
   const pathname = usePathname();
-  const [locale, setLocale] = useState("en");
+  const [locale, setLocale] = useState("fa");
 
   // Extract locale from pathname
   useEffect(() => {
@@ -39,14 +39,14 @@ export const useTranslation = () => {
     if (pathLocale && ["en", "fa"].includes(pathLocale)) {
       setLocale(pathLocale);
     } else {
-      setLocale("en");
+      setLocale("fa");
     }
   }, [pathname]);
 
   const t = useCallback(
     (key: string, replacements: Record<string, any> = {}): string => {
       const localeMessages =
-        messages[locale as keyof typeof messages] || messages.en;
+        messages[locale as keyof typeof messages] || messages.fa;
       const translation = getNestedValue(localeMessages, key);
       return replacePlaceholders(translation, replacements);
     },
@@ -88,7 +88,7 @@ export const getTranslation = (
   replacements: Record<string, any> = {}
 ): string => {
   const localeMessages =
-    messages[locale as keyof typeof messages] || messages.en;
+    messages[locale as keyof typeof messages] || messages.fa;
   const translation = getNestedValue(localeMessages, key);
   return replacePlaceholders(translation, replacements);
 };
