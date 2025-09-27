@@ -72,7 +72,7 @@ export default function DeleteUser() {
                   autoComplete="current-password"
                 />
 
-                <InputError message={errors.password} />
+                {errors.password && <InputError message={errors.password} />}
               </div>
 
               <DialogFooter className="gap-2">

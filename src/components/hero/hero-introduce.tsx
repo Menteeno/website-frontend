@@ -5,7 +5,7 @@ import {
   Terminal,
   TypingAnimation,
 } from "@/components/magicui/terminal";
-import { useTranslation } from "@/lib/lang";
+import { useTranslation } from "@/hooks/use-translation";
 import {
   BrainIcon,
   ChartColumnBigIcon,

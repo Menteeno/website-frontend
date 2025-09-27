@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslation } from "@/hooks/use-translation";
 import {
   BrainIcon,
   ChartColumnBigIcon,
@@ -7,18 +10,16 @@ import {
   MessagesSquareIcon,
   SwordsIcon,
 } from "lucide-react";
-import { Highlighter } from "../magicui/highlighter";
 import { MagicCard } from "../magicui/magic-card";
 import { Card, CardContent } from "../ui/card";
 
 const HeroProblem = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen flex gap-8 flex-col items-center justify-center max-w-7xl mx-auto">
       <h2 className="mt-4 font-bold text-xl text-center sm:text-3xl md:text-4xl leading-relaxed">
-        یک باگ ساده در کد، با یک کامیت فیکس می‌شه.{" "}
-        <Highlighter action="box" color="oklch(55.2% 0.016 285.938)">
-          <span>یک باگ در ارتباط چطور؟</span>
-        </Highlighter>{" "}
+        {t("messages.hero-problem.title")}
       </h2>
       <div className="relative px-4 z-10 col-span-7 text-center lg:text-start">
         <dl className="mt-10 grid grid-cols-12 w-full gap-4 items-stretch text-lg text-foreground/80">
@@ -35,11 +36,11 @@ const HeroProblem = () => {
                     <MessagesSquareIcon className="size-8 text-primary" />
                   </div>
                   <dt className="font-semibold text-2xl text-foreground">
-                    منتورشیپ:
+                    {t("messages.hero-problem.sections.mentorship.title")}
                   </dt>
                 </div>
                 <dd className="ps-1">
-                  سه جلسه منتورشیپ خصوصی با متخصص‌های کار درست
+                  {t("messages.hero-problem.sections.mentorship.description")}
                 </dd>
               </CardContent>
             </MagicCard>
@@ -58,10 +59,12 @@ const HeroProblem = () => {
                     <CompassIcon className="size-8 text-primary" />
                   </div>
                   <dt className="font-semibold text-2xl text-foreground">
-                    یادگیری:
+                    {t("messages.hero-problem.sections.learning.title")}
                   </dt>
                 </div>
-                <dd className="ps-1">برنامه‌ی یادگیری کاملاً شخصی‌سازی‌شده</dd>
+                <dd className="ps-1">
+                  {t("messages.hero-problem.sections.learning.description")}
+                </dd>
               </CardContent>
             </MagicCard>
           </Card>
@@ -78,11 +81,11 @@ const HeroProblem = () => {
                     <HandshakeIcon className="size-8 text-primary" />
                   </div>
                   <dt className="font-semibold text-2xl text-foreground">
-                    تمرین:
+                    {t("messages.hero-problem.sections.practice.title")}
                   </dt>
                 </div>
                 <dd className="ps-1">
-                  تمرین مهارت‌های تیمی، رهبری و شبکه‌سازی
+                  {t("messages.hero-problem.sections.practice.description")}
                 </dd>
               </CardContent>
             </MagicCard>
@@ -100,10 +103,12 @@ const HeroProblem = () => {
                     <HeadsetIcon className="size-8 text-primary" />
                   </div>
                   <dt className="font-semibold text-2xl text-foreground">
-                    پشتیبانی:
+                    {t("messages.hero-problem.sections.support.title")}
                   </dt>
                 </div>
-                <dd className="ps-1">پشتیبانی اختصاصی در طول مسیر رشد</dd>
+                <dd className="ps-1">
+                  {t("messages.hero-problem.sections.support.description")}
+                </dd>
               </CardContent>
             </MagicCard>
           </Card>
@@ -120,11 +125,11 @@ const HeroProblem = () => {
                     <BrainIcon className="size-8 text-primary" />
                   </div>
                   <dt className="font-semibold text-2xl text-foreground">
-                    بازخورد:
+                    {t("messages.hero-problem.sections.feedback.title")}
                   </dt>
                 </div>
                 <dd className="ps-1">
-                  بازخورد واقعی از منتورها، مربی‌ها و تیم پشتیبان
+                  {t("messages.hero-problem.sections.feedback.description")}
                 </dd>
               </CardContent>
             </MagicCard>
@@ -142,11 +147,11 @@ const HeroProblem = () => {
                     <ChartColumnBigIcon className="size-8 text-primary" />
                   </div>
                   <dt className="font-semibold text-2xl text-foreground">
-                    ارزیابی:
+                    {t("messages.hero-problem.sections.evaluation.title")}
                   </dt>
                 </div>
                 <dd className="ps-1">
-                  سنجش و ارزیابی پیشرفت با آزمون‌های طراحی‌شده
+                  {t("messages.hero-problem.sections.evaluation.description")}
                 </dd>
               </CardContent>
             </MagicCard>
@@ -164,11 +169,11 @@ const HeroProblem = () => {
                     <SwordsIcon className="size-8 text-primary" />
                   </div>
                   <dt className="font-semibold text-2xl text-foreground">
-                    چالش :
+                    {t("messages.hero-problem.sections.challenges.title")}
                   </dt>
                 </div>
                 <dd className="ps-1">
-                  چالش‌های واقعی و تمرین‌های عملی در فضای شبیه‌سازی‌شده
+                  {t("messages.hero-problem.sections.challenges.description")}
                 </dd>
               </CardContent>
             </MagicCard>

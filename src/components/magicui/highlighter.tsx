@@ -60,6 +60,9 @@ export function Highlighter({
         }
       };
     }
+
+    // Return undefined if no element
+    return undefined;
   }, [
     action,
     color,

@@ -3,7 +3,6 @@ import { ThemeProvider } from "@/contexts/theme-context";
 import { getTranslation, locales } from "@/lib/i18n";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Script from "next/script";
 
 interface LocaleLayoutProps {
   children: React.ReactNode;
@@ -62,38 +61,9 @@ export default async function LocaleLayout({
     notFound();
   }
 
-  const isRTL = locale === "fa";
-
   return (
-    <html lang={locale} dir={isRTL ? "rtl" : "ltr"}>
-      <head>
-        <link rel="stylesheet" href="/assets/css/dana-web-font.css" />
-        <link rel="preconnect" href="https://fonts.bunny.net" />
-        <link
-          href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600"
-          rel="stylesheet"
-        />
-        <Script
-          id="theme-initializer"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  const appearance = localStorage.getItem('appearance') || 'system';
-                  const isDark = appearance === 'dark' || (appearance === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
-                  document.documentElement.classList.toggle('dark', isDark);
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
-      </head>
-      <body className="antialiased">
-        <ThemeProvider>
-          <AuthProvider>{children}</AuthProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+    <ThemeProvider>
+      <AuthProvider>{children}</AuthProvider>
+    </ThemeProvider>
   );
 }

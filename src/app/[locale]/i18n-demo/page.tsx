@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { useTranslation } from "@/lib/lang";
+import { useTranslation } from "@/hooks/use-translation";
 
 export default function I18nDemoPage() {
   const { t, locale } = useTranslation();
@@ -110,7 +110,7 @@ export default function I18nDemoPage() {
           How to use translations in your components:
         </h3>
         <pre className="text-sm overflow-x-auto">
-          {`import { useTranslation } from "@/lib/lang";
+          {`import { useTranslation } from "@/hooks/use-translation";
 
 export function MyComponent() {
   const { t, locale, changeLanguage } = useTranslation();

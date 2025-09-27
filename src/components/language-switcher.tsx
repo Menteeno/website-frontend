@@ -7,7 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useTranslation } from "@/lib/lang";
+import { useTranslation } from "@/hooks/use-translation";
 import { Globe } from "lucide-react";
 
 const languages = [
@@ -20,6 +20,10 @@ export function LanguageSwitcher() {
 
   const currentLanguage =
     languages.find((lang) => lang.code === locale) || languages[0];
+
+  if (!currentLanguage) {
+    return null;
+  }
 
   return (
     <DropdownMenu>

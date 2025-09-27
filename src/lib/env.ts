@@ -1,27 +1,19 @@
-import { z } from "zod";
-
-// Define the schema for environment variables
-const envSchema = z.object({
-  NODE_ENV: z
-    .enum(["development", "production", "test"])
-    .default("development"),
-  NEXT_PUBLIC_API_URL: z.string().url().optional(),
-  NEXT_PUBLIC_APP_URL: z.string().url().optional(),
-  NEXT_PUBLIC_APP_NAME: z.string().default("Menteeno"),
-  NEXT_PUBLIC_APP_DESCRIPTION: z
-    .string()
-    .default("A place to grow your skills"),
-  NEXT_PUBLIC_APP_VERSION: z.string().default("1.0.0"),
-  NEXT_PUBLIC_ANALYTICS_ID: z.string().optional(),
-  NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: z.string().optional(),
-  NEXT_PUBLIC_SENTRY_DSN: z.string().optional(),
-  DATABASE_URL: z.string().optional(),
-  NEXTAUTH_SECRET: z.string().optional(),
-  NEXTAUTH_URL: z.string().url().optional(),
-});
-
-// Parse and validate environment variables
-const env = envSchema.parse(process.env);
+// Environment variables configuration
+const env = {
+  NODE_ENV: process.env.NODE_ENV || "development",
+  NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+  NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+  NEXT_PUBLIC_APP_NAME: process.env.NEXT_PUBLIC_APP_NAME || "Menteeno",
+  NEXT_PUBLIC_APP_DESCRIPTION:
+    process.env.NEXT_PUBLIC_APP_DESCRIPTION || "A place to grow your skills",
+  NEXT_PUBLIC_APP_VERSION: process.env.NEXT_PUBLIC_APP_VERSION || "1.0.0",
+  NEXT_PUBLIC_ANALYTICS_ID: process.env.NEXT_PUBLIC_ANALYTICS_ID,
+  NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID,
+  NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,
+  DATABASE_URL: process.env.DATABASE_URL,
+  NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
+  NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+};
 
 // Export validated environment variables
 export const envConfig = {

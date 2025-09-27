@@ -25,19 +25,19 @@
       "sign-up": "ثبت‌نام"
     },
     "hero-introduce": {
-      "terminal-command": "> sudo apt install menteeno-soft-skills",
+      "terminal-command": "sudo apt install menteeno-soft-skills",
       "features": {
-        "mentorship": "Three private mentorship sessions with real experts.",
-        "learning-plan": "A fully personalized learning plan.",
+        "mentorship": "Three private mentorship sessions with expert professionals.",
+        "learning-plan": "Fully personalized learning program.",
         "teamwork": "Practice teamwork, leadership, and networking skills.",
         "support": "Dedicated support throughout your growth journey.",
-        "feedback": "Real feedback from mentors and coaches.",
-        "progress": "Progress tracking through tailored evaluations.",
-        "challenges": "Real-life challenges in a simulated environment."
+        "feedback": "Real feedback from mentors, coaches, and support team.",
+        "progress": "Measuring and evaluating progress with designed tests.",
+        "challenges": "Real challenges and practical exercises in a simulated environment."
       },
-      "terminal-info": "ℹ Updated ∞ skils:",
+      "terminal-info": "ℹ Updating ∞ skills:",
       "terminal-path": "- etc/skills/soft-skills.conf",
-      "terminal-complete": "Your growth journey started!",
+      "terminal-complete": "Your growth journey has started!",
       "question": "باگ‌های کدت رو با",
       "debugger": "Debugger",
       "question-continue": "حل می‌کنی، باگ‌های ارتباطات رو چطور؟",
@@ -68,6 +68,39 @@
         "evaluation": {
           "title": "ارزیابی:",
           "description": "سنجش و ارزیابی پیشرفت با آزمون‌های طراحی‌شده"
+        },
+        "challenges": {
+          "title": "چالش:",
+          "description": "چالش‌های واقعی و تمرین‌های عملی در فضای شبیه‌سازی‌شده"
+        }
+      }
+    },
+    "hero-problem": {
+      "title": "یک باگ در ارتباط چطور؟ یک باگ ساده در کد، با یک کامیت فیکس میشه",
+      "sections": {
+        "mentorship": {
+          "title": "منتورشیپ:",
+          "description": "سه جلسه منتورشیپ خصوصی با متخصص‌های کار درست"
+        },
+        "learning": {
+          "title": "یادگیری:",
+          "description": "برنامه‌ی یادگیری کاملاً شخصی‌سازی‌شده"
+        },
+        "practice": {
+          "title": "تمرین:",
+          "description": "تمرین مهارت‌های تیمی، رهبری و شبکه‌سازی"
+        },
+        "support": {
+          "title": "پشتیبانی:",
+          "description": "پشتیبانی اختصاصی در طول مسیر رشد"
+        },
+        "evaluation": {
+          "title": "ارزیابی:",
+          "description": "سنجش و ارزیابی پیشرفت با آزمون‌های طراحی‌شده"
+        },
+        "feedback": {
+          "title": "بازخورد:",
+          "description": "بازخورد واقعی از منتورها، مربی‌ها و تیم پشتیبان"
         },
         "challenges": {
           "title": "چالش:",

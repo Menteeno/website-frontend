@@ -15,13 +15,6 @@ function NavigationMenu({
 }) {
   return (
     <NavigationMenuPrimitive.Root
-      dir={(() => {
-        if (typeof window === "undefined") return undefined;
-        const dir = localStorage.getItem("direction");
-        return dir === "ltr" || dir === "rtl"
-          ? (dir as "ltr" | "rtl")
-          : undefined;
-      })()}
       data-slot="navigation-menu"
       data-viewport={viewport}
       className={cn(

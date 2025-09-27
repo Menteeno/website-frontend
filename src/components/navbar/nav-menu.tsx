@@ -6,7 +6,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { useTranslation } from "@/lib/lang";
+import { useTranslation } from "@/hooks/use-translation";
 import { NavigationMenuProps } from "@radix-ui/react-navigation-menu";
 import { HomeIcon, NewspaperIcon, PhoneIcon } from "lucide-react";
 import Link from "next/link";

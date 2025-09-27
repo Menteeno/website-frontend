@@ -75,6 +75,35 @@
           "description": "Real-life challenges in a simulated environment"
         }
       }
+    },
+    "hero-problem": {
+      "title": "How about a bug in communication? A simple bug in code, fixed with a commit",
+      "sections": {
+        "mentorship": {
+          "title": "Mentorship:",
+          "description": "Three private mentorship sessions with real experts"
+        },
+        "learning": {
+          "title": "Learning:",
+          "description": "A fully personalized learning program"
+        },
+        "practice": {
+          "title": "Practice:",
+          "description": "Practice teamwork, leadership, and networking skills"
+        },
+        "evaluation": {
+          "title": "Evaluation:",
+          "description": "Measuring and evaluating progress with designed tests"
+        },
+        "feedback": {
+          "title": "Feedback:",
+          "description": "Real feedback from mentors, coaches, and support team"
+        },
+        "challenges": {
+          "title": "Challenges:",
+          "description": "Real challenges and practical exercises in a simulated environment"
+        }
+      }
     }
   },
   "pagination": {

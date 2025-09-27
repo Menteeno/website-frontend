@@ -78,7 +78,7 @@ class ApiClient {
         this.request<T>(endpoint, {
           ...options,
           method: "POST",
-          body: data ? JSON.stringify(data) : undefined,
+          body: data ? JSON.stringify(data) : null,
         }),
       options?.retries
     );
@@ -94,7 +94,7 @@ class ApiClient {
         this.request<T>(endpoint, {
           ...options,
           method: "PUT",
-          body: data ? JSON.stringify(data) : undefined,
+          body: data ? JSON.stringify(data) : null,
         }),
       options?.retries
     );
@@ -110,7 +110,7 @@ class ApiClient {
         this.request<T>(endpoint, {
           ...options,
           method: "PATCH",
-          body: data ? JSON.stringify(data) : undefined,
+          body: data ? JSON.stringify(data) : null,
         }),
       options?.retries
     );
