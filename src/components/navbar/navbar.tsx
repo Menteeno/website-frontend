@@ -5,14 +5,14 @@ import { Language } from "@/components/navbar/language";
 import { NavMenu } from "@/components/navbar/nav-menu";
 import { NavigationSheet } from "@/components/navbar/navigation-sheet";
 import { Button } from "@/components/ui/button";
-import { useTranslation } from "@/lib/lang";
+import { useAuth } from "@/contexts/auth-context";
+import { useTranslation } from "@/hooks/use-translation";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const { t } = useTranslation();
-  // TODO: Replace with proper auth state managementßß
-  const auth = { user: null };
+  const { user, isAuthenticated } = useAuth();
 
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
@@ -58,7 +58,7 @@ const Navbar = () => {
           <Language />
           <AnimatedThemeToggler />
 
-          {auth.user ? (
+          {isAuthenticated && user ? (
             <Button
               asChild
               variant="outline"

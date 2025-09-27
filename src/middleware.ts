@@ -1,10 +1,7 @@
+import { getDefaultLocale, locales } from "@/lib/i18n";
 import { NextRequest, NextResponse } from "next/server";
 
-const locales = ["en", "fa"];
-const defaultLocale = "fa";
-
 export function middleware(request: NextRequest) {
-  // Check if there is any supported locale in the pathname
   const pathname = request.nextUrl.pathname;
 
   // Skip static assets and API routes
@@ -25,10 +22,7 @@ export function middleware(request: NextRequest) {
 
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
-    // Always use the default locale (fa)
-    const locale = defaultLocale;
-
-    // Redirect to the pathname with the locale
+    const locale = getDefaultLocale();
     return NextResponse.redirect(new URL(`/${locale}${pathname}`, request.url));
   }
 

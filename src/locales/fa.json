@@ -27,17 +27,17 @@
     "hero-introduce": {
       "terminal-command": "> sudo apt install menteeno-soft-skills",
       "features": {
-        "mentorship": "سه جلسه منتورشیپ خصوصی با متخصص‌های کار درست.",
-        "learning-plan": "برنامه‌ی یادگیری کاملاً شخصی‌سازی‌شده.",
-        "teamwork": "تمرین مهارت‌های تیمی، رهبری و شبکه‌سازی.",
-        "support": "پشتیبانی اختصاصی در طول مسیر رشد.",
-        "feedback": "بازخورد واقعی از منتورها، مربی‌ها و تیم پشتیبان.",
-        "progress": "سنجش و ارزیابی پیشرفت با آزمون‌های طراحی‌شده.",
-        "challenges": "چالش‌های واقعی و تمرین‌های عملی در فضای شبیه‌سازی‌شده."
+        "mentorship": "Three private mentorship sessions with real experts.",
+        "learning-plan": "A fully personalized learning plan.",
+        "teamwork": "Practice teamwork, leadership, and networking skills.",
+        "support": "Dedicated support throughout your growth journey.",
+        "feedback": "Real feedback from mentors and coaches.",
+        "progress": "Progress tracking through tailored evaluations.",
+        "challenges": "Real-life challenges in a simulated environment."
       },
-      "terminal-info": "ℹ بروزرسانی ∞ مهارت:",
+      "terminal-info": "ℹ Updated ∞ skils:",
       "terminal-path": "- etc/skills/soft-skills.conf",
-      "terminal-complete": "سفر رشد شما شروع شد!",
+      "terminal-complete": "Your growth journey started!",
       "question": "باگ‌های کدت رو با",
       "debugger": "Debugger",
       "question-continue": "حل می‌کنی، باگ‌های ارتباطات رو چطور؟",

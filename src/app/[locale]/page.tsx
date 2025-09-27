@@ -2,7 +2,8 @@ import HeroHeader from "@/components/hero/hero-header";
 import HeroIntroduce from "@/components/hero/hero-introduce";
 import HeroProblem from "@/components/hero/hero-problem";
 import Navbar from "@/components/navbar/navbar";
-import Head from "next/head";
+import { locales } from "@/lib/i18n";
+import { notFound } from "next/navigation";
 
 interface HomeProps {
   params: Promise<{
@@ -14,21 +15,12 @@ export default async function Home({ params }: HomeProps) {
   const { locale } = await params;
 
   // Validate locale
-  const validLocales = ["en", "fa"];
-  if (!validLocales.includes(locale)) {
-    return <div>Invalid locale</div>;
+  if (!locales.includes(locale as any)) {
+    notFound();
   }
 
   return (
     <>
-      <Head>
-        <title>Hello</title>
-        <link rel="preconnect" href="https://fonts.bunny.net" />
-        <link
-          href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600"
-          rel="stylesheet"
-        />
-      </Head>
       <Navbar />
       <HeroHeader />
       <HeroProblem />
