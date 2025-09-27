@@ -5,11 +5,12 @@ import { Language } from "@/components/navbar/language";
 import { NavMenu } from "@/components/navbar/nav-menu";
 import { NavigationSheet } from "@/components/navbar/navigation-sheet";
 import { Button } from "@/components/ui/button";
-import { trans } from "@/lib/utils";
+import { useTranslation } from "@/lib/lang";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const { t } = useTranslation();
   // TODO: Replace with proper auth state managementßß
   const auth = { user: null };
 
@@ -63,9 +64,7 @@ const Navbar = () => {
               variant="outline"
               className="hidden sm:inline-flex rounded-full"
             >
-              <Link href="/dashboard">
-                {trans("messages.navbar.dashboard")}
-              </Link>
+              <Link href="/dashboard">{t("messages.navbar.dashboard")}</Link>
             </Button>
           ) : (
             <>
@@ -74,10 +73,10 @@ const Navbar = () => {
                 variant="outline"
                 className="hidden sm:inline-flex rounded-full"
               >
-                <Link href="/login">{trans("messages.navbar.sign-in")}</Link>
+                <Link href="/login">{t("messages.navbar.sign-in")}</Link>
               </Button>
               <Button asChild className="rounded-full">
-                <Link href="/register">{trans("messages.navbar.sign-up")}</Link>
+                <Link href="/register">{t("messages.navbar.sign-up")}</Link>
               </Button>
             </>
           )}

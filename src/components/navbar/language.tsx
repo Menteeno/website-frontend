@@ -16,6 +16,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { useTranslation } from "@/lib/lang";
 import { cn } from "@/lib/utils";
 
 const languages = [
@@ -35,11 +36,12 @@ const languages = [
 
 export function Language() {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState("");
+  const { locale, changeLanguage } = useTranslation();
 
-  React.useEffect(() => {
-    setValue(localStorage.getItem("locale") || "en");
-  }, []);
+  const handleLanguageChange = (newLocale: string) => {
+    changeLanguage(newLocale);
+    setOpen(false);
+  };
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -50,8 +52,9 @@ export function Language() {
           role="combobox"
           aria-expanded={open}
         >
-          {value
-            ? languages.find((language) => language.value === value)?.shortLabel
+          {locale
+            ? languages.find((language) => language.value === locale)
+                ?.shortLabel
             : "??"}
         </Button>
       </PopoverTrigger>
@@ -64,19 +67,13 @@ export function Language() {
                 <CommandItem
                   key={language.value}
                   value={language.value}
-                  onSelect={(currentValue: string) => {
-                    setValue(currentValue);
-                    localStorage.setItem("locale", currentValue);
-                    localStorage.setItem("direction", language.dir);
-                    window.location.reload();
-                    setOpen(false);
-                  }}
+                  onSelect={handleLanguageChange}
                 >
                   {language.label}
                   <Check
                     className={cn(
                       "ml-auto",
-                      value === language.value ? "opacity-100" : "opacity-0"
+                      locale === language.value ? "opacity-100" : "opacity-0"
                     )}
                   />
                 </CommandItem>

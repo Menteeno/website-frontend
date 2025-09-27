@@ -1,8 +1,11 @@
+"use client";
+
 import {
   AnimatedSpan,
   Terminal,
   TypingAnimation,
 } from "@/components/magicui/terminal";
+import { useTranslation } from "@/lib/lang";
 import {
   BrainIcon,
   ChartColumnBigIcon,
@@ -16,125 +19,134 @@ import { AuroraText } from "../magicui/aurora-text";
 import { Highlighter } from "../magicui/highlighter";
 
 const HeroIntroduce = () => {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen grid grid-cols-12 gap-8 flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto">
       <div dir="ltr" className="lg:flex-1 col-span-5">
         <Terminal className="transition-transform duration-1000 ease-in-out scale-120 hover:scale-100 rotate-x-[30deg] -rotate-y-[30deg] -rotate-z-[0deg] hover:rotate-x-0 hover:rotate-y-0  hover:-rotate-z-0">
           <TypingAnimation>
-            &gt; sudo apt install menteeno-soft-skills
+            {t("messages.hero-introduce.terminal-command")}
           </TypingAnimation>
 
           <AnimatedSpan className="text-green-500">
-            <span>✔ Three private mentorship sessions with real experts.</span>
+            <span>✔ {t("messages.hero-introduce.features.mentorship")}</span>
           </AnimatedSpan>
 
           <AnimatedSpan className="text-green-500">
-            <span>✔ A fully personalized learning plan.</span>
+            <span>✔ {t("messages.hero-introduce.features.learning-plan")}</span>
           </AnimatedSpan>
 
           <AnimatedSpan className="text-green-500">
-            <span>✔ Practice teamwork, leadership, and networking skills.</span>
+            <span>✔ {t("messages.hero-introduce.features.teamwork")}</span>
           </AnimatedSpan>
 
           <AnimatedSpan className="text-green-500">
-            <span>✔ Dedicated support throughout your growth journey.</span>
+            <span>✔ {t("messages.hero-introduce.features.support")}</span>
           </AnimatedSpan>
 
           <AnimatedSpan className="text-green-500">
-            <span>✔ Real feedback from mentors and coaches.</span>
+            <span>✔ {t("messages.hero-introduce.features.feedback")}</span>
           </AnimatedSpan>
 
           <AnimatedSpan className="text-green-500">
-            <span>✔ Progress tracking through tailored evaluations.</span>
+            <span>✔ {t("messages.hero-introduce.features.progress")}</span>
           </AnimatedSpan>
 
           <AnimatedSpan className="text-green-500">
-            <span>✔ Real-life challenges in a simulated environment.</span>
+            <span>✔ {t("messages.hero-introduce.features.challenges")}</span>
           </AnimatedSpan>
 
           <AnimatedSpan className="text-blue-500">
-            <span>ℹ Updated ∞ skils:</span>
-            <span className="pl-2">- etc/skills/soft-skills.conf</span>
+            <span>{t("messages.hero-introduce.terminal-info")}</span>
+            <span className="pl-2">
+              {t("messages.hero-introduce.terminal-path")}
+            </span>
           </AnimatedSpan>
 
           <TypingAnimation className="text-muted-foreground">
-            Your growth journey started!
+            {t("messages.hero-introduce.terminal-complete")}
           </TypingAnimation>
         </Terminal>
       </div>
       <div className="relative px-4 z-10 max-w-2xl col-span-7 text-center lg:text-start">
         <p className="text-[17px] md:text-lg">
-          باگ‌های کدت رو با{" "}
+          {t("messages.hero-introduce.question")}{" "}
           <Highlighter action="highlight">
-            <span className="text-black">Debugger</span>
+            <span className="text-black">
+              {t("messages.hero-introduce.debugger")}
+            </span>
           </Highlighter>{" "}
-          حل می‌کنی، باگ‌های ارتباطات رو چطور؟
+          {t("messages.hero-introduce.question-continue")}
         </p>
         <h2 className="mt-4 font-bold text-xl sm:text-3xl md:text-4xl leading-relaxed">
-          ما توی منتینو{" "}
-          <AuroraText className="font-black">فضای آزمایش کردن</AuroraText> خودت
-          رو برات فراهم کردیم!
+          {t("messages.hero-introduce.title")}{" "}
+          <AuroraText className="font-black">
+            {t("messages.hero-introduce.space")}
+          </AuroraText>{" "}
+          {t("messages.hero-introduce.title-continue")}
         </h2>
         <dl className="mt-10 max-w-xl space-y-3 text-lg text-foreground/80 lg:max-w-none">
           <div className="relative ps-9">
             <dt className="inline font-semibold text-foreground">
               <MessagesSquareIcon className="absolute top-1 start-1 size-6 text-primary" />
-              منتورشیپ:
+              {t("messages.hero-introduce.sections.mentorship.title")}
             </dt>
             <dd className="inline ps-1">
-              سه جلسه منتورشیپ خصوصی با متخصص‌های کار درست
+              {t("messages.hero-introduce.sections.mentorship.description")}
             </dd>
           </div>
           <div className="relative ps-9">
             <dt className="inline font-semibold text-foreground">
               <CompassIcon className="absolute top-1 start-1 size-6 text-primary" />
-              یادگیری:
+              {t("messages.hero-introduce.sections.learning.title")}
             </dt>
             <dd className="inline ps-1">
-              برنامه‌ی یادگیری کاملاً شخصی‌سازی‌شده
+              {t("messages.hero-introduce.sections.learning.description")}
             </dd>
           </div>
           <div className="relative ps-9">
             <dt className="inline font-semibold text-foreground">
               <HandshakeIcon className="absolute top-1 start-1 size-6 text-primary" />
-              تمرین:
+              {t("messages.hero-introduce.sections.practice.title")}
             </dt>
             <dd className="inline ps-1">
-              تمرین مهارت‌های تیمی، رهبری و شبکه‌سازی
+              {t("messages.hero-introduce.sections.practice.description")}
             </dd>
           </div>
           <div className="relative ps-9">
             <dt className="inline font-semibold text-foreground">
               <HeadsetIcon className="absolute top-1 start-1 size-6 text-primary" />
-              پشتیبانی:
+              {t("messages.hero-introduce.sections.support.title")}
             </dt>
-            <dd className="inline ps-1">پشتیبانی اختصاصی در طول مسیر رشد</dd>
+            <dd className="inline ps-1">
+              {t("messages.hero-introduce.sections.support.description")}
+            </dd>
           </div>
           <div className="relative ps-9">
             <dt className="inline font-semibold text-foreground">
               <BrainIcon className="absolute top-1 start-1 size-6 text-primary" />
-              بازخورد:
+              {t("messages.hero-introduce.sections.feedback.title")}
             </dt>
             <dd className="inline ps-1">
-              بازخورد واقعی از منتورها، مربی‌ها و تیم پشتیبان
+              {t("messages.hero-introduce.sections.feedback.description")}
             </dd>
           </div>
           <div className="relative ps-9">
             <dt className="inline font-semibold text-foreground">
               <ChartColumnBigIcon className="absolute top-1 start-1 size-6 text-primary" />
-              ارزیابی:
+              {t("messages.hero-introduce.sections.evaluation.title")}
             </dt>
             <dd className="inline ps-1">
-              سنجش و ارزیابی پیشرفت با آزمون‌های طراحی‌شده
+              {t("messages.hero-introduce.sections.evaluation.description")}
             </dd>
           </div>
           <div className="relative ps-9">
             <dt className="inline font-semibold text-foreground">
               <SwordsIcon className="absolute top-1 start-1 size-6 text-primary" />
-              چالش :
+              {t("messages.hero-introduce.sections.challenges.title")}
             </dt>
             <dd className="inline ps-1">
-              چالش‌های واقعی و تمرین‌های عملی در فضای شبیه‌سازی‌شده
+              {t("messages.hero-introduce.sections.challenges.description")}
             </dd>
           </div>
         </dl>
