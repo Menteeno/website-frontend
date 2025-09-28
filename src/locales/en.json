@@ -99,31 +99,31 @@
       "title-continue": "in Menteeno!",
       "sections": {
         "mentorship": {
-          "title": "Mentorship:",
+          "title": "Mentorship",
           "description": "Three private mentorship sessions with real experts"
         },
         "learning": {
-          "title": "Learning:",
+          "title": "Learning",
           "description": "A fully personalized learning plan"
         },
         "practice": {
-          "title": "Practice:",
+          "title": "Practice",
           "description": "Practice teamwork, leadership, and networking skills"
         },
         "support": {
-          "title": "Support:",
+          "title": "Support",
           "description": "Dedicated support throughout your growth journey"
         },
         "feedback": {
-          "title": "Feedback:",
+          "title": "Feedback",
           "description": "Real feedback from mentors, coaches, and support team"
         },
         "evaluation": {
-          "title": "Evaluation:",
+          "title": "Evaluation",
           "description": "Progress tracking through tailored evaluations"
         },
         "challenges": {
-          "title": "Challenges:",
+          "title": "Challenges",
           "description": "Real-life challenges in a simulated environment"
         }
       }
