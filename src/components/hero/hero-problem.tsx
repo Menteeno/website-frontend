@@ -60,7 +60,15 @@ const HeroProblem = () => {
     }
 
     const rng = new SeededRandom(seed);
-    return Array.from({ length: count }, (_, i) => {
+    // Reduce count on mobile for better performance
+    const mobileCount = Math.min(count, 4);
+    const desktopCount = count;
+    const actualCount =
+      typeof window !== "undefined" && window.innerWidth < 768
+        ? mobileCount
+        : desktopCount;
+
+    return Array.from({ length: actualCount }, (_, i) => {
       const Icon = icons[i % icons.length];
       const size = rng.next() * 20 + 10;
       const left = rng.next() * 80 + 10;
@@ -76,7 +84,7 @@ const HeroProblem = () => {
       return (
         <div
           key={i}
-          className="absolute"
+          className="absolute hidden sm:block"
           style={
             {
               left: `${left}%`,
@@ -106,10 +114,17 @@ const HeroProblem = () => {
     if (!isClient) return [];
 
     const rng = new SeededRandom(seed);
-    return Array.from({ length: count }, (_, i) => (
+    // Reduce count on mobile for better performance
+    const mobileCount = Math.min(count, 8);
+    const actualCount =
+      typeof window !== "undefined" && window.innerWidth < 768
+        ? mobileCount
+        : count;
+
+    return Array.from({ length: actualCount }, (_, i) => (
       <div
         key={i}
-        className="absolute w-1 h-1 bg-gray-400 rounded-full animate-pulse"
+        className="absolute w-1 h-1 bg-gray-400 rounded-full animate-pulse hidden sm:block"
         style={{
           left: `${rng.next() * 100}%`,
           top: `${rng.next() * 100}%`,
@@ -124,10 +139,17 @@ const HeroProblem = () => {
     if (!isClient) return [];
 
     const rng = new SeededRandom(seed);
-    return Array.from({ length: count }, (_, i) => (
+    // Reduce count on mobile for better performance
+    const mobileCount = Math.min(count, 4);
+    const actualCount =
+      typeof window !== "undefined" && window.innerWidth < 768
+        ? mobileCount
+        : count;
+
+    return Array.from({ length: actualCount }, (_, i) => (
       <div
         key={i}
-        className="absolute h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent animate-pulse"
+        className="absolute h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent animate-pulse hidden sm:block"
         style={{
           left: `${rng.next() * 100}%`,
           top: `${rng.next() * 100}%`,
@@ -143,10 +165,17 @@ const HeroProblem = () => {
     if (!isClient) return [];
 
     const rng = new SeededRandom(seed);
-    return Array.from({ length: count }, (_, i) => (
+    // Reduce count on mobile for better performance
+    const mobileCount = Math.min(count, 6);
+    const actualCount =
+      typeof window !== "undefined" && window.innerWidth < 768
+        ? mobileCount
+        : count;
+
+    return Array.from({ length: actualCount }, (_, i) => (
       <div
         key={i}
-        className="absolute border border-gray-300 dark:border-gray-700 rounded-full animate-ping"
+        className="absolute border border-gray-300 dark:border-gray-700 rounded-full animate-ping hidden sm:block"
         style={{
           left: `${rng.next() * 100}%`,
           top: `${rng.next() * 100}%`,
@@ -163,11 +192,18 @@ const HeroProblem = () => {
     if (!isClient) return [];
 
     const rng = new SeededRandom(seed);
-    return Array.from({ length: count }, (_, i) => (
+    // Reduce count on mobile for better performance
+    const mobileCount = Math.min(count, 6);
+    const actualCount =
+      typeof window !== "undefined" && window.innerWidth < 768
+        ? mobileCount
+        : count;
+
+    return Array.from({ length: actualCount }, (_, i) => (
       <div
         key={i}
         className={cn(
-          "absolute bg-gradient-to-r from-red-400/20 to-orange-400/20 animate-pulse",
+          "absolute bg-gradient-to-r from-red-400/20 to-orange-400/20 animate-pulse hidden sm:block",
           i % 3 === 0
             ? "rounded-full"
             : i % 3 === 1
@@ -190,10 +226,17 @@ const HeroProblem = () => {
     if (!isClient) return [];
 
     const rng = new SeededRandom(seed);
-    return Array.from({ length: count }, (_, i) => (
+    // Reduce count on mobile for better performance
+    const mobileCount = Math.min(count, 8);
+    const actualCount =
+      typeof window !== "undefined" && window.innerWidth < 768
+        ? mobileCount
+        : count;
+
+    return Array.from({ length: actualCount }, (_, i) => (
       <div
         key={i}
-        className="absolute text-purple-400 dark:text-purple-600 animate-pulse"
+        className="absolute text-purple-400 dark:text-purple-600 animate-pulse hidden sm:block"
         style={{
           left: `${rng.next() * 100}%`,
           top: `${rng.next() * 100}%`,
@@ -364,18 +407,47 @@ const HeroProblem = () => {
           }
         }
       `}</style>
-      <div className="flex gap-8 flex-col items-center justify-center max-w-7xl mx-auto px-4 py-16">
-        <div className="text-center space-y-4">
-          <h2 className="font-bold text-2xl text-center sm:text-3xl md:text-4xl leading-relaxed">
+      <div className="flex gap-6 sm:gap-8 lg:gap-10 flex-col items-center justify-center max-w-7xl mx-auto px-4 py-12 sm:py-16 lg:py-20">
+        <div className="text-center space-y-4 sm:space-y-6">
+          <h2 className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center leading-tight sm:leading-relaxed px-4">
             {t("messages.hero-problem.title")}
           </h2>
         </div>
         <div className="relative z-10 w-full">
-          <BentoGrid className="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2 auto-rows-[500px]">
-            {features.map((feature) => (
-              <BentoCard key={feature.name} {...feature} />
-            ))}
-          </BentoGrid>
+          {/* Mobile: Horizontal scroll */}
+          <div className="block md:hidden">
+            <div className="relative">
+              <div className="flex gap-6 overflow-x-auto pb-6 scrollbar-hide snap-x snap-mandatory scroll-smooth px-4 py-4">
+                {features.map((feature) => (
+                  <div
+                    key={feature.name}
+                    className="flex-shrink-0 w-80 snap-center"
+                  >
+                    <BentoCard {...feature} />
+                  </div>
+                ))}
+              </div>
+
+              {/* Scroll indicators */}
+              <div className="flex justify-center mt-6 space-x-3">
+                {features.map((_, index) => (
+                  <div
+                    key={index}
+                    className="w-2.5 h-2.5 rounded-full bg-gray-300 dark:bg-gray-600"
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop: Grid layout */}
+          <div className="hidden md:block">
+            <BentoGrid className="grid-cols-2 lg:grid-cols-3 lg:grid-rows-2 auto-rows-[220px] md:auto-rows-[280px] lg:auto-rows-[400px]">
+              {features.map((feature) => (
+                <BentoCard key={feature.name} {...feature} />
+              ))}
+            </BentoGrid>
+          </div>
         </div>
       </div>
     </>
