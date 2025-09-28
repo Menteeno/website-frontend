@@ -296,6 +296,11 @@ export default function AuthForm() {
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
                     className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                    aria-label={
+                      showPassword
+                        ? t("auth.hide_password")
+                        : t("auth.show_password")
+                    }
                   >
                     {showPassword ? (
                       <EyeOff className="size-4" />
@@ -336,6 +341,11 @@ export default function AuthForm() {
                         setShowConfirmPassword(!showConfirmPassword)
                       }
                       className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                      aria-label={
+                        showConfirmPassword
+                          ? t("auth.hide_confirm_password")
+                          : t("auth.show_confirm_password")
+                      }
                     >
                       {showConfirmPassword ? (
                         <EyeOff className="size-4" />
@@ -381,6 +391,11 @@ export default function AuthForm() {
                 type="submit"
                 className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 rounded-lg transition-all duration-200 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                 disabled={isLoading}
+                aria-label={
+                  isLogin
+                    ? t("auth.sign_in_button")
+                    : t("auth.create_account_button")
+                }
               >
                 {isLoading ? (
                   <div className="flex items-center gap-2">
@@ -416,6 +431,11 @@ export default function AuthForm() {
                     onClick={switchMode}
                     className="font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
                     disabled={isLoading}
+                    aria-label={
+                      isLogin
+                        ? t("auth.switch_to_register")
+                        : t("auth.switch_to_login")
+                    }
                   >
                     {isLogin ? t("auth.create_one") : t("auth.sign_in")}
                   </button>

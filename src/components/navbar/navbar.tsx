@@ -63,6 +63,7 @@ const Navbar = () => {
               asChild
               variant="outline"
               className="hidden sm:inline-flex rounded-full"
+              aria-label={t("messages.navbar.dashboard")}
             >
               <Link href="/dashboard">{t("messages.navbar.dashboard")}</Link>
             </Button>
@@ -72,10 +73,15 @@ const Navbar = () => {
                 asChild
                 variant="outline"
                 className="hidden sm:inline-flex rounded-full"
+                aria-label={t("messages.navbar.sign-in")}
               >
                 <Link href="/auth">{t("messages.navbar.sign-in")}</Link>
               </Button>
-              <Button asChild className="rounded-full">
+              <Button
+                asChild
+                className="rounded-full"
+                aria-label={t("messages.navbar.sign-up")}
+              >
                 <Link href="/auth">{t("messages.navbar.sign-up")}</Link>
               </Button>
             </>

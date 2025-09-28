@@ -43,7 +43,15 @@
       "password_mismatch": "Passwords do not match",
       "terms_required": "You must agree to the terms and conditions"
     },
-    "general_error": "Something went wrong. Please try again."
+    "general_error": "Something went wrong. Please try again.",
+    "show_password": "Show password",
+    "hide_password": "Hide password",
+    "show_confirm_password": "Show confirm password",
+    "hide_confirm_password": "Hide confirm password",
+    "sign_in_button": "Sign in to your account",
+    "create_account_button": "Create your account",
+    "switch_to_register": "Switch to registration form",
+    "switch_to_login": "Switch to login form"
   },
   "messages": {
     "home-header": {

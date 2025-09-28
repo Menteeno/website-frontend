@@ -42,7 +42,15 @@
       "password_mismatch": "رمزهای عبور مطابقت ندارند",
       "terms_required": "باید با شرایط و ضوابط موافقت کنید"
     },
-    "general_error": "مشکلی پیش آمد. لطفاً دوباره تلاش کنید."
+    "general_error": "مشکلی پیش آمد. لطفاً دوباره تلاش کنید.",
+    "show_password": "نمایش رمز عبور",
+    "hide_password": "مخفی کردن رمز عبور",
+    "show_confirm_password": "نمایش تکرار رمز عبور",
+    "hide_confirm_password": "مخفی کردن تکرار رمز عبور",
+    "sign_in_button": "ورود به حساب کاربری",
+    "create_account_button": "ایجاد حساب کاربری",
+    "switch_to_register": "تغییر به فرم ثبت نام",
+    "switch_to_login": "تغییر به فرم ورود"
   },
   "messages": {
     "home-header": {

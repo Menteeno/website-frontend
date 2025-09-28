@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import { getTranslation } from "./i18n";
 
 export interface SEOConfig {
@@ -58,9 +58,6 @@ export interface SEOConfig {
   applicationName?: string;
   generator?: string;
   referrer?: string;
-  colorScheme?: string;
-  themeColor?: string;
-  viewport?: string;
   formatDetection?: {
     telephone?: boolean;
     date?: boolean;
@@ -149,9 +146,6 @@ export const defaultSEOConfig: SEOConfig = {
   applicationName: "Menteeno",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
-  colorScheme: "light dark",
-  themeColor: "#3b82f6",
-  viewport: "width=device-width, initial-scale=1",
   formatDetection: {
     telephone: false,
     date: false,
@@ -159,6 +153,17 @@ export const defaultSEOConfig: SEOConfig = {
     email: false,
   },
 };
+
+export function generateViewport(config: Partial<SEOConfig> = {}): Viewport {
+  const seoConfig = { ...defaultSEOConfig, ...config };
+
+  return {
+    width: "device-width",
+    initialScale: 1,
+    colorScheme: "light dark",
+    themeColor: "#3b82f6",
+  };
+}
 
 export function generateMetadata(config: Partial<SEOConfig> = {}): Metadata {
   const seoConfig = { ...defaultSEOConfig, ...config };
@@ -176,9 +181,6 @@ export function generateMetadata(config: Partial<SEOConfig> = {}): Metadata {
     applicationName: seoConfig.applicationName,
     generator: seoConfig.generator,
     referrer: seoConfig.referrer as any,
-    colorScheme: seoConfig.colorScheme as any,
-    themeColor: seoConfig.themeColor,
-    viewport: seoConfig.viewport,
     formatDetection: seoConfig.formatDetection,
     robots: seoConfig.robots as any,
     alternates: seoConfig.alternates,
@@ -190,7 +192,7 @@ export function generateMetadata(config: Partial<SEOConfig> = {}): Metadata {
       "apple-mobile-web-app-status-bar-style": "default",
       "apple-mobile-web-app-title": seoConfig.title,
       "mobile-web-app-capable": "yes",
-      "msapplication-TileColor": seoConfig.themeColor!,
+      "msapplication-TileColor": "#3b82f6",
       "msapplication-config": "/browserconfig.xml",
     },
   };

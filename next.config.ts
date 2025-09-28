@@ -22,6 +22,9 @@ const nextConfig: NextConfig = {
     removeConsole: process.env.NODE_ENV === "production",
   },
 
+  // Source maps configuration
+  productionBrowserSourceMaps: true,
+
   // Headers for security and SEO
   async headers() {
     return [

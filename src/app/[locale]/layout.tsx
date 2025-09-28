@@ -1,8 +1,12 @@
 import { PersianSEO } from "@/components/seo/persian-seo";
 import { AuthProvider } from "@/contexts/auth-context";
 import { ThemeProvider } from "@/contexts/theme-context";
-import { generateLocalizedMetadata, locales } from "@/lib/i18n";
-import type { Metadata } from "next";
+import {
+  generateLocalizedMetadata,
+  generateLocalizedViewport,
+  locales,
+} from "@/lib/i18n";
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 
 interface LocaleLayoutProps {
@@ -26,6 +30,18 @@ export async function generateMetadata({
   }
 
   return generateLocalizedMetadata(locale);
+}
+
+export async function generateViewport({
+  params,
+}: LocaleLayoutProps): Promise<Viewport> {
+  const { locale } = await params;
+
+  if (!locales.includes(locale as any)) {
+    notFound();
+  }
+
+  return generateLocalizedViewport(locale);
 }
 
 export default async function LocaleLayout({

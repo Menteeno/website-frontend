@@ -1,6 +1,9 @@
+import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
-import type { Metadata } from "next";
-import { generateLocalizedMetadata as generateSEO } from "./seo";
+import {
+  generateLocalizedMetadata as generateSEO,
+  generateViewport,
+} from "./seo";
 
 // Import locale files
 import enMessages from "@/locales/en.json";
@@ -100,4 +103,9 @@ export const getLocaleFromPathname = (pathname: string): Locale => {
 // Generate localized metadata for SEO
 export const generateLocalizedMetadata = (locale: string): Metadata => {
   return generateSEO(locale);
+};
+
+// Generate viewport configuration
+export const generateLocalizedViewport = (locale: string): Viewport => {
+  return generateViewport();
 };

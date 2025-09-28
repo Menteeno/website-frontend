@@ -1,7 +1,7 @@
 import { LocaleProvider } from "@/components/locale-provider";
 import { ResourceHints } from "@/components/seo/performance";
 import { SEOProvider } from "@/components/seo/seo-provider";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -46,9 +46,6 @@ export const metadata: Metadata = {
   applicationName: "Menteeno",
   generator: "Next.js",
   referrer: "origin-when-cross-origin",
-  colorScheme: "light dark",
-  themeColor: "#3b82f6",
-  viewport: "width=device-width, initial-scale=1",
   formatDetection: {
     telephone: false,
     date: false,
@@ -111,6 +108,13 @@ export const metadata: Metadata = {
     "msapplication-TileColor": "#3b82f6",
     "msapplication-config": "/browserconfig.xml",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  colorScheme: "light dark",
+  themeColor: "#3b82f6",
 };
 
 export default function RootLayout({
