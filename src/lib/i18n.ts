@@ -1,4 +1,6 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import { generateLocalizedMetadata as generateSEO } from "./seo";
 
 // Import locale files
 import enMessages from "@/locales/en.json";
@@ -93,4 +95,9 @@ export const getLocaleFromPathname = (pathname: string): Locale => {
   }
 
   return getDefaultLocale();
+};
+
+// Generate localized metadata for SEO
+export const generateLocalizedMetadata = (locale: string): Metadata => {
+  return generateSEO(locale);
 };

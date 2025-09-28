@@ -1,0 +1,42 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*?*
+
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: YandexBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: ParsijooBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: YoozBot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://menteeno.app/sitemap.xml
+Sitemap: https://menteeno.app/sitemap-fa.xml
+Host: https://menteeno.app

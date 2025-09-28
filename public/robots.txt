@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+Disallow: /*.json$
+Disallow: /*?*
+
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://menteeno.app/sitemap.xml
+Host: https://menteeno.app

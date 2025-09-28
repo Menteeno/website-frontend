@@ -130,7 +130,6 @@ export default function AuthForm() {
         id: 1,
         name: `${formData.firstName || "User"} ${formData.lastName || "Name"}`,
         email: formData.email,
-        avatar: null,
         email_verified_at: null,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),

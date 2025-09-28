@@ -1,6 +1,7 @@
+import { PersianSEO } from "@/components/seo/persian-seo";
 import { AuthProvider } from "@/contexts/auth-context";
 import { ThemeProvider } from "@/contexts/theme-context";
-import { getTranslation, locales } from "@/lib/i18n";
+import { generateLocalizedMetadata, locales } from "@/lib/i18n";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -24,31 +25,7 @@ export async function generateMetadata({
     notFound();
   }
 
-  return {
-    title: {
-      template: `%s | ${getTranslation(locale, "messages.home-header.title")}`,
-      default: getTranslation(locale, "messages.home-header.title"),
-    },
-    description: getTranslation(locale, "messages.home-header.description"),
-    openGraph: {
-      title: getTranslation(locale, "messages.home-header.title"),
-      description: getTranslation(locale, "messages.home-header.description"),
-      locale: locale,
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: getTranslation(locale, "messages.home-header.title"),
-      description: getTranslation(locale, "messages.home-header.description"),
-    },
-    alternates: {
-      canonical: `/${locale}`,
-      languages: {
-        en: "/en",
-        fa: "/fa",
-      },
-    },
-  };
+  return generateLocalizedMetadata(locale);
 }
 
 export default async function LocaleLayout({
@@ -63,7 +40,9 @@ export default async function LocaleLayout({
 
   return (
     <ThemeProvider>
-      <AuthProvider>{children}</AuthProvider>
+      <AuthProvider>
+        <PersianSEO locale={locale}>{children}</PersianSEO>
+      </AuthProvider>
     </ThemeProvider>
   );
 }
