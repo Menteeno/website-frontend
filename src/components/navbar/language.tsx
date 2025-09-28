@@ -51,6 +51,7 @@ export function Language() {
           size="icon"
           role="combobox"
           aria-expanded={open}
+          aria-label="Select language"
         >
           {locale
             ? languages.find((language) => language.value === locale)

@@ -85,70 +85,62 @@ const HeroIntroduce = () => {
           </AuroraText>{" "}
           {t("messages.hero-introduce.title-continue")}
         </h2>
-        <dl className="mt-10 max-w-xl space-y-3 text-lg text-foreground/80 lg:max-w-none">
-          <div className="relative ps-9">
-            <dt className="inline font-semibold text-foreground">
-              <MessagesSquareIcon className="absolute top-1 start-1 size-6 text-primary" />
-              {t("messages.hero-introduce.sections.mentorship.title")}
-            </dt>
-            <dd className="inline ps-1">
-              {t("messages.hero-introduce.sections.mentorship.description")}
-            </dd>
-          </div>
-          <div className="relative ps-9">
-            <dt className="inline font-semibold text-foreground">
-              <CompassIcon className="absolute top-1 start-1 size-6 text-primary" />
-              {t("messages.hero-introduce.sections.learning.title")}
-            </dt>
-            <dd className="inline ps-1">
-              {t("messages.hero-introduce.sections.learning.description")}
-            </dd>
-          </div>
-          <div className="relative ps-9">
-            <dt className="inline font-semibold text-foreground">
-              <HandshakeIcon className="absolute top-1 start-1 size-6 text-primary" />
-              {t("messages.hero-introduce.sections.practice.title")}
-            </dt>
-            <dd className="inline ps-1">
-              {t("messages.hero-introduce.sections.practice.description")}
-            </dd>
-          </div>
-          <div className="relative ps-9">
-            <dt className="inline font-semibold text-foreground">
-              <HeadsetIcon className="absolute top-1 start-1 size-6 text-primary" />
-              {t("messages.hero-introduce.sections.support.title")}
-            </dt>
-            <dd className="inline ps-1">
-              {t("messages.hero-introduce.sections.support.description")}
-            </dd>
-          </div>
-          <div className="relative ps-9">
-            <dt className="inline font-semibold text-foreground">
-              <BrainIcon className="absolute top-1 start-1 size-6 text-primary" />
-              {t("messages.hero-introduce.sections.feedback.title")}
-            </dt>
-            <dd className="inline ps-1">
-              {t("messages.hero-introduce.sections.feedback.description")}
-            </dd>
-          </div>
-          <div className="relative ps-9">
-            <dt className="inline font-semibold text-foreground">
-              <ChartColumnBigIcon className="absolute top-1 start-1 size-6 text-primary" />
-              {t("messages.hero-introduce.sections.evaluation.title")}
-            </dt>
-            <dd className="inline ps-1">
-              {t("messages.hero-introduce.sections.evaluation.description")}
-            </dd>
-          </div>
-          <div className="relative ps-9">
-            <dt className="inline font-semibold text-foreground">
-              <SwordsIcon className="absolute top-1 start-1 size-6 text-primary" />
-              {t("messages.hero-introduce.sections.challenges.title")}
-            </dt>
-            <dd className="inline ps-1">
-              {t("messages.hero-introduce.sections.challenges.description")}
-            </dd>
-          </div>
+        <dl className="mt-10 max-w-xl space-y-3 text-lg text-foreground lg:max-w-none">
+          <dt className="relative ps-9 inline font-semibold text-foreground">
+            <MessagesSquareIcon className="absolute top-1 start-1 size-6 text-primary" />
+            {t("messages.hero-introduce.sections.mentorship.title")}
+          </dt>
+          <dd className="ps-1">
+            {t("messages.hero-introduce.sections.mentorship.description")}
+          </dd>
+
+          <dt className="relative ps-9 inline font-semibold text-foreground">
+            <CompassIcon className="absolute top-1 start-1 size-6 text-primary" />
+            {t("messages.hero-introduce.sections.learning.title")}
+          </dt>
+          <dd className="ps-1">
+            {t("messages.hero-introduce.sections.learning.description")}
+          </dd>
+
+          <dt className="relative ps-9 inline font-semibold text-foreground">
+            <HandshakeIcon className="absolute top-1 start-1 size-6 text-primary" />
+            {t("messages.hero-introduce.sections.practice.title")}
+          </dt>
+          <dd className="ps-1">
+            {t("messages.hero-introduce.sections.practice.description")}
+          </dd>
+
+          <dt className="relative ps-9 inline font-semibold text-foreground">
+            <HeadsetIcon className="absolute top-1 start-1 size-6 text-primary" />
+            {t("messages.hero-introduce.sections.support.title")}
+          </dt>
+          <dd className="ps-1">
+            {t("messages.hero-introduce.sections.support.description")}
+          </dd>
+
+          <dt className="relative ps-9 inline font-semibold text-foreground">
+            <BrainIcon className="absolute top-1 start-1 size-6 text-primary" />
+            {t("messages.hero-introduce.sections.feedback.title")}
+          </dt>
+          <dd className="ps-1">
+            {t("messages.hero-introduce.sections.feedback.description")}
+          </dd>
+
+          <dt className="relative ps-9 inline font-semibold text-foreground">
+            <ChartColumnBigIcon className="absolute top-1 start-1 size-6 text-primary" />
+            {t("messages.hero-introduce.sections.evaluation.title")}
+          </dt>
+          <dd className="ps-1">
+            {t("messages.hero-introduce.sections.evaluation.description")}
+          </dd>
+
+          <dt className="relative ps-9 inline font-semibold text-foreground">
+            <SwordsIcon className="absolute top-1 start-1 size-6 text-primary" />
+            {t("messages.hero-introduce.sections.challenges.title")}
+          </dt>
+          <dd className="ps-1">
+            {t("messages.hero-introduce.sections.challenges.description")}
+          </dd>
         </dl>
       </div>
     </div>

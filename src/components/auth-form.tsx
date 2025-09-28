@@ -174,7 +174,7 @@ export default function AuthForm() {
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
             {isLogin ? t("auth.welcome_back") : t("auth.join_menteeno")}
           </h1>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-muted-foreground">
             {isLogin ? t("auth.login_subtitle") : t("auth.register_subtitle")}
           </p>
         </div>
@@ -295,7 +295,7 @@ export default function AuthForm() {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground"
                   >
                     {showPassword ? (
                       <EyeOff className="size-4" />
@@ -335,7 +335,7 @@ export default function AuthForm() {
                       onClick={() =>
                         setShowConfirmPassword(!showConfirmPassword)
                       }
-                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground hover:text-foreground"
                     >
                       {showConfirmPassword ? (
                         <EyeOff className="size-4" />
@@ -365,7 +365,7 @@ export default function AuthForm() {
                   <div className="grid gap-1.5 leading-none">
                     <Label
                       htmlFor="agreeToTerms"
-                      className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"
+                      className="text-sm text-muted-foreground leading-relaxed"
                     >
                       {t("auth.agree_to_terms")}
                     </Label>
@@ -409,7 +409,7 @@ export default function AuthForm() {
               </div>
 
               <div className="mt-6 text-center">
-                <p className="text-sm text-gray-600 dark:text-gray-400">
+                <p className="text-sm text-muted-foreground">
                   {isLogin ? t("auth.no_account") : t("auth.have_account")}{" "}
                   <button
                     type="button"
