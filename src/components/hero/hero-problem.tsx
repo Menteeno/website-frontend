@@ -23,25 +23,55 @@ import {
   UsersIcon,
   ZapIcon,
 } from "lucide-react";
+import { useEffect, useState } from "react";
 import { BentoCard, BentoGrid } from "../ui/bento-grid";
+
+// Seeded random number generator for consistent values
+class SeededRandom {
+  private seed: number;
+
+  constructor(seed: number) {
+    this.seed = seed;
+  }
+
+  next(): number {
+    this.seed = (this.seed * 9301 + 49297) % 233280;
+    return this.seed / 233280;
+  }
+}
 
 const HeroProblem = () => {
   const { t } = useTranslation();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Creative background elements with floating animations
-  const createFloatingIcons = (icons: any[], count: number = 8) => {
+  const createFloatingIcons = (
+    icons: any[],
+    count: number = 8,
+    seed: number = 0
+  ) => {
+    if (!isClient) {
+      // Return empty array during SSR to prevent hydration mismatch
+      return [];
+    }
+
+    const rng = new SeededRandom(seed);
     return Array.from({ length: count }, (_, i) => {
       const Icon = icons[i % icons.length];
-      const size = Math.random() * 20 + 10;
-      const left = Math.random() * 80 + 10;
-      const top = Math.random() * 60 + 20;
-      const delay = Math.random() * 3;
-      const duration = Math.random() * 4 + 3; // 3-7 seconds
+      const size = rng.next() * 20 + 10;
+      const left = rng.next() * 80 + 10;
+      const top = rng.next() * 60 + 20;
+      const delay = rng.next() * 3;
+      const duration = rng.next() * 4 + 3; // 3-7 seconds
       const animationType = ["animate-bounce", "animate-pulse", "animate-ping"][
         i % 3
       ];
-      const floatX = Math.random() * 20 - 10; // -10 to 10
-      const floatY = Math.random() * 20 - 10; // -10 to 10
+      const floatX = rng.next() * 20 - 10; // -10 to 10
+      const floatY = rng.next() * 20 - 10; // -10 to 10
 
       return (
         <div
@@ -71,6 +101,111 @@ const HeroProblem = () => {
     });
   };
 
+  // Helper function to create animated dots with seeded random
+  const createAnimatedDots = (count: number, seed: number) => {
+    if (!isClient) return [];
+
+    const rng = new SeededRandom(seed);
+    return Array.from({ length: count }, (_, i) => (
+      <div
+        key={i}
+        className="absolute w-1 h-1 bg-gray-400 rounded-full animate-pulse"
+        style={{
+          left: `${rng.next() * 100}%`,
+          top: `${rng.next() * 100}%`,
+          animationDelay: `${rng.next() * 2}s`,
+        }}
+      />
+    ));
+  };
+
+  // Helper function to create animated lines with seeded random
+  const createAnimatedLines = (count: number, seed: number) => {
+    if (!isClient) return [];
+
+    const rng = new SeededRandom(seed);
+    return Array.from({ length: count }, (_, i) => (
+      <div
+        key={i}
+        className="absolute h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent animate-pulse"
+        style={{
+          left: `${rng.next() * 100}%`,
+          top: `${rng.next() * 100}%`,
+          width: `${rng.next() * 40 + 20}%`,
+          animationDelay: `${rng.next() * 3}s`,
+        }}
+      />
+    ));
+  };
+
+  // Helper function to create animated circles with seeded random
+  const createAnimatedCircles = (count: number, seed: number) => {
+    if (!isClient) return [];
+
+    const rng = new SeededRandom(seed);
+    return Array.from({ length: count }, (_, i) => (
+      <div
+        key={i}
+        className="absolute border border-gray-300 dark:border-gray-700 rounded-full animate-ping"
+        style={{
+          left: `${rng.next() * 100}%`,
+          top: `${rng.next() * 100}%`,
+          width: `${rng.next() * 30 + 10}px`,
+          height: `${rng.next() * 30 + 10}px`,
+          animationDelay: `${rng.next() * 4}s`,
+        }}
+      />
+    ));
+  };
+
+  // Helper function to create animated shapes with seeded random
+  const createAnimatedShapes = (count: number, seed: number) => {
+    if (!isClient) return [];
+
+    const rng = new SeededRandom(seed);
+    return Array.from({ length: count }, (_, i) => (
+      <div
+        key={i}
+        className={cn(
+          "absolute bg-gradient-to-r from-red-400/20 to-orange-400/20 animate-pulse",
+          i % 3 === 0
+            ? "rounded-full"
+            : i % 3 === 1
+            ? "rounded-sm"
+            : "rounded-none"
+        )}
+        style={{
+          left: `${rng.next() * 100}%`,
+          top: `${rng.next() * 100}%`,
+          width: `${rng.next() * 20 + 8}px`,
+          height: `${rng.next() * 20 + 8}px`,
+          animationDelay: `${rng.next() * 3}s`,
+        }}
+      />
+    ));
+  };
+
+  // Helper function to create animated stars with seeded random
+  const createAnimatedStars = (count: number, seed: number) => {
+    if (!isClient) return [];
+
+    const rng = new SeededRandom(seed);
+    return Array.from({ length: count }, (_, i) => (
+      <div
+        key={i}
+        className="absolute text-purple-400 dark:text-purple-600 animate-pulse"
+        style={{
+          left: `${rng.next() * 100}%`,
+          top: `${rng.next() * 100}%`,
+          fontSize: `${rng.next() * 8 + 4}px`,
+          animationDelay: `${rng.next() * 2}s`,
+        }}
+      >
+        ✨
+      </div>
+    ));
+  };
+
   const features = [
     {
       Icon: CompassIcon,
@@ -83,7 +218,8 @@ const HeroProblem = () => {
           {/* Floating learning icons */}
           {createFloatingIcons(
             [BookOpenIcon, TargetIcon, TrendingUpIcon, CompassIcon],
-            12
+            12,
+            1
           )}
 
           {/* Gradient overlay */}
@@ -91,17 +227,7 @@ const HeroProblem = () => {
 
           {/* Animated dots pattern */}
           <div className="absolute inset-0 opacity-10">
-            {Array.from({ length: 20 }, (_, i) => (
-              <div
-                key={i}
-                className="absolute w-1 h-1 bg-gray-400 rounded-full animate-pulse"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  animationDelay: `${Math.random() * 2}s`,
-                }}
-              />
-            ))}
+            {createAnimatedDots(20, 2)}
           </div>
         </div>
       ),
@@ -118,7 +244,8 @@ const HeroProblem = () => {
           {/* Floating practice icons */}
           {createFloatingIcons(
             [UsersIcon, AwardIcon, ZapIcon, HandshakeIcon],
-            10
+            10,
+            3
           )}
 
           {/* Gradient overlay */}
@@ -126,18 +253,7 @@ const HeroProblem = () => {
 
           {/* Animated lines pattern */}
           <div className="absolute inset-0 opacity-5">
-            {Array.from({ length: 8 }, (_, i) => (
-              <div
-                key={i}
-                className="absolute h-px bg-gradient-to-r from-transparent via-gray-400 to-transparent animate-pulse"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  width: `${Math.random() * 40 + 20}%`,
-                  animationDelay: `${Math.random() * 3}s`,
-                }}
-              />
-            ))}
+            {createAnimatedLines(8, 4)}
           </div>
         </div>
       ),
@@ -154,7 +270,8 @@ const HeroProblem = () => {
           {/* Floating support icons */}
           {createFloatingIcons(
             [ClockIcon, ShieldIcon, MessageSquareIcon, HeadsetIcon],
-            8
+            8,
+            5
           )}
 
           {/* Gradient overlay */}
@@ -162,19 +279,7 @@ const HeroProblem = () => {
 
           {/* Animated circles pattern */}
           <div className="absolute inset-0 opacity-10">
-            {Array.from({ length: 15 }, (_, i) => (
-              <div
-                key={i}
-                className="absolute border border-gray-300 dark:border-gray-700 rounded-full animate-ping"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  width: `${Math.random() * 30 + 10}px`,
-                  height: `${Math.random() * 30 + 10}px`,
-                  animationDelay: `${Math.random() * 4}s`,
-                }}
-              />
-            ))}
+            {createAnimatedCircles(15, 6)}
           </div>
         </div>
       ),
@@ -191,7 +296,8 @@ const HeroProblem = () => {
           {/* Floating challenge icons */}
           {createFloatingIcons(
             [LightbulbIcon, BarChart3Icon, CheckCircleIcon, SwordsIcon],
-            9
+            9,
+            7
           )}
 
           {/* Gradient overlay */}
@@ -199,26 +305,7 @@ const HeroProblem = () => {
 
           {/* Animated geometric shapes */}
           <div className="absolute inset-0 opacity-15">
-            {Array.from({ length: 12 }, (_, i) => (
-              <div
-                key={i}
-                className={cn(
-                  "absolute bg-gradient-to-r from-red-400/20 to-orange-400/20 animate-pulse",
-                  i % 3 === 0
-                    ? "rounded-full"
-                    : i % 3 === 1
-                    ? "rounded-sm"
-                    : "rounded-none"
-                )}
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  width: `${Math.random() * 20 + 8}px`,
-                  height: `${Math.random() * 20 + 8}px`,
-                  animationDelay: `${Math.random() * 3}s`,
-                }}
-              />
-            ))}
+            {createAnimatedShapes(12, 8)}
           </div>
         </div>
       ),
@@ -235,7 +322,8 @@ const HeroProblem = () => {
           {/* Floating feedback icons */}
           {createFloatingIcons(
             [StarIcon, UserCheckIcon, BrainIcon, MessageSquareIcon],
-            11
+            11,
+            9
           )}
 
           {/* Gradient overlay */}
@@ -243,20 +331,7 @@ const HeroProblem = () => {
 
           {/* Animated stars pattern */}
           <div className="absolute inset-0 opacity-20">
-            {Array.from({ length: 18 }, (_, i) => (
-              <div
-                key={i}
-                className="absolute text-purple-400 dark:text-purple-600 animate-pulse"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                  fontSize: `${Math.random() * 8 + 4}px`,
-                  animationDelay: `${Math.random() * 2}s`,
-                }}
-              >
-                ✨
-              </div>
-            ))}
+            {createAnimatedStars(18, 10)}
           </div>
         </div>
       ),
