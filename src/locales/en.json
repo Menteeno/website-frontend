@@ -1,4 +1,7 @@
 {
+  "common": {
+    "learn_more": "Learn more"
+  },
   "auth": {
     "failed": "These credentials do not match our records.",
     "password": "The provided password is incorrect.",
