@@ -2,7 +2,48 @@
   "auth": {
     "failed": "These credentials do not match our records.",
     "password": "The provided password is incorrect.",
-    "throttle": "Too many login attempts. Please try again in :seconds seconds."
+    "throttle": "Too many login attempts. Please try again in :seconds seconds.",
+    "welcome_back": "Welcome back!",
+    "join_menteeno": "Join Menteeno",
+    "login_subtitle": "Sign in to continue your growth journey",
+    "register_subtitle": "Start your personalized skill development journey",
+    "first_name": "First Name",
+    "last_name": "Last Name",
+    "email": "Email",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "first_name_placeholder": "Enter your first name",
+    "last_name_placeholder": "Enter your last name",
+    "email_placeholder": "Enter your email address",
+    "password_placeholder": "Enter your password",
+    "confirm_password_placeholder": "Confirm your password",
+    "agree_to_terms": "I agree to the Terms of Service and Privacy Policy",
+    "sign_in": "Sign In",
+    "create_account": "Create Account",
+    "processing": "Processing...",
+    "or": "or",
+    "no_account": "Don't have an account?",
+    "have_account": "Already have an account?",
+    "create_one": "Create one",
+    "cta": {
+      "title": "Join 10,000+ professionals growing their skills",
+      "description": "Get personalized mentorship, real training, and join a supportive community of like-minded professionals.",
+      "feature1": "Personalized Learning Path",
+      "feature2": "Expert Mentorship",
+      "feature3": "Real-world Practice"
+    },
+    "validation": {
+      "email_required": "Email is required",
+      "email_invalid": "Please enter a valid email address",
+      "password_required": "Password is required",
+      "password_min_length": "Password must be at least 8 characters",
+      "first_name_required": "First name is required",
+      "last_name_required": "Last name is required",
+      "confirm_password_required": "Please confirm your password",
+      "password_mismatch": "Passwords do not match",
+      "terms_required": "You must agree to the terms and conditions"
+    },
+    "general_error": "Something went wrong. Please try again."
   },
   "messages": {
     "home-header": {

@@ -73,10 +73,10 @@ const Navbar = () => {
                 variant="outline"
                 className="hidden sm:inline-flex rounded-full"
               >
-                <Link href="/login">{t("messages.navbar.sign-in")}</Link>
+                <Link href="/auth">{t("messages.navbar.sign-in")}</Link>
               </Button>
               <Button asChild className="rounded-full">
-                <Link href="/register">{t("messages.navbar.sign-up")}</Link>
+                <Link href="/auth">{t("messages.navbar.sign-up")}</Link>
               </Button>
             </>
           )}
