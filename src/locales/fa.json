@@ -454,5 +454,37 @@
     "uploaded": "بارگذاری فایل :attribute موفقیت آمیز نبود.",
     "url": ":attribute معتبر نمی‌باشد.",
     "uuid": ":attribute باید یک UUID معتبر باشد."
+  },
+  "footer": {
+    "brand": {
+      "name": "منتینو",
+      "description": "توانمندسازی ذهن‌ها از طریق راه‌حل‌های نوآورانه و تفکر خلاق.",
+      "powered_by": "قدرت گرفته از"
+    },
+    "quick_links": {
+      "title": "لینک‌های سریع",
+      "about": "درباره ما",
+      "services": "خدمات",
+      "contact": "تماس",
+      "support": "پشتیبانی"
+    },
+    "contact": {
+      "title": "ارتباط با ما",
+      "email": "hello@menteeno.com",
+      "phone": "+۱ (۵۵۵) ۱۲۳-۴۵۶۷",
+      "location": "سان فرانسیسکو، کالیفرنیا"
+    },
+    "legal": {
+      "copyright": "تمام حقوق محفوظ است.",
+      "privacy": "حریم خصوصی",
+      "terms": "شرایط استفاده",
+      "cookies": "سیاست کوکی"
+    },
+    "words": {
+      "innovation": "نوآوری",
+      "creativity": "خلاقیت",
+      "technology": "فناوری",
+      "excellence": "تعالی"
+    }
   }
 }

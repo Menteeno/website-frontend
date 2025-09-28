@@ -1,3 +1,4 @@
+import { Footer } from "@/components/footer";
 import HeroCTA from "@/components/hero/hero-cta";
 import HeroFAQ from "@/components/hero/hero-faq";
 import HeroHeader from "@/components/hero/hero-header";
@@ -31,6 +32,7 @@ export default async function Home({ params }: HomeProps) {
       <HeroTestimonials />
       <HeroFAQ />
       <HeroCTA />
+      <Footer />
     </>
   );
 }

@@ -423,5 +423,37 @@
     "uppercase": "The :attribute field must be uppercase.",
     "url": "The :attribute field must be a valid URL.",
     "uuid": "The :attribute field must be a valid UUID."
+  },
+  "footer": {
+    "brand": {
+      "name": "Menteeno",
+      "description": "Empowering minds through innovative solutions and creative thinking.",
+      "powered_by": "Powered by"
+    },
+    "quick_links": {
+      "title": "Quick Links",
+      "about": "About Us",
+      "services": "Services",
+      "contact": "Contact",
+      "support": "Support"
+    },
+    "contact": {
+      "title": "Get in Touch",
+      "email": "hello@menteeno.com",
+      "phone": "+1 (555) 123-4567",
+      "location": "San Francisco, CA"
+    },
+    "legal": {
+      "copyright": "All rights reserved.",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy"
+    },
+    "words": {
+      "innovation": "Innovation",
+      "creativity": "Creativity",
+      "technology": "Technology",
+      "excellence": "Excellence"
+    }
   }
 }
