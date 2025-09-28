@@ -175,6 +175,50 @@
       "primary-button": "Start Your Journey",
       "secondary-button": "Learn More",
       "disclaimer": "No credit card required • Cancel anytime • 30-day money-back guarantee"
+    },
+    "hero-testimonials": {
+      "badge": "What our users say",
+      "title": "Success Stories from Our Community",
+      "description": "Discover how Menteeno has transformed the careers and lives of professionals worldwide.",
+      "testimonials": {
+        "1": {
+          "name": "Sarah Johnson",
+          "role": "Product Manager",
+          "company": "TechCorp",
+          "content": "Menteeno completely transformed my communication skills. The mentorship sessions were incredibly valuable, and I've seen a significant improvement in my team leadership abilities."
+        },
+        "2": {
+          "name": "Ahmed Hassan",
+          "role": "Software Engineer",
+          "company": "StartupXYZ",
+          "content": "The personalized learning path helped me develop soft skills I never knew I needed. Now I'm more confident in presentations and team collaborations."
+        },
+        "3": {
+          "name": "Maria Rodriguez",
+          "role": "Marketing Director",
+          "company": "Global Inc",
+          "content": "The real-world challenges and feedback from mentors were game-changers. I've been promoted twice since joining Menteeno!"
+        },
+        "4": {
+          "name": "David Chen",
+          "role": "Team Lead",
+          "company": "Innovation Labs",
+          "content": "The community aspect is amazing. I've made valuable connections and learned from peers who faced similar challenges in their careers."
+        },
+        "5": {
+          "name": "Lisa Thompson",
+          "role": "Business Analyst",
+          "company": "Finance Plus",
+          "content": "Menteeno's approach to soft skills development is unique. The practical exercises and mentorship helped me become a better communicator and leader."
+        },
+        "6": {
+          "name": "Omar Al-Rashid",
+          "role": "Project Manager",
+          "company": "Middle East Corp",
+          "content": "The 30-day guarantee gave me confidence to try it, but I didn't need it. The results speak for themselves - my career has taken off!"
+        }
+      },
+      "footer": "Join thousands of professionals who have transformed their careers with Menteeno"
     }
   },
   "pagination": {
