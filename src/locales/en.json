@@ -153,6 +153,28 @@
           "description": "Real challenges and practical exercises in a simulated environment"
         }
       }
+    },
+    "hero-cta": {
+      "badge": "Join 10,000+ professionals",
+      "title": "Ready to transform your soft skills?",
+      "description": "Join thousands of professionals who have already started their growth journey with Menteeno. Get personalized mentorship, real training, and join a supportive community.",
+      "features": {
+        "community": {
+          "title": "Active Community",
+          "description": "Connect with like-minded professionals and grow together"
+        },
+        "experience": {
+          "title": "Proven Results",
+          "description": "Join thousands who have already transformed their careers"
+        },
+        "guarantee": {
+          "title": "30-Day Guarantee",
+          "description": "Not satisfied? Get your money back within 30 days"
+        }
+      },
+      "primary-button": "Start Your Journey",
+      "secondary-button": "Learn More",
+      "disclaimer": "No credit card required • Cancel anytime • 30-day money-back guarantee"
     }
   },
   "pagination": {
