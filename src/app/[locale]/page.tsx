@@ -1,4 +1,5 @@
 import HeroCTA from "@/components/hero/hero-cta";
+import HeroFAQ from "@/components/hero/hero-faq";
 import HeroHeader from "@/components/hero/hero-header";
 import HeroIntroduce from "@/components/hero/hero-introduce";
 import HeroProblem from "@/components/hero/hero-problem";
@@ -28,6 +29,7 @@ export default async function Home({ params }: HomeProps) {
       <HeroProblem />
       <HeroIntroduce />
       <HeroTestimonials />
+      <HeroFAQ />
       <HeroCTA />
     </>
   );

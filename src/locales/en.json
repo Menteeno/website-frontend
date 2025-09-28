@@ -222,6 +222,35 @@
         }
       },
       "footer": "Join thousands of professionals who have transformed their careers with Menteeno"
+    },
+    "hero-faq": {
+      "badge": "Frequently Asked Questions",
+      "title": "Got Questions? We've Got Answers",
+      "description": "Find answers to the most common questions about Menteeno and how we can help you develop your soft skills.",
+      "questions": {
+        "what-is-menteeno": "What is Menteeno?",
+        "how-does-it-work": "How does Menteeno work?",
+        "who-is-it-for": "Who is Menteeno for?",
+        "mentorship-sessions": "What are the mentorship sessions like?",
+        "learning-path": "How is the learning path personalized?",
+        "pricing": "What are the pricing options?",
+        "guarantee": "What is the 30-day guarantee?",
+        "support": "What kind of support do you provide?"
+      },
+      "answers": {
+        "what-is-menteeno": "Menteeno is a comprehensive soft skills development platform that provides personalized learning paths, expert mentorship, real-world practice opportunities, and a supportive community to help professionals enhance their communication, leadership, and teamwork abilities.",
+        "how-does-it-work": "Menteeno works by first assessing your current soft skills through our evaluation system. Based on your results, we create a personalized learning plan. You'll have access to mentorship sessions with industry experts, participate in real-world challenges, and receive continuous feedback to track your progress.",
+        "who-is-it-for": "Menteeno is designed for professionals at any career stage who want to improve their soft skills. Whether you're a recent graduate, mid-level manager, or senior executive, our platform adapts to your specific needs and goals.",
+        "mentorship-sessions": "Our mentorship sessions are one-on-one private meetings with experienced professionals in your field. Each session lasts 60 minutes and focuses on specific soft skills areas. You'll receive personalized guidance, practical advice, and actionable strategies to improve your professional relationships and communication.",
+        "learning-path": "Your learning path is created based on your initial skills assessment and personal goals. It includes a mix of interactive modules, practical exercises, real-world scenarios, and regular evaluations. The path adapts as you progress, ensuring you're always working on the most relevant skills for your development.",
+        "pricing": "We offer flexible pricing plans to fit different needs and budgets. Our basic plan includes access to the learning platform and community, while premium plans add mentorship sessions and advanced features. All plans come with our 30-day money-back guarantee.",
+        "guarantee": "We're so confident in our platform that we offer a 30-day money-back guarantee. If you're not satisfied with your progress or the quality of our service within the first 30 days, we'll refund your payment in full, no questions asked.",
+        "support": "We provide comprehensive support through multiple channels: email support for technical issues, community forums for peer support, regular check-ins with your assigned mentor, and access to our knowledge base with helpful resources and guides."
+      },
+      "footer": {
+        "question": "Still have questions?",
+        "cta": "Contact Us"
+      }
     }
   },
   "pagination": {
