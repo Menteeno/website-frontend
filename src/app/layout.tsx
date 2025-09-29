@@ -2,6 +2,7 @@ import { LocaleProvider } from "@/components/locale-provider";
 import { ResourceHints } from "@/components/seo/performance";
 import { SEOProvider } from "@/components/seo/seo-provider";
 import { generateMetadata, generateViewport } from "@/lib/metadata";
+import { getAssetUrl } from "@/lib/config";
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
@@ -34,7 +35,7 @@ export default function RootLayout({
     <html suppressHydrationWarning>
       <head>
         <ResourceHints />
-        <link rel="stylesheet" href="/assets/css/dana-web-font.css" />
+        <link rel="stylesheet" href={getAssetUrl("/assets/css/dana-web-font.css")} />
         <link rel="preconnect" href="https://fonts.bunny.net" />
         <link
           href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600"

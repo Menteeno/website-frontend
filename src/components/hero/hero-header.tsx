@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "@/hooks/use-translation";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { getAssetUrl } from "@/lib/config";
 import {
   ArrowUpRight,
   ChevronLeftIcon,
@@ -81,7 +82,7 @@ const HeroHeader = () => {
       <div className="lg:flex-1">
         <DotLottieReact
           className="lg:w-[600px] md:w-[500px] relative z-10"
-          src="/assets/images/friends.lottie"
+          src={getAssetUrl("/assets/images/friends.lottie")}
           loop
           autoplay
           width="800px"

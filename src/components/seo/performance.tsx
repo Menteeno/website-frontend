@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { getAssetUrl } from "@/lib/config";
 
 interface PerformanceOptimizerProps {
   enableWebVitals?: boolean;
@@ -36,8 +37,8 @@ export function PerformanceOptimizer({
       // Preload critical resources
       const preloadCriticalResources = () => {
         const criticalResources = [
-          "/assets/css/dana-web-font.css",
-          "/assets/fonts/dana/DanaVF.woff2",
+          getAssetUrl("/assets/css/dana-web-font.css"),
+          getAssetUrl("/assets/fonts/dana/DanaVF.woff2"),
         ];
 
         criticalResources.forEach((resource) => {
@@ -78,14 +79,14 @@ export function ResourceHints() {
       {/* Preload critical fonts */}
       <link
         rel="preload"
-        href="/assets/fonts/dana/DanaVF.woff2"
+        href={getAssetUrl("/assets/fonts/dana/DanaVF.woff2")}
         as="font"
         type="font/woff2"
         crossOrigin="anonymous"
       />
 
       {/* Preload critical CSS */}
-      <link rel="preload" href="/assets/css/dana-web-font.css" as="style" />
+      <link rel="preload" href={getAssetUrl("/assets/css/dana-web-font.css")} as="style" />
     </>
   );
 }
