@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
+import { cacheConfig, redirects } from "./config/routing";
+import { cspHeader, securityHeaders } from "./config/security";
+import { webpackConfig } from "./config/webpack";
+
+const isProduction = process.env.NODE_ENV === "production";
 
 const nextConfig: NextConfig = {
-  // Enable experimental features
+  // Experimental features
   experimental: {
     optimizePackageImports: ["lucide-react", "@radix-ui/react-icons"],
     scrollRestoration: true,
@@ -19,11 +24,8 @@ const nextConfig: NextConfig = {
 
   // Compiler options
   compiler: {
-    removeConsole: process.env.NODE_ENV === "production",
+    removeConsole: isProduction,
   },
-
-  // Source maps configuration
-  productionBrowserSourceMaps: true,
 
   // Headers for security and SEO
   async headers() {
@@ -31,29 +33,10 @@ const nextConfig: NextConfig = {
       {
         source: "/(.*)",
         headers: [
+          ...securityHeaders,
           {
-            key: "X-Frame-Options",
-            value: "DENY",
-          },
-          {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
-          },
-          {
-            key: "Referrer-Policy",
-            value: "origin-when-cross-origin",
-          },
-          {
-            key: "X-DNS-Prefetch-Control",
-            value: "on",
-          },
-          {
-            key: "Strict-Transport-Security",
-            value: "max-age=31536000; includeSubDomains",
-          },
-          {
-            key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=()",
+            key: "Content-Security-Policy",
+            value: cspHeader.replace(/\s{2,}/g, " ").trim(),
           },
         ],
       },
@@ -62,7 +45,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=86400, s-maxage=86400",
+            value: cacheConfig.dynamic,
           },
         ],
       },
@@ -71,7 +54,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=86400, s-maxage=86400",
+            value: cacheConfig.dynamic,
           },
         ],
       },
@@ -80,7 +63,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
+            value: cacheConfig.static,
           },
         ],
       },
@@ -89,7 +72,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
+            value: cacheConfig.static,
           },
         ],
       },
@@ -98,70 +81,11 @@ const nextConfig: NextConfig = {
 
   // Redirects
   async redirects() {
-    return [
-      {
-        source: "/",
-        destination: "/fa",
-        permanent: false,
-      },
-      {
-        source: "/home",
-        destination: "/",
-        permanent: true,
-      },
-      {
-        source: "/login",
-        destination: "/auth",
-        permanent: true,
-      },
-      {
-        source: "/signup",
-        destination: "/auth",
-        permanent: true,
-      },
-      // Persian-specific redirects
-      {
-        source: "/fa/home",
-        destination: "/fa",
-        permanent: true,
-      },
-      {
-        source: "/fa/login",
-        destination: "/fa/auth",
-        permanent: true,
-      },
-      {
-        source: "/fa/signup",
-        destination: "/fa/auth",
-        permanent: true,
-      },
-    ];
+    return redirects;
   },
 
   // Webpack configuration
-  webpack: (config, { dev, isServer }) => {
-    // Optimize bundle size
-    if (!dev && !isServer) {
-      config.optimization.splitChunks = {
-        chunks: "all",
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: "vendors",
-            chunks: "all",
-          },
-          common: {
-            name: "common",
-            minChunks: 2,
-            chunks: "all",
-            enforce: true,
-          },
-        },
-      };
-    }
-
-    return config;
-  },
+  webpack: webpackConfig,
 
   // Performance optimizations
   poweredByHeader: false,
@@ -173,8 +97,6 @@ const nextConfig: NextConfig = {
 
   // Trailing slash configuration
   trailingSlash: false,
-
-  // Skip trailing slash redirect
   skipTrailingSlashRedirect: true,
 };
 
