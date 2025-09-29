@@ -57,8 +57,15 @@ export default function RootLayout({
                   
                   // Set direction based on locale
                   const pathname = window.location.pathname;
-                  const segments = pathname.split('/');
-                  const locale = segments[1];
+                  const segments = pathname.split('/').filter(segment => segment !== '');
+                  
+                  // Handle GitHub Pages base path
+                  let localeIndex = 0;
+                  if (segments[0] === 'website-frontend') {
+                    localeIndex = 1;
+                  }
+                  
+                  const locale = segments[localeIndex];
                   if (locale === 'fa') {
                     document.documentElement.setAttribute('dir', 'rtl');
                     document.documentElement.setAttribute('lang', 'fa');
