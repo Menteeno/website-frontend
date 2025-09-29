@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
 import { getAssetUrl } from "@/lib/config";
+import { useEffect } from "react";
 
 interface PerformanceOptimizerProps {
   enableWebVitals?: boolean;
@@ -86,7 +86,11 @@ export function ResourceHints() {
       />
 
       {/* Preload critical CSS */}
-      <link rel="preload" href={getAssetUrl("/assets/css/dana-web-font.css")} as="style" />
+      <link
+        rel="preload"
+        href={getAssetUrl("/assets/css/dana-web-font.css")}
+        as="style"
+      />
     </>
   );
 }

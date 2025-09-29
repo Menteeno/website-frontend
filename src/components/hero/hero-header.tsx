@@ -3,8 +3,8 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "@/hooks/use-translation";
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { getAssetUrl } from "@/lib/config";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import {
   ArrowUpRight,
   ChevronLeftIcon,
