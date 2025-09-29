@@ -5,6 +5,10 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
+    "build:github-pages": "GITHUB_PAGES=true next build --turbopack",
+    "build:production": "NEXT_PUBLIC_DEPLOYMENT_ENV=production next build --turbopack",
+    "build:custom": "NEXT_PUBLIC_DEPLOYMENT_ENV=custom next build --turbopack",
+    "export": "next export",
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write"

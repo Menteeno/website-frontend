@@ -2,32 +2,35 @@ import type { NextConfig } from "next";
 import { cacheConfig, redirects } from "./config/routing";
 import { cspHeader, securityHeaders } from "./config/security";
 import { webpackConfig } from "./config/webpack";
+import { getAppConfig, getNextConfig } from "./src/lib/config";
 
-const isProduction = process.env.NODE_ENV === "production";
+/**
+ * Get environment-specific configuration
+ */
+const config = getAppConfig();
+const environmentConfig = getNextConfig();
 
-const nextConfig: NextConfig = {
-  // Experimental features
+/**
+ * Common configuration shared across all environments
+ */
+const commonConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["lucide-react", "@radix-ui/react-icons"],
     scrollRestoration: true,
   },
-
-  // Image optimization
-  images: {
-    formats: ["image/webp", "image/avif"],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    minimumCacheTTL: 31536000, // 1 year
-    dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-  },
-
-  // Compiler options
   compiler: {
-    removeConsole: isProduction,
+    removeConsole: config.isProduction,
   },
+  poweredByHeader: false,
+  compress: true,
+  generateEtags: true,
+  webpack: webpackConfig,
+};
 
-  // Headers for security and SEO
+/**
+ * Headers configuration
+ */
+const headersConfig = {
   async headers() {
     return [
       {
@@ -78,26 +81,25 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+};
 
-  // Redirects
+/**
+ * Redirects configuration
+ */
+const redirectsConfig = {
   async redirects() {
     return redirects;
   },
-
-  // Webpack configuration
-  webpack: webpackConfig,
-
-  // Performance optimizations
-  poweredByHeader: false,
-  compress: true,
-  generateEtags: true,
-
-  // Output configuration
-  output: "standalone",
-
-  // Trailing slash configuration
-  trailingSlash: false,
-  skipTrailingSlashRedirect: true,
 };
+
+/**
+ * Main Next.js configuration
+ */
+const nextConfig: NextConfig = {
+  ...commonConfig,
+  ...environmentConfig,
+  ...headersConfig,
+  ...redirectsConfig,
+} as NextConfig;
 
 export default nextConfig;

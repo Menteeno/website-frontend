@@ -1,7 +1,10 @@
 import { MetadataRoute } from "next";
+import { getAppConfig } from "@/lib/config";
+
+export const dynamic = "force-static";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = "https://menteeno.app";
+  const config = getAppConfig();
 
   return {
     rules: [
@@ -28,7 +31,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/admin/", "/private/"],
       },
     ],
-    sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl,
+    sitemap: `${config.baseUrl}/sitemap.xml`,
+    host: config.baseUrl,
   };
 }
