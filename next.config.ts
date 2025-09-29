@@ -3,8 +3,28 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   // Enable experimental features
   experimental: {
-    optimizePackageImports: ["lucide-react", "@radix-ui/react-icons"],
+    optimizePackageImports: [
+      "lucide-react",
+      "@radix-ui/react-icons",
+      "@radix-ui/react-avatar",
+      "@radix-ui/react-checkbox",
+      "@radix-ui/react-collapsible",
+      "@radix-ui/react-dialog",
+      "@radix-ui/react-dropdown-menu",
+      "@radix-ui/react-label",
+      "@radix-ui/react-navigation-menu",
+      "@radix-ui/react-popover",
+      "@radix-ui/react-select",
+      "@radix-ui/react-separator",
+      "@radix-ui/react-slot",
+      "@radix-ui/react-tabs",
+      "@radix-ui/react-toggle",
+      "@radix-ui/react-toggle-group",
+      "@radix-ui/react-tooltip",
+    ],
     scrollRestoration: true,
+    // optimizeCss: true, // Disabled due to critters dependency issue
+    webVitalsAttribution: ["CLS", "FCP", "FID", "INP", "LCP", "TTFB"],
   },
 
   // Image optimization
@@ -138,35 +158,19 @@ const nextConfig: NextConfig = {
     ];
   },
 
-  // Webpack configuration
-  webpack: (config, { dev, isServer }) => {
-    // Optimize bundle size
-    if (!dev && !isServer) {
-      config.optimization.splitChunks = {
-        chunks: "all",
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: "vendors",
-            chunks: "all",
-          },
-          common: {
-            name: "common",
-            minChunks: 2,
-            chunks: "all",
-            enforce: true,
-          },
-        },
-      };
-    }
-
-    return config;
-  },
+  // Note: Webpack configuration removed for Turbopack compatibility
+  // Turbopack handles bundle optimization automatically
 
   // Performance optimizations
   poweredByHeader: false,
   compress: true,
   generateEtags: true,
+
+  // Optimize for production
+  ...(process.env.NODE_ENV === "production" && {
+    // Disable source maps in production for better performance
+    productionBrowserSourceMaps: false,
+  }),
 
   // Output configuration
   output: "standalone",

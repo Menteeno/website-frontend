@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 interface PerformanceOptimizerProps {
@@ -11,6 +12,8 @@ export function PerformanceOptimizer({
   enableWebVitals = true,
   enableResourceHints = true,
 }: PerformanceOptimizerProps) {
+  const pathname = usePathname();
+
   useEffect(() => {
     if (enableWebVitals) {
       // Web Vitals tracking
@@ -33,12 +36,20 @@ export function PerformanceOptimizer({
     }
 
     if (enableResourceHints) {
-      // Preload critical resources
+      // Preload critical resources based on locale
       const preloadCriticalResources = () => {
-        const criticalResources = [
-          "/assets/css/dana-web-font.css",
-          "/assets/fonts/dana/DanaVF.woff2",
-        ];
+        const segments = pathname.split("/");
+        const locale = segments[1] || "fa";
+
+        const criticalResources =
+          locale === "fa"
+            ? [
+                "/assets/css/dana-web-font.css",
+                "/assets/fonts/dana/DanaVF.woff2",
+              ]
+            : [
+                "https://fonts.bunny.net/css?family=instrument-sans:400,500,600",
+              ];
 
         criticalResources.forEach((resource) => {
           const link = document.createElement("link");
@@ -52,40 +63,24 @@ export function PerformanceOptimizer({
 
       preloadCriticalResources();
     }
-  }, [enableWebVitals, enableResourceHints]);
+  }, [enableWebVitals, enableResourceHints, pathname]);
 
   return null;
 }
 
-// Resource hints component
+// Resource hints component - now conditional based on locale
 export function ResourceHints() {
   return (
     <>
-      {/* DNS Prefetch */}
+      {/* DNS Prefetch - only for critical resources */}
       <link rel="dns-prefetch" href="//fonts.bunny.net" />
-      <link rel="dns-prefetch" href="//www.google-analytics.com" />
-      <link rel="dns-prefetch" href="//www.googletagmanager.com" />
 
-      {/* Preconnect */}
+      {/* Preconnect - only for fonts.bunny.net since it's actually used */}
       <link
         rel="preconnect"
         href="https://fonts.bunny.net"
         crossOrigin="anonymous"
       />
-      <link rel="preconnect" href="https://www.google-analytics.com" />
-      <link rel="preconnect" href="https://www.googletagmanager.com" />
-
-      {/* Preload critical fonts */}
-      <link
-        rel="preload"
-        href="/assets/fonts/dana/DanaVF.woff2"
-        as="font"
-        type="font/woff2"
-        crossOrigin="anonymous"
-      />
-
-      {/* Preload critical CSS */}
-      <link rel="preload" href="/assets/css/dana-web-font.css" as="style" />
     </>
   );
 }

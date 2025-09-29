@@ -1,4 +1,22 @@
+import { CSSOptimizer, CSSPurger } from "@/components/css-optimizer";
+import {
+  BundleAnalyzer,
+  JSOptimizer,
+  MemoryOptimizer,
+} from "@/components/js-optimizer";
+import {
+  FontSwitcher,
+  LocaleAwareFontPreloader,
+} from "@/components/locale-aware-font-preloader";
 import { LocaleProvider } from "@/components/locale-provider";
+import {
+  FontDisplayOptimizer,
+  OptimizedFontLoader,
+} from "@/components/optimized-font-loader";
+import {
+  PerformanceBudgetMonitor,
+  PerformanceMonitor,
+} from "@/components/performance-monitor";
 import { ResourceHints } from "@/components/seo/performance";
 import { SEOProvider } from "@/components/seo/seo-provider";
 import type { Metadata, Viewport } from "next";
@@ -126,12 +144,7 @@ export default function RootLayout({
     <html suppressHydrationWarning>
       <head>
         <ResourceHints />
-        <link rel="stylesheet" href="/assets/css/dana-web-font.css" />
-        <link rel="preconnect" href="https://fonts.bunny.net" />
-        <link
-          href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600"
-          rel="stylesheet"
-        />
+        {/* Conditional font loading - handled by OptimizedFontLoader component */}
         <Script
           id="theme-initializer"
           strategy="beforeInteractive"
@@ -169,6 +182,17 @@ export default function RootLayout({
           facebookPixelId={process.env.NEXT_PUBLIC_FB_PIXEL_ID}
           hotjarId={process.env.NEXT_PUBLIC_HOTJAR_ID}
         >
+          <PerformanceMonitor />
+          <PerformanceBudgetMonitor />
+          <LocaleAwareFontPreloader />
+          <FontSwitcher />
+          <CSSOptimizer />
+          <CSSPurger />
+          <JSOptimizer />
+          <BundleAnalyzer />
+          <MemoryOptimizer />
+          <OptimizedFontLoader />
+          <FontDisplayOptimizer />
           <LocaleProvider>{children}</LocaleProvider>
         </SEOProvider>
       </body>
