@@ -1,6 +1,6 @@
+import { getAppConfig } from "@/lib/config";
 import { locales } from "@/lib/i18n";
 import { MetadataRoute } from "next";
-import { getAppConfig } from "@/lib/config";
 
 export const dynamic = "force-static";
 

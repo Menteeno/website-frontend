@@ -1,5 +1,5 @@
-import { MetadataRoute } from "next";
 import { getAppConfig } from "@/lib/config";
+import { MetadataRoute } from "next";
 
 export const dynamic = "force-static";
 
