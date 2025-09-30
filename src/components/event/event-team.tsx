@@ -10,7 +10,6 @@ import {
   Linkedin,
   Mail,
   Twitter,
-  Users,
 } from "lucide-react";
 import { MagicCard } from "../magicui/magic-card";
 
@@ -23,12 +22,12 @@ const EventTeam = () => {
       role: t("event.team.organizer.role"),
       bio: t("event.team.organizer.bio"),
       expertise: t("event.team.organizer.expertise"),
-      avatar: "/api/placeholder/150/150",
+      avatar: "/assets/images/team/saleh-shojaei.jpg",
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/salehshojaei/",
         twitter: "#",
         github: "#",
-        email: "organizer@menteeno.com",
+        email: "saleh@menteeno.com",
       },
     },
     {
@@ -36,12 +35,12 @@ const EventTeam = () => {
       role: t("event.team.speaker1.role"),
       bio: t("event.team.speaker1.bio"),
       expertise: t("event.team.speaker1.expertise"),
-      avatar: "/api/placeholder/150/150",
+      avatar: "/assets/images/team/amirhossein-darabi.jpg",
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/amirhd/",
         twitter: "#",
         github: "#",
-        email: "speaker1@menteeno.com",
+        email: "amir@techhouse.com",
       },
     },
     {
@@ -49,12 +48,12 @@ const EventTeam = () => {
       role: t("event.team.speaker2.role"),
       bio: t("event.team.speaker2.bio"),
       expertise: t("event.team.speaker2.expertise"),
-      avatar: "/api/placeholder/150/150",
+      avatar: "/assets/images/team/masoud-bigi.jpg",
       social: {
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/merkousha/",
         twitter: "#",
         github: "#",
-        email: "speaker2@menteeno.com",
+        email: "masoud@refhub.com",
       },
     },
     {
@@ -62,7 +61,7 @@ const EventTeam = () => {
       role: t("event.team.speaker3.role"),
       bio: t("event.team.speaker3.bio"),
       expertise: t("event.team.speaker3.expertise"),
-      avatar: "/api/placeholder/150/150",
+      avatar: "/assets/images/team/menteeno-team.jpg",
       social: {
         linkedin: "#",
         twitter: "#",
@@ -115,8 +114,12 @@ const EventTeam = () => {
               >
                 <CardContent className="p-6 text-center">
                   <div className="relative mb-4">
-                    <div className="w-24 h-24 bg-primary/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                      <Users className="size-12 text-primary" />
+                    <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden border-2 border-primary/20">
+                      <img
+                        src={member.avatar}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <Badge className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground">
                       {member.role}

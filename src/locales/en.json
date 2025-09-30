@@ -649,43 +649,43 @@
       "title": "Event Team",
       "description": "Meet the expert and experienced event organizing team",
       "organizer": {
-        "name": "Ahmad Mohammadi",
-        "role": "Event Manager",
-        "bio": "Expert with 10 years of experience in organizing technology events",
-        "expertise": "Event Management"
+        "name": "Saleh Shojaei",
+        "role": "Founder of Menteeno",
+        "bio": "Founder of Menteeno and soft skills expert",
+        "expertise": "Soft Skills & Leadership"
       },
       "speaker1": {
-        "name": "Sara Ahmadi",
-        "role": "Keynote Speaker",
-        "bio": "Technology expert with 15 years of industry experience",
-        "expertise": "Technology & Innovation"
+        "name": "Amirhossein Darabi",
+        "role": "Founder of TechHouse",
+        "bio": "Founder of TechHouse and technology expert",
+        "expertise": "Technology & Entrepreneurship"
       },
       "speaker2": {
-        "name": "Ali Rezaei",
-        "role": "Workshop Trainer",
-        "bio": "Professional trainer specializing in soft skills",
-        "expertise": "Soft Skills"
+        "name": "Masoud Bigi",
+        "role": "Founder of RefHub",
+        "bio": "Founder of RefHub and business expert",
+        "expertise": "Business & Strategy"
       },
       "speaker3": {
-        "name": "Maryam Hosseini",
-        "role": "Networking Advisor",
-        "bio": "Professional networking and communication expert",
-        "expertise": "Networking"
-      },
-      "organizer1": {
         "name": "Menteeno Team",
         "role": "Organizer",
-        "company": "Menteeno"
+        "bio": "Menteeno's expert team in organizing soft skills events",
+        "expertise": "Event Organization"
+      },
+      "organizer1": {
+        "name": "TechHouse",
+        "role": "Sponsor",
+        "company": "TechHouse"
       },
       "organizer2": {
-        "name": "Technology Park",
-        "role": "Host",
-        "company": "Tehran"
+        "name": "FrontChapter",
+        "role": "Sponsor",
+        "company": "FrontChapter"
       },
       "organizer3": {
-        "name": "Technology Association",
+        "name": "RefHub",
         "role": "Sponsor",
-        "company": "Iran"
+        "company": "RefHub"
       },
       "organizers": {
         "title": "Sponsors & Partners"
