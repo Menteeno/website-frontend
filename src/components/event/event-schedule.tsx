@@ -95,31 +95,25 @@ const EventSchedule = () => {
         </div>
 
         {/* Schedule Timeline */}
-        <div
-          className={cn(
-            "relative",
-            "before:absolute before:right-4 before:top-0 before:bottom-0 before:w-0.5 before:bg-primary before:hidden md:before:block"
-          )}
-        >
-          <div className="space-y-8">
+        <div className="relative">
+          {/* Desktop Timeline Line */}
+          <div
+            className={cn(
+              "absolute right-4 top-0 bottom-0 w-0 border-l-2 border-dotted border-primary hidden md:block"
+            )}
+          ></div>
+
+          <div className="space-y-6 md:space-y-8">
             {scheduleItems.map((item, index) => (
               <div key={index} className={cn("relative")}>
-                {/* Content Section - Left Aligned with Right Padding */}
-                <div className="pr-16">
-                  <Card
-                    className={cn(
-                      "shadow-sm hover:shadow-md transition-all duration-200"
-                    )}
-                  >
-                    <CardContent className="p-6">
-                      <div
-                        className={cn(
-                          "flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4"
-                        )}
-                      >
+                {/* Mobile Layout */}
+                <div className="md:hidden">
+                  <Card className="shadow-sm hover:shadow-md transition-all duration-200">
+                    <CardContent className="p-4">
+                      <div className="flex items-center justify-between gap-3 mb-3">
                         <div className="flex items-center gap-2">
                           <Clock className="size-4 text-primary" />
-                          <span className="font-semibold text-base text-primary">
+                          <span className="font-semibold text-sm text-primary">
                             {item.time}
                           </span>
                         </div>
@@ -132,27 +126,56 @@ const EventSchedule = () => {
                           {t(`event.schedule.types.${item.type}`)}
                         </Badge>
                       </div>
-
-                      <h3 className="text-xl font-bold text-foreground mb-2">
+                      <h3 className="text-lg font-bold text-foreground mb-2">
                         {item.title}
                       </h3>
-
-                      <p className="text-muted-foreground leading-relaxed">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         {item.description}
                       </p>
                     </CardContent>
                   </Card>
                 </div>
 
-                {/* Timeline Node - Absolutely Positioned on Right Axis */}
-                <div
-                  className={cn(
-                    "absolute right-0 top-1/2 transform -translate-y-1/2",
-                    "flex items-center justify-center w-8 h-8 bg-primary rounded-full border-4 border-background shadow-lg hover:shadow-xl transition-all duration-200 z-10 hover:scale-110",
-                    "hidden md:flex"
-                  )}
-                >
-                  <item.icon className="size-4 text-primary-foreground" />
+                {/* Desktop Layout */}
+                <div className="hidden md:block">
+                  <div className="pr-16">
+                    <Card className="shadow-sm hover:shadow-md transition-all duration-200">
+                      <CardContent className="p-6">
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+                          <div className="flex items-center gap-2">
+                            <Clock className="size-4 text-primary" />
+                            <span className="font-semibold text-base text-primary">
+                              {item.time}
+                            </span>
+                          </div>
+                          <Badge
+                            className={cn(
+                              "w-fit text-xs",
+                              getTypeColor(item.type)
+                            )}
+                          >
+                            {t(`event.schedule.types.${item.type}`)}
+                          </Badge>
+                        </div>
+                        <h3 className="text-xl font-bold text-foreground mb-2">
+                          {item.title}
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          {item.description}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </div>
+
+                  {/* Timeline Node - Desktop Only */}
+                  <div
+                    className={cn(
+                      "absolute right-0 top-1/2 transform -translate-y-1/2",
+                      "flex items-center justify-center w-8 h-8 bg-primary rounded-full border-4 border-background shadow-lg hover:shadow-xl transition-all duration-200 z-10 hover:scale-110"
+                    )}
+                  >
+                    <item.icon className="size-4 text-primary-foreground" />
+                  </div>
                 </div>
               </div>
             ))}
