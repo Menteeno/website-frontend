@@ -3,65 +3,51 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { useTranslation } from "@/hooks/use-translation";
-import {
-  Award,
-  Clock,
-  Coffee,
-  Presentation,
-  Users,
-  Utensils,
-} from "lucide-react";
+import { Award, Clock, Coffee, Presentation, Users } from "lucide-react";
 
 const EventSchedule = () => {
   const { t } = useTranslation();
 
   const scheduleItems = [
     {
-      time: "۱۴:۰۰ - ۱۴:۳۰",
+      time: "۱۵:۰۰ - ۱۵:۱۵",
       title: t("event.schedule.registration.title"),
       description: t("event.schedule.registration.description"),
       icon: Users,
       type: "registration",
     },
     {
-      time: "۱۴:۳۰ - ۱۵:۰۰",
+      time: "۱۵:۱۵ - ۱۵:۳۰",
       title: t("event.schedule.welcome.title"),
       description: t("event.schedule.welcome.description"),
       icon: Presentation,
       type: "presentation",
     },
     {
-      time: "۱۵:۰۰ - ۱۶:۳۰",
+      time: "۱۵:۳۰ - ۱۷:۴۵",
       title: t("event.schedule.workshop1.title"),
       description: t("event.schedule.workshop1.description"),
       icon: Users,
       type: "workshop",
     },
     {
-      time: "۱۶:۳۰ - ۱۷:۰۰",
+      time: "۱۷:۴۵ - ۱۸:۱۵",
       title: t("event.schedule.break.title"),
       description: t("event.schedule.break.description"),
       icon: Coffee,
       type: "break",
     },
     {
-      time: "۱۷:۰۰ - ۱۸:۳۰",
+      time: "۱۸:۱۵ - ۱۹:۴۵",
       title: t("event.schedule.workshop2.title"),
       description: t("event.schedule.workshop2.description"),
       icon: Users,
       type: "workshop",
     },
     {
-      time: "۱۸:۳۰ - ۱۹:۰۰",
+      time: "۱۹:۴۵ - ۲۰:۰۰",
       title: t("event.schedule.dinner.title"),
       description: t("event.schedule.dinner.description"),
-      icon: Utensils,
-      type: "meal",
-    },
-    {
-      time: "۱۹:۰۰ - ۲۰:۰۰",
-      title: t("event.schedule.networking.title"),
-      description: t("event.schedule.networking.description"),
       icon: Award,
       type: "networking",
     },

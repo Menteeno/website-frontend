@@ -13,9 +13,9 @@ const EventPricing = () => {
   const pricingTiers = [
     {
       name: t("event.pricing.early-bird.name"),
-      price: "۲,۵۰۰,۰۰۰",
-      originalPrice: "۳,۰۰۰,۰۰۰",
-      currency: "تومان",
+      price: t("event.pricing.early-bird.price"),
+      originalPrice: t("event.pricing.regular.price"),
+      currency: t("event.pricing.early-bird.currency"),
       period: t("event.pricing.early-bird.period"),
       badge: t("event.pricing.early-bird.badge"),
       popular: true,
@@ -30,8 +30,8 @@ const EventPricing = () => {
     },
     {
       name: t("event.pricing.regular.name"),
-      price: "۳,۰۰۰,۰۰۰",
-      currency: "تومان",
+      price: t("event.pricing.regular.price"),
+      currency: t("event.pricing.regular.currency"),
       period: t("event.pricing.regular.period"),
       features: [
         t("event.pricing.regular.features.access"),
@@ -180,15 +180,9 @@ const EventPricing = () => {
                 {t("event.pricing.payment.description")}
               </p>
               <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
-                <span>
-                  💳 {t("event.pricing.payment.methods.card")}
-                </span>
-                <span>
-                  🏦 {t("event.pricing.payment.methods.bank")}
-                </span>
-                <span>
-                  📱 {t("event.pricing.payment.methods.digital")}
-                </span>
+                <span>💳 {t("event.pricing.payment.methods.card")}</span>
+                <span>🏦 {t("event.pricing.payment.methods.bank")}</span>
+                <span>📱 {t("event.pricing.payment.methods.digital")}</span>
               </div>
             </CardContent>
           </Card>

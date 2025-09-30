@@ -45,7 +45,7 @@ const EventHero = () => {
               <p className="text-sm text-muted-foreground">
                 {t("event.hero.time")}
               </p>
-              <p className="font-semibold">۱۴:۰۰ - ۲۰:۰۰</p>
+              <p className="font-semibold">۱۵:۰۰ - ۲۰:۰۰</p>
             </div>
           </div>
 
@@ -55,7 +55,7 @@ const EventHero = () => {
               <p className="text-sm text-muted-foreground">
                 {t("event.hero.location")}
               </p>
-              <p className="font-semibold">تهران، پارک فناوری</p>
+              <p className="font-semibold">تهران، نیاوران، باغ خسروشاهی</p>
             </div>
           </div>
 
@@ -65,7 +65,7 @@ const EventHero = () => {
               <p className="text-sm text-muted-foreground">
                 {t("event.hero.capacity")}
               </p>
-              <p className="font-semibold">۵۰ نفر</p>
+              <p className="font-semibold">۴۰ نفر</p>
             </div>
           </div>
         </div>
