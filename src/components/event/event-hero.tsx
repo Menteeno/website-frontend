@@ -78,8 +78,8 @@ const EventHero = () => {
             className="rounded-full text-base"
             aria-label={t("event.hero.register-button")}
           >
-            {t("event.hero.register-button")}
-            <ArrowUpRight className="!h-5 !w-5" />
+            <ArrowUpRight className="!h-5 !w-5 order-1" />
+            <span className="order-2">{t("event.hero.register-button")}</span>
           </Button>
           <Button
             variant="outline"

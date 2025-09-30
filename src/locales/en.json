@@ -586,15 +586,6 @@
           "title": "Suitable Venue",
           "description": "Tehran, Technology Park with complete facilities"
         }
-      },
-      "payment": {
-        "title": "Payment Methods",
-        "description": "Payment through various methods",
-        "methods": {
-          "card": "Bank Cards",
-          "bank": "Bank Transfer",
-          "digital": "Digital Wallet"
-        }
       }
     },
     "audience": {

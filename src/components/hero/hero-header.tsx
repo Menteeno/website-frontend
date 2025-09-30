@@ -65,8 +65,10 @@ const HeroHeader = () => {
             className="rounded-full text-base"
             aria-label={t("messages.home-header.call-to-action-button")}
           >
-            {t("messages.home-header.call-to-action-button")}{" "}
-            <ArrowUpRight className="!h-5 !w-5" />
+            <ArrowUpRight className="!h-5 !w-5 order-1" />
+            <span className="order-2">
+              {t("messages.home-header.call-to-action-button")}
+            </span>
           </Button>
           <Button
             variant="outline"
@@ -74,7 +76,7 @@ const HeroHeader = () => {
             className="rounded-full text-base shadow-none"
             aria-label={t("messages.home-header.video-button")}
           >
-            <CirclePlay className="!h-5 !w-5" />{" "}
+            <CirclePlay className="!h-5 !w-5 mr-2" />
             {t("messages.home-header.video-button")}
           </Button>
         </div>

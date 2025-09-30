@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useTranslation } from "@/hooks/use-translation";
-import { Check, Clock, MapPin, Star, Users } from "lucide-react";
+import { ArrowRight, Check, Clock, MapPin, Star, Users } from "lucide-react";
 import { MagicCard } from "../magicui/magic-card";
 
 const EventPricing = () => {
@@ -134,7 +134,10 @@ const EventPricing = () => {
                   variant={tier.popular ? "default" : "outline"}
                   size="lg"
                 >
-                  {t("event.pricing.register-button")}
+                  <ArrowRight className="size-4 order-1" />
+                  <span className="order-2">
+                    {t("event.pricing.register-button")}
+                  </span>
                 </Button>
               </CardContent>
             </Card>
@@ -167,25 +170,6 @@ const EventPricing = () => {
               </MagicCard>
             </Card>
           ))}
-        </div>
-
-        {/* Payment Info */}
-        <div className="mt-16 text-center">
-          <Card className="max-w-2xl mx-auto">
-            <CardContent className="p-6">
-              <h3 className="text-xl font-bold text-foreground mb-4">
-                {t("event.pricing.payment.title")}
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                {t("event.pricing.payment.description")}
-              </p>
-              <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
-                <span>💳 {t("event.pricing.payment.methods.card")}</span>
-                <span>🏦 {t("event.pricing.payment.methods.bank")}</span>
-                <span>📱 {t("event.pricing.payment.methods.digital")}</span>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </div>

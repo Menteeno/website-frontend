@@ -166,8 +166,8 @@ const EventTargetAudience = () => {
         {/* CTA */}
         <div className="text-center mt-16">
           <div className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors duration-200 cursor-pointer">
-            <span>{t("event.audience.cta")}</span>
             <ArrowRight className="size-4" />
+            <span>{t("event.audience.cta")}</span>
           </div>
         </div>
       </div>
