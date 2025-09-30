@@ -12,7 +12,7 @@ export function useLogout() {
   const handleLogout = async () => {
     try {
       // Call the logout API
-      await logoutMutation().unwrap();
+      await logoutMutation({}).unwrap();
     } catch (error) {
       console.error("Logout API call failed:", error);
       // Continue with local logout even if API call fails

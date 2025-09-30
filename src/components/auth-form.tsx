@@ -135,7 +135,10 @@ export default function AuthForm() {
         updated_at: new Date().toISOString(),
       };
 
-      login(user);
+      // Mock token for demo
+      const mockToken = "mock-jwt-token-" + Date.now();
+
+      login(user, mockToken);
 
       // Redirect to dashboard or home
       window.location.href = "/dashboard";
