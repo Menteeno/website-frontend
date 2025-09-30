@@ -62,7 +62,7 @@ const EventPricing = () => {
   ];
 
   return (
-    <div className="py-16 sm:py-20 lg:py-24 bg-muted/30">
+    <div id="pricing" className="py-16 sm:py-20 lg:py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -130,14 +130,17 @@ const EventPricing = () => {
                 </ul>
 
                 <Button
-                  className={`w-full ${tier.popular ? "bg-primary hover:bg-primary/90" : ""}`}
+                  asChild
+                  className={`w-full hover:scale-105 transition-all duration-200 hover:shadow-lg active:scale-95 ${tier.popular ? "bg-primary hover:bg-primary/90" : ""}`}
                   variant={tier.popular ? "default" : "outline"}
                   size="lg"
                 >
-                  <ArrowRight className="size-4 order-1" />
-                  <span className="order-2">
-                    {t("event.pricing.register-button")}
-                  </span>
+                  <a href="#cta">
+                    <ArrowRight className="size-4 order-1" />
+                    <span className="order-2">
+                      {t("event.pricing.register-button")}
+                    </span>
+                  </a>
                 </Button>
               </CardContent>
             </Card>

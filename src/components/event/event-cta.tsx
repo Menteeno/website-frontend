@@ -51,7 +51,7 @@ const EventCTA = () => {
   ];
 
   return (
-    <div className="py-16 sm:py-20 lg:py-24 bg-muted/30">
+    <div id="cta" className="py-16 sm:py-20 lg:py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -143,12 +143,23 @@ const EventCTA = () => {
         {/* CTA Buttons */}
         <div className="text-center">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-            <Button size="lg" className="text-lg px-8 py-6">
-              <ArrowRight className="size-5 order-1" />
-              <span className="order-2">{t("event.cta.primary-button")}</span>
+            <Button
+              asChild
+              size="lg"
+              className="text-lg px-8 py-6 hover:scale-105 transition-all duration-200 hover:shadow-lg"
+            >
+              <a href="#pricing">
+                <ArrowRight className="size-5 order-1" />
+                <span className="order-2">{t("event.cta.primary-button")}</span>
+              </a>
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-6">
-              {t("event.cta.secondary-button")}
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="text-lg px-8 py-6 hover:scale-105 transition-all duration-200 hover:shadow-lg hover:bg-muted/50"
+            >
+              <a href="#faq">{t("event.cta.secondary-button")}</a>
             </Button>
           </div>
           <p className="text-sm text-muted-foreground">

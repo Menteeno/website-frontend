@@ -13,7 +13,10 @@ const EventHero = () => {
   const isRTL = locale === "fa";
 
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto relative">
+    <div
+      id="hero"
+      className="min-h-screen flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto relative"
+    >
       <BackgroundPattern />
 
       <div className="relative px-4 z-10 max-w-2xl text-center lg:text-start pb-2 pt-24 lg:py-0">
@@ -74,20 +77,24 @@ const EventHero = () => {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
           <Button
+            asChild
             size="lg"
-            className="rounded-full text-base"
+            className="rounded-full text-base hover:scale-105 transition-all duration-200 hover:shadow-lg"
             aria-label={t("event.hero.register-button")}
           >
-            <ArrowUpRight className="!h-5 !w-5 order-1" />
-            <span className="order-2">{t("event.hero.register-button")}</span>
+            <a href="#pricing">
+              <ArrowUpRight className="!h-5 !w-5 order-1" />
+              <span className="order-2">{t("event.hero.register-button")}</span>
+            </a>
           </Button>
           <Button
+            asChild
             variant="outline"
             size="lg"
-            className="rounded-full text-base shadow-none"
+            className="rounded-full text-base shadow-none hover:scale-105 transition-all duration-200 hover:shadow-lg hover:bg-muted/50"
             aria-label={t("event.hero.learn-more-button")}
           >
-            {t("event.hero.learn-more-button")}
+            <a href="#about">{t("event.hero.learn-more-button")}</a>
           </Button>
         </div>
       </div>

@@ -74,7 +74,7 @@ const EventSchedule = () => {
   };
 
   return (
-    <div className="py-12 sm:py-16 lg:py-20">
+    <div id="schedule" className="py-12 sm:py-16 lg:py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">

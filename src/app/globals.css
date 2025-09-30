@@ -33,7 +33,8 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-dana: "DanaVariableFont", "Dana", sans-serif;
-  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
+  --font-sans:
+    "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -155,6 +156,9 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground;

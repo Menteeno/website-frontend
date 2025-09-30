@@ -79,7 +79,7 @@ const EventTargetAudience = () => {
   ];
 
   return (
-    <div className="py-16 sm:py-20 lg:py-24">
+    <div id="audience" className="py-16 sm:py-20 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -165,10 +165,13 @@ const EventTargetAudience = () => {
 
         {/* CTA */}
         <div className="text-center mt-16">
-          <div className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors duration-200 cursor-pointer">
+          <a
+            href="#pricing"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-all duration-200 cursor-pointer hover:scale-105 hover:shadow-lg active:scale-95"
+          >
             <ArrowRight className="size-4" />
             <span>{t("event.audience.cta")}</span>
-          </div>
+          </a>
         </div>
       </div>
     </div>
