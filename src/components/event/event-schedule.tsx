@@ -3,6 +3,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { useTranslation } from "@/hooks/use-translation";
+import { cn } from "@/lib/utils";
 import { Award, Clock, Coffee, Presentation, Users } from "lucide-react";
 
 const EventSchedule = () => {
@@ -73,66 +74,99 @@ const EventSchedule = () => {
   };
 
   return (
-    <div className="py-16 sm:py-20 lg:py-24">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className={cn("py-12 sm:py-16 lg:py-20")}>
+      <div className={cn("max-w-6xl mx-auto px-4 sm:px-6 lg:px-8")}>
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+        <div className={cn("text-center mb-12")}>
+          <h2
+            className={cn(
+              "text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4"
+            )}
+          >
             {t("event.schedule.title")}
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p
+            className={cn(
+              "text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto"
+            )}
+          >
             {t("event.schedule.description")}
           </p>
         </div>
 
         {/* Schedule Timeline */}
-        <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-border hidden md:block"></div>
-
+        <div
+          className={cn(
+            "relative",
+            "before:absolute before:right-4 before:top-0 before:bottom-0 before:w-0.5 before:bg-primary before:hidden md:before:block"
+          )}
+        >
           <div className="space-y-8">
             {scheduleItems.map((item, index) => (
-              <div key={index} className="relative flex items-start gap-6">
-                {/* Timeline Dot */}
-                <div className="hidden md:flex items-center justify-center w-8 h-8 bg-primary rounded-full border-4 border-background flex-shrink-0 relative z-10">
-                  <item.icon className="size-4 text-primary-foreground" />
+              <div key={index} className={cn("relative")}>
+                {/* Content Section - Left Aligned with Right Padding */}
+                <div className="pr-16">
+                  <Card
+                    className={cn(
+                      "shadow-sm hover:shadow-md transition-all duration-200"
+                    )}
+                  >
+                    <CardContent className="p-6">
+                      <div
+                        className={cn(
+                          "flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4"
+                        )}
+                      >
+                        <div className="flex items-center gap-2">
+                          <Clock className="size-4 text-primary" />
+                          <span className="font-semibold text-base text-primary">
+                            {item.time}
+                          </span>
+                        </div>
+                        <Badge
+                          className={cn(
+                            "w-fit text-xs",
+                            getTypeColor(item.type)
+                          )}
+                        >
+                          {t(`event.schedule.types.${item.type}`)}
+                        </Badge>
+                      </div>
+
+                      <h3 className="text-xl font-bold text-foreground mb-2">
+                        {item.title}
+                      </h3>
+
+                      <p className="text-muted-foreground leading-relaxed">
+                        {item.description}
+                      </p>
+                    </CardContent>
+                  </Card>
                 </div>
 
-                {/* Content */}
-                <Card className="flex-1 shadow-sm hover:shadow-md transition-shadow duration-200">
-                  <CardContent className="p-6">
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
-                      <div className="flex items-center gap-3">
-                        <Clock className="size-5 text-muted-foreground" />
-                        <span className="font-semibold text-lg">
-                          {item.time}
-                        </span>
-                      </div>
-                      <Badge className={`w-fit ${getTypeColor(item.type)}`}>
-                        {t(`event.schedule.types.${item.type}`)}
-                      </Badge>
-                    </div>
-
-                    <h3 className="text-xl font-bold text-foreground mb-2">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-muted-foreground">{item.description}</p>
-                  </CardContent>
-                </Card>
+                {/* Timeline Node - Absolutely Positioned on Right Axis */}
+                <div
+                  className={cn(
+                    "absolute right-0 top-1/2 transform -translate-y-1/2",
+                    "flex items-center justify-center w-8 h-8 bg-primary rounded-full border-4 border-background shadow-lg hover:shadow-xl transition-all duration-200 z-10 hover:scale-110",
+                    "hidden md:flex"
+                  )}
+                >
+                  <item.icon className="size-4 text-primary-foreground" />
+                </div>
               </div>
             ))}
           </div>
         </div>
 
         {/* Additional Info */}
-        <div className="mt-16 text-center">
-          <Card className="max-w-2xl mx-auto">
-            <CardContent className="p-6">
-              <h3 className="text-xl font-bold text-foreground mb-4">
+        <div className={cn("mt-12 text-center")}>
+          <Card className={cn("max-w-2xl mx-auto")}>
+            <CardContent className="p-4">
+              <h3 className={cn("text-lg font-bold text-foreground mb-3")}>
                 {t("event.schedule.note.title")}
               </h3>
-              <p className="text-muted-foreground">
+              <p className={cn("text-sm text-muted-foreground")}>
                 {t("event.schedule.note.description")}
               </p>
             </CardContent>
