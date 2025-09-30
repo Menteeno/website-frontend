@@ -74,38 +74,33 @@ const EventSchedule = () => {
   };
 
   return (
-    <div className={cn("py-12 sm:py-16 lg:py-20")}>
-      <div className={cn("max-w-6xl mx-auto px-4 sm:px-6 lg:px-8")}>
+    <div className="py-12 sm:py-16 lg:py-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className={cn("text-center mb-12")}>
-          <h2
-            className={cn(
-              "text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4"
-            )}
-          >
+        <div className="text-center mb-12">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             {t("event.schedule.title")}
           </h2>
-          <p
-            className={cn(
-              "text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto"
-            )}
-          >
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             {t("event.schedule.description")}
           </p>
         </div>
 
         {/* Schedule Timeline */}
         <div className="relative">
-          {/* Desktop Timeline Line */}
+          {/* Desktop Timeline Line - Positioned between first and last icons */}
           <div
-            className={cn(
-              "absolute right-4 top-0 bottom-0 w-0 border-l-2 border-dotted border-primary hidden md:block"
-            )}
+            className="absolute right-4 w-0 border-l-2 border-dotted border-primary hidden md:block"
+            style={{
+              top: "5.2rem", // Start after first icon (half of icon height + spacing)
+              bottom: "5.2rem", // End before last icon
+              opacity: 0.3,
+            }}
           ></div>
 
           <div className="space-y-6 md:space-y-8">
             {scheduleItems.map((item, index) => (
-              <div key={index} className={cn("relative")}>
+              <div key={index} className="relative">
                 {/* Mobile Layout */}
                 <div className="md:hidden">
                   <Card className="shadow-sm hover:shadow-md transition-all duration-200">
@@ -168,12 +163,7 @@ const EventSchedule = () => {
                   </div>
 
                   {/* Timeline Node - Desktop Only */}
-                  <div
-                    className={cn(
-                      "absolute right-0 top-1/2 transform -translate-y-1/2",
-                      "flex items-center justify-center w-8 h-8 bg-primary rounded-full border-4 border-background shadow-lg hover:shadow-xl transition-all duration-200 z-10 hover:scale-110"
-                    )}
-                  >
+                  <div className="absolute right-0 top-1/2 transform -translate-y-1/2 flex items-center justify-center w-8 h-8 bg-primary rounded-full border-4 border-background shadow-lg hover:shadow-xl transition-all duration-200 z-10 hover:scale-110">
                     <item.icon className="size-4 text-primary-foreground" />
                   </div>
                 </div>
@@ -183,13 +173,13 @@ const EventSchedule = () => {
         </div>
 
         {/* Additional Info */}
-        <div className={cn("mt-12 text-center")}>
-          <Card className={cn("max-w-2xl mx-auto")}>
+        <div className="mt-12 text-center">
+          <Card className="max-w-2xl mx-auto">
             <CardContent className="p-4">
-              <h3 className={cn("text-lg font-bold text-foreground mb-3")}>
+              <h3 className="text-lg font-bold text-foreground mb-3">
                 {t("event.schedule.note.title")}
               </h3>
-              <p className={cn("text-sm text-muted-foreground")}>
+              <p className="text-sm text-muted-foreground">
                 {t("event.schedule.note.description")}
               </p>
             </CardContent>
