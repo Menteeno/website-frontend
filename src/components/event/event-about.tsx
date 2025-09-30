@@ -3,6 +3,11 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { useTranslation } from "@/hooks/use-translation";
 import { Heart, Lightbulb, Target, Users } from "lucide-react";
+import "swiper/css";
+import "swiper/css/effect-cards";
+import "swiper/css/pagination";
+import { Autoplay, EffectCards, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { MagicCard } from "../magicui/magic-card";
 
 const EventAbout = () => {
@@ -28,6 +33,35 @@ const EventAbout = () => {
       icon: Users,
       title: t("event.about.features.collaboration.title"),
       description: t("event.about.features.collaboration.description"),
+    },
+  ];
+
+  // Local event images for the slider
+  const eventImages = [
+    {
+      id: 1,
+      src: "/assets/images/event/001.jpg",
+      alt: "Historic mansion event venue",
+    },
+    {
+      id: 2,
+      src: "/assets/images/event/002.jpg",
+      alt: "Grand library hall event venue",
+    },
+    {
+      id: 3,
+      src: "/assets/images/event/003.jpg",
+      alt: "Conference hall event venue",
+    },
+    {
+      id: 4,
+      src: "/assets/images/event/005.jpg",
+      alt: "Event venue space",
+    },
+    {
+      id: 5,
+      src: "/assets/images/event/006.jpg",
+      alt: "Meeting space event venue",
     },
   ];
 
@@ -107,15 +141,51 @@ const EventAbout = () => {
           </div>
 
           <div className="relative">
-            <div className="aspect-[4/3] bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl border border-primary/20 flex items-center justify-center">
-              <div className="text-center p-8">
-                <div className="w-32 h-32 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="size-16 text-primary" />
-                </div>
-                <p className="text-muted-foreground font-medium">
-                  {t("event.about.image-placeholder")}
-                </p>
-              </div>
+            <div className="w-full max-w-md mx-auto">
+              <Swiper
+                effect="cards"
+                grabCursor={true}
+                modules={[EffectCards, Autoplay, Pagination]}
+                loop={true}
+                autoplay={{
+                  delay: 3000,
+                  disableOnInteraction: false,
+                }}
+                pagination={{
+                  clickable: true,
+                }}
+                className="w-full h-80"
+              >
+                {eventImages.map((image) => (
+                  <SwiperSlide key={image.id}>
+                    <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl group">
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110 group-hover:saturate-110"
+                      />
+
+                      {/* Instagram/TikTok style overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 via-purple-500/15 to-blue-500/20"></div>
+                      <div className="absolute inset-0 bg-gradient-to-tl from-yellow-400/10 via-transparent to-cyan-400/15"></div>
+
+                      {/* Vignette effect */}
+                      <div className="absolute inset-0 rounded-2xl shadow-[inset_0_0_50px_rgba(0,0,0,0.3)]"></div>
+
+                      {/* Glow border effect */}
+                      <div className="absolute inset-0 rounded-2xl border-2 border-white/20 group-hover:border-white/40 transition-all duration-500"></div>
+
+                      {/* Shimmer effect like TikTok */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out"></div>
+
+                      {/* Corner accent like Instagram */}
+                      <div className="absolute top-4 right-4 w-2 h-2 bg-gradient-to-br from-pink-400 to-purple-500 rounded-full animate-pulse"></div>
+                      <div className="absolute top-6 right-6 w-1 h-1 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full animate-pulse delay-300"></div>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </div>
           </div>
         </div>
