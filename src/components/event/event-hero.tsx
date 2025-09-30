@@ -3,6 +3,8 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "@/hooks/use-translation";
+import { getAssetUrl } from "@/lib/config";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { ArrowUpRight, Calendar, Clock, MapPin, Users } from "lucide-react";
 import { BackgroundPattern } from "../hero/background-pattern";
 
@@ -31,7 +33,7 @@ const EventHero = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
           <div className="flex items-center gap-3 p-4 bg-card rounded-lg border">
             <Calendar className="size-5 text-primary" />
-            <div className="text-left">
+            <div className="flex-1 text-right">
               <p className="text-sm text-muted-foreground">
                 {t("event.hero.date")}
               </p>
@@ -41,7 +43,7 @@ const EventHero = () => {
 
           <div className="flex items-center gap-3 p-4 bg-card rounded-lg border">
             <Clock className="size-5 text-primary" />
-            <div className="text-left">
+            <div className="flex-1 text-right">
               <p className="text-sm text-muted-foreground">
                 {t("event.hero.time")}
               </p>
@@ -51,7 +53,7 @@ const EventHero = () => {
 
           <div className="flex items-center gap-3 p-4 bg-card rounded-lg border">
             <MapPin className="size-5 text-primary" />
-            <div className="text-left">
+            <div className="flex-1 text-right">
               <p className="text-sm text-muted-foreground">
                 {t("event.hero.location")}
               </p>
@@ -61,7 +63,7 @@ const EventHero = () => {
 
           <div className="flex items-center gap-3 p-4 bg-card rounded-lg border">
             <Users className="size-5 text-primary" />
-            <div className="text-left">
+            <div className="flex-1 text-right">
               <p className="text-sm text-muted-foreground">
                 {t("event.hero.capacity")}
               </p>
@@ -90,19 +92,19 @@ const EventHero = () => {
         </div>
       </div>
 
-      {/* Event Image Placeholder */}
+      {/* Event Animation */}
       <div className="lg:flex-1 flex justify-center lg:justify-end">
-        <div className="relative w-full max-w-md lg:max-w-lg">
-          <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl border-2 border-primary/20 flex items-center justify-center">
-            <div className="text-center p-8">
-              <div className="w-24 h-24 bg-primary/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="size-12 text-primary" />
-              </div>
-              <p className="text-muted-foreground font-medium">
-                {t("event.hero.image-placeholder")}
-              </p>
-            </div>
-          </div>
+        <div className="relative">
+          <DotLottieReact
+            src={getAssetUrl("/assets/images/soft-skills.lottie")}
+            loop
+            autoplay
+            width="1600px"
+            height="1200px"
+            renderConfig={{
+              autoResize: true,
+            }}
+          />
         </div>
       </div>
     </div>
