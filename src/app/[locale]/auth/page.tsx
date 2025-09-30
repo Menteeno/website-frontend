@@ -1,4 +1,4 @@
-import AuthForm from "@/components/auth-form";
+import PhoneAuthForm from "@/components/phone-auth-form";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function AuthPage() {
-  return <AuthForm />;
+  return <PhoneAuthForm />;
 }
