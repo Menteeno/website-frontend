@@ -163,7 +163,7 @@ const EventSchedule = () => {
                   </div>
 
                   {/* Timeline Node - Desktop Only */}
-                  <div className="absolute right-0 top-1/2 transform -translate-y-1/2 flex items-center justify-center w-6 h-6 bg-primary rounded-full border-2 border-background shadow-md hover:shadow-lg transition-all duration-200 z-10 hover:scale-110">
+                  <div className="absolute right-0 top-1/2 transform -translate-y-1/2 flex items-center justify-center w-8 h-8 bg-primary rounded-full border-2 border-background shadow-md hover:shadow-lg transition-all duration-200 z-10 hover:scale-110">
                     <item.icon className="size-3 text-primary-foreground" />
                   </div>
                 </div>
