@@ -19,7 +19,7 @@ export const menteenoApi = createApi({
   reducerPath: "menteenoApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "https://menteeno-backend.chbk.app/api",
-    prepareHeaders: (headers, api) => {
+    prepareHeaders: (headers) => {
       // Add authorization header if token exists
       if (typeof window !== "undefined") {
         const token = localStorage.getItem("token");
@@ -27,7 +27,6 @@ export const menteenoApi = createApi({
           headers.set("Authorization", `Bearer ${token}`);
         }
       }
-
       return headers;
     },
   }),
@@ -91,15 +90,15 @@ export const menteenoApi = createApi({
         };
       },
     }),
-    v1_auth_refresh: builder.mutation<
-      any,
+    v1_auth_user: builder.query<
+      { data: components["schemas"]["UserResource"] },
       {
         path?: Record<string, any>;
         query?: Record<string, any>;
       }
     >({
       query: (arg) => {
-        const url = fillPath("/v1/auth/refresh", arg?.path);
+        const url = fillPath("/v1/auth/user", arg?.path);
         return {
           url,
           method: "POST",
@@ -135,8 +134,7 @@ export const useV1_auth_send_codeMutation =
 export const useV1_auth_verify_codeMutation =
   menteenoApi.useV1_auth_verify_codeMutation;
 export const useV1_auth_logoutMutation = menteenoApi.useV1_auth_logoutMutation;
-export const useV1_auth_refreshMutation =
-  menteenoApi.useV1_auth_refreshMutation;
+export const useV1_auth_userQuery = menteenoApi.useV1_auth_userQuery;
 export const useBroadcast_authenticateQuery =
   menteenoApi.useBroadcast_authenticateQuery;
 

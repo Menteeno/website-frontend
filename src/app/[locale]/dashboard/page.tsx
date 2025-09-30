@@ -2,6 +2,7 @@
 
 import { ProtectedRoute } from "@/components/protected-route";
 import { useAuth } from "@/contexts/auth-context";
+import { useV1_auth_userQuery } from "@/services/menteenoApi.generated";
 
 export default function DashboardPage() {
   return (
@@ -12,7 +13,48 @@ export default function DashboardPage() {
 }
 
 function DashboardContent() {
-  const { user } = useAuth();
+  const { user: authUser } = useAuth();
+  const { data: userData, isLoading, error } = useV1_auth_userQuery({});
+
+  // Use API data if available, fallback to auth context
+  const user = userData?.data || authUser;
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+            <div className="animate-pulse">
+              <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded mb-6"></div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="h-32 bg-gray-200 dark:bg-gray-700 rounded-lg"></div>
+                <div className="h-32 bg-gray-200 dark:bg-gray-700 rounded-lg"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+            <div className="text-center">
+              <h1 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-4">
+                Error Loading User Data
+              </h1>
+              <p className="text-gray-600 dark:text-gray-300">
+                Failed to fetch user information from the API.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-8">
@@ -29,19 +71,42 @@ function DashboardContent() {
               </h2>
               <div className="space-y-2 text-sm">
                 <p>
-                  <strong>Name:</strong> {user?.name}
+                  <strong>Name:</strong> {user?.name || "Not provided"}
                 </p>
                 <p>
-                  <strong>Mobile:</strong> {user?.mobile}
+                  <strong>First Name:</strong>{" "}
+                  {user?.first_name ? String(user.first_name) : "Not provided"}
                 </p>
                 <p>
-                  <strong>Email:</strong> {user?.email || "Not provided"}
+                  <strong>Last Name:</strong>{" "}
+                  {user?.last_name ? String(user.last_name) : "Not provided"}
                 </p>
                 <p>
-                  <strong>Member since:</strong>{" "}
-                  {user?.created_at
-                    ? new Date(user.created_at).toLocaleDateString()
-                    : "Unknown"}
+                  <strong>Mobile:</strong> {user?.mobile || "Not provided"}
+                </p>
+                <p>
+                  <strong>Mobile Verified:</strong>{" "}
+                  <span
+                    className={
+                      user?.is_mobile_verified
+                        ? "text-green-600"
+                        : "text-red-600"
+                    }
+                  >
+                    {user?.is_mobile_verified ? "Yes" : "No"}
+                  </span>
+                </p>
+                <p>
+                  <strong>Avatar:</strong>{" "}
+                  {user?.avatar_url ? (
+                    <img
+                      src={String(user.avatar_url)}
+                      alt="User Avatar"
+                      className="w-8 h-8 rounded-full inline-block ml-2"
+                    />
+                  ) : (
+                    "Not provided"
+                  )}
                 </p>
               </div>
             </div>
@@ -58,12 +123,13 @@ function DashboardContent() {
                   </span>
                 </p>
                 <p>
-                  <strong>Mobile Verified:</strong>{" "}
-                  {user?.mobile_verified_at ? "Yes" : "No"}
+                  <strong>API Status:</strong>{" "}
+                  <span className="text-green-600 dark:text-green-400">
+                    Connected
+                  </span>
                 </p>
                 <p>
-                  <strong>Email Verified:</strong>{" "}
-                  {user?.email_verified_at ? "Yes" : "No"}
+                  <strong>User ID:</strong> {user?.id || "Not available"}
                 </p>
               </div>
             </div>
@@ -75,10 +141,12 @@ function DashboardContent() {
             </h3>
             <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
               <p>✅ Redux Toolkit Query integrated</p>
+              <p>✅ User API endpoint connected</p>
               <p>✅ Phone number authentication working</p>
               <p>✅ JWT token management implemented</p>
               <p>✅ Protected routes configured</p>
               <p>✅ Logout functionality available</p>
+              <p>✅ Real-time user data fetching</p>
             </div>
           </div>
         </div>

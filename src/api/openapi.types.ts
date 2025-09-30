@@ -68,7 +68,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/v1/auth/refresh": {
+    "/v1/auth/user": {
         parameters: {
             query?: never;
             header?: never;
@@ -78,11 +78,11 @@ export interface paths {
         get?: never;
         put?: never;
         /**
-         * Auth - Refresh the JWT token
-         * @description This method will be used to refresh the JWT token.
-         *     It will return a JSON response with a new token.
+         * Authenticated User - Show
+         * @description This method will be used to return the authenticated user.
+         *     It will return a JSON response with the user data.
          */
-        post: operations["v1.auth.refresh"];
+        post: operations["v1.auth.user"];
         delete?: never;
         options?: never;
         head?: never;
@@ -125,6 +125,16 @@ export interface components {
             authentication_type: Record<string, never>;
             access_token: string;
             token_type: Record<string, never>;
+        };
+        /** UserResource */
+        UserResource: {
+            id: string;
+            first_name: string | null;
+            last_name: string | null;
+            name: string;
+            mobile: string;
+            is_mobile_verified: boolean;
+            avatar_url: string;
         };
         /** VerifyCodeRequest */
         VerifyCodeRequest: {
@@ -262,7 +272,7 @@ export interface operations {
             401: components["responses"]["AuthenticationException"];
         };
     };
-    "v1.auth.refresh": {
+    "v1.auth.user": {
         parameters: {
             query?: never;
             header?: never;
@@ -271,18 +281,18 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
-            /** @description Return a JSON response with a new token
+            /** @description Return a JSON response with the user data
              *
              *
              *
-             *     `TokenResource` */
+             *     `UserResource` */
             200: {
                 headers: {
                     [name: string]: unknown;
                 };
                 content: {
                     "application/json": {
-                        data: components["schemas"]["TokenResource"];
+                        data: components["schemas"]["UserResource"];
                     };
                 };
             };
