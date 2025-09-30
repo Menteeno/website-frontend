@@ -73,15 +73,16 @@ class ApiClient {
     data?: any,
     options?: RequestOptions
   ): Promise<T> {
-    return retryWithBackoff(
-      () =>
-        this.request<T>(endpoint, {
-          ...options,
-          method: "POST",
-          body: data ? JSON.stringify(data) : null,
-        }),
-      options?.retries
-    );
+    return retryWithBackoff(() => {
+      const requestOptions: RequestOptions = {
+        ...options,
+        method: "POST",
+      };
+      if (data) {
+        requestOptions.body = JSON.stringify(data);
+      }
+      return this.request<T>(endpoint, requestOptions);
+    }, options?.retries);
   }
 
   async put<T = any>(
@@ -89,15 +90,16 @@ class ApiClient {
     data?: any,
     options?: RequestOptions
   ): Promise<T> {
-    return retryWithBackoff(
-      () =>
-        this.request<T>(endpoint, {
-          ...options,
-          method: "PUT",
-          body: data ? JSON.stringify(data) : null,
-        }),
-      options?.retries
-    );
+    return retryWithBackoff(() => {
+      const requestOptions: RequestOptions = {
+        ...options,
+        method: "PUT",
+      };
+      if (data) {
+        requestOptions.body = JSON.stringify(data);
+      }
+      return this.request<T>(endpoint, requestOptions);
+    }, options?.retries);
   }
 
   async patch<T = any>(
@@ -105,15 +107,16 @@ class ApiClient {
     data?: any,
     options?: RequestOptions
   ): Promise<T> {
-    return retryWithBackoff(
-      () =>
-        this.request<T>(endpoint, {
-          ...options,
-          method: "PATCH",
-          body: data ? JSON.stringify(data) : null,
-        }),
-      options?.retries
-    );
+    return retryWithBackoff(() => {
+      const requestOptions: RequestOptions = {
+        ...options,
+        method: "PATCH",
+      };
+      if (data) {
+        requestOptions.body = JSON.stringify(data);
+      }
+      return this.request<T>(endpoint, requestOptions);
+    }, options?.retries);
   }
 
   async delete<T = any>(

@@ -6,6 +6,7 @@ import {
   generateLocalizedViewport,
   locales,
 } from "@/lib/i18n";
+import { ReduxProvider } from "@/providers/redux-provider";
 import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 
@@ -55,10 +56,12 @@ export default async function LocaleLayout({
   }
 
   return (
-    <ThemeProvider>
-      <AuthProvider>
-        <PersianSEO locale={locale}>{children}</PersianSEO>
-      </AuthProvider>
-    </ThemeProvider>
+    <ReduxProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          <PersianSEO locale={locale}>{children}</PersianSEO>
+        </AuthProvider>
+      </ThemeProvider>
+    </ReduxProvider>
   );
 }

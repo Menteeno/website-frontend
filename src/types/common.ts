@@ -4,9 +4,11 @@ import { LucideIcon } from "lucide-react";
 export interface User {
   id: number;
   name: string;
-  email: string;
+  email?: string;
+  mobile?: string;
   avatar?: string;
   email_verified_at: string | null;
+  mobile_verified_at?: string | null;
   created_at: string;
   updated_at: string;
   [key: string]: unknown;

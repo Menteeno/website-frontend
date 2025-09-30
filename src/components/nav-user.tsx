@@ -11,25 +11,19 @@ import {
 } from "@/components/ui/sidebar";
 import { UserInfo } from "@/components/user-info";
 import { UserMenuContent } from "@/components/user-menu-content";
+import { useAuth } from "@/contexts/auth-context";
 import { useIsMobile } from "@/hooks/use-mobile";
-// TODO: Replace with proper auth state management
 import { ChevronsUpDown } from "lucide-react";
 
 export function NavUser() {
-  // TODO: Replace with proper auth state management
-  const auth = {
-    user: {
-      id: 1,
-      name: "User",
-      email: "user@example.com",
-      email_verified_at: null,
-      avatar: "",
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    },
-  };
+  const { user, isAuthenticated } = useAuth();
   const { state } = useSidebar();
   const isMobile = useIsMobile();
+
+  // Don't render if user is not authenticated
+  if (!isAuthenticated || !user) {
+    return null;
+  }
 
   return (
     <SidebarMenu>
@@ -40,7 +34,7 @@ export function NavUser() {
               size="lg"
               className="group text-sidebar-accent-foreground data-[state=open]:bg-sidebar-accent"
             >
-              <UserInfo user={auth.user} />
+              <UserInfo user={user} />
               <ChevronsUpDown className="ml-auto size-4" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
@@ -51,7 +45,7 @@ export function NavUser() {
               isMobile ? "bottom" : state === "collapsed" ? "left" : "bottom"
             }
           >
-            <UserMenuContent user={auth.user} />
+            <UserMenuContent user={user} />
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>

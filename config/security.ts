@@ -29,12 +29,13 @@ export const securityHeaders = [
  */
 export const cspHeader = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline';
-  style-src 'self' 'unsafe-inline';
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com;
+  style-src 'self' 'unsafe-inline' https://fonts.bunny.net;
   img-src 'self' blob: data: https:;
-  font-src 'self' data:;
+  font-src 'self' data: https://fonts.bunny.net;
   object-src 'none';
   base-uri 'self';
   form-action 'self';
   frame-ancestors 'none';
+  connect-src 'self' https://menteeno-backend.chbk.app https://cdn.jsdelivr.net https://unpkg.com;
 `;
