@@ -1,6 +1,6 @@
 "use client";
 
-import { ScrollToTopOnPageChange } from "@/components/scroll-to-top-advanced";
+import { ScrollToTopSimple } from "@/components/scroll-to-top-simple";
 import { GitHubLoadingBar } from "@/components/ui/loading-bar";
 import { useLoading } from "@/contexts/loading-context";
 
@@ -10,7 +10,7 @@ export function LoadingBarWrapper() {
   return (
     <>
       <GitHubLoadingBar isLoading={isLoading} />
-      <ScrollToTopOnPageChange />
+      <ScrollToTopSimple />
     </>
   );
 }
