@@ -20,7 +20,7 @@ const EventMap = () => {
 
         {/* Map Container */}
         <div className="bg-background rounded-2xl p-6 shadow-lg">
-          <div className="aspect-video w-full overflow-hidden rounded-xl">
+          <div className="h-[400px] w-full overflow-hidden rounded-xl">
             <iframe
               title="map-iframe"
               src="https://neshan.org/maps/iframe/places/a88a529dcb480437e809a990995d1067#c35.818-51.460-18z-0p/35.8176674/51.459115999999995"
