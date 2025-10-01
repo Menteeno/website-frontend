@@ -206,8 +206,9 @@ export function Footer({ className }: FooterProps) {
               variant="ghost"
               size="sm"
               className="h-8 md:h-auto p-2 md:p-0 text-muted-foreground hover:text-foreground"
+              asChild
             >
-              {t("footer.legal.privacy")}
+              <a href="/privacy">{t("footer.legal.privacy")}</a>
             </Button>
             <Button
               variant="ghost"

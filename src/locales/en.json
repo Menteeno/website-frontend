@@ -462,6 +462,95 @@
       "excellence": "Excellence"
     }
   },
+  "privacy": {
+    "title": "Privacy Policy",
+    "last_updated": "Last updated: December 2024 (آذر ۱۴۰۳)",
+    "introduction": {
+      "title": "Introduction",
+      "content": "At Menteeno, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform and services."
+    },
+    "information_collection": {
+      "title": "Information We Collect",
+      "personal_info": {
+        "title": "Personal Information",
+        "content": "We collect information you provide directly to us, such as when you create an account, participate in mentorship sessions, or contact us for support. Phone number is required and email is optional:",
+        "items": {
+          "name": "Name and contact information",
+          "email": "Email address (optional)",
+          "phone": "Phone number",
+          "profile": "Profile information and preferences"
+        }
+      },
+      "usage_data": {
+        "title": "Usage Data",
+        "content": "We automatically collect certain information about your use of our services:",
+        "items": {
+          "device": "Device information and identifiers",
+          "browser": "Browser type and version",
+          "ip": "IP address and location data",
+          "activity": "Usage patterns and interactions with our platform"
+        }
+      }
+    },
+    "usage": {
+      "title": "How We Use Your Information",
+      "content": "We use the information we collect to:",
+      "items": {
+        "service": "Provide, maintain, and improve our services",
+        "communication": "Communicate with you about your account and our services",
+        "personalization": "Personalize your learning experience and recommendations",
+        "improvement": "Analyze usage patterns to improve our platform",
+        "legal": "Comply with legal obligations and protect our rights"
+      }
+    },
+    "sharing": {
+      "title": "Information Sharing and Disclosure",
+      "content": "We do not sell, trade, or otherwise transfer your personal information to third parties except in the following circumstances:",
+      "items": {
+        "service_providers": "With trusted service providers who assist us in operating our platform",
+        "legal_requirements": "When required by law or to protect our rights and safety",
+        "business_transfer": "In connection with a merger, acquisition, or sale of assets",
+        "consent": "With your explicit consent for specific purposes"
+      }
+    },
+    "security": {
+      "title": "Data Security",
+      "content": "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet or electronic storage is 100% secure."
+    },
+    "rights": {
+      "title": "Your Rights and Choices",
+      "content": "You have certain rights regarding your personal information:",
+      "items": {
+        "access": "Access and review your personal information",
+        "correction": "Correct inaccurate or incomplete information",
+        "deletion": "Request deletion of your personal information",
+        "portability": "Export your data in a portable format",
+        "objection": "Object to certain processing of your information"
+      }
+    },
+    "cookies": {
+      "title": "Cookies and Tracking Technologies",
+      "content": "We use cookies and similar tracking technologies to enhance your experience on our platform. You can control cookie preferences through your browser settings."
+    },
+    "third_party": {
+      "title": "Third-Party Services",
+      "content": "Our platform may contain links to third-party websites or services. We are not responsible for the privacy practices of these third parties. We encourage you to review their privacy policies before providing any personal information."
+    },
+    "children": {
+      "title": "Children's Privacy",
+      "content": "Our services are not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us."
+    },
+    "changes": {
+      "title": "Changes to This Privacy Policy",
+      "content": "We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the 'Last updated' date. Your continued use of our services after any modifications constitutes acceptance of the updated Privacy Policy."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have any questions about this Privacy Policy or our privacy practices, please contact us:",
+      "email_label": "Email:",
+      "email": "hi@menteeno.app"
+    }
+  },
   "event": {
     "hero": {
       "badge": "Special Event",
