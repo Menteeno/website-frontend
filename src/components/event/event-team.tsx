@@ -28,7 +28,7 @@ const EventTeam = () => {
         linkedin: "https://www.linkedin.com/in/salehshojaei/",
         twitter: "#",
         github: "#",
-        email: "saleh@menteeno.com",
+        email: "saleh@menteeno.app",
       },
     },
     {
@@ -67,7 +67,7 @@ const EventTeam = () => {
         linkedin: "#",
         twitter: "#",
         github: "#",
-        email: "speaker3@menteeno.com",
+        email: "speaker3@menteeno.app",
       },
     },
   ];
@@ -221,7 +221,7 @@ const EventTeam = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="mailto:event@menteeno.com"
+                  href="mailto:hi@menteeno.app"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors duration-200"
                 >
                   <Mail className="size-4" />
