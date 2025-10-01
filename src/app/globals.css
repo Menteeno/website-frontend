@@ -217,6 +217,39 @@
       padding-right: 2rem;
     }
   }
+
+  /* GitHub-style loading bar animations */
+  .github-loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    z-index: 9999;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(59, 130, 246, 0.4),
+      transparent
+    );
+    animation: github-loading-shimmer 1.5s ease-in-out infinite;
+  }
+
+  @keyframes github-loading-shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .github-loading-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8, #3b82f6);
+    transition: width 0.2s ease-out;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+  }
 }
 
 ::view-transition-old(root),

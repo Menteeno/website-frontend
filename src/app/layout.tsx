@@ -1,6 +1,8 @@
+import { LoadingBarWrapper } from "@/components/loading-bar-wrapper";
 import { LocaleProvider } from "@/components/locale-provider";
 import { ResourceHints } from "@/components/seo/performance";
 import { SEOProvider } from "@/components/seo/seo-provider";
+import { LoadingProvider } from "@/contexts/loading-context";
 import { getAssetUrl } from "@/lib/config";
 import { generateMetadata, generateViewport } from "@/lib/metadata";
 import type { Metadata, Viewport } from "next";
@@ -82,14 +84,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <SEOProvider
-          googleAnalyticsId={process.env.NEXT_PUBLIC_GA_ID}
-          googleTagManagerId={process.env.NEXT_PUBLIC_GTM_ID}
-          facebookPixelId={process.env.NEXT_PUBLIC_FB_PIXEL_ID}
-          hotjarId={process.env.NEXT_PUBLIC_HOTJAR_ID}
-        >
-          <LocaleProvider>{children}</LocaleProvider>
-        </SEOProvider>
+        <LoadingProvider>
+          <LoadingBarWrapper />
+          <SEOProvider
+            googleAnalyticsId={process.env.NEXT_PUBLIC_GA_ID}
+            googleTagManagerId={process.env.NEXT_PUBLIC_GTM_ID}
+            facebookPixelId={process.env.NEXT_PUBLIC_FB_PIXEL_ID}
+            hotjarId={process.env.NEXT_PUBLIC_HOTJAR_ID}
+          >
+            <LocaleProvider>{children}</LocaleProvider>
+          </SEOProvider>
+        </LoadingProvider>
       </body>
     </html>
   );
