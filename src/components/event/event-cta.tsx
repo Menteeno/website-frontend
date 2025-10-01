@@ -148,7 +148,11 @@ const EventCTA = () => {
               size="lg"
               className="text-lg px-8 py-6 hover:scale-105 transition-all duration-200 hover:shadow-lg"
             >
-              <a href="#pricing">
+              <a
+                href="https://pay.frontchapter.ir/link/747292"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <ArrowRight className="size-5 order-1" />
                 <span className="order-2">{t("event.cta.primary-button")}</span>
               </a>

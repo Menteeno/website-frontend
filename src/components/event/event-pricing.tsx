@@ -135,7 +135,11 @@ const EventPricing = () => {
                   variant={tier.popular ? "default" : "outline"}
                   size="lg"
                 >
-                  <a href="#cta">
+                  <a
+                    href="https://pay.frontchapter.ir/link/747292"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <ArrowRight className="size-4 order-1" />
                     <span className="order-2">
                       {t("event.pricing.register-button")}
