@@ -24,7 +24,7 @@ const EventHero = () => {
           {t("event.hero.badge")}
         </Badge>
 
-        <h1 className="font-black text-4xl sm:text-5xl md:text-6xl mb-6">
+        <h1 className="font-black text-4xl sm:text-5xl md:text-6xl mb-6 leading-snug">
           {t("event.hero.title")}
         </h1>
 
@@ -70,7 +70,7 @@ const EventHero = () => {
               <p className="text-sm text-muted-foreground">
                 {t("event.hero.capacity")}
               </p>
-              <p className="font-semibold">۴۰ نفر</p>
+              <p className="font-semibold">۳۵ نفر</p>
             </div>
           </div>
         </div>

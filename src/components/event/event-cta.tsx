@@ -123,12 +123,12 @@ const EventCTA = () => {
               {t("event.cta.pricing.title")}
             </h3>
             <div className="flex items-baseline justify-center gap-2 mb-4">
-              <span className="text-4xl font-bold text-primary">۲,۵۰۰,۰۰۰</span>
+              <span className="text-4xl font-bold text-primary">۷۷۵,۰۰۰</span>
               <span className="text-lg text-muted-foreground">تومان</span>
             </div>
             <div className="flex items-center justify-center gap-2 mb-6">
               <span className="text-lg text-muted-foreground line-through">
-                ۳,۰۰۰,۰۰۰ تومان
+                ۹۸۵,۰۰۰ تومان
               </span>
               <Badge variant="destructive" className="text-xs">
                 {t("event.cta.pricing.discount")}

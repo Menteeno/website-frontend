@@ -380,7 +380,25 @@ export default function AuthForm() {
                       htmlFor="agreeToTerms"
                       className="text-sm text-muted-foreground leading-relaxed"
                     >
-                      {t("auth.agree_to_terms")}
+                      {t("auth.agree_to_terms")}{" "}
+                      <Link
+                        href={`/${locale}/terms`}
+                        className="text-blue-600 hover:text-blue-800 underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {t("auth.terms_of_service")}
+                      </Link>{" "}
+                      {t("auth.and")}{" "}
+                      <Link
+                        href={`/${locale}/privacy`}
+                        className="text-blue-600 hover:text-blue-800 underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {t("auth.privacy_policy")}
+                      </Link>
+                      {locale === "fa" && ` ${t("auth.agree_suffix")}`}
                     </Label>
                   </div>
                 </div>

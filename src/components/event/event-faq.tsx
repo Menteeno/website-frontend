@@ -17,14 +17,14 @@ const EventFAQ = () => {
 
   const faqItems: FAQItem[] = [
     {
-      id: "what-is-event",
-      question: t("event.faq.questions.what-is-event"),
-      answer: t("event.faq.answers.what-is-event"),
-    },
-    {
       id: "who-can-attend",
       question: t("event.faq.questions.who-can-attend"),
       answer: t("event.faq.answers.who-can-attend"),
+    },
+    {
+      id: "experience-required",
+      question: t("event.faq.questions.experience-required"),
+      answer: t("event.faq.answers.experience-required"),
     },
     {
       id: "what-to-bring",
@@ -32,34 +32,24 @@ const EventFAQ = () => {
       answer: t("event.faq.answers.what-to-bring"),
     },
     {
-      id: "cancellation-policy",
-      question: t("event.faq.questions.cancellation-policy"),
-      answer: t("event.faq.answers.cancellation-policy"),
+      id: "capacity",
+      question: t("event.faq.questions.capacity"),
+      answer: t("event.faq.answers.capacity"),
     },
     {
-      id: "dress-code",
-      question: t("event.faq.questions.dress-code"),
-      answer: t("event.faq.answers.dress-code"),
+      id: "what-will-learn",
+      question: t("event.faq.questions.what-will-learn"),
+      answer: t("event.faq.answers.what-will-learn"),
+    },
+    {
+      id: "metro-access",
+      question: t("event.faq.questions.metro-access"),
+      answer: t("event.faq.answers.metro-access"),
     },
     {
       id: "parking",
       question: t("event.faq.questions.parking"),
       answer: t("event.faq.answers.parking"),
-    },
-    {
-      id: "food-beverages",
-      question: t("event.faq.questions.food-beverages"),
-      answer: t("event.faq.answers.food-beverages"),
-    },
-    {
-      id: "certificate",
-      question: t("event.faq.questions.certificate"),
-      answer: t("event.faq.answers.certificate"),
-    },
-    {
-      id: "contact-info",
-      question: t("event.faq.questions.contact-info"),
-      answer: t("event.faq.answers.contact-info"),
     },
   ];
 
@@ -134,7 +124,7 @@ const EventFAQ = () => {
             {t("event.faq.footer.question")}
           </p>
           <a
-            href="mailto:event@menteeno.com"
+            href="mailto:hi@menteeno.app"
             className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors duration-200"
           >
             {t("event.faq.footer.cta")}

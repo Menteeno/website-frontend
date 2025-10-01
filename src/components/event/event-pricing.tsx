@@ -19,13 +19,16 @@ const EventPricing = () => {
       period: t("event.pricing.early-bird.period"),
       badge: t("event.pricing.early-bird.badge"),
       popular: true,
+      active: true,
       features: [
         t("event.pricing.early-bird.features.access"),
         t("event.pricing.early-bird.features.materials"),
         t("event.pricing.early-bird.features.networking"),
-        t("event.pricing.early-bird.features.certificate"),
         t("event.pricing.early-bird.features.meal"),
-        t("event.pricing.early-bird.features.support"),
+        t("event.pricing.early-bird.features.discussion"),
+        t("event.pricing.early-bird.features.team-building"),
+        t("event.pricing.early-bird.features.menteeno-access"),
+        t("event.pricing.early-bird.features.discount-codes"),
       ],
     },
     {
@@ -33,12 +36,16 @@ const EventPricing = () => {
       price: t("event.pricing.regular.price"),
       currency: t("event.pricing.regular.currency"),
       period: t("event.pricing.regular.period"),
+      active: false,
       features: [
         t("event.pricing.regular.features.access"),
         t("event.pricing.regular.features.materials"),
         t("event.pricing.regular.features.networking"),
-        t("event.pricing.regular.features.certificate"),
         t("event.pricing.regular.features.meal"),
+        t("event.pricing.regular.features.discussion"),
+        t("event.pricing.regular.features.team-building"),
+        t("event.pricing.regular.features.menteeno-access"),
+        t("event.pricing.regular.features.discount-codes"),
       ],
     },
   ];
@@ -79,7 +86,7 @@ const EventPricing = () => {
           {pricingTiers.map((tier, index) => (
             <Card
               key={index}
-              className={`relative ${tier.popular ? "border-primary shadow-lg" : ""}`}
+              className={`relative ${tier.popular ? "border-primary shadow-lg" : ""} ${!tier.active ? "opacity-60" : ""}`}
             >
               {tier.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
@@ -130,21 +137,28 @@ const EventPricing = () => {
                 </ul>
 
                 <Button
-                  asChild
-                  className={`w-full hover:scale-105 transition-all duration-200 hover:shadow-lg active:scale-95 ${tier.popular ? "bg-primary hover:bg-primary/90" : ""}`}
+                  asChild={tier.active}
+                  disabled={!tier.active}
+                  className={`w-full hover:scale-105 transition-all duration-200 hover:shadow-lg active:scale-95 ${tier.popular ? "bg-primary hover:bg-primary/90" : ""} ${!tier.active ? "cursor-not-allowed" : ""}`}
                   variant={tier.popular ? "default" : "outline"}
                   size="lg"
                 >
-                  <a
-                    href="https://pay.frontchapter.ir/link/747292"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ArrowRight className="size-4 order-1" />
-                    <span className="order-2">
-                      {t("event.pricing.register-button")}
+                  {tier.active ? (
+                    <a
+                      href="https://pay.frontchapter.ir/link/747292"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ArrowRight className="size-4 order-1" />
+                      <span className="order-2">
+                        {t("event.pricing.register-button")}
+                      </span>
+                    </a>
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      <span>{t("event.pricing.coming-soon")}</span>
                     </span>
-                  </a>
+                  )}
                 </Button>
               </CardContent>
             </Card>

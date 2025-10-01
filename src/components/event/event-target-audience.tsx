@@ -10,7 +10,6 @@ import {
   GraduationCap,
   Lightbulb,
   Target,
-  Users,
 } from "lucide-react";
 import { MagicCard } from "../magicui/magic-card";
 
@@ -62,19 +61,19 @@ const EventTargetAudience = () => {
 
   const whyAttend = [
     {
-      icon: Users,
-      title: t("event.audience.why.networking.title"),
-      description: t("event.audience.why.networking.description"),
+      icon: Target,
+      title: t("event.audience.why.practical_experience.title"),
+      description: t("event.audience.why.practical_experience.description"),
     },
     {
-      icon: Target,
-      title: t("event.audience.why.skills.title"),
-      description: t("event.audience.why.skills.description"),
+      icon: GraduationCap,
+      title: t("event.audience.why.soft_skills.title"),
+      description: t("event.audience.why.soft_skills.description"),
     },
     {
       icon: CheckCircle,
-      title: t("event.audience.why.certification.title"),
-      description: t("event.audience.why.certification.description"),
+      title: t("event.audience.why.effective_feedback.title"),
+      description: t("event.audience.why.effective_feedback.description"),
     },
   ];
 
@@ -141,9 +140,6 @@ const EventTargetAudience = () => {
             <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">
               {t("event.audience.why.title")}
             </h3>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              {t("event.audience.why.description")}
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
