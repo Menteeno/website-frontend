@@ -1,6 +1,16 @@
 {
   "common": {
-    "learn_more": "Learn more"
+    "learn_more": "Learn more",
+    "view_all": "View All",
+    "search": "Search...",
+    "filter": "Filter",
+    "no_results": "No results found",
+    "no_results_description": "Try searching with different keywords",
+    "error": "Error",
+    "error_description": "Something went wrong while loading data",
+    "try_again": "Try Again",
+    "save": "Save",
+    "saving": "Saving..."
   },
   "auth": {
     "failed": "These credentials do not match our records.",
@@ -455,6 +465,112 @@
       "creativity": "Creativity",
       "technology": "Technology",
       "excellence": "Excellence"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome",
+    "welcome_back": "Welcome back, {name}!",
+    "overview": "Overview",
+    "stats": {
+      "total_surveys": "Total Surveys",
+      "active_surveys": "Active Surveys",
+      "total_responses": "Total Responses",
+      "completion_rate": "Completion Rate"
+    },
+    "recent_surveys": "Recent Surveys",
+    "create_survey": "Create Survey",
+    "no_surveys": "No surveys created yet",
+    "no_surveys_description": "Create your first survey and start collecting feedback",
+    "survey_actions": {
+      "view": "View",
+      "edit": "Edit",
+      "duplicate": "Duplicate",
+      "delete": "Delete",
+      "share": "Share",
+      "analytics": "Analytics"
+    },
+    "create_dialog": {
+      "title": "Create New Survey",
+      "survey_title": "Survey Title",
+      "survey_title_placeholder": "Enter your survey title",
+      "survey_description": "Description",
+      "survey_description_placeholder": "Write a brief description about your survey",
+      "is_public": "Public",
+      "is_public_description": "Make survey visible to everyone",
+      "create_button": "Create Survey",
+      "cancel_button": "Cancel"
+    },
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "surveys": "Surveys",
+      "analytics": "Analytics",
+      "responses": "Responses",
+      "settings": "Settings",
+      "profile": "Profile",
+      "logout": "Logout"
+    },
+    "navigation": {
+      "home": "Home",
+      "surveys": "Surveys",
+      "analytics": "Analytics",
+      "responses": "Responses",
+      "settings": "Settings"
+    },
+    "analytics": {
+      "response_trends": "Response Trends",
+      "survey_performance": "Survey Performance",
+      "recent_activity": "Recent Activity",
+      "created": "Created",
+      "responses": "responses",
+      "this_week": "this week",
+      "chart_placeholder": "Chart will be displayed here"
+    },
+    "responses": {
+      "export": "Export",
+      "all_responses": "All Responses",
+      "no_responses": "No responses found",
+      "no_responses_description": "No responses have been received for your surveys yet",
+      "completed": "Completed",
+      "incomplete": "Incomplete",
+      "score": "Score",
+      "view": "View"
+    },
+    "settings": {
+      "description": "Manage your account settings and privacy preferences",
+      "profile": "Profile",
+      "notifications": "Notifications",
+      "privacy": "Privacy",
+      "email_notifications": "Email Notifications",
+      "email_notifications_description": "Receive notifications via email",
+      "push_notifications": "Push Notifications",
+      "push_notifications_description": "Receive notifications in browser",
+      "sms_notifications": "SMS Notifications",
+      "sms_notifications_description": "Receive notifications via SMS",
+      "public_profile": "Public Profile",
+      "public_profile_description": "Make your profile visible to everyone",
+      "show_email": "Show Email",
+      "show_email_description": "Display your email in public profile",
+      "show_mobile": "Show Mobile",
+      "show_mobile_description": "Display your mobile number in public profile"
+    },
+    "survey": {
+      "back_to_dashboard": "Back to Dashboard",
+      "created": "Created",
+      "estimated_time": "Estimated time",
+      "minutes": "minutes",
+      "questions": "questions",
+      "question": "Question",
+      "of": "of",
+      "enter_answer": "Enter your answer",
+      "rate_from": "Rate from",
+      "to": "to",
+      "previous": "Previous",
+      "next": "Next",
+      "submit": "Submit",
+      "footer_text": "Thank you for participating in this survey",
+      "not_found": "Survey not found",
+      "not_found_description": "The requested survey does not exist or has been deleted"
     }
   },
   "event": {

@@ -12,6 +12,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
+import { useTranslation } from "@/hooks/use-translation";
 import { useSurvey_storeMutation } from "@/services/menteenoApi.generated";
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
@@ -27,6 +28,7 @@ export function CreateSurveyDialog({
   onOpenChange,
   onSuccess,
 }: CreateSurveyDialogProps) {
+  const { t } = useTranslation();
   const [createSurvey, { isLoading }] = useSurvey_storeMutation();
   const [formData, setFormData] = useState({
     title: "",
@@ -36,12 +38,6 @@ export function CreateSurveyDialog({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!formData.title.trim()) {
-      alert("Please enter a survey title");
-      return;
-    }
-
     try {
       await createSurvey({
         body: {
@@ -50,18 +46,14 @@ export function CreateSurveyDialog({
           is_active: formData.is_active,
         },
       }).unwrap();
-
-      // Reset form
+      onSuccess();
       setFormData({
         title: "",
         unique_link_slug: "",
         is_active: true,
       });
-
-      onSuccess();
     } catch (error) {
       console.error("Failed to create survey:", error);
-      alert("Failed to create survey. Please try again.");
     }
   };
 
@@ -69,7 +61,6 @@ export function CreateSurveyDialog({
     if (!isLoading) {
       onOpenChange(newOpen);
       if (!newOpen) {
-        // Reset form when closing
         setFormData({
           title: "",
           unique_link_slug: "",
@@ -84,18 +75,21 @@ export function CreateSurveyDialog({
       <DialogContent className="sm:max-w-[425px]">
         <form onSubmit={handleSubmit}>
           <DialogHeader>
-            <DialogTitle>Create New Survey</DialogTitle>
+            <DialogTitle>{t("dashboard.create_dialog.title")}</DialogTitle>
             <DialogDescription>
-              Create a new survey to start collecting responses from your
-              audience.
+              {t("dashboard.create_dialog.title")}
             </DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
             <div className="grid gap-2">
-              <Label htmlFor="title">Survey Title *</Label>
+              <Label htmlFor="title">
+                {t("dashboard.create_dialog.survey_title")} *
+              </Label>
               <Input
                 id="title"
-                placeholder="Enter survey title"
+                placeholder={t(
+                  "dashboard.create_dialog.survey_title_placeholder"
+                )}
                 value={formData.title}
                 onChange={(e) =>
                   setFormData((prev) => ({ ...prev, title: e.target.value }))
@@ -104,7 +98,9 @@ export function CreateSurveyDialog({
               />
             </div>
             <div className="grid gap-2">
-              <Label htmlFor="slug">Custom URL Slug (Optional)</Label>
+              <Label htmlFor="slug">
+                {t("dashboard.create_dialog.survey_title")} (Optional)
+              </Label>
               <Input
                 id="slug"
                 placeholder="my-survey"
@@ -116,15 +112,12 @@ export function CreateSurveyDialog({
                   }))
                 }
               />
-              <p className="text-xs text-muted-foreground">
-                If left empty, a random slug will be generated
-              </p>
             </div>
             <div className="flex items-center space-x-2">
               <Switch
                 id="active"
                 checked={formData.is_active}
-                onCheckedChange={(checked: boolean) =>
+                onCheckedChange={(checked) =>
                   setFormData((prev) => ({ ...prev, is_active: checked }))
                 }
               />
@@ -138,11 +131,11 @@ export function CreateSurveyDialog({
               onClick={() => handleOpenChange(false)}
               disabled={isLoading}
             >
-              Cancel
+              {t("dashboard.create_dialog.cancel_button")}
             </Button>
             <Button type="submit" disabled={isLoading}>
               {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              Create Survey
+              {t("dashboard.create_dialog.create_button")}
             </Button>
           </DialogFooter>
         </form>
