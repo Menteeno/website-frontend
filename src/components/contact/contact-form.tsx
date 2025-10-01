@@ -78,10 +78,6 @@ export function ContactForm() {
 
     try {
       const formDataToSubmit = new FormData();
-      formDataToSubmit.append(
-        "access_key",
-        "82a792ee-5aef-486d-a6d6-449fb2cb367e"
-      );
       formDataToSubmit.append("name", formData.name);
       formDataToSubmit.append("email", formData.email);
       formDataToSubmit.append("message", formData.message);
@@ -92,19 +88,21 @@ export function ContactForm() {
       formDataToSubmit.append("from_name", "Menteeno Contact Form");
       formDataToSubmit.append("reply_to", formData.email);
 
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         body: formDataToSubmit,
       });
 
-      if (response.ok) {
+      const result = await response.json();
+
+      if (result.success) {
         // Reset form on success
         setFormData({ name: "", email: "", message: "" });
         setSubmitStatus("success");
         // Clear success message after 5 seconds
         setTimeout(() => setSubmitStatus("idle"), 5000);
       } else {
-        throw new Error("Failed to send message");
+        throw new Error(result.error || "Failed to send message");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
