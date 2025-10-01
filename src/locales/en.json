@@ -1108,34 +1108,112 @@
     }
   },
   "blog": {
-    "title": "Blog",
-    "description": "Helpful articles and guides for developing soft skills and professional growth",
-    "read_more": "Read More",
-    "read_time": "min read",
-    "published_on": "Published on",
-    "author": "Author",
-    "category": "Category",
-    "tags": "Tags",
-    "related_posts": "Related Articles",
-    "featured_posts": "Featured Articles",
-    "recent_posts": "Recent Articles",
-    "all_categories": "All Categories",
-    "all_tags": "All Tags",
-    "search_placeholder": "Search articles...",
-    "no_posts_found": "No articles found",
-    "back_to_blog": "Back to Blog",
-    "share": "Share",
-    "copied": "Copied!",
-    "previous": "Previous",
-    "next": "Next",
-    "page": "Page",
-    "of": "of",
+    "title": "Menteeno Blog",
+    "description": "Helpful articles and guides for developing soft skills, professional growth, and improving communication and teamwork skills in programming.",
+    "meta": {
+      "title": "Blog | Menteeno",
+      "description": "Discover expert insights on soft skills, programming, and professional development. Join our community of developers and professionals.",
+      "keywords": "blog, programming, soft skills, career development, teamwork, leadership, mentorship"
+    },
+    "navigation": {
+      "back_to_blog": "Back to Blog",
+      "all_posts": "All Posts",
+      "featured_posts": "Featured Posts",
+      "recent_posts": "Recent Posts"
+    },
+    "filters": {
+      "search_placeholder": "Search articles...",
+      "select_category": "Select Category",
+      "all_categories": "All Categories",
+      "all_tags": "All Tags",
+      "sort_by": "Sort by",
+      "sort_options": {
+        "newest": "Newest",
+        "oldest": "Oldest",
+        "title_asc": "Title A-Z",
+        "title_desc": "Title Z-A",
+        "reading_time": "Reading Time"
+      },
+      "show_featured_only": "Show featured only",
+      "clear_filters": "Clear filters"
+    },
+    "post": {
+      "read_more": "Read more",
+      "read_time": "min read",
+      "reading_time": "minute read",
+      "published_on": "Published on",
+      "updated_on": "Updated on",
+      "author": "Author",
+      "category": "Category",
+      "tags": "Tags",
+      "share": "Share",
+      "copied": "Copied!",
+      "view_count": "views",
+      "like_count": "likes",
+      "comment_count": "comments",
+      "featured": "Featured",
+      "draft": "Draft",
+      "archived": "Archived"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page",
+      "of": "of",
+      "showing": "Showing",
+      "to": "to",
+      "of_total": "of",
+      "results": "results"
+    },
+    "sections": {
+      "related_posts": "Related Articles",
+      "featured_posts": "Featured Articles",
+      "recent_posts": "Recent Articles",
+      "popular_posts": "Popular Articles",
+      "categories": "Categories",
+      "tags": "Tags",
+      "authors": "Authors"
+    },
+    "empty": {
+      "no_posts_found": "No articles found",
+      "no_posts_description": "Try adjusting your search or filter criteria",
+      "no_related_posts": "No related articles found",
+      "no_featured_posts": "No featured articles available",
+      "no_recent_posts": "No recent articles available"
+    },
+    "loading": {
+      "loading_posts": "Loading articles...",
+      "loading_post": "Loading article...",
+      "loading_related": "Loading related articles...",
+      "loading_categories": "Loading categories...",
+      "loading_tags": "Loading tags..."
+    },
+    "error": {
+      "failed_to_load": "Failed to load articles",
+      "failed_to_load_post": "Failed to load article",
+      "post_not_found": "Article not found",
+      "network_error": "Network error. Please try again.",
+      "server_error": "Server error. Please try again later.",
+      "retry": "Retry"
+    },
     "categories": {
       "soft-skills": "Soft Skills",
       "programming": "Programming",
       "career": "Career",
       "teamwork": "Teamwork",
       "leadership": "Leadership"
+    },
+    "tags": {
+      "communication": "Communication",
+      "leadership": "Leadership",
+      "teamwork": "Teamwork",
+      "problem-solving": "Problem Solving",
+      "mentorship": "Mentorship",
+      "career-growth": "Career Growth",
+      "javascript": "JavaScript",
+      "react": "React",
+      "typescript": "TypeScript",
+      "frontend": "Frontend"
     }
   }
 }

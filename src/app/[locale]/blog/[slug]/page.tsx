@@ -3,10 +3,9 @@ import { BlogSidebar } from "@/components/blog/blog-sidebar";
 import { Footer } from "@/components/footer";
 import Navbar from "@/components/navbar/navbar";
 import {
-  getBlogPostBySlug,
+  getBlogDetail,
   getFeaturedPosts,
   getRecentPosts,
-  getRelatedPosts,
 } from "@/lib/blog";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -23,18 +22,20 @@ export async function generateMetadata({
 }: BlogPostPageProps): Promise<Metadata> {
   const { locale, slug } = await params;
 
-  const post = await getBlogPostBySlug(slug, locale as "en" | "fa");
+  const blogDetail = await getBlogDetail(slug, locale as "en" | "fa");
 
-  if (!post) {
+  if (!blogDetail) {
     return {
       title: "Post Not Found",
     };
   }
 
+  const { post } = blogDetail;
+
   return {
     title: post.seo.title,
     description: post.seo.description,
-    keywords: post.seo.keywords,
+    keywords: post.seo.keywords.join(", "),
     openGraph: {
       title: post.seo.title,
       description: post.seo.description,
@@ -42,7 +43,7 @@ export async function generateMetadata({
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
       authors: [post.author.name],
-      tags: post.tags,
+      tags: post.tags.map(tag => tag.name),
       locale: locale === "fa" ? "fa_IR" : "en_US",
       images: post.seo.image
         ? [
@@ -50,7 +51,7 @@ export async function generateMetadata({
               url: post.seo.image,
               width: 1200,
               height: 630,
-              alt: post.title,
+              alt: post.seo.imageAlt || post.title,
             },
           ]
         : [],
@@ -62,11 +63,15 @@ export async function generateMetadata({
       images: post.seo.image ? [post.seo.image] : [],
     },
     alternates: {
-      canonical: `/${locale}/blog/${slug}`,
+      canonical: post.seo.canonicalUrl || `/${locale}/blog/${slug}`,
       languages: {
         en: `/en/blog/${slug}`,
         fa: `/fa/blog/${slug}`,
       },
+    },
+    robots: {
+      index: !post.seo.noIndex,
+      follow: !post.seo.noFollow,
     },
   };
 }
@@ -98,17 +103,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
-  const [post, featuredPosts, recentPosts] = await Promise.all([
-    getBlogPostBySlug(slug, locale as "en" | "fa"),
+  const [blogDetail, featuredPosts, recentPosts] = await Promise.all([
+    getBlogDetail(slug, locale as "en" | "fa"),
     getFeaturedPosts(locale as "en" | "fa", 3),
     getRecentPosts(locale as "en" | "fa", 5),
   ]);
 
-  if (!post) {
+  if (!blogDetail) {
     notFound();
   }
 
-  const relatedPosts = await getRelatedPosts(post, 3);
+  const { post, relatedPosts, prevPost, nextPost } = blogDetail;
 
   return (
     <>
@@ -118,7 +123,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-3">
-              <BlogDetail post={post} relatedPosts={relatedPosts} />
+              <BlogDetail 
+                post={post} 
+                relatedPosts={relatedPosts}
+                prevPost={prevPost}
+                nextPost={nextPost}
+              />
             </div>
 
             {/* Sidebar */}
@@ -126,8 +136,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               <BlogSidebar
                 featuredPosts={featuredPosts}
                 recentPosts={recentPosts}
-                categories={[]} // We don't need categories in the sidebar for individual posts
-                tags={[]} // We don't need tags in the sidebar for individual posts
+                categories={[]}
+                tags={[]}
               />
             </div>
           </div>

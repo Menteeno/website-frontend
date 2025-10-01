@@ -1161,34 +1161,112 @@
     }
   },
   "blog": {
-    "title": "وبلاگ",
-    "description": "مقالات و راهنماهای مفید برای توسعه مهارت‌های نرم و رشد حرفه‌ای",
-    "read_more": "ادامه مطلب",
-    "read_time": "دقیقه مطالعه",
-    "published_on": "منتشر شده در",
-    "author": "نویسنده",
-    "category": "دسته‌بندی",
-    "tags": "برچسب‌ها",
-    "related_posts": "مقالات مرتبط",
-    "featured_posts": "مقالات ویژه",
-    "recent_posts": "آخرین مقالات",
-    "all_categories": "همه دسته‌ها",
-    "all_tags": "همه برچسب‌ها",
-    "search_placeholder": "جستجو در مقالات...",
-    "no_posts_found": "مقاله‌ای یافت نشد",
-    "back_to_blog": "بازگشت به وبلاگ",
-    "share": "اشتراک‌گذاری",
-    "copied": "کپی شد!",
-    "previous": "قبلی",
-    "next": "بعدی",
-    "page": "صفحه",
-    "of": "از",
+    "title": "وبلاگ منتینو",
+    "description": "مقالات و راهنماهای مفید برای توسعه مهارت‌های نرم، رشد حرفه‌ای و بهبود مهارت‌های ارتباطی و کار تیمی در برنامه‌نویسی.",
+    "meta": {
+      "title": "وبلاگ | منتینو",
+      "description": "بینش‌های متخصصان در مورد مهارت‌های نرم، برنامه‌نویسی و توسعه حرفه‌ای را کشف کنید. به جامعه توسعه‌دهندگان و متخصصان ما بپیوندید.",
+      "keywords": "وبلاگ, برنامه‌نویسی, مهارت‌های نرم, توسعه شغلی, کار تیمی, رهبری, منتورشیپ"
+    },
+    "navigation": {
+      "back_to_blog": "بازگشت به وبلاگ",
+      "all_posts": "همه مقالات",
+      "featured_posts": "مقالات ویژه",
+      "recent_posts": "مقالات اخیر"
+    },
+    "filters": {
+      "search_placeholder": "جستجو در مقالات...",
+      "select_category": "انتخاب دسته‌بندی",
+      "all_categories": "همه دسته‌ها",
+      "all_tags": "همه برچسب‌ها",
+      "sort_by": "مرتب‌سازی بر اساس",
+      "sort_options": {
+        "newest": "جدیدترین",
+        "oldest": "قدیمی‌ترین",
+        "title_asc": "عنوان الف-ی",
+        "title_desc": "عنوان ی-الف",
+        "reading_time": "زمان مطالعه"
+      },
+      "show_featured_only": "فقط مقالات ویژه",
+      "clear_filters": "پاک کردن فیلترها"
+    },
+    "post": {
+      "read_more": "ادامه مطلب",
+      "read_time": "دقیقه مطالعه",
+      "reading_time": "دقیقه مطالعه",
+      "published_on": "منتشر شده در",
+      "updated_on": "به‌روزرسانی شده در",
+      "author": "نویسنده",
+      "category": "دسته‌بندی",
+      "tags": "برچسب‌ها",
+      "share": "اشتراک‌گذاری",
+      "copied": "کپی شد!",
+      "view_count": "بازدید",
+      "like_count": "لایک",
+      "comment_count": "نظر",
+      "featured": "ویژه",
+      "draft": "پیش‌نویس",
+      "archived": "آرشیو شده"
+    },
+    "pagination": {
+      "previous": "قبلی",
+      "next": "بعدی",
+      "page": "صفحه",
+      "of": "از",
+      "showing": "نمایش",
+      "to": "تا",
+      "of_total": "از",
+      "results": "نتیجه"
+    },
+    "sections": {
+      "related_posts": "مقالات مرتبط",
+      "featured_posts": "مقالات ویژه",
+      "recent_posts": "مقالات اخیر",
+      "popular_posts": "مقالات محبوب",
+      "categories": "دسته‌بندی‌ها",
+      "tags": "برچسب‌ها",
+      "authors": "نویسندگان"
+    },
+    "empty": {
+      "no_posts_found": "مقاله‌ای یافت نشد",
+      "no_posts_description": "سعی کنید معیارهای جستجو یا فیلتر خود را تنظیم کنید",
+      "no_related_posts": "مقاله مرتبطی یافت نشد",
+      "no_featured_posts": "مقاله ویژه‌ای در دسترس نیست",
+      "no_recent_posts": "مقاله اخیری در دسترس نیست"
+    },
+    "loading": {
+      "loading_posts": "در حال بارگذاری مقالات...",
+      "loading_post": "در حال بارگذاری مقاله...",
+      "loading_related": "در حال بارگذاری مقالات مرتبط...",
+      "loading_categories": "در حال بارگذاری دسته‌بندی‌ها...",
+      "loading_tags": "در حال بارگذاری برچسب‌ها..."
+    },
+    "error": {
+      "failed_to_load": "بارگذاری مقالات ناموفق بود",
+      "failed_to_load_post": "بارگذاری مقاله ناموفق بود",
+      "post_not_found": "مقاله یافت نشد",
+      "network_error": "خطای شبکه. لطفاً دوباره تلاش کنید.",
+      "server_error": "خطای سرور. لطفاً بعداً تلاش کنید.",
+      "retry": "تلاش مجدد"
+    },
     "categories": {
       "soft-skills": "مهارت‌های نرم",
       "programming": "برنامه‌نویسی",
       "career": "شغل",
       "teamwork": "کار تیمی",
       "leadership": "رهبری"
+    },
+    "tags": {
+      "communication": "ارتباطات",
+      "leadership": "رهبری",
+      "teamwork": "کار تیمی",
+      "problem-solving": "حل مسئله",
+      "mentorship": "منتورشیپ",
+      "career-growth": "رشد شغلی",
+      "javascript": "جاوااسکریپت",
+      "react": "ریکت",
+      "typescript": "تایپ‌اسکریپت",
+      "frontend": "فرانت‌اند"
     }
   }
 }
