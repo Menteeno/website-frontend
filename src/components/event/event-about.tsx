@@ -159,30 +159,12 @@ const EventAbout = () => {
               >
                 {eventImages.map((image) => (
                   <SwiperSlide key={image.id}>
-                    <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl group">
+                    <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-lg">
                       <img
                         src={image.src}
                         alt={image.alt}
-                        className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110 group-hover:saturate-110"
+                        className="w-full h-full object-cover"
                       />
-
-                      {/* Instagram/TikTok style overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-                      <div className="absolute inset-0 bg-gradient-to-br from-pink-500/20 via-purple-500/15 to-blue-500/20"></div>
-                      <div className="absolute inset-0 bg-gradient-to-tl from-yellow-400/10 via-transparent to-cyan-400/15"></div>
-
-                      {/* Vignette effect */}
-                      <div className="absolute inset-0 rounded-2xl shadow-[inset_0_0_50px_rgba(0,0,0,0.3)]"></div>
-
-                      {/* Glow border effect */}
-                      <div className="absolute inset-0 rounded-2xl border-2 border-white/20 group-hover:border-white/40 transition-all duration-500"></div>
-
-                      {/* Shimmer effect like TikTok */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out"></div>
-
-                      {/* Corner accent like Instagram */}
-                      <div className="absolute top-4 right-4 w-2 h-2 bg-gradient-to-br from-pink-400 to-purple-500 rounded-full animate-pulse"></div>
-                      <div className="absolute top-6 right-6 w-1 h-1 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full animate-pulse delay-300"></div>
                     </div>
                   </SwiperSlide>
                 ))}
