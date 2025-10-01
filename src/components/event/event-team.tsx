@@ -106,14 +106,14 @@ const EventTeam = () => {
         {/* Main Team Members */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {teamMembers.map((member, index) => (
-            <Card key={index} className="p-0 shadow-none border-none">
+            <Card key={index} className="p-0 shadow-none border-none h-full">
               <MagicCard
                 gradientColor="oklch(72.3% 0.219 149.579 / .15)"
-                className="p-0 h-full"
+                className="p-0 h-full flex flex-col"
                 gradientFrom="oklch(72.3% 0.219 149.579 / .9)"
                 gradientTo="oklch(72.3% 0.219 149.579 / .4)"
               >
-                <CardContent className="p-6 text-center">
+                <CardContent className="p-6 text-center flex flex-col h-full">
                   <div className="relative mb-4">
                     <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden border-2 border-primary/20">
                       <img
@@ -129,7 +129,7 @@ const EventTeam = () => {
 
                   <h3 className="font-semibold text-lg mb-2">{member.name}</h3>
 
-                  <p className="text-muted-foreground text-sm mb-4">
+                  <p className="text-muted-foreground text-sm mb-4 flex-grow min-h-[2.5rem]">
                     {member.bio}
                   </p>
 
@@ -139,7 +139,7 @@ const EventTeam = () => {
                     </Badge>
                   </div>
 
-                  <div className="flex justify-center gap-2">
+                  <div className="flex justify-center gap-2 mt-auto pt-2">
                     <a
                       href={member.social.linkedin}
                       className="p-2 hover:bg-primary/10 rounded-full transition-colors duration-200"
