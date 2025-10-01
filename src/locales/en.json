@@ -533,7 +533,7 @@
     },
     "cookies": {
       "title": "Cookies and Tracking Technologies",
-      "content": "We use cookies and similar tracking technologies to enhance your experience on our platform. You can control cookie preferences through your browser settings."
+      "content": "We use cookies and similar tracking technologies to enhance your experience on our platform. You can control cookie preferences through your browser settings. For detailed information about our use of cookies, please see our Cookie Policy."
     },
     "third_party": {
       "title": "Third-Party Services",
@@ -954,6 +954,111 @@
       "primary-button": "Register Now",
       "secondary-button": "More Information",
       "disclaimer": "Registration continues until capacity is reached"
+    }
+  },
+  "cookies": {
+    "title": "Cookie Policy",
+    "last_updated": "Last updated: Mordad 1404",
+    "introduction": {
+      "title": "Introduction",
+      "content": "This Cookie Policy explains how Menteeno uses cookies and similar technologies when you visit our website. It explains what these technologies are and why we use them, as well as your rights to control our use of them."
+    },
+    "what_are_cookies": {
+      "title": "What Are Cookies?",
+      "content": "Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners to make their websites work, or to work more efficiently, as well as to provide reporting information."
+    },
+    "types": {
+      "title": "Types of Cookies We Use",
+      "essential": {
+        "title": "Essential Cookies",
+        "content": "These cookies are necessary for the website to function and cannot be switched off in our systems. They are usually only set in response to actions made by you which amount to a request for services.",
+        "items": {
+          "authentication": "User authentication and login status",
+          "security": "Security and fraud prevention",
+          "preferences": "User preferences and settings",
+          "functionality": "Core website functionality"
+        }
+      },
+      "analytics": {
+        "title": "Analytics Cookies",
+        "content": "These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular.",
+        "items": {
+          "usage": "Track how visitors use our website",
+          "performance": "Monitor website performance",
+          "improvements": "Identify areas for improvement",
+          "anonymized": "All information is collected anonymously"
+        }
+      },
+      "marketing": {
+        "title": "Marketing Cookies",
+        "content": "These cookies may be set through our site by our advertising partners to build a profile of your interests and show you relevant adverts on other sites.",
+        "items": {
+          "advertising": "Display relevant advertisements",
+          "targeting": "Create user profiles for targeting",
+          "tracking": "Track users across websites",
+          "personalization": "Personalize content and ads"
+        }
+      }
+    },
+    "we_use": {
+      "title": "Specific Cookies We Use",
+      "session_cookies": {
+        "title": "Session Cookies",
+        "description": "These are temporary cookies that expire when you close your browser. They help maintain your session while you navigate through our website.",
+        "duration": "Duration: Session only"
+      },
+      "preference_cookies": {
+        "title": "Preference Cookies",
+        "description": "These cookies remember your preferences and settings to provide a personalized experience on future visits.",
+        "duration": "Duration: Up to 1 year"
+      },
+      "analytics_cookies": {
+        "title": "Analytics Cookies",
+        "description": "These cookies collect information about how you use our website, helping us improve our services and user experience.",
+        "duration": "Duration: Up to 2 years"
+      }
+    },
+    "third_party": {
+      "title": "Third-Party Cookies",
+      "content": "Some cookies on our site are set by third-party services that appear on our pages. We do not control these cookies and you should check the third-party websites for more information about these.",
+      "google_analytics": {
+        "title": "Google Analytics",
+        "content": "We use Google Analytics to analyze the use of our website. Google Analytics gathers information about website use by means of cookies."
+      },
+      "social_media": {
+        "title": "Social Media",
+        "content": "Our website may include social media features, such as sharing buttons, which may set cookies on your device."
+      }
+    },
+    "managing": {
+      "title": "Managing Cookies",
+      "content": "You have the right to decide whether to accept or reject cookies. You can exercise your cookie rights by setting your preferences in the cookie settings or by using your browser settings.",
+      "browser_settings": {
+        "title": "Browser Settings",
+        "content": "Most web browsers allow you to control cookies through their settings preferences. You can set your browser to refuse cookies or delete certain cookies.",
+        "chrome": "Chrome: Settings > Privacy and security > Cookies and other site data",
+        "firefox": "Firefox: Options > Privacy & Security > Cookies and Site Data",
+        "safari": "Safari: Preferences > Privacy > Manage Website Data",
+        "edge": "Edge: Settings > Cookies and site permissions > Cookies and site data"
+      },
+      "our_preferences": {
+        "title": "Our Cookie Preferences",
+        "content": "You can manage your cookie preferences through our cookie settings panel, which you can access at any time by clicking the cookie settings link in our footer."
+      }
+    },
+    "impact": {
+      "title": "Impact of Disabling Cookies",
+      "content": "If you choose to disable cookies, some features of our website may not function properly. Essential cookies are required for the basic functionality of the website, so disabling them may prevent you from using certain features."
+    },
+    "updates": {
+      "title": "Updates to This Cookie Policy",
+      "content": "We may update this Cookie Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify you of any material changes by posting the new Cookie Policy on this page."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have any questions about our use of cookies or this Cookie Policy, please contact us.",
+      "email_label": "Email:",
+      "email": "privacy@menteeno.com"
     }
   }
 }

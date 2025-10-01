@@ -193,6 +193,14 @@ function PrivacyContent({ params }: { params: Promise<{ locale: string }> }) {
                   <p className="text-muted-foreground leading-relaxed">
                     {t("privacy.cookies.content")}
                   </p>
+                  <p className="text-muted-foreground leading-relaxed mt-2">
+                    <a
+                      href={`/${locale}/cookies`}
+                      className="text-primary hover:text-primary/80 underline"
+                    >
+                      {t("footer.legal.cookies")}
+                    </a>
+                  </p>
                 </section>
 
                 {/* Third-Party Services */}

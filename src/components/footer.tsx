@@ -222,8 +222,9 @@ export function Footer({ className }: FooterProps) {
               variant="ghost"
               size="sm"
               className="h-8 md:h-auto p-2 md:p-0 text-muted-foreground hover:text-foreground"
+              asChild
             >
-              {t("footer.legal.cookies")}
+              <a href={`/${locale}/cookies`}>{t("footer.legal.cookies")}</a>
             </Button>
           </div>
         </div>
