@@ -20,7 +20,10 @@
     "email_placeholder": "Enter your email address",
     "password_placeholder": "Enter your password",
     "confirm_password_placeholder": "Confirm your password",
-    "agree_to_terms": "I agree to the Terms of Service and Privacy Policy",
+    "agree_to_terms": "I agree to the",
+    "terms_of_service": "Terms of Service",
+    "and": "and",
+    "privacy_policy": "Privacy Policy",
     "sign_in": "Sign In",
     "create_account": "Create Account",
     "processing": "Processing...",
@@ -464,7 +467,7 @@
   },
   "privacy": {
     "title": "Privacy Policy",
-    "last_updated": "Last updated: December 2024 (آذر ۱۴۰۳)",
+    "last_updated": "Last updated: September 2024 (مهر ۱۴۰۴)",
     "introduction": {
       "title": "Introduction",
       "content": "At Menteeno, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform and services."
@@ -547,6 +550,102 @@
     "contact": {
       "title": "Contact Us",
       "content": "If you have any questions about this Privacy Policy or our privacy practices, please contact us:",
+      "email_label": "Email:",
+      "email": "hi@menteeno.app"
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "last_updated": "Last updated: September 2024 (مهر ۱۴۰۴)",
+    "introduction": {
+      "title": "Introduction",
+      "content": "Welcome to Menteeno! These Terms of Service ('Terms') govern your use of our platform and services. By accessing or using Menteeno, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our services."
+    },
+    "acceptance": {
+      "title": "Acceptance of Terms",
+      "content": "By creating an account, accessing our platform, or using any of our services, you acknowledge that you have read, understood, and agree to be bound by these Terms and our Privacy Policy. These Terms constitute a legally binding agreement between you and Menteeno."
+    },
+    "service_description": {
+      "title": "Description of Service",
+      "content": "Menteeno is a platform that provides mentorship and educational services, including but not limited to:",
+      "features": {
+        "event_management": "Event management and registration services",
+        "user_registration": "User account creation and management",
+        "communication": "Communication tools for mentors and mentees",
+        "content_sharing": "Educational content and resource sharing"
+      }
+    },
+    "user_accounts": {
+      "title": "User Accounts",
+      "registration": {
+        "title": "Account Registration",
+        "content": "To access certain features of our service, you must create an account. You agree to provide accurate, current, and complete information during registration and to update such information to keep it accurate, current, and complete."
+      },
+      "responsibility": {
+        "title": "Account Responsibility",
+        "content": "You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account."
+      }
+    },
+    "user_conduct": {
+      "title": "User Conduct",
+      "content": "You agree to use our service only for lawful purposes and in accordance with these Terms. You are responsible for your conduct and content while using our platform.",
+      "prohibited": {
+        "title": "Prohibited Activities",
+        "items": {
+          "illegal": "Engaging in any illegal or unauthorized activities",
+          "harmful": "Posting harmful, threatening, or offensive content",
+          "spam": "Sending spam or unsolicited communications",
+          "unauthorized": "Attempting to gain unauthorized access to our systems",
+          "impersonation": "Impersonating others or providing false information"
+        }
+      },
+      "required": {
+        "title": "Required Conduct",
+        "items": {
+          "respectful": "Treating all users with respect and professionalism",
+          "accurate": "Providing accurate and truthful information",
+          "compliant": "Complying with all applicable laws and regulations"
+        }
+      }
+    },
+    "intellectual_property": {
+      "title": "Intellectual Property Rights",
+      "our_content": {
+        "title": "Our Content",
+        "content": "All content, features, and functionality of our service, including but not limited to text, graphics, logos, and software, are owned by Menteeno and are protected by copyright, trademark, and other intellectual property laws."
+      },
+      "user_content": {
+        "title": "User Content",
+        "content": "You retain ownership of any content you submit to our platform. By submitting content, you grant us a non-exclusive, royalty-free license to use, modify, and distribute such content in connection with our services."
+      }
+    },
+    "privacy": {
+      "title": "Privacy and Data Protection",
+      "content": "Your privacy is important to us. Our collection and use of personal information is governed by our Privacy Policy, which is incorporated into these Terms by reference. Please review our Privacy Policy to understand our practices."
+    },
+    "service_availability": {
+      "title": "Service Availability",
+      "content": "We strive to provide continuous service availability, but we do not guarantee that our service will be uninterrupted or error-free. We reserve the right to modify, suspend, or discontinue any part of our service at any time with or without notice."
+    },
+    "liability": {
+      "title": "Limitation of Liability",
+      "content": "To the maximum extent permitted by law, Menteeno shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or use, arising out of or relating to your use of our service."
+    },
+    "termination": {
+      "title": "Termination",
+      "content": "We may terminate or suspend your account and access to our service immediately, without prior notice, for any reason, including if you breach these Terms. Upon termination, your right to use the service will cease immediately."
+    },
+    "changes": {
+      "title": "Changes to Terms",
+      "content": "We reserve the right to modify these Terms at any time. We will notify users of any material changes by posting the new Terms on our platform. Your continued use of our service after such modifications constitutes acceptance of the updated Terms."
+    },
+    "governing_law": {
+      "title": "Governing Law",
+      "content": "These Terms shall be governed by and construed in accordance with the laws of Iran, without regard to its conflict of law provisions. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts of Iran."
+    },
+    "contact": {
+      "title": "Contact Information",
+      "content": "If you have any questions about these Terms of Service, please contact us:",
       "email_label": "Email:",
       "email": "hi@menteeno.app"
     }

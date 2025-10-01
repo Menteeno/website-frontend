@@ -12,7 +12,7 @@ interface FooterProps {
 }
 
 export function Footer({ className }: FooterProps) {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -208,14 +208,15 @@ export function Footer({ className }: FooterProps) {
               className="h-8 md:h-auto p-2 md:p-0 text-muted-foreground hover:text-foreground"
               asChild
             >
-              <a href="/privacy">{t("footer.legal.privacy")}</a>
+              <a href={`/${locale}/privacy`}>{t("footer.legal.privacy")}</a>
             </Button>
             <Button
               variant="ghost"
               size="sm"
               className="h-8 md:h-auto p-2 md:p-0 text-muted-foreground hover:text-foreground"
+              asChild
             >
-              {t("footer.legal.terms")}
+              <a href={`/${locale}/terms`}>{t("footer.legal.terms")}</a>
             </Button>
             <Button
               variant="ghost"
