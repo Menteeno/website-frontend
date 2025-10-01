@@ -1159,5 +1159,36 @@
     "validation": {
       "message_required": "پیام الزامی است"
     }
+  },
+  "blog": {
+    "title": "وبلاگ",
+    "description": "مقالات و راهنماهای مفید برای توسعه مهارت‌های نرم و رشد حرفه‌ای",
+    "read_more": "ادامه مطلب",
+    "read_time": "دقیقه مطالعه",
+    "published_on": "منتشر شده در",
+    "author": "نویسنده",
+    "category": "دسته‌بندی",
+    "tags": "برچسب‌ها",
+    "related_posts": "مقالات مرتبط",
+    "featured_posts": "مقالات ویژه",
+    "recent_posts": "آخرین مقالات",
+    "all_categories": "همه دسته‌ها",
+    "all_tags": "همه برچسب‌ها",
+    "search_placeholder": "جستجو در مقالات...",
+    "no_posts_found": "مقاله‌ای یافت نشد",
+    "back_to_blog": "بازگشت به وبلاگ",
+    "share": "اشتراک‌گذاری",
+    "copied": "کپی شد!",
+    "previous": "قبلی",
+    "next": "بعدی",
+    "page": "صفحه",
+    "of": "از",
+    "categories": {
+      "soft-skills": "مهارت‌های نرم",
+      "programming": "برنامه‌نویسی",
+      "career": "شغل",
+      "teamwork": "کار تیمی",
+      "leadership": "رهبری"
+    }
   }
 }

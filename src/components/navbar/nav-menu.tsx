@@ -32,7 +32,7 @@ export const NavMenu = (props: NavigationMenuProps) => {
       text: t("messages.navbar.contact-us"),
     },
     {
-      href: "#",
+      href: `/${locale}/blog`,
       icon: NewspaperIcon,
       text: t("messages.navbar.blog"),
     },

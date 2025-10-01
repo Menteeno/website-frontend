@@ -1106,5 +1106,36 @@
     "validation": {
       "message_required": "Message is required"
     }
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Helpful articles and guides for developing soft skills and professional growth",
+    "read_more": "Read More",
+    "read_time": "min read",
+    "published_on": "Published on",
+    "author": "Author",
+    "category": "Category",
+    "tags": "Tags",
+    "related_posts": "Related Articles",
+    "featured_posts": "Featured Articles",
+    "recent_posts": "Recent Articles",
+    "all_categories": "All Categories",
+    "all_tags": "All Tags",
+    "search_placeholder": "Search articles...",
+    "no_posts_found": "No articles found",
+    "back_to_blog": "Back to Blog",
+    "share": "Share",
+    "copied": "Copied!",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page",
+    "of": "of",
+    "categories": {
+      "soft-skills": "Soft Skills",
+      "programming": "Programming",
+      "career": "Career",
+      "teamwork": "Teamwork",
+      "leadership": "Leadership"
+    }
   }
 }
