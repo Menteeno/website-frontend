@@ -20,7 +20,10 @@
     "email_placeholder": "Enter your email address",
     "password_placeholder": "Enter your password",
     "confirm_password_placeholder": "Confirm your password",
-    "agree_to_terms": "I agree to the Terms of Service and Privacy Policy",
+    "agree_to_terms": "I agree to the",
+    "terms_of_service": "Terms of Service",
+    "and": "and",
+    "privacy_policy": "Privacy Policy",
     "sign_in": "Sign In",
     "create_account": "Create Account",
     "processing": "Processing...",
@@ -440,9 +443,14 @@
     },
     "contact": {
       "title": "Get in Touch",
-      "email": "hello@menteeno.com",
-      "phone": "+1 (555) 123-4567",
-      "location": "San Francisco, CA"
+      "email": "hi@menteeno.app",
+      "location": "Mazandaran, Babolsar, Taleghani Street, Innovation Center"
+    },
+    "social": {
+      "title": "Follow Us",
+      "instagram": "https://instagram.com/menteeno.app",
+      "github": "https://github.com/menteeno/",
+      "linkedin": "https://www.linkedin.com/company/menteeno/"
     },
     "legal": {
       "copyright": "All rights reserved.",
@@ -455,6 +463,191 @@
       "creativity": "Creativity",
       "technology": "Technology",
       "excellence": "Excellence"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "last_updated": "Last updated: September 2024 (مهر ۱۴۰۴)",
+    "introduction": {
+      "title": "Introduction",
+      "content": "At Menteeno, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform and services."
+    },
+    "information_collection": {
+      "title": "Information We Collect",
+      "personal_info": {
+        "title": "Personal Information",
+        "content": "We collect information you provide directly to us, such as when you create an account, participate in mentorship sessions, or contact us for support. Phone number is required and email is optional:",
+        "items": {
+          "name": "Name and contact information",
+          "email": "Email address (optional)",
+          "phone": "Phone number",
+          "profile": "Profile information and preferences"
+        }
+      },
+      "usage_data": {
+        "title": "Usage Data",
+        "content": "We automatically collect certain information about your use of our services:",
+        "items": {
+          "device": "Device information and identifiers",
+          "browser": "Browser type and version",
+          "ip": "IP address and location data",
+          "activity": "Usage patterns and interactions with our platform"
+        }
+      }
+    },
+    "usage": {
+      "title": "How We Use Your Information",
+      "content": "We use the information we collect to:",
+      "items": {
+        "service": "Provide, maintain, and improve our services",
+        "communication": "Communicate with you about your account and our services",
+        "personalization": "Personalize your learning experience and recommendations",
+        "improvement": "Analyze usage patterns to improve our platform",
+        "legal": "Comply with legal obligations and protect our rights"
+      }
+    },
+    "sharing": {
+      "title": "Information Sharing and Disclosure",
+      "content": "We do not sell, trade, or otherwise transfer your personal information to third parties except in the following circumstances:",
+      "items": {
+        "service_providers": "With trusted service providers who assist us in operating our platform",
+        "legal_requirements": "When required by law or to protect our rights and safety",
+        "business_transfer": "In connection with a merger, acquisition, or sale of assets",
+        "consent": "With your explicit consent for specific purposes"
+      }
+    },
+    "security": {
+      "title": "Data Security",
+      "content": "We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet or electronic storage is 100% secure."
+    },
+    "rights": {
+      "title": "Your Rights and Choices",
+      "content": "You have certain rights regarding your personal information:",
+      "items": {
+        "access": "Access and review your personal information",
+        "correction": "Correct inaccurate or incomplete information",
+        "deletion": "Request deletion of your personal information",
+        "portability": "Export your data in a portable format",
+        "objection": "Object to certain processing of your information"
+      }
+    },
+    "cookies": {
+      "title": "Cookies and Tracking Technologies",
+      "content": "We use cookies and similar tracking technologies to enhance your experience on our platform. You can control cookie preferences through your browser settings. For detailed information about our use of cookies, please see our Cookie Policy."
+    },
+    "third_party": {
+      "title": "Third-Party Services",
+      "content": "Our platform may contain links to third-party websites or services. We are not responsible for the privacy practices of these third parties. We encourage you to review their privacy policies before providing any personal information."
+    },
+    "children": {
+      "title": "Children's Privacy",
+      "content": "Our services are not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us."
+    },
+    "changes": {
+      "title": "Changes to This Privacy Policy",
+      "content": "We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the 'Last updated' date. Your continued use of our services after any modifications constitutes acceptance of the updated Privacy Policy."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have any questions about this Privacy Policy or our privacy practices, please contact us:",
+      "email_label": "Email:",
+      "email": "hi@menteeno.app"
+    }
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "last_updated": "Last updated: September 2024 (مهر ۱۴۰۴)",
+    "introduction": {
+      "title": "Introduction",
+      "content": "Welcome to Menteeno! These Terms of Service ('Terms') govern your use of our platform and services. By accessing or using Menteeno, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our services."
+    },
+    "acceptance": {
+      "title": "Acceptance of Terms",
+      "content": "By creating an account, accessing our platform, or using any of our services, you acknowledge that you have read, understood, and agree to be bound by these Terms and our Privacy Policy. These Terms constitute a legally binding agreement between you and Menteeno."
+    },
+    "service_description": {
+      "title": "Description of Service",
+      "content": "Menteeno is a platform that provides mentorship and educational services, including but not limited to:",
+      "features": {
+        "event_management": "Event management and registration services",
+        "user_registration": "User account creation and management",
+        "communication": "Communication tools for mentors and mentees",
+        "content_sharing": "Educational content and resource sharing"
+      }
+    },
+    "user_accounts": {
+      "title": "User Accounts",
+      "registration": {
+        "title": "Account Registration",
+        "content": "To access certain features of our service, you must create an account. You agree to provide accurate, current, and complete information during registration and to update such information to keep it accurate, current, and complete."
+      },
+      "responsibility": {
+        "title": "Account Responsibility",
+        "content": "You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account."
+      }
+    },
+    "user_conduct": {
+      "title": "User Conduct",
+      "content": "You agree to use our service only for lawful purposes and in accordance with these Terms. You are responsible for your conduct and content while using our platform.",
+      "prohibited": {
+        "title": "Prohibited Activities",
+        "items": {
+          "illegal": "Engaging in any illegal or unauthorized activities",
+          "harmful": "Posting harmful, threatening, or offensive content",
+          "spam": "Sending spam or unsolicited communications",
+          "unauthorized": "Attempting to gain unauthorized access to our systems",
+          "impersonation": "Impersonating others or providing false information"
+        }
+      },
+      "required": {
+        "title": "Required Conduct",
+        "items": {
+          "respectful": "Treating all users with respect and professionalism",
+          "accurate": "Providing accurate and truthful information",
+          "compliant": "Complying with all applicable laws and regulations"
+        }
+      }
+    },
+    "intellectual_property": {
+      "title": "Intellectual Property Rights",
+      "our_content": {
+        "title": "Our Content",
+        "content": "All content, features, and functionality of our service, including but not limited to text, graphics, logos, and software, are owned by Menteeno and are protected by copyright, trademark, and other intellectual property laws."
+      },
+      "user_content": {
+        "title": "User Content",
+        "content": "You retain ownership of any content you submit to our platform. By submitting content, you grant us a non-exclusive, royalty-free license to use, modify, and distribute such content in connection with our services."
+      }
+    },
+    "privacy": {
+      "title": "Privacy and Data Protection",
+      "content": "Your privacy is important to us. Our collection and use of personal information is governed by our Privacy Policy, which is incorporated into these Terms by reference. Please review our Privacy Policy to understand our practices."
+    },
+    "service_availability": {
+      "title": "Service Availability",
+      "content": "We strive to provide continuous service availability, but we do not guarantee that our service will be uninterrupted or error-free. We reserve the right to modify, suspend, or discontinue any part of our service at any time with or without notice."
+    },
+    "liability": {
+      "title": "Limitation of Liability",
+      "content": "To the maximum extent permitted by law, Menteeno shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or use, arising out of or relating to your use of our service."
+    },
+    "termination": {
+      "title": "Termination",
+      "content": "We may terminate or suspend your account and access to our service immediately, without prior notice, for any reason, including if you breach these Terms. Upon termination, your right to use the service will cease immediately."
+    },
+    "changes": {
+      "title": "Changes to Terms",
+      "content": "We reserve the right to modify these Terms at any time. We will notify users of any material changes by posting the new Terms on our platform. Your continued use of our service after such modifications constitutes acceptance of the updated Terms."
+    },
+    "governing_law": {
+      "title": "Governing Law",
+      "content": "These Terms shall be governed by and construed in accordance with the laws of Iran, without regard to its conflict of law provisions. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts of Iran."
+    },
+    "contact": {
+      "title": "Contact Information",
+      "content": "If you have any questions about these Terms of Service, please contact us:",
+      "email_label": "Email:",
+      "email": "hi@menteeno.app"
     }
   },
   "event": {
@@ -721,7 +914,7 @@
         "parking": "Free parking is available at the event venue. Limited capacity, so arrive early.",
         "food-beverages": "Yes, complete catering including breakfast, lunch, dinner, and various beverages is provided.",
         "certificate": "Yes, a valid event participation certificate is provided to all participants.",
-        "contact-info": "You can contact us via email event@menteeno.com or phone number 021-12345678."
+        "contact-info": "You can contact us via email hi@menteeno.app or phone number 021-12345678."
       },
       "footer": {
         "question": "Have another question?",
@@ -761,6 +954,111 @@
       "primary-button": "Register Now",
       "secondary-button": "More Information",
       "disclaimer": "Registration continues until capacity is reached"
+    }
+  },
+  "cookies": {
+    "title": "Cookie Policy",
+    "last_updated": "Last updated: Mordad 1404",
+    "introduction": {
+      "title": "Introduction",
+      "content": "This Cookie Policy explains how Menteeno uses cookies and similar technologies when you visit our website. It explains what these technologies are and why we use them, as well as your rights to control our use of them."
+    },
+    "what_are_cookies": {
+      "title": "What Are Cookies?",
+      "content": "Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners to make their websites work, or to work more efficiently, as well as to provide reporting information."
+    },
+    "types": {
+      "title": "Types of Cookies We Use",
+      "essential": {
+        "title": "Essential Cookies",
+        "content": "These cookies are necessary for the website to function and cannot be switched off in our systems. They are usually only set in response to actions made by you which amount to a request for services.",
+        "items": {
+          "authentication": "User authentication and login status",
+          "security": "Security and fraud prevention",
+          "preferences": "User preferences and settings",
+          "functionality": "Core website functionality"
+        }
+      },
+      "analytics": {
+        "title": "Analytics Cookies",
+        "content": "These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us to know which pages are the most and least popular.",
+        "items": {
+          "usage": "Track how visitors use our website",
+          "performance": "Monitor website performance",
+          "improvements": "Identify areas for improvement",
+          "anonymized": "All information is collected anonymously"
+        }
+      },
+      "marketing": {
+        "title": "Marketing Cookies",
+        "content": "These cookies may be set through our site by our advertising partners to build a profile of your interests and show you relevant adverts on other sites.",
+        "items": {
+          "advertising": "Display relevant advertisements",
+          "targeting": "Create user profiles for targeting",
+          "tracking": "Track users across websites",
+          "personalization": "Personalize content and ads"
+        }
+      }
+    },
+    "we_use": {
+      "title": "Specific Cookies We Use",
+      "session_cookies": {
+        "title": "Session Cookies",
+        "description": "These are temporary cookies that expire when you close your browser. They help maintain your session while you navigate through our website.",
+        "duration": "Duration: Session only"
+      },
+      "preference_cookies": {
+        "title": "Preference Cookies",
+        "description": "These cookies remember your preferences and settings to provide a personalized experience on future visits.",
+        "duration": "Duration: Up to 1 year"
+      },
+      "analytics_cookies": {
+        "title": "Analytics Cookies",
+        "description": "These cookies collect information about how you use our website, helping us improve our services and user experience.",
+        "duration": "Duration: Up to 2 years"
+      }
+    },
+    "third_party": {
+      "title": "Third-Party Cookies",
+      "content": "Some cookies on our site are set by third-party services that appear on our pages. We do not control these cookies and you should check the third-party websites for more information about these.",
+      "google_analytics": {
+        "title": "Google Analytics",
+        "content": "We use Google Analytics to analyze the use of our website. Google Analytics gathers information about website use by means of cookies."
+      },
+      "social_media": {
+        "title": "Social Media",
+        "content": "Our website may include social media features, such as sharing buttons, which may set cookies on your device."
+      }
+    },
+    "managing": {
+      "title": "Managing Cookies",
+      "content": "You have the right to decide whether to accept or reject cookies. You can exercise your cookie rights by setting your preferences in the cookie settings or by using your browser settings.",
+      "browser_settings": {
+        "title": "Browser Settings",
+        "content": "Most web browsers allow you to control cookies through their settings preferences. You can set your browser to refuse cookies or delete certain cookies.",
+        "chrome": "Chrome: Settings > Privacy and security > Cookies and other site data",
+        "firefox": "Firefox: Options > Privacy & Security > Cookies and Site Data",
+        "safari": "Safari: Preferences > Privacy > Manage Website Data",
+        "edge": "Edge: Settings > Cookies and site permissions > Cookies and site data"
+      },
+      "our_preferences": {
+        "title": "Our Cookie Preferences",
+        "content": "You can manage your cookie preferences through our cookie settings panel, which you can access at any time by clicking the cookie settings link in our footer."
+      }
+    },
+    "impact": {
+      "title": "Impact of Disabling Cookies",
+      "content": "If you choose to disable cookies, some features of our website may not function properly. Essential cookies are required for the basic functionality of the website, so disabling them may prevent you from using certain features."
+    },
+    "updates": {
+      "title": "Updates to This Cookie Policy",
+      "content": "We may update this Cookie Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify you of any material changes by posting the new Cookie Policy on this page."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have any questions about our use of cookies or this Cookie Policy, please contact us.",
+      "email_label": "Email:",
+      "email": "privacy@menteeno.com"
     }
   }
 }

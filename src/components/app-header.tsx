@@ -66,7 +66,7 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
     user: {
       id: 1,
       name: "User",
-      email: "user@example.com",
+      email: "hi@menteeno.app",
       email_verified_at: null,
       avatar: "",
       created_at: new Date().toISOString(),
