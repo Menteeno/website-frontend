@@ -1,5 +1,6 @@
 "use client";
 
+import { LoadingLink } from "@/components/ui/loading-link";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -9,7 +10,6 @@ import {
 import { useTranslation } from "@/hooks/use-translation";
 import { NavigationMenuProps } from "@radix-ui/react-navigation-menu";
 import { CalendarIcon, HomeIcon, NewspaperIcon, PhoneIcon } from "lucide-react";
-import Link from "next/link";
 
 export const NavMenu = (props: NavigationMenuProps) => {
   const { t, locale } = useTranslation();
@@ -17,17 +17,17 @@ export const NavMenu = (props: NavigationMenuProps) => {
 
   const menuItems = [
     {
-      href: "/",
+      href: `/${locale}`,
       icon: HomeIcon,
       text: t("messages.navbar.home"),
     },
     {
-      href: "/event",
+      href: `/${locale}/event`,
       icon: CalendarIcon,
       text: t("messages.navbar.event"),
     },
     {
-      href: "/",
+      href: `/${locale}`,
       icon: PhoneIcon,
       text: t("messages.navbar.contact-us"),
     },
@@ -47,7 +47,7 @@ export const NavMenu = (props: NavigationMenuProps) => {
         {orderedMenuItems.map((item, index) => (
           <NavigationMenuItem key={index}>
             <NavigationMenuLink asChild>
-              <Link
+              <LoadingLink
                 href={item.href}
                 className={`flex items-center gap-2 ${
                   isRTL ? "flex-row-reverse" : "flex-row"
@@ -55,7 +55,7 @@ export const NavMenu = (props: NavigationMenuProps) => {
               >
                 <item.icon className="size-[1.25rem] stroke-accent-foreground" />
                 <span>{item.text}</span>
-              </Link>
+              </LoadingLink>
             </NavigationMenuLink>
           </NavigationMenuItem>
         ))}

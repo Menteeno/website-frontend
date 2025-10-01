@@ -28,6 +28,7 @@ import {
 } from "@/components/ui/tooltip";
 import { UserMenuContent } from "@/components/user-menu-content";
 import { useInitials } from "@/hooks/use-initials";
+import { useTranslation } from "@/hooks/use-translation";
 import { cn } from "@/lib/utils";
 import { type BreadcrumbItem, type NavItem } from "@/types";
 import { BookOpen, Folder, LayoutGrid, Menu, Search } from "lucide-react";
@@ -35,13 +36,7 @@ import Link from "next/link";
 import AppLogo from "./app-logo";
 import AppLogoIcon from "./app-logo-icon";
 
-const mainNavItems: NavItem[] = [
-  {
-    title: "Dashboard",
-    href: "/dashboard",
-    icon: LayoutGrid,
-  },
-];
+// This will be moved inside the component to be locale-aware
 
 const rightNavItems: NavItem[] = [
   {
@@ -64,6 +59,8 @@ interface AppHeaderProps {
 }
 
 export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
+  const { locale } = useTranslation();
+
   // TODO: Replace with proper auth state management
   const auth = {
     user: {
@@ -77,6 +74,14 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
     },
   };
   const getInitials = useInitials();
+
+  const mainNavItems: NavItem[] = [
+    {
+      title: "Dashboard",
+      href: `/${locale}/dashboard`,
+      icon: LayoutGrid,
+    },
+  ];
   return (
     <>
       <div className="border-b border-sidebar-border/80">
@@ -141,7 +146,7 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
           </div>
 
           <Link
-            href="/dashboard"
+            href={`/${locale}/dashboard`}
             prefetch
             className="flex items-center space-x-2"
           >

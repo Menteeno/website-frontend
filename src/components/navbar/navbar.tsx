@@ -5,13 +5,13 @@ import { Language } from "@/components/navbar/language";
 import { NavMenu } from "@/components/navbar/nav-menu";
 import { NavigationSheet } from "@/components/navbar/navigation-sheet";
 import { Button } from "@/components/ui/button";
+import { LoadingLink } from "@/components/ui/loading-link";
 import { useAuth } from "@/contexts/auth-context";
 import { useTranslation } from "@/hooks/use-translation";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const { user, isAuthenticated } = useAuth();
 
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
@@ -65,7 +65,9 @@ const Navbar = () => {
               className="hidden sm:inline-flex rounded-full"
               aria-label={t("messages.navbar.dashboard")}
             >
-              <Link href="/dashboard">{t("messages.navbar.dashboard")}</Link>
+              <LoadingLink href={`/${locale}/dashboard`}>
+                {t("messages.navbar.dashboard")}
+              </LoadingLink>
             </Button>
           ) : (
             <>
@@ -75,14 +77,18 @@ const Navbar = () => {
                 className="hidden sm:inline-flex rounded-full"
                 aria-label={t("messages.navbar.sign-in")}
               >
-                <Link href="/auth">{t("messages.navbar.sign-in")}</Link>
+                <LoadingLink href={`/${locale}/auth`}>
+                  {t("messages.navbar.sign-in")}
+                </LoadingLink>
               </Button>
               <Button
                 asChild
                 className="rounded-full"
                 aria-label={t("messages.navbar.sign-up")}
               >
-                <Link href="/auth">{t("messages.navbar.sign-up")}</Link>
+                <LoadingLink href={`/${locale}/auth`}>
+                  {t("messages.navbar.sign-up")}
+                </LoadingLink>
               </Button>
             </>
           )}

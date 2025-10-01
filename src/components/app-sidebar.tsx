@@ -10,18 +10,13 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { useTranslation } from "@/hooks/use-translation";
 import { type NavItem } from "@/types";
 import { BookOpen, Folder, LayoutGrid } from "lucide-react";
 import Link from "next/link";
 import AppLogo from "./app-logo";
 
-const mainNavItems: NavItem[] = [
-  {
-    title: "Dashboard",
-    href: "/dashboard",
-    icon: LayoutGrid,
-  },
-];
+// This will be moved inside the component to be locale-aware
 
 const footerNavItems: NavItem[] = [
   {
@@ -37,13 +32,23 @@ const footerNavItems: NavItem[] = [
 ];
 
 export function AppSidebar() {
+  const { locale } = useTranslation();
+
+  const mainNavItems: NavItem[] = [
+    {
+      title: "Dashboard",
+      href: `/${locale}/dashboard`,
+      icon: LayoutGrid,
+    },
+  ];
+
   return (
     <Sidebar collapsible="icon" variant="inset">
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <Link href="/dashboard" prefetch>
+              <Link href={`/${locale}/dashboard`} prefetch>
                 <AppLogo />
               </Link>
             </SidebarMenuButton>

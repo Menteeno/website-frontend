@@ -15,7 +15,7 @@ const EventHero = () => {
   return (
     <div
       id="hero"
-      className="min-h-screen flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto relative"
+      className="min-h-screen flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto relative px-4 lg:px-6"
     >
       <BackgroundPattern />
 
@@ -101,17 +101,17 @@ const EventHero = () => {
 
       {/* Event Animation */}
       <div className="lg:flex-1 flex justify-center lg:justify-end relative z-20">
-        <div className="relative">
+        <div className="relative w-full max-w-lg lg:max-w-xl xl:max-w-2xl">
           <DotLottieReact
             src={getAssetUrl("/assets/images/soft-skills.lottie")}
             loop
             autoplay
-            width="1600px"
-            height="1600px"
+            width="100%"
+            height="auto"
             renderConfig={{
               autoResize: true,
             }}
-            className="relative z-20"
+            className="relative z-20 w-full h-auto"
           />
         </div>
       </div>

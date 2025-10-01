@@ -6,12 +6,14 @@ interface AuthLayoutProps {
   name?: string;
   title?: string;
   description?: string;
+  locale?: string;
 }
 
 export default function AuthSimpleLayout({
   children,
   title,
   description,
+  locale = "fa",
 }: PropsWithChildren<AuthLayoutProps>) {
   return (
     <div className="flex min-h-svh flex-col items-center justify-center gap-6 bg-background p-6 md:p-10">
@@ -19,7 +21,7 @@ export default function AuthSimpleLayout({
         <div className="flex flex-col gap-8">
           <div className="flex flex-col items-center gap-4">
             <Link
-              href="/"
+              href={`/${locale}`}
               className="flex flex-col items-center gap-2 font-medium"
             >
               <div className="mb-1 flex h-9 w-9 items-center justify-center rounded-md">

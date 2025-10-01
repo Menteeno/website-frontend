@@ -2,6 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { useTranslation } from "@/hooks/use-translation";
+import { getAssetUrl } from "@/lib/config";
 import { Heart, Lightbulb, Target, Users } from "lucide-react";
 import "swiper/css";
 import "swiper/css/effect-cards";
@@ -40,27 +41,27 @@ const EventAbout = () => {
   const eventImages = [
     {
       id: 1,
-      src: "/assets/images/event/001.jpg",
+      src: getAssetUrl("/assets/images/event/001.jpg"),
       alt: "Historic mansion event venue",
     },
     {
       id: 2,
-      src: "/assets/images/event/002.jpg",
+      src: getAssetUrl("/assets/images/event/002.jpg"),
       alt: "Grand library hall event venue",
     },
     {
       id: 3,
-      src: "/assets/images/event/003.jpg",
+      src: getAssetUrl("/assets/images/event/003.jpg"),
       alt: "Conference hall event venue",
     },
     {
       id: 4,
-      src: "/assets/images/event/005.jpg",
+      src: getAssetUrl("/assets/images/event/005.jpg"),
       alt: "Event venue space",
     },
     {
       id: 5,
-      src: "/assets/images/event/006.jpg",
+      src: getAssetUrl("/assets/images/event/006.jpg"),
       alt: "Meeting space event venue",
     },
   ];

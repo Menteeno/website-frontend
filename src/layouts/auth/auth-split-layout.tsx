@@ -5,12 +5,14 @@ import { type PropsWithChildren } from "react";
 interface AuthLayoutProps {
   title?: string;
   description?: string;
+  locale?: string;
 }
 
 export default function AuthSplitLayout({
   children,
   title,
   description,
+  locale = "fa",
 }: PropsWithChildren<AuthLayoutProps>) {
   // TODO: Replace with proper data management
   const name = "Menteeno";
@@ -21,7 +23,7 @@ export default function AuthSplitLayout({
       <div className="relative hidden h-full flex-col bg-muted p-10 text-white lg:flex dark:border-r">
         <div className="absolute inset-0 bg-zinc-900" />
         <Link
-          href="/"
+          href={`/${locale}`}
           className="relative z-20 flex items-center text-lg font-medium"
         >
           <AppLogoIcon className="mr-2 size-8 fill-current text-white" />
@@ -41,7 +43,7 @@ export default function AuthSplitLayout({
       <div className="w-full lg:p-8">
         <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
           <Link
-            href="/"
+            href={`/${locale}`}
             className="relative z-20 flex items-center justify-center lg:hidden"
           >
             <AppLogoIcon className="h-10 fill-current text-black sm:h-12" />

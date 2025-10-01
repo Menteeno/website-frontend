@@ -159,10 +159,13 @@
   }
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-dana);
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 }
 
@@ -183,6 +186,69 @@
 
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Prevent horizontal overflow */
+  .no-horizontal-scroll {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* Responsive container */
+  .responsive-container {
+    width: 100%;
+    max-width: 100vw;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .responsive-container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .responsive-container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  /* GitHub-style loading bar animations */
+  .github-loading-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    z-index: 9999;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(59, 130, 246, 0.4),
+      transparent
+    );
+    animation: github-loading-shimmer 1.5s ease-in-out infinite;
+  }
+
+  @keyframes github-loading-shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .github-loading-progress {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8, #3b82f6);
+    transition: width 0.2s ease-out;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
   }
 }
 
