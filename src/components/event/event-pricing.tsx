@@ -25,6 +25,10 @@ const EventPricing = () => {
         t("event.pricing.early-bird.features.materials"),
         t("event.pricing.early-bird.features.networking"),
         t("event.pricing.early-bird.features.meal"),
+        t("event.pricing.early-bird.features.discussion"),
+        t("event.pricing.early-bird.features.team-building"),
+        t("event.pricing.early-bird.features.menteeno-access"),
+        t("event.pricing.early-bird.features.discount-codes"),
       ],
     },
     {
@@ -38,6 +42,10 @@ const EventPricing = () => {
         t("event.pricing.regular.features.materials"),
         t("event.pricing.regular.features.networking"),
         t("event.pricing.regular.features.meal"),
+        t("event.pricing.regular.features.discussion"),
+        t("event.pricing.regular.features.team-building"),
+        t("event.pricing.regular.features.menteeno-access"),
+        t("event.pricing.regular.features.discount-codes"),
       ],
     },
   ];
