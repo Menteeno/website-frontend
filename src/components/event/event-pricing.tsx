@@ -23,9 +23,7 @@ const EventPricing = () => {
         t("event.pricing.early-bird.features.access"),
         t("event.pricing.early-bird.features.materials"),
         t("event.pricing.early-bird.features.networking"),
-        t("event.pricing.early-bird.features.certificate"),
         t("event.pricing.early-bird.features.meal"),
-        t("event.pricing.early-bird.features.support"),
       ],
     },
     {
@@ -37,7 +35,6 @@ const EventPricing = () => {
         t("event.pricing.regular.features.access"),
         t("event.pricing.regular.features.materials"),
         t("event.pricing.regular.features.networking"),
-        t("event.pricing.regular.features.certificate"),
         t("event.pricing.regular.features.meal"),
       ],
     },
