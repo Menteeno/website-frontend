@@ -1,5 +1,4 @@
 import { PersianSEO } from "@/components/seo/persian-seo";
-import { AuthProvider } from "@/contexts/auth-context";
 import { ThemeProvider } from "@/contexts/theme-context";
 import {
   generateLocalizedMetadata,
@@ -58,9 +57,7 @@ export default async function LocaleLayout({
   return (
     <ReduxProvider>
       <ThemeProvider>
-        <AuthProvider>
-          <PersianSEO locale={locale}>{children}</PersianSEO>
-        </AuthProvider>
+        <PersianSEO locale={locale}>{children}</PersianSEO>
       </ThemeProvider>
     </ReduxProvider>
   );

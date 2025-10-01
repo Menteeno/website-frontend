@@ -6,7 +6,7 @@ import { SurveyCard } from "@/components/dashboard/survey-card";
 import { ProtectedRoute } from "@/components/protected-route";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { useAuth } from "@/contexts/auth-context";
+import { useAuth } from "@/hooks/use-auth";
 import { useSurvey_indexQuery } from "@/services/menteenoApi.generated";
 import { BarChart3, Calendar, FileText, Plus, Users } from "lucide-react";
 import { useState } from "react";

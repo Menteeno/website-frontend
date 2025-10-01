@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/sidebar";
 import { UserInfo } from "@/components/user-info";
 import { UserMenuContent } from "@/components/user-menu-content";
-import { useAuth } from "@/contexts/auth-context";
+import { useAuth } from "@/hooks/use-auth";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { ChevronsUpDown } from "lucide-react";
 

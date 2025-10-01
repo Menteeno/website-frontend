@@ -30,16 +30,6 @@ export const menteenoApi = createApi({
       }
       return headers;
     },
-    fetchFn: async (...args) => {
-      console.log("RTK Query fetch:", args[0]);
-      const response = await fetch(...args);
-      console.log("RTK Query response:", {
-        status: response.status,
-        statusText: response.statusText,
-        headers: Object.fromEntries(response.headers.entries()),
-      });
-      return response;
-    },
   }),
   tagTypes: [],
   endpoints: (builder) => ({

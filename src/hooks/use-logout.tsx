@@ -1,6 +1,6 @@
 "use client";
 
-import { useAuth } from "@/contexts/auth-context";
+import { useAuth } from "@/hooks/use-auth";
 import { useV1_auth_logoutMutation } from "@/services/menteenoApi.generated";
 import { useRouter } from "next/navigation";
 

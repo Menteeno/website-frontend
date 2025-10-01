@@ -8,6 +8,7 @@ interface AuthContextType extends Auth {
   logout: () => void;
   updateUser: (user: Partial<User>) => void;
   token: string | null;
+  isLoading: boolean;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -18,21 +19,32 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     isAuthenticated: false,
   });
   const [token, setToken] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const login = (user: User, authToken: string) => {
-    setAuth({
+    const newAuth = {
       user,
       isAuthenticated: true,
-    });
+    };
+    setAuth(newAuth);
     setToken(authToken);
+
+    // Save to localStorage immediately
+    localStorage.setItem("auth", JSON.stringify(newAuth));
+    localStorage.setItem("token", authToken);
   };
 
   const logout = () => {
-    setAuth({
+    const newAuth = {
       user: null,
       isAuthenticated: false,
-    });
+    };
+    setAuth(newAuth);
     setToken(null);
+
+    // Clear localStorage immediately
+    localStorage.removeItem("auth");
+    localStorage.removeItem("token");
   };
 
   const updateUser = (userData: Partial<User>) => {
@@ -46,21 +58,35 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   // Initialize auth state from localStorage on mount
   useEffect(() => {
-    const savedAuth = localStorage.getItem("auth");
-    const savedToken = localStorage.getItem("token");
+    const initializeAuth = () => {
+      const savedAuth = localStorage.getItem("auth");
+      const savedToken = localStorage.getItem("token");
 
-    if (savedAuth) {
-      try {
-        const parsedAuth = JSON.parse(savedAuth);
-        setAuth(parsedAuth);
-      } catch (error) {
-        console.error("Failed to parse saved auth state:", error);
-        localStorage.removeItem("auth");
+      if (savedAuth && savedToken) {
+        try {
+          const parsedAuth = JSON.parse(savedAuth);
+          // Only restore if we have both auth data and token
+          if (parsedAuth.user && parsedAuth.isAuthenticated) {
+            setAuth(parsedAuth);
+            setToken(savedToken);
+            console.log("Auth state restored from localStorage");
+          }
+        } catch (error) {
+          console.error("Failed to parse saved auth state:", error);
+          localStorage.removeItem("auth");
+          localStorage.removeItem("token");
+        }
       }
-    }
 
-    if (savedToken) {
-      setToken(savedToken);
+      // Set loading to false after initialization
+      setIsLoading(false);
+    };
+
+    // Only run on client side
+    if (typeof window !== "undefined") {
+      initializeAuth();
+    } else {
+      setIsLoading(false);
     }
   }, []);
 
@@ -83,6 +109,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       value={{
         ...auth,
         token,
+        isLoading,
         login,
         logout,
         updateUser,
