@@ -58,7 +58,7 @@ export function ContactForm() {
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = "Message is required";
+      newErrors.message = t("contact.validation.message_required");
     }
 
     setErrors(newErrors);
@@ -122,9 +122,7 @@ export function ContactForm() {
           {t("contact.form.title")}
         </h2>
         <p className="text-muted-foreground text-lg">
-          {locale === "fa"
-            ? "پیام خود را برای ما ارسال کنید"
-            : "Send us your message"}
+          {t("contact.hero.form_subtitle")}
         </p>
       </div>
 

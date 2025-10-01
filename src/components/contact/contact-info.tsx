@@ -11,7 +11,7 @@ export function ContactInfo() {
     {
       icon: Phone,
       label: t("contact.contact_info.phone"),
-      value: "۰۲۱-۹۱۰۳۱۶۱۴",
+      value: t("contact.contact_info.phone_value"),
       href: "tel:+982191031614",
       color: "text-blue-600",
       bgColor: "bg-blue-50",
@@ -19,7 +19,7 @@ export function ContactInfo() {
     {
       icon: Mail,
       label: t("contact.contact_info.email"),
-      value: "hi@menteeno.app",
+      value: t("contact.contact_info.email_value"),
       href: "mailto:hi@menteeno.app",
       color: "text-green-600",
       bgColor: "bg-green-50",
@@ -27,7 +27,7 @@ export function ContactInfo() {
     {
       icon: MessageCircle,
       label: t("contact.contact_info.telegram"),
-      value: "@menteeno",
+      value: t("contact.contact_info.telegram_value"),
       href: "https://t.me/menteeno",
       color: "text-sky-600",
       bgColor: "bg-sky-50",
@@ -35,7 +35,7 @@ export function ContactInfo() {
     {
       icon: MessageCircle,
       label: t("contact.contact_info.whatsapp"),
-      value: "ارسال مستقیم پیام",
+      value: t("contact.contact_info.whatsapp_value"),
       href: "https://wa.me/982191031614",
       color: "text-emerald-600",
       bgColor: "bg-emerald-50",
@@ -43,14 +43,14 @@ export function ContactInfo() {
     {
       icon: Clock,
       label: t("contact.contact_info.working_hours"),
-      value: "شنبه تا جمعه: ۹ صبح تا ۶ عصر (دوشنبه‌ها تعطیل)",
+      value: t("contact.contact_info.working_hours_value"),
       color: "text-orange-600",
       bgColor: "bg-orange-50",
     },
     {
       icon: MapPin,
       label: t("contact.contact_info.address"),
-      value: "مازندران، بابلسر، خیابان نخست‌وزیری، مرکز نوآوری بابلسر",
+      value: t("contact.contact_info.address_value"),
       color: "text-red-600",
       bgColor: "bg-red-50",
     },
@@ -63,9 +63,7 @@ export function ContactInfo() {
           {t("contact.contact_info.phone")}
         </h2>
         <p className="text-muted-foreground text-lg">
-          {locale === "fa"
-            ? "با ما در تماس باشید و سوالات خود را بپرسید"
-            : "Get in touch with us and ask your questions"}
+          {t("contact.hero.subtitle")}
         </p>
       </div>
 

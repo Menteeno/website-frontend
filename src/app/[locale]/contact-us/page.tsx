@@ -1,10 +1,11 @@
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { ContactAnimation } from "@/components/contact/contact-animation";
 import { ContactForm } from "@/components/contact/contact-form";
 import { ContactInfo } from "@/components/contact/contact-info";
 import { ContactMap } from "@/components/contact/contact-map";
 import { Footer } from "@/components/footer";
 import Navbar from "@/components/navbar/navbar";
-import { locales } from "@/lib/i18n";
+import { getTranslation, locales } from "@/lib/i18n";
 import { notFound } from "next/navigation";
 
 interface ContactUsPageProps {
@@ -21,6 +22,9 @@ export default async function ContactUsPage({ params }: ContactUsPageProps) {
     notFound();
   }
 
+  // Get translations
+  const t = (key: string) => getTranslation(locale as any, `contact.${key}`);
+
   return (
     <>
       <Navbar />
@@ -32,11 +36,11 @@ export default async function ContactUsPage({ params }: ContactUsPageProps) {
             <Breadcrumbs
               breadcrumbs={[
                 {
-                  title: locale === "fa" ? "خانه" : "Home",
+                  title: t("breadcrumb.home"),
                   href: `/${locale}`,
                 },
                 {
-                  title: locale === "fa" ? "تماس با ما" : "Contact Us",
+                  title: t("breadcrumb.contact"),
                   href: `/${locale}/contact-us`,
                 },
               ]}
@@ -45,13 +49,16 @@ export default async function ContactUsPage({ params }: ContactUsPageProps) {
             {/* Hero Content */}
             <div className="text-center max-w-4xl mx-auto mt-12">
               <h1 className="font-black text-4xl sm:text-5xl md:text-6xl mb-6">
-                {locale === "fa" ? "تماس با ما" : "Contact Us"}
+                {t("title")}
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                {locale === "fa"
-                  ? "منتینو یک آزمایشگاه مهارت‌های نرم برای دنیای واقعی است. ما باور داریم که موفقیت شغلی فقط به تخصص فنی وابسته نیست — بلکه توانایی کار تیمی، حل مسئله، و ارتباط مؤثر، نقشی کلیدی در تبدیل شدن به یک مهره‌ی حیاتی در تیم دارند."
-                  : "Menteeno is a soft skills laboratory for the real world. We believe that professional success is not only dependent on technical expertise — but the ability to work as a team, solve problems, and communicate effectively plays a key role in becoming a vital part of the team."}
+                {t("description")}
               </p>
+            </div>
+
+            {/* Contact Animation */}
+            <div className="flex justify-center mt-12">
+              <ContactAnimation />
             </div>
           </div>
         </div>

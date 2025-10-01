@@ -13,9 +13,7 @@ export function ContactMap() {
           {t("contact.map.title")}
         </h2>
         <p className="text-muted-foreground text-lg">
-          {locale === "fa"
-            ? "موقعیت ما را روی نقشه ببینید"
-            : "Find our location on the map"}
+          {t("contact.hero.map_subtitle")}
         </p>
       </div>
       <Card className="shadow-lg border-0 !p-0">

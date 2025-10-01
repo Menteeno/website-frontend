@@ -1064,14 +1064,6 @@
   "contact": {
     "title": "Contact Us",
     "description": "Menteeno is a soft skills laboratory for the real world. We believe that professional success is not only dependent on technical expertise — but the ability to work as a team, solve problems, and communicate effectively plays a key role in becoming a vital part of the team. In Menteeno, participants enter real and challenging scenarios as a team; where they have to make decisions, negotiate, and take responsibility — just like the workplace! This experience is accompanied by the presence of a mentor, individual feedback, coaching sessions and the opportunity to learn from the experience of others. If you are looking for real growth in skills that few people teach, Menteeno is for you.",
-    "contact_info": {
-      "phone": "Phone",
-      "email": "Email",
-      "telegram": "Telegram",
-      "whatsapp": "WhatsApp",
-      "working_hours": "Working Hours",
-      "address": "Address"
-    },
     "form": {
       "title": "Contact Form",
       "name": "Name",
@@ -1091,6 +1083,28 @@
     "breadcrumb": {
       "home": "Home",
       "contact": "Contact Us"
+    },
+    "hero": {
+      "subtitle": "Get in touch with us and ask your questions",
+      "form_subtitle": "Send us your message",
+      "map_subtitle": "Find our location on the map"
+    },
+    "contact_info": {
+      "phone": "Phone",
+      "email": "Email",
+      "telegram": "Telegram",
+      "whatsapp": "WhatsApp",
+      "working_hours": "Working Hours",
+      "address": "Address",
+      "phone_value": "+98-21-91031614",
+      "email_value": "hi@menteeno.app",
+      "telegram_value": "@menteeno",
+      "whatsapp_value": "Send direct message",
+      "working_hours_value": "Saturday to Friday: 9 AM to 6 PM (Mondays off)",
+      "address_value": "Mazandaran, Babolsar, First Minister Street, Babolsar Innovation Center"
+    },
+    "validation": {
+      "message_required": "Message is required"
     }
   }
 }
