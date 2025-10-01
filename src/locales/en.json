@@ -443,6 +443,12 @@
       "email": "hi@menteeno.app",
       "location": "Mazandaran, Babolsar, Taleghani Street, Innovation Center"
     },
+    "social": {
+      "title": "Follow Us",
+      "instagram": "https://instagram.com/menteeno.app",
+      "github": "https://github.com/menteeno/",
+      "linkedin": "https://www.linkedin.com/company/menteeno/"
+    },
     "legal": {
       "copyright": "All rights reserved.",
       "privacy": "Privacy Policy",

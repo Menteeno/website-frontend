@@ -474,6 +474,12 @@
       "email": "hi@menteeno.app",
       "location": "مازندران، بابلسر، خیابان طالقانی، مرکز نوآوری"
     },
+    "social": {
+      "title": "ما را دنبال کنید",
+      "instagram": "https://instagram.com/menteeno.app",
+      "github": "https://github.com/menteeno/",
+      "linkedin": "https://www.linkedin.com/company/menteeno/"
+    },
     "legal": {
       "copyright": "تمام حقوق محفوظ است.",
       "privacy": "حریم خصوصی",
