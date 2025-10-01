@@ -26,6 +26,7 @@ import type {
   BlogTag,
 } from "@/types/blog";
 import { CalendarIcon, ClockIcon, SearchIcon, UserIcon } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -197,9 +198,21 @@ export function BlogList({
           {posts.map((post) => (
             <Card
               key={post.slug}
-              className="h-full flex flex-col hover:shadow-lg transition-shadow"
+              className="h-full flex flex-col hover:shadow-lg transition-shadow overflow-hidden !pt-0"
             >
-              <CardHeader>
+              {/* Post Image */}
+              {post.seo?.image && (
+                <div className="relative h-48 w-full">
+                  <Image
+                    src={post.seo.image}
+                    alt={post.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+              )}
+              <CardHeader className="p-6">
                 <div className="flex items-center gap-2 mb-2">
                   <Badge variant="secondary">{post.category}</Badge>
                   {post.featured && (

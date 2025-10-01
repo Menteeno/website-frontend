@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useTranslation } from "@/hooks/use-translation";
 import type { BlogCategory, BlogPost, BlogTag } from "@/types/blog";
 import { CalendarIcon, ClockIcon, TagIcon, TrendingUpIcon } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 interface BlogSidebarProps {
@@ -55,6 +56,18 @@ export function BlogSidebar({
                   className="block group"
                 >
                   <div className="p-3 rounded-lg border hover:bg-muted transition-colors">
+                    {/* Post Image */}
+                    {post.seo?.image && (
+                      <div className="relative h-32 w-full overflow-hidden rounded-md mb-3">
+                        <Image
+                          src={post.seo.image}
+                          alt={post.title}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                        />
+                      </div>
+                    )}
                     <h4 className="font-medium line-clamp-2 group-hover:text-primary transition-colors">
                       {post.title}
                     </h4>
@@ -91,6 +104,18 @@ export function BlogSidebar({
                   className="block group"
                 >
                   <div className="p-3 rounded-lg border hover:bg-muted transition-colors">
+                    {/* Post Image */}
+                    {post.seo?.image && (
+                      <div className="relative h-32 w-full overflow-hidden rounded-md mb-3">
+                        <Image
+                          src={post.seo.image}
+                          alt={post.title}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                        />
+                      </div>
+                    )}
                     <h4 className="font-medium line-clamp-2 group-hover:text-primary transition-colors">
                       {post.title}
                     </h4>

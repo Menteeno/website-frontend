@@ -63,12 +63,9 @@ export function BlogPageClient({
   return (
     <div className="min-h-screen bg-background pt-20">
       {/* Hero Section */}
-      <BlogHero
-        featuredPostsCount={initialData.featuredPosts.length}
-        totalPostsCount={initialData.pagination.total}
-      />
+      <BlogHero />
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 pb-8">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-3">

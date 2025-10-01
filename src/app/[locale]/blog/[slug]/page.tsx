@@ -74,7 +74,12 @@ export async function generateMetadata({
 export async function generateStaticParams() {
   // This would typically fetch all blog post slugs from your data source
   // For now, we'll return the known slugs
-  const slugs = ["soft-skills-for-developers", "effective-team-communication"];
+  const slugs = [
+    "soft-skills-for-developers",
+    "effective-team-communication",
+    "the-knoted-meetings-early-lunch",
+    "atomic-habits",
+  ];
 
   const params = [];
   for (const locale of ["en", "fa"]) {

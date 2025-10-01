@@ -14,11 +14,13 @@ import { useTranslation } from "@/hooks/use-translation";
 import type { BlogPost } from "@/types/blog";
 import {
   ArrowLeftIcon,
+  ArrowRightIcon,
   CalendarIcon,
   ClockIcon,
   ShareIcon,
   UserIcon,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -70,7 +72,11 @@ export function BlogDetail({ post, relatedPosts }: BlogDetailProps) {
       <div className="mb-6">
         <Button variant="ghost" asChild className="gap-2">
           <Link href={`/${locale}/blog`}>
-            <ArrowLeftIcon className="h-4 w-4" />
+            {isRTL ? (
+              <ArrowRightIcon className="h-4 w-4" />
+            ) : (
+              <ArrowLeftIcon className="h-4 w-4" />
+            )}
             {locale === "fa" ? "بازگشت به وبلاگ" : "Back to Blog"}
           </Link>
         </Button>
@@ -148,6 +154,21 @@ export function BlogDetail({ post, relatedPosts }: BlogDetailProps) {
           </div>
         </header>
 
+        {/* Article Image */}
+        {post.seo?.image && (
+          <div className="w-full mb-8 rounded-lg overflow-hidden">
+            <Image
+              src={post.seo.image}
+              alt={post.title}
+              width={1200}
+              height={630}
+              className="w-full h-auto object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+              priority
+            />
+          </div>
+        )}
+
         <Separator className="mb-8" />
 
         {/* Article Content */}
@@ -192,9 +213,21 @@ export function BlogDetail({ post, relatedPosts }: BlogDetailProps) {
               {relatedPosts.map((relatedPost) => (
                 <Card
                   key={relatedPost.slug}
-                  className="h-full hover:shadow-lg transition-shadow"
+                  className="h-full hover:shadow-lg transition-shadow overflow-hidden"
                 >
-                  <CardHeader>
+                  {/* Related Post Image */}
+                  {relatedPost.seo?.image && (
+                    <div className="relative h-48 w-full">
+                      <Image
+                        src={relatedPost.seo.image}
+                        alt={relatedPost.title}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      />
+                    </div>
+                  )}
+                  <CardHeader className="p-6">
                     <div className="flex items-center gap-2 mb-2">
                       <Badge variant="secondary" className="text-xs">
                         {relatedPost.category}
