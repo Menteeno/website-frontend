@@ -12,7 +12,15 @@ import {
 } from "@/components/ui/sidebar";
 import { useTranslation } from "@/hooks/use-translation";
 import { type NavItem } from "@/types";
-import { BookOpen, Folder, LayoutGrid } from "lucide-react";
+import {
+  BarChart3,
+  BookOpen,
+  FileText,
+  Folder,
+  LayoutGrid,
+  Settings,
+  Users,
+} from "lucide-react";
 import Link from "next/link";
 import AppLogo from "./app-logo";
 
@@ -39,6 +47,26 @@ export function AppSidebar() {
       title: "Dashboard",
       href: `/${locale}/dashboard`,
       icon: LayoutGrid,
+    },
+    {
+      title: "Surveys",
+      href: `/${locale}/surveys`,
+      icon: FileText,
+    },
+    {
+      title: "Analytics",
+      href: `/${locale}/analytics`,
+      icon: BarChart3,
+    },
+    {
+      title: "Responses",
+      href: `/${locale}/responses`,
+      icon: Users,
+    },
+    {
+      title: "Settings",
+      href: `/${locale}/settings`,
+      icon: Settings,
     },
   ];
 

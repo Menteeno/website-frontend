@@ -1,8 +1,15 @@
 "use client";
 
+import { CreateSurveyDialog } from "@/components/dashboard/create-survey-dialog";
+import { StatsCard } from "@/components/dashboard/stats-card";
+import { SurveyCard } from "@/components/dashboard/survey-card";
 import { ProtectedRoute } from "@/components/protected-route";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { useAuth } from "@/contexts/auth-context";
-import { useV1_auth_userQuery } from "@/services/menteenoApi.generated";
+import { useSurvey_indexQuery } from "@/services/menteenoApi.generated";
+import { BarChart3, Calendar, FileText, Plus, Users } from "lucide-react";
+import { useState } from "react";
 
 export default function DashboardPage() {
   return (
@@ -14,143 +21,189 @@ export default function DashboardPage() {
 
 function DashboardContent() {
   const { user: authUser } = useAuth();
-  const { data: userData, isLoading, error } = useV1_auth_userQuery({});
+  const {
+    data: surveysData,
+    isLoading: surveysLoading,
+    error: surveysError,
+    refetch,
+  } = useSurvey_indexQuery({});
+  const [createSurveyOpen, setCreateSurveyOpen] = useState(false);
 
-  // Use API data if available, fallback to auth context
-  const user = userData?.data || authUser;
+  // Use auth context data
+  const user = authUser || null;
+  const surveys = surveysData?.data || [];
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
-            <div className="animate-pulse">
-              <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded mb-6"></div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="h-32 bg-gray-200 dark:bg-gray-700 rounded-lg"></div>
-                <div className="h-32 bg-gray-200 dark:bg-gray-700 rounded-lg"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+  if (surveysLoading) {
+    return <DashboardSkeleton />;
   }
 
-  if (error) {
-    return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
-            <div className="text-center">
-              <h1 className="text-2xl font-bold text-red-600 dark:text-red-400 mb-4">
-                Error Loading User Data
-              </h1>
-              <p className="text-gray-600 dark:text-gray-300">
-                Failed to fetch user information from the API.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
+  if (surveysError) {
+    return <DashboardError />;
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 p-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-            Welcome to your Dashboard!
+    <div className="flex-1 space-y-6 p-6">
+      {/* Header */}
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">
+            Welcome back, {String(user?.first_name || user?.name || "User")}!
           </h1>
+          <p className="text-muted-foreground">
+            Here's what's happening with your surveys today.
+          </p>
+        </div>
+        <Button onClick={() => setCreateSurveyOpen(true)} className="gap-2">
+          <Plus className="h-4 w-4" />
+          Create Survey
+        </Button>
+      </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
-              <h2 className="text-xl font-semibold text-blue-900 dark:text-blue-100 mb-2">
-                User Information
-              </h2>
-              <div className="space-y-2 text-sm">
-                <p>
-                  <strong>Name:</strong> {user?.name || "Not provided"}
-                </p>
-                <p>
-                  <strong>First Name:</strong>{" "}
-                  {user?.first_name ? String(user.first_name) : "Not provided"}
-                </p>
-                <p>
-                  <strong>Last Name:</strong>{" "}
-                  {user?.last_name ? String(user.last_name) : "Not provided"}
-                </p>
-                <p>
-                  <strong>Mobile:</strong> {user?.mobile || "Not provided"}
-                </p>
-                <p>
-                  <strong>Mobile Verified:</strong>{" "}
-                  <span
-                    className={
-                      user?.is_mobile_verified
-                        ? "text-green-600"
-                        : "text-red-600"
-                    }
-                  >
-                    {user?.is_mobile_verified ? "Yes" : "No"}
-                  </span>
-                </p>
-                <p>
-                  <strong>Avatar:</strong>{" "}
-                  {user?.avatar_url ? (
-                    <img
-                      src={String(user.avatar_url)}
-                      alt="User Avatar"
-                      className="w-8 h-8 rounded-full inline-block ml-2"
-                    />
-                  ) : (
-                    "Not provided"
-                  )}
-                </p>
-              </div>
-            </div>
+      {/* Stats Cards */}
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <StatsCard
+          title="Total Surveys"
+          value={surveys.length.toString()}
+          description="All time surveys"
+          icon={FileText}
+          trend="+12%"
+        />
+        <StatsCard
+          title="Active Surveys"
+          value={surveys.filter((s: any) => s.is_active).length.toString()}
+          description="Currently active"
+          icon={BarChart3}
+          trend="+5%"
+        />
+        <StatsCard
+          title="Total Responses"
+          value="1,234"
+          description="Across all surveys"
+          icon={Users}
+          trend="+8%"
+        />
+        <StatsCard
+          title="This Month"
+          value="23"
+          description="New surveys created"
+          icon={Calendar}
+          trend="+15%"
+        />
+      </div>
 
-            <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg">
-              <h2 className="text-xl font-semibold text-green-900 dark:text-green-100 mb-2">
-                Authentication Status
-              </h2>
-              <div className="space-y-2 text-sm">
-                <p>
-                  <strong>Status:</strong>{" "}
-                  <span className="text-green-600 dark:text-green-400">
-                    Authenticated
-                  </span>
-                </p>
-                <p>
-                  <strong>API Status:</strong>{" "}
-                  <span className="text-green-600 dark:text-green-400">
-                    Connected
-                  </span>
-                </p>
-                <p>
-                  <strong>User ID:</strong> {user?.id || "Not available"}
-                </p>
-              </div>
-            </div>
+      {/* Recent Surveys */}
+      <div className="space-y-4">
+        <div className="flex items-center justify-between">
+          <h2 className="text-2xl font-bold tracking-tight">Recent Surveys</h2>
+          <Button variant="outline" size="sm">
+            View All
+          </Button>
+        </div>
+
+        {surveysLoading ? (
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <Card key={i} className="animate-pulse">
+                <CardHeader>
+                  <div className="h-4 bg-muted rounded w-3/4"></div>
+                  <div className="h-3 bg-muted rounded w-1/2"></div>
+                </CardHeader>
+                <CardContent>
+                  <div className="h-3 bg-muted rounded w-full mb-2"></div>
+                  <div className="h-3 bg-muted rounded w-2/3"></div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-
-          <div className="mt-8 p-6 bg-gray-50 dark:bg-gray-700 rounded-lg">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-              API Integration Status
-            </h3>
-            <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
-              <p>✅ Redux Toolkit Query integrated</p>
-              <p>✅ User API endpoint connected</p>
-              <p>✅ Phone number authentication working</p>
-              <p>✅ JWT token management implemented</p>
-              <p>✅ Protected routes configured</p>
-              <p>✅ Logout functionality available</p>
-              <p>✅ Real-time user data fetching</p>
-            </div>
+        ) : surveysError ? (
+          <Card>
+            <CardContent className="flex items-center justify-center py-8">
+              <div className="text-center">
+                <p className="text-muted-foreground mb-2">
+                  Failed to load surveys
+                </p>
+                <Button variant="outline" onClick={() => refetch()}>
+                  Try Again
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        ) : surveys.length === 0 ? (
+          <Card>
+            <CardContent className="flex flex-col items-center justify-center py-12">
+              <FileText className="h-12 w-12 text-muted-foreground mb-4" />
+              <h3 className="text-lg font-semibold mb-2">No surveys yet</h3>
+              <p className="text-muted-foreground text-center mb-4">
+                Get started by creating your first survey
+              </p>
+              <Button onClick={() => setCreateSurveyOpen(true)}>
+                <Plus className="h-4 w-4 mr-2" />
+                Create Survey
+              </Button>
+            </CardContent>
+          </Card>
+        ) : (
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {surveys.map((survey: any) => (
+              <SurveyCard key={survey.id} survey={survey} onRefresh={refetch} />
+            ))}
           </div>
+        )}
+      </div>
+
+      {/* Create Survey Dialog */}
+      <CreateSurveyDialog
+        open={createSurveyOpen}
+        onOpenChange={setCreateSurveyOpen}
+        onSuccess={() => {
+          refetch();
+          setCreateSurveyOpen(false);
+        }}
+      />
+    </div>
+  );
+}
+
+function DashboardSkeleton() {
+  return (
+    <div className="flex-1 space-y-6 p-6">
+      <div className="animate-pulse">
+        <div className="h-8 bg-muted rounded w-1/3 mb-2"></div>
+        <div className="h-4 bg-muted rounded w-1/2 mb-6"></div>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-6">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div key={i} className="h-24 bg-muted rounded"></div>
+          ))}
+        </div>
+        <div className="h-6 bg-muted rounded w-1/4 mb-4"></div>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={i} className="h-32 bg-muted rounded"></div>
+          ))}
         </div>
       </div>
+    </div>
+  );
+}
+
+function DashboardError() {
+  return (
+    <div className="flex-1 flex items-center justify-center p-6">
+      <Card className="w-full max-w-md">
+        <CardContent className="flex flex-col items-center justify-center py-8">
+          <div className="text-center">
+            <h3 className="text-lg font-semibold text-destructive mb-2">
+              Error Loading Dashboard
+            </h3>
+            <p className="text-muted-foreground mb-4">
+              Failed to fetch user information from the API.
+            </p>
+            <Button variant="outline" onClick={() => window.location.reload()}>
+              Refresh Page
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }

@@ -76,13 +76,14 @@ export interface paths {
             cookie?: never;
         };
         get?: never;
-        put?: never;
+        /** Authenticated User - update */
+        put: operations["v1.auth.user.update"];
         /**
          * Authenticated User - Show
          * @description This method will be used to return the authenticated user.
          *     It will return a JSON response with the user data.
          */
-        post: operations["v1.auth.user"];
+        post: operations["v1.auth.user.show"];
         delete?: never;
         options?: never;
         head?: never;
@@ -106,6 +107,134 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/v1/survey-by/{slug}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["publicSurvey.showBySlug"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/questions": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["question.index"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/questions/custom": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["question.storeCustom"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/surveys/{survey}/responses": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: operations["response.submit"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/surveys/{survey}/stats/creator": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["stats.creator"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/surveys/{survey}/stats/admin": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["stats.admin"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/surveys": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["survey.index"];
+        put?: never;
+        post: operations["survey.store"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/v1/surveys/{survey}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["survey.show"];
+        put: operations["survey.update"];
+        post?: never;
+        delete: operations["survey.destroy"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
@@ -115,16 +244,109 @@ export interface components {
          * @enum {string}
          */
         AuthenticationTokenTypeEnum: "bearer" | "api_key";
+        /**
+         * QuestionTypeEnum
+         * @enum {string}
+         */
+        QuestionTypeEnum: "radio" | "checkbox" | "select" | "textarea" | "input";
         /** SendCodeRequest */
         SendCodeRequest: {
             /** @example 09175918439 */
             mobile: string;
+        };
+        /** StoreCustomQuestionRequest */
+        StoreCustomQuestionRequest: {
+            question_text: string;
+            /** @enum {string|null} */
+            question_type?: "textarea" | "text" | null;
+            info_content?: string | null;
+        };
+        /** StoreSurveyRequest */
+        StoreSurveyRequest: {
+            title: string;
+            unique_link_slug?: string | null;
+            is_active?: boolean | null;
+            questions?: {
+                id?: string;
+                order?: number | null;
+            }[] | null;
+        };
+        /** SubmitSurveyResponseRequest */
+        SubmitSurveyResponseRequest: {
+            answers: {
+                survey_question_id: string;
+                survey_question_option_id?: string | null;
+                text_answer?: string | null;
+            }[];
+        };
+        /** SurveyQuestionOptionResource */
+        SurveyQuestionOptionResource: {
+            id: string;
+            option_text: string;
+            info_content: string | null;
+        };
+        /** SurveyQuestionResource */
+        SurveyQuestionResource: {
+            id: string;
+            question_text: string;
+            question_type: components["schemas"]["QuestionTypeEnum"];
+            is_custom: boolean;
+            info_content: string | null;
+            options?: components["schemas"]["SurveyQuestionOptionResource"][];
+        };
+        /** SurveyResource */
+        SurveyResource: {
+            id: string;
+            user_id: string;
+            title: string;
+            unique_link_slug: string;
+            is_active: number;
+            /** Format: date-time */
+            created_at: string | null;
+            /** Format: date-time */
+            updated_at: string | null;
+            questions?: components["schemas"]["SurveyQuestionResource"][];
+        };
+        /** SurveyResponseDetailResource */
+        SurveyResponseDetailResource: {
+            id: string;
+            survey_question_id: string;
+            survey_question_option_id: string | null;
+            text_answer: string | null;
+            option?: components["schemas"]["SurveyQuestionOptionResource"];
+            question?: components["schemas"]["SurveyQuestionResource"];
+        };
+        /** SurveyResponseResource */
+        SurveyResponseResource: {
+            id: string;
+            survey_id: string;
+            user_id: string;
+            /** Format: date-time */
+            created_at: string | null;
+            details?: components["schemas"]["SurveyResponseDetailResource"][];
         };
         /** TokenResource */
         TokenResource: {
             authentication_type: Record<string, never>;
             access_token: string;
             token_type: Record<string, never>;
+        };
+        /** UpdateSurveyRequest */
+        UpdateSurveyRequest: {
+            title?: string;
+            is_active?: boolean;
+            questions?: {
+                id?: string;
+                order?: number | null;
+            }[];
+        };
+        /** UpdateUserRequest */
+        UpdateUserRequest: {
+            first_name?: string;
+            last_name?: string;
+            job_title?: string;
+            /** Format: date-time */
+            birth_date?: string;
         };
         /** UserResource */
         UserResource: {
@@ -169,6 +391,18 @@ export interface components {
                     errors: {
                         [key: string]: string[];
                     };
+                };
+            };
+        };
+        /** @description Not found */
+        ModelNotFoundException: {
+            headers: {
+                [name: string]: unknown;
+            };
+            content: {
+                "application/json": {
+                    /** @description Error overview. */
+                    message: string;
                 };
             };
         };
@@ -272,7 +506,39 @@ export interface operations {
             401: components["responses"]["AuthenticationException"];
         };
     };
-    "v1.auth.user": {
+    "v1.auth.user.update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["UpdateUserRequest"];
+            };
+        };
+        responses: {
+            /** @description Return a JSON response with the user data
+             *
+             *
+             *
+             *     `UserResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["UserResource"];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "v1.auth.user.show": {
         parameters: {
             query?: never;
             header?: never;
@@ -317,6 +583,298 @@ export interface operations {
                 };
             };
             401: components["responses"]["AuthenticationException"];
+        };
+    };
+    "publicSurvey.showBySlug": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                slug: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `SurveyResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SurveyResource"];
+                };
+            };
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "question.index": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Array of `SurveyQuestionResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SurveyQuestionResource"][];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "question.storeCustom": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StoreCustomQuestionRequest"];
+            };
+        };
+        responses: {
+            /** @description `SurveyQuestionResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SurveyQuestionResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "response.submit": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The survey ID */
+                survey: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["SubmitSurveyResponseRequest"];
+            };
+        };
+        responses: {
+            /** @description `SurveyResponseResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SurveyResponseResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "stats.creator": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The survey ID */
+                survey: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: unknown[];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "stats.admin": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The survey ID */
+                survey: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: unknown[];
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            404: components["responses"]["ModelNotFoundException"];
+        };
+    };
+    "survey.index": {
+        parameters: {
+            query?: {
+                per_page?: number | null;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        data: components["schemas"]["SurveyResource"][];
+                        meta: {
+                            current_page: string;
+                            last_page: string;
+                            per_page: string;
+                            total: string;
+                        };
+                    };
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "survey.store": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["StoreSurveyRequest"];
+            };
+        };
+        responses: {
+            /** @description `SurveyResource` */
+            201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SurveyResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "survey.show": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The survey ID */
+                survey: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description `SurveyResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SurveyResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "survey.update": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The survey ID */
+                survey: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["UpdateSurveyRequest"];
+            };
+        };
+        responses: {
+            /** @description `SurveyResource` */
+            200: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SurveyResource"];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
+        };
+    };
+    "survey.destroy": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description The survey ID */
+                survey: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description No content */
+            204: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": unknown[];
+                };
+            };
+            401: components["responses"]["AuthenticationException"];
+            404: components["responses"]["ModelNotFoundException"];
+            422: components["responses"]["ValidationException"];
         };
     };
 }

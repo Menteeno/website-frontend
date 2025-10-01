@@ -72,6 +72,12 @@ export default function PhoneAuthForm() {
         "Please enter a valid Iranian phone number (09xxxxxxxxx)";
     }
 
+    console.log("Phone validation:", {
+      mobile: formData.mobile,
+      isValid: Object.keys(newErrors).length === 0,
+      errors: newErrors,
+    });
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -111,6 +117,13 @@ export default function PhoneAuthForm() {
     setErrors({});
 
     try {
+      console.log("Sending code to:", formData.mobile);
+      console.log(
+        "API Base URL:",
+        process.env.NEXT_PUBLIC_API_URL ||
+          "https://menteeno-backend.chbk.app/api"
+      );
+
       const result = await sendCode({
         body: {
           mobile: formData.mobile,
@@ -122,10 +135,22 @@ export default function PhoneAuthForm() {
       startCountdown();
     } catch (error: any) {
       console.error("Failed to send code:", error);
+      console.error("Error details:", {
+        status: error?.status,
+        data: error?.data,
+        message: error?.message,
+        originalStatus: error?.originalStatus,
+      });
+
+      // RTK Query error structure
+      const errorMessage =
+        error?.data?.message ||
+        error?.data?.errors?.mobile?.[0] ||
+        error?.message ||
+        "Failed to send verification code. Please try again.";
+
       setErrors({
-        general:
-          error?.data?.message ||
-          "Failed to send verification code. Please try again.",
+        general: errorMessage,
       });
     } finally {
       setIsLoading(false);
@@ -170,10 +195,16 @@ export default function PhoneAuthForm() {
       }
     } catch (error: any) {
       console.error("Failed to verify code:", error);
+
+      // RTK Query error structure
+      const errorMessage =
+        error?.data?.message ||
+        error?.data?.errors?.code?.[0] ||
+        error?.message ||
+        "Invalid verification code. Please try again.";
+
       setErrors({
-        general:
-          error?.data?.message ||
-          "Invalid verification code. Please try again.",
+        general: errorMessage,
       });
     } finally {
       setIsLoading(false);
