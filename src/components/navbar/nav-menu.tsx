@@ -27,7 +27,7 @@ export const NavMenu = (props: NavigationMenuProps) => {
       text: t("messages.navbar.event"),
     },
     {
-      href: `/${locale}`,
+      href: `/${locale}/contact-us`,
       icon: PhoneIcon,
       text: t("messages.navbar.contact-us"),
     },

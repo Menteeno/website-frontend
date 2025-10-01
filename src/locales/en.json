@@ -1060,5 +1060,37 @@
       "email_label": "Email:",
       "email": "privacy@menteeno.com"
     }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "Menteeno is a soft skills laboratory for the real world. We believe that professional success is not only dependent on technical expertise — but the ability to work as a team, solve problems, and communicate effectively plays a key role in becoming a vital part of the team. In Menteeno, participants enter real and challenging scenarios as a team; where they have to make decisions, negotiate, and take responsibility — just like the workplace! This experience is accompanied by the presence of a mentor, individual feedback, coaching sessions and the opportunity to learn from the experience of others. If you are looking for real growth in skills that few people teach, Menteeno is for you.",
+    "contact_info": {
+      "phone": "Phone",
+      "email": "Email",
+      "telegram": "Telegram",
+      "whatsapp": "WhatsApp",
+      "working_hours": "Working Hours",
+      "address": "Address"
+    },
+    "form": {
+      "title": "Contact Form",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "name_placeholder": "Enter your name",
+      "email_placeholder": "Enter your email",
+      "message_placeholder": "Enter your message",
+      "success_message": "Message sent successfully! We will get back to you soon.",
+      "error_message": "Failed to send message. Please try again later."
+    },
+    "map": {
+      "title": "Our Location on the Map"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "contact": "Contact Us"
+    }
   }
 }

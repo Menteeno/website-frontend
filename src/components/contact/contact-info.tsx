@@ -1,0 +1,120 @@
+"use client";
+
+import { Card, CardContent } from "@/components/ui/card";
+import { useTranslation } from "@/hooks/use-translation";
+import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+
+export function ContactInfo() {
+  const { t, locale } = useTranslation();
+
+  const contactInfo = [
+    {
+      icon: Phone,
+      label: t("contact.contact_info.phone"),
+      value: "۰۲۱-۹۱۰۳۱۶۱۴",
+      href: "tel:+982191031614",
+      color: "text-blue-600",
+      bgColor: "bg-blue-50",
+    },
+    {
+      icon: Mail,
+      label: t("contact.contact_info.email"),
+      value: "hi@menteeno.app",
+      href: "mailto:hi@menteeno.app",
+      color: "text-green-600",
+      bgColor: "bg-green-50",
+    },
+    {
+      icon: MessageCircle,
+      label: t("contact.contact_info.telegram"),
+      value: "@menteeno",
+      href: "https://t.me/menteeno",
+      color: "text-sky-600",
+      bgColor: "bg-sky-50",
+    },
+    {
+      icon: MessageCircle,
+      label: t("contact.contact_info.whatsapp"),
+      value: t("contact.contact_info.whatsapp"),
+      href: "https://wa.me/982191031614",
+      color: "text-emerald-600",
+      bgColor: "bg-emerald-50",
+    },
+    {
+      icon: Clock,
+      label: t("contact.contact_info.working_hours"),
+      value: "شنبه تا جمعه: ۹ صبح تا ۶ عصر (دوشنبه‌ها تعطیل)",
+      color: "text-orange-600",
+      bgColor: "bg-orange-50",
+    },
+    {
+      icon: MapPin,
+      label: t("contact.contact_info.address"),
+      value: "مازندران، بابلسر، خیابان نخست‌وزیری، مرکز نوآوری بابلسر",
+      color: "text-red-600",
+      bgColor: "bg-red-50",
+    },
+  ];
+
+  return (
+    <div className="space-y-8 max-w-4xl mx-auto">
+      <div className="text-center">
+        <h2 className="text-3xl font-bold text-foreground mb-4">
+          {t("contact.contact_info.phone")}
+        </h2>
+        <p className="text-muted-foreground text-lg">
+          {locale === "fa"
+            ? "با ما در تماس باشید و سوالات خود را بپرسید"
+            : "Get in touch with us and ask your questions"}
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {contactInfo.map((item, index) => {
+          const IconComponent = item.icon;
+          return (
+            <Card
+              key={index}
+              className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg hover:scale-105"
+            >
+              <CardContent className="p-8">
+                <div className="flex flex-col items-center text-center space-y-4">
+                  <div
+                    className={`p-4 rounded-2xl ${item.bgColor} group-hover:scale-110 transition-transform duration-300`}
+                  >
+                    <IconComponent className={`h-8 w-8 ${item.color}`} />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-sm font-bold text-muted-foreground uppercase tracking-wider">
+                      {item.label}
+                    </h3>
+                    {item.href ? (
+                      <a
+                        href={item.href}
+                        target={
+                          item.href.startsWith("http") ? "_blank" : undefined
+                        }
+                        rel={
+                          item.href.startsWith("http")
+                            ? "noopener noreferrer"
+                            : undefined
+                        }
+                        className="text-foreground hover:text-primary transition-colors break-all text-base font-semibold group-hover:text-primary block"
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="text-foreground break-words text-base font-semibold">
+                        {item.value}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
