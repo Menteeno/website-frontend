@@ -37,5 +37,6 @@ export const cspHeader = `
   base-uri 'self';
   form-action 'self';
   frame-ancestors 'none';
+  frame-src 'self' https://neshan.org https://www.google.com;
   connect-src 'self' https://menteeno-backend.chbk.app https://cdn.jsdelivr.net https://unpkg.com;
 `;
