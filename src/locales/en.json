@@ -476,7 +476,7 @@
       "features": {
         "networking": {
           "title": "Professional Networking",
-          "description": "Opportunity to meet and connect with 50 technology experts and enthusiasts"
+          "description": "Opportunity to meet and connect with 35 technology experts and enthusiasts"
         },
         "learning": {
           "title": "Hands-on Learning",
@@ -576,7 +576,7 @@
       "included": {
         "networking": {
           "title": "Professional Networking",
-          "description": "Opportunity to meet 50 experts and enthusiasts"
+          "description": "Opportunity to meet 35 experts and enthusiasts"
         },
         "duration": {
           "title": "6 Hours Program",
@@ -713,7 +713,7 @@
         "contact-info": "How can I contact the organizing team?"
       },
       "answers": {
-        "what-is-event": "This is a 50-person meetup for technology professionals and enthusiasts that includes educational workshops, networking, and experience sharing.",
+        "what-is-event": "This is a 35-person meetup for technology professionals and enthusiasts that includes educational workshops, networking, and experience sharing.",
         "who-can-attend": "Students, professionals, developers, entrepreneurs, and all technology enthusiasts can attend this event.",
         "what-to-bring": "Laptop, notebook, pen, and business cards for networking. All educational materials and resources are provided free.",
         "cancellation-policy": "Cancellation possible until 7 days before the event with 80% refund. No cancellation possible after that.",
@@ -735,7 +735,7 @@
       "benefits": {
         "networking": {
           "title": "Professional Networking",
-          "description": "Building lasting relationships with 50 experts"
+          "description": "Building lasting relationships with 35 experts"
         },
         "experience": {
           "title": "Unique Experience",
@@ -750,7 +750,7 @@
         "title": "Time is Limited!",
         "description": "Only a few spots left",
         "time": "Until August 10, 1404",
-        "spots": "Only 50 People",
+        "spots": "Only 35 People",
         "location": "Tehran, Technology Park"
       },
       "pricing": {

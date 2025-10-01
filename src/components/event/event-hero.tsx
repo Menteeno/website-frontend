@@ -70,7 +70,7 @@ const EventHero = () => {
               <p className="text-sm text-muted-foreground">
                 {t("event.hero.capacity")}
               </p>
-              <p className="font-semibold">۴۰ نفر</p>
+              <p className="font-semibold">۳۵ نفر</p>
             </div>
           </div>
         </div>
