@@ -34,7 +34,7 @@ interface FormErrors {
 type AuthStep = "phone" | "verification" | "profile";
 
 export default function PhoneAuthForm() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const { login } = useAuth();
   const [currentStep, setCurrentStep] = useState<AuthStep>("phone");
   const [isLoading, setIsLoading] = useState(false);
@@ -328,7 +328,7 @@ export default function PhoneAuthForm() {
         {/* Logo and Header */}
         <div className="text-center mb-8">
           <Link
-            href="/"
+            href={`/${locale}`}
             className="inline-flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white mb-4"
           >
             <AppLogoIcon className="size-8 fill-current" />

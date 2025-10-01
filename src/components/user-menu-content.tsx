@@ -7,6 +7,7 @@ import {
 import { UserInfo } from "@/components/user-info";
 import { useLogout } from "@/hooks/use-logout";
 import { useMobileNavigation } from "@/hooks/use-mobile-navigation";
+import { useTranslation } from "@/hooks/use-translation";
 import { type User } from "@/types";
 import { LogOut, Settings } from "lucide-react";
 import Link from "next/link";
@@ -18,6 +19,7 @@ interface UserMenuContentProps {
 export function UserMenuContent({ user }: UserMenuContentProps) {
   const cleanup = useMobileNavigation();
   const { logout, isLoggingOut } = useLogout();
+  const { locale } = useTranslation();
 
   const handleLogout = () => {
     cleanup();
@@ -34,7 +36,11 @@ export function UserMenuContent({ user }: UserMenuContentProps) {
       <DropdownMenuSeparator />
       <DropdownMenuGroup>
         <DropdownMenuItem asChild>
-          <Link className="block w-full" href="/profile/edit" onClick={cleanup}>
+          <Link
+            className="block w-full"
+            href={`/${locale}/profile/edit`}
+            onClick={cleanup}
+          >
             <Settings className="mr-2" />
             Settings
           </Link>

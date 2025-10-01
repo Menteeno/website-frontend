@@ -42,7 +42,7 @@ interface FormErrors {
 }
 
 export default function AuthForm() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const { login } = useAuth();
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
@@ -141,7 +141,7 @@ export default function AuthForm() {
       login(user, mockToken);
 
       // Redirect to dashboard or home
-      window.location.href = "/dashboard";
+      window.location.href = `/${locale}/dashboard`;
     } catch (error) {
       setErrors({ general: t("auth.general_error") });
     } finally {
@@ -168,7 +168,7 @@ export default function AuthForm() {
         {/* Logo and Header */}
         <div className="text-center mb-8">
           <Link
-            href="/"
+            href={`/${locale}`}
             className="inline-flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white mb-4"
           >
             <AppLogoIcon className="size-8 fill-current" />

@@ -11,7 +11,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const { user, isAuthenticated } = useAuth();
 
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
@@ -65,7 +65,9 @@ const Navbar = () => {
               className="hidden sm:inline-flex rounded-full"
               aria-label={t("messages.navbar.dashboard")}
             >
-              <Link href="/dashboard">{t("messages.navbar.dashboard")}</Link>
+              <Link href={`/${locale}/dashboard`}>
+                {t("messages.navbar.dashboard")}
+              </Link>
             </Button>
           ) : (
             <>
@@ -75,14 +77,18 @@ const Navbar = () => {
                 className="hidden sm:inline-flex rounded-full"
                 aria-label={t("messages.navbar.sign-in")}
               >
-                <Link href="/auth">{t("messages.navbar.sign-in")}</Link>
+                <Link href={`/${locale}/auth`}>
+                  {t("messages.navbar.sign-in")}
+                </Link>
               </Button>
               <Button
                 asChild
                 className="rounded-full"
                 aria-label={t("messages.navbar.sign-up")}
               >
-                <Link href="/auth">{t("messages.navbar.sign-up")}</Link>
+                <Link href={`/${locale}/auth`}>
+                  {t("messages.navbar.sign-up")}
+                </Link>
               </Button>
             </>
           )}

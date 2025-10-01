@@ -17,17 +17,17 @@ export const NavMenu = (props: NavigationMenuProps) => {
 
   const menuItems = [
     {
-      href: "/",
+      href: `/${locale}`,
       icon: HomeIcon,
       text: t("messages.navbar.home"),
     },
     {
-      href: "/event",
+      href: `/${locale}/event`,
       icon: CalendarIcon,
       text: t("messages.navbar.event"),
     },
     {
-      href: "/",
+      href: `/${locale}`,
       icon: PhoneIcon,
       text: t("messages.navbar.contact-us"),
     },
