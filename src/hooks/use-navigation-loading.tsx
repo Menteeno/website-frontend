@@ -5,14 +5,15 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
 export function useNavigationLoading() {
-  const { startLoading, stopLoading } = useLoading();
+  const { startLoading, stopLoading, scrollToTop } = useLoading();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    // Stop loading when pathname or search params change
+    // Stop loading and scroll to top when pathname or search params change
     stopLoading();
-  }, [pathname, searchParams, stopLoading]);
+    scrollToTop();
+  }, [pathname, searchParams, stopLoading, scrollToTop]);
 
   // Function to start loading (can be called manually)
   const handleNavigationStart = () => {

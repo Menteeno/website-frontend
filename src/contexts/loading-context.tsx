@@ -7,6 +7,7 @@ interface LoadingContextType {
   setLoading: (loading: boolean) => void;
   startLoading: () => void;
   stopLoading: () => void;
+  scrollToTop: () => void;
 }
 
 const LoadingContext = createContext<LoadingContextType | undefined>(undefined);
@@ -30,6 +31,14 @@ export function LoadingProvider({ children }: LoadingProviderProps) {
     setIsLoading(false);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <LoadingContext.Provider
       value={{
@@ -37,6 +46,7 @@ export function LoadingProvider({ children }: LoadingProviderProps) {
         setLoading,
         startLoading,
         stopLoading,
+        scrollToTop,
       }}
     >
       {children}
