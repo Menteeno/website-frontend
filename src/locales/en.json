@@ -4,7 +4,7 @@
   },
   "auth": {
     "failed": "These credentials do not match our records.",
-    "password": "The provided password is incorrect.",
+    "password_incorrect": "The provided password is incorrect.",
     "throttle": "Too many login attempts. Please try again in :seconds seconds.",
     "welcome_back": "Welcome back!",
     "join_menteeno": "Join Menteeno",
@@ -71,6 +71,7 @@
     },
     "navbar": {
       "home": "Home",
+      "event": "Event",
       "dashboard": "Dashboard",
       "blog": "Blog",
       "contact-us": "Contact Us",
@@ -454,6 +455,312 @@
       "creativity": "Creativity",
       "technology": "Technology",
       "excellence": "Excellence"
+    }
+  },
+  "event": {
+    "hero": {
+      "badge": "Special Event",
+      "title": "Soft Skills for Programmers",
+      "description": "An exceptional opportunity to learn soft skills and professional growth alongside experienced programmers and technology experts",
+      "date": "Date",
+      "time": "Time",
+      "location": "Location",
+      "capacity": "Capacity",
+      "register-button": "Register Now",
+      "learn-more-button": "Learn More",
+      "image-placeholder": "Event Venue Image"
+    },
+    "about": {
+      "title": "About the Event",
+      "description": "This event is a unique opportunity to connect with professionals, learn new skills, and build lasting professional relationships.",
+      "features": {
+        "networking": {
+          "title": "Professional Networking",
+          "description": "Opportunity to meet and connect with 50 technology experts and enthusiasts"
+        },
+        "learning": {
+          "title": "Hands-on Learning",
+          "description": "Practical workshops and specialized presentations in various technology fields"
+        },
+        "community": {
+          "title": "Supportive Community",
+          "description": "Membership in a community of like-minded and supportive professionals"
+        },
+        "collaboration": {
+          "title": "Collaboration & Partnership",
+          "description": "Opportunities for collaboration and joint projects with other participants"
+        }
+      },
+      "highlights": {
+        "title": "Special Event Features",
+        "item1": "Specialized presentations by industry experts",
+        "item2": "Interactive and practical workshops for better learning",
+        "item3": "Networking opportunities and meeting professionals",
+        "item4": "Event participation certificate and free educational materials"
+      },
+      "image-placeholder": "Event venue and participants image"
+    },
+    "schedule": {
+      "title": "Event Schedule",
+      "description": "Complete program for the event day with details of all sections and precise timing",
+      "registration": {
+        "title": "Registration & Welcome",
+        "description": "Participant registration, receiving educational materials and welcome reception"
+      },
+      "welcome": {
+        "title": "Opening Speech",
+        "description": "Welcome address and introduction to the day's program"
+      },
+      "workshop1": {
+        "title": "Workshop 1: Technical Skills",
+        "description": "Advanced technical skills training and practical applications"
+      },
+      "break": {
+        "title": "Break & Reception",
+        "description": "Break, reception and networking opportunities"
+      },
+      "workshop2": {
+        "title": "Workshop 2: Soft Skills",
+        "description": "Soft and professional skills training for career growth"
+      },
+      "dinner": {
+        "title": "Dinner & Networking",
+        "description": "Shared dinner and informal networking opportunities"
+      },
+      "networking": {
+        "title": "Networking Session",
+        "description": "Final networking session and contact information exchange"
+      },
+      "types": {
+        "registration": "Registration",
+        "presentation": "Presentation",
+        "workshop": "Workshop",
+        "break": "Break",
+        "meal": "Meal",
+        "networking": "Networking"
+      },
+      "note": {
+        "title": "Important Notes",
+        "description": "Please arrive 15 minutes before the start of each section. The program may change based on conditions."
+      }
+    },
+    "pricing": {
+      "title": "Event Participation Cost",
+      "description": "Transparent and affordable costs for access to all event facilities",
+      "early-bird": {
+        "name": "Early Registration",
+        "period": "Until August 10, 1404",
+        "badge": "Special Offer",
+        "features": {
+          "access": "Full access to all event sections",
+          "materials": "Free educational materials and resources",
+          "networking": "Networking and meeting opportunities",
+          "certificate": "Event participation certificate",
+          "meal": "Complete dinner and reception",
+          "support": "Specialized support and consultation"
+        }
+      },
+      "regular": {
+        "name": "Regular Registration",
+        "period": "From August 11, 1404",
+        "features": {
+          "access": "Full access to all event sections",
+          "materials": "Free educational materials and resources",
+          "networking": "Networking and meeting opportunities",
+          "certificate": "Event participation certificate",
+          "meal": "Complete dinner and reception"
+        }
+      },
+      "discount": "Special Discount",
+      "register-button": "Register Now",
+      "included": {
+        "networking": {
+          "title": "Professional Networking",
+          "description": "Opportunity to meet 50 experts and enthusiasts"
+        },
+        "duration": {
+          "title": "6 Hours Program",
+          "description": "Complete and diverse program throughout the day"
+        },
+        "location": {
+          "title": "Suitable Venue",
+          "description": "Tehran, Technology Park with complete facilities"
+        }
+      }
+    },
+    "audience": {
+      "title": "Who is this for?",
+      "description": "This event is designed for a wide range of technology professionals and enthusiasts",
+      "students": {
+        "title": "Students",
+        "description": "Technology and engineering students",
+        "benefits": {
+          "1": "Familiarity with job market and career opportunities",
+          "2": "Learning practical and applicable skills",
+          "3": "Building professional network for future career"
+        }
+      },
+      "professionals": {
+        "title": "Professionals",
+        "description": "Active professionals in technology field",
+        "benefits": {
+          "1": "Updating skills and specialized knowledge",
+          "2": "Networking with colleagues and competitors",
+          "3": "Familiarity with latest industry trends"
+        }
+      },
+      "developers": {
+        "title": "Developers",
+        "description": "Programmers and software developers",
+        "benefits": {
+          "1": "Learning new and advanced technologies",
+          "2": "Participating in joint projects",
+          "3": "Exchanging experiences and best practices"
+        }
+      },
+      "entrepreneurs": {
+        "title": "Entrepreneurs",
+        "description": "Entrepreneurs and business owners",
+        "benefits": {
+          "1": "Familiarity with technological solutions",
+          "2": "Finding business partners and collaborators",
+          "3": "Learning how to use technology in business"
+        }
+      },
+      "why": {
+        "title": "Why attend this event?",
+        "description": "Benefits of participating in this unique event",
+        "networking": {
+          "title": "Professional Networking",
+          "description": "Building lasting professional relationships with like-minded experts"
+        },
+        "skills": {
+          "title": "Learning New Skills",
+          "description": "Updating knowledge and learning applicable skills"
+        },
+        "certification": {
+          "title": "Valid Certificate",
+          "description": "Receiving event participation certificate for resume"
+        }
+      },
+      "cta": "Register Now"
+    },
+    "team": {
+      "title": "Event Team",
+      "description": "Meet the expert and experienced event organizing team",
+      "organizer": {
+        "name": "Saleh Shojaei",
+        "role": "Founder of Menteeno",
+        "bio": "Founder of Menteeno and soft skills expert",
+        "expertise": "Soft Skills & Leadership"
+      },
+      "speaker1": {
+        "name": "Amirhossein Darabi",
+        "role": "Founder of TechHouse",
+        "bio": "Founder of TechHouse and technology expert",
+        "expertise": "Technology & Entrepreneurship"
+      },
+      "speaker2": {
+        "name": "Masoud Bigi",
+        "role": "Founder of RefHub",
+        "bio": "Founder of RefHub and business expert",
+        "expertise": "Business & Strategy"
+      },
+      "speaker3": {
+        "name": "Menteeno Team",
+        "role": "Organizer",
+        "bio": "Menteeno's expert team in organizing soft skills events",
+        "expertise": "Event Organization"
+      },
+      "organizer1": {
+        "name": "TechHouse",
+        "role": "Sponsor",
+        "company": "TechHouse"
+      },
+      "organizer2": {
+        "name": "FrontChapter",
+        "role": "Sponsor",
+        "company": "FrontChapter"
+      },
+      "organizer3": {
+        "name": "RefHub",
+        "role": "Sponsor",
+        "company": "RefHub"
+      },
+      "organizers": {
+        "title": "Sponsors & Partners"
+      },
+      "contact": {
+        "title": "Contact the Team",
+        "description": "For questions and more information, contact us",
+        "email": "Send Email",
+        "website": "Website"
+      }
+    },
+    "faq": {
+      "badge": "Frequently Asked Questions",
+      "title": "Answers to Your Questions",
+      "description": "Answers to common questions about the event and how to participate",
+      "questions": {
+        "what-is-event": "What is this event and what is its purpose?",
+        "who-can-attend": "Who can attend this event?",
+        "what-to-bring": "What should I bring to the event?",
+        "cancellation-policy": "What is the cancellation and refund policy?",
+        "dress-code": "What is the event dress code?",
+        "parking": "What are the parking facilities?",
+        "food-beverages": "Are food and beverages provided?",
+        "certificate": "Is an event participation certificate provided?",
+        "contact-info": "How can I contact the organizing team?"
+      },
+      "answers": {
+        "what-is-event": "This is a 50-person meetup for technology professionals and enthusiasts that includes educational workshops, networking, and experience sharing.",
+        "who-can-attend": "Students, professionals, developers, entrepreneurs, and all technology enthusiasts can attend this event.",
+        "what-to-bring": "Laptop, notebook, pen, and business cards for networking. All educational materials and resources are provided free.",
+        "cancellation-policy": "Cancellation possible until 7 days before the event with 80% refund. No cancellation possible after that.",
+        "dress-code": "Business casual attire is appropriate. Consider comfort and professionalism.",
+        "parking": "Free parking is available at the event venue. Limited capacity, so arrive early.",
+        "food-beverages": "Yes, complete catering including breakfast, lunch, dinner, and various beverages is provided.",
+        "certificate": "Yes, a valid event participation certificate is provided to all participants.",
+        "contact-info": "You can contact us via email event@menteeno.com or phone number 021-12345678."
+      },
+      "footer": {
+        "question": "Have another question?",
+        "cta": "Contact Us"
+      }
+    },
+    "cta": {
+      "badge": "Limited Time",
+      "title": "Register for the Event Now",
+      "description": "Limited opportunity to participate in this exceptional event. Reserve your spot and benefit from special advantages.",
+      "benefits": {
+        "networking": {
+          "title": "Professional Networking",
+          "description": "Building lasting relationships with 50 experts"
+        },
+        "experience": {
+          "title": "Unique Experience",
+          "description": "Practical and applicable learning"
+        },
+        "certificate": {
+          "title": "Valid Certificate",
+          "description": "Resume-worthy certificate"
+        }
+      },
+      "urgency": {
+        "title": "Time is Limited!",
+        "description": "Only a few spots left",
+        "time": "Until August 10, 1404",
+        "spots": "Only 50 People",
+        "location": "Tehran, Technology Park"
+      },
+      "pricing": {
+        "title": "Participation Cost",
+        "discount": "Special Discount",
+        "note": "Includes all facilities and services"
+      },
+      "primary-button": "Register Now",
+      "secondary-button": "More Information",
+      "disclaimer": "Registration continues until capacity is reached"
     }
   }
 }

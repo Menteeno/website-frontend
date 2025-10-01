@@ -98,8 +98,10 @@ const HeroCTA = () => {
       <div className="text-center">
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
           <Button size="lg" className="text-lg px-8 py-6">
-            {t("messages.hero-cta.primary-button")}
-            <ArrowRight className="ml-2 size-5" />
+            <ArrowRight className="size-5 order-1" />
+            <span className="order-2">
+              {t("messages.hero-cta.primary-button")}
+            </span>
           </Button>
           <Button variant="outline" size="lg" className="text-lg px-8 py-6">
             {t("messages.hero-cta.secondary-button")}

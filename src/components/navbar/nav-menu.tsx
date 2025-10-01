@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { useTranslation } from "@/hooks/use-translation";
 import { NavigationMenuProps } from "@radix-ui/react-navigation-menu";
-import { HomeIcon, NewspaperIcon, PhoneIcon } from "lucide-react";
+import { CalendarIcon, HomeIcon, NewspaperIcon, PhoneIcon } from "lucide-react";
 import Link from "next/link";
 
 export const NavMenu = (props: NavigationMenuProps) => {
@@ -20,6 +20,11 @@ export const NavMenu = (props: NavigationMenuProps) => {
       href: "/",
       icon: HomeIcon,
       text: t("messages.navbar.home"),
+    },
+    {
+      href: "/event",
+      icon: CalendarIcon,
+      text: t("messages.navbar.event"),
     },
     {
       href: "/",
