@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { useTranslation } from "@/hooks/use-translation";
+import { getAssetUrl } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import type { BlogCardProps } from "@/types/blog";
 import { CalendarIcon, ClockIcon, UserIcon } from "lucide-react";
@@ -58,7 +59,7 @@ export const BlogCard = memo<BlogCardProps>(
         {post.seo?.image && (
           <div className={`relative w-full h-48 overflow-hidden`}>
             <Image
-              src={post.seo.image}
+              src={getAssetUrl(post.seo.image)}
               alt={post.title}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-200"

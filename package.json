@@ -14,7 +14,8 @@
     "format": "biome format --write",
     "generate:types": "npx openapi-typescript https://menteeno-backend.chbk.app/docs/api.json --output src/api/openapi.types.ts",
     "generate:rtk": "tsx scripts/generate-rtk-api.ts",
-    "generate:api": "pnpm run generate:types && pnpm run generate:rtk"
+    "generate:api": "pnpm run generate:types && pnpm run generate:rtk",
+    "setup:analytics": "node scripts/setup-analytics.js"
   },
   "dependencies": {
     "@lottiefiles/dotlottie-react": "^0.17.1",
@@ -43,6 +44,7 @@
     "lucide-react": "^0.544.0",
     "motion": "^12.23.22",
     "next": "15.5.4",
+    "nextjs-toploader": "^3.9.17",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-redux": "^9.1.2",

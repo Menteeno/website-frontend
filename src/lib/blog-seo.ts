@@ -1,5 +1,6 @@
 import type { BlogPost, Locale } from "@/types/blog";
 
+import { getAssetUrl } from "./config";
 import { getBaseUrl } from "./env";
 
 // Generate structured data for blog posts
@@ -11,7 +12,7 @@ export function generateBlogStructuredData(post: BlogPost) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    image: post.seo?.image ? `${baseUrl}${post.seo.image}` : undefined,
+    image: post.seo?.image ? getAssetUrl(post.seo.image) : undefined,
     author: {
       "@type": "Person",
       name: post.author.name,

@@ -17,7 +17,7 @@ export function Analytics({
 }: AnalyticsProps) {
   return (
     <>
-      {/* Google Analytics */}
+      {/* Google Analytics 4 */}
       {googleAnalyticsId && (
         <>
           <Script
@@ -32,6 +32,24 @@ export function Analytics({
               gtag('config', '${googleAnalyticsId}', {
                 page_title: document.title,
                 page_location: window.location.href,
+                send_page_view: true,
+                anonymize_ip: true,
+                allow_google_signals: true,
+                allow_ad_personalization_signals: false,
+                cookie_flags: 'SameSite=None;Secure',
+                custom_map: {
+                  'custom_parameter_1': 'user_type',
+                  'custom_parameter_2': 'locale'
+                }
+              });
+              
+              // Enhanced ecommerce tracking for course enrollments
+              gtag('event', 'page_view', {
+                page_title: document.title,
+                page_location: window.location.href,
+                page_path: window.location.pathname,
+                content_group1: 'Website',
+                content_group2: 'Main Site'
               });
             `}
           </Script>
