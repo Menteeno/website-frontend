@@ -61,22 +61,22 @@ export const BlogLoadingSkeleton = memo<BlogLoadingSkeletonProps>(
               )}
             </div>
 
-            <CardHeader className="p-4 pb-2">
+            <CardHeader className="p-3 pb-1">
               {/* Title Skeleton */}
-              <div className="space-y-2 mb-2">
+              <div className="space-y-1">
                 <Skeleton className="h-6 w-full" />
                 <Skeleton className="h-6 w-3/4" />
               </div>
 
               {/* Excerpt Skeleton */}
-              <div className="space-y-1">
+              <div className="space-y-1 mt-1">
                 <Skeleton className="h-4 w-full" />
                 <Skeleton className="h-4 w-5/6" />
               </div>
             </CardHeader>
 
             {/* Tags Skeleton */}
-            <CardContent className="px-4 py-2">
+            <CardContent className="px-3 py-1">
               <div className="flex flex-wrap gap-1">
                 <Skeleton className="h-6 w-16 rounded-full" />
                 <Skeleton className="h-6 w-20 rounded-full" />
@@ -85,9 +85,9 @@ export const BlogLoadingSkeleton = memo<BlogLoadingSkeletonProps>(
             </CardContent>
 
             {/* Footer Skeleton */}
-            <CardFooter className="px-4 py-3 pt-2 mt-auto">
+            <CardFooter className="px-3 py-2 mt-auto">
               <div className="flex items-center justify-between w-full">
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3">
                   <div className="flex items-center gap-1">
                     <Skeleton className="h-3 w-3" />
                     <Skeleton className="h-3 w-16" />

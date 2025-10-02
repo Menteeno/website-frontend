@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { useTranslation } from "@/hooks/use-translation";
+import { cn } from "@/lib/utils";
 import type { BlogCardProps } from "@/types/blog";
 import { CalendarIcon, ClockIcon, UserIcon } from "lucide-react";
 import Image from "next/image";
@@ -82,9 +83,14 @@ export const BlogCard = memo<BlogCardProps>(
           </div>
         )}
 
-        <CardHeader className="p-4 pb-2">
+        <CardHeader className="px-4">
           {/* Title */}
-          <CardTitle className="line-clamp-2 text-lg font-semibold leading-tight mb-2">
+          <CardTitle
+            className={cn(
+              "line-clamp-2 text-lg font-semibold leading-tight",
+              !post.seo.image && "pt-6"
+            )}
+          >
             <Link
               href={`/${locale}/blog/${post.slug}`}
               className="hover:text-primary transition-colors group-hover:text-primary"
@@ -97,7 +103,7 @@ export const BlogCard = memo<BlogCardProps>(
           {/* Excerpt */}
           {showExcerpt && (
             <CardDescription
-              className="line-clamp-2 text-sm text-gray-600 leading-relaxed"
+              className="line-clamp-2 text-sm text-gray-600 leading-relaxed mt-1"
               dir={isRTL ? "rtl" : "ltr"}
             >
               {post.excerpt}
@@ -107,7 +113,7 @@ export const BlogCard = memo<BlogCardProps>(
 
         {/* Tags */}
         {showTags && post.tags.length > 0 && (
-          <CardContent className="px-4 py-2">
+          <CardContent className="px-3 py-1">
             <div className="flex flex-wrap gap-1">
               {post.tags.slice(0, 3).map((tag) => (
                 <Badge
@@ -128,9 +134,9 @@ export const BlogCard = memo<BlogCardProps>(
         )}
 
         {/* Footer */}
-        <CardFooter className="px-4 py-3 pt-2 mt-auto">
+        <CardFooter className="px-3 py-2 mt-auto">
           <div className="flex items-center justify-between w-full text-xs text-gray-500">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               {showAuthor && (
                 <div className="flex items-center gap-1">
                   <UserIcon className="h-3 w-3" />
