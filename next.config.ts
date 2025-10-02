@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 import { cacheConfig, redirects } from "./config/routing";
 import { cspHeader, securityHeaders } from "./config/security";
-import { webpackConfig } from "./config/webpack";
+// import { webpackConfig } from "./config/webpack";
 import { getAppConfig, getNextConfig } from "./src/lib/config";
 
 /**
@@ -24,7 +24,7 @@ const commonConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
   generateEtags: true,
-  webpack: webpackConfig,
+  // Webpack config disabled for GitHub Pages compatibility
 };
 
 /**
@@ -98,8 +98,9 @@ const redirectsConfig = {
 const nextConfig: NextConfig = {
   ...commonConfig,
   ...environmentConfig,
-  ...headersConfig,
-  ...redirectsConfig,
+  // Only apply headers and redirects for non-static exports
+  ...(config.isGitHubPages ? {} : headersConfig),
+  ...(config.isGitHubPages ? {} : redirectsConfig),
 } as NextConfig;
 
 export default nextConfig;
