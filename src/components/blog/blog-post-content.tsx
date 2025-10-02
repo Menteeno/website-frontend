@@ -2,6 +2,7 @@
 
 import { Separator } from "@/components/ui/separator";
 import { useTranslation } from "@/hooks/use-translation";
+import { getAssetUrl } from "@/lib/config";
 import type { BlogPost } from "@/types/blog";
 import Image from "next/image";
 import { memo } from "react";
@@ -20,7 +21,7 @@ export const BlogPostContent = memo<BlogPostContentProps>(({ post }) => {
       {post.seo?.image && (
         <div className="w-full mb-8 rounded-lg overflow-hidden">
           <Image
-            src={post.seo.image}
+            src={getAssetUrl(post.seo.image)}
             alt={post.title}
             width={1200}
             height={630}
