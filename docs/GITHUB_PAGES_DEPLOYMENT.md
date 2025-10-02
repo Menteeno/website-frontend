@@ -5,13 +5,11 @@ This project is configured to deploy automatically to GitHub Pages when changes 
 ## Setup Instructions
 
 1. **Enable GitHub Pages in your repository:**
-
    - Go to your repository settings
    - Navigate to "Pages" section
    - Under "Source", select "GitHub Actions"
 
 2. **Configure repository permissions:**
-
    - Go to Settings → Actions → General
    - Under "Workflow permissions", select "Read and write permissions"
    - Check "Allow GitHub Actions to create and approve pull requests"
@@ -19,7 +17,7 @@ This project is configured to deploy automatically to GitHub Pages when changes 
 3. **Deploy:**
    - Push changes to the `main` branch
    - The GitHub Action will automatically build and deploy your site
-   - Your site will be available at: `https://menteeno.github.io/website-frontend`
+   - Your site will be available at: `https://menteeno.app`
 
 ## Manual Deployment
 
@@ -37,7 +35,7 @@ pnpm run build:github-pages
 
 ## Configuration Details
 
-- **Base Path**: `/website-frontend` (matches repository name)
+- **Base Path**: `` (custom domain)
 - **Output Directory**: `out`
 - **Static Export**: Enabled for GitHub Pages compatibility
 - **Image Optimization**: Disabled (GitHub Pages doesn't support Next.js Image Optimization)
@@ -59,6 +57,6 @@ The following environment variables are used during GitHub Pages build:
 
 ## Notes
 
-- The site will be available at `https://menteeno.github.io/website-frontend`
+- The site will be available at `https://menteeno.app`
 - All internal links and assets will automatically use the correct base path
 - The deployment is automatic on every push to the `main` branch

@@ -23,7 +23,7 @@ export interface AppConfig {
 /**
  * Environment configuration mapping
  */
-const ENVIRONMENT_CONFIGS = {
+export const ENVIRONMENT_CONFIGS = {
   development: {
     baseUrl: "http://localhost:3000",
     basePath: "",
@@ -56,7 +56,7 @@ export function getDeploymentEnvironment(): DeploymentEnvironment {
   }
 
   // Check for GitHub Pages
-  if (process.env.GITHUB_PAGES === "true") {
+  if (process.env.GITHUB_PAGES === "true" || process.env.GITHUB_PAGES === "1") {
     return "github-pages";
   }
 
@@ -140,6 +140,7 @@ export function getNextConfig() {
       },
       assetPrefix: config.assetPrefix,
       basePath: config.basePath,
+      skipMiddlewareUrlNormalize: true,
     };
   }
 

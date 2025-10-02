@@ -40,11 +40,25 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Prepare for static export
+        run: |
+          # Temporarily rename middleware to avoid static export issues
+          if [ -f "src/middleware.ts" ]; then
+            mv src/middleware.ts src/middleware.ts.bak
+          fi
+
       - name: Build for GitHub Pages
         run: pnpm run build:github-pages
         env:
           GITHUB_PAGES: true
           NEXT_PUBLIC_DEPLOYMENT_ENV: github-pages
+
+      - name: Restore middleware
+        run: |
+          # Restore middleware file
+          if [ -f "src/middleware.ts.bak" ]; then
+            mv src/middleware.ts.bak src/middleware.ts
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
