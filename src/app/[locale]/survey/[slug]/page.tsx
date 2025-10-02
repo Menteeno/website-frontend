@@ -1,3 +1,5 @@
+import { locales } from "@/lib/i18n";
+
 interface SurveyPageProps {
   params: Promise<{
     locale: string;
@@ -6,7 +8,11 @@ interface SurveyPageProps {
 }
 
 export async function generateStaticParams() {
-  return [];
+  const params = [];
+  for (const locale of locales) {
+    params.push({ locale, slug: "placeholder" });
+  }
+  return params;
 }
 
 export default async function SurveyPage({ params }: SurveyPageProps) {
