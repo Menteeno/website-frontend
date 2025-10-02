@@ -20,7 +20,9 @@ const HeroTestimonials = () => {
       company: t("messages.hero-testimonials.testimonials.1.company"),
       content: t("messages.hero-testimonials.testimonials.1.content"),
       rating: 5,
-      avatar: getAssetUrl("/assets/images/testimonials/sarinaemadi_menteeno.png"),
+      avatar: getAssetUrl(
+        "/assets/images/testimonials/sarinaemadi_menteeno.png"
+      ),
       linkedin: t("messages.hero-testimonials.testimonials.1.linkedin"),
     },
     {
@@ -30,7 +32,9 @@ const HeroTestimonials = () => {
       company: t("messages.hero-testimonials.testimonials.2.company"),
       content: t("messages.hero-testimonials.testimonials.2.content"),
       rating: 5,
-      avatar: getAssetUrl("/assets/images/testimonials/homayoun_naji_menteeno.jpeg"),
+      avatar: getAssetUrl(
+        "/assets/images/testimonials/homayoun_naji_menteeno.jpeg"
+      ),
       linkedin: t("messages.hero-testimonials.testimonials.2.linkedin"),
     },
     {
@@ -40,7 +44,9 @@ const HeroTestimonials = () => {
       company: t("messages.hero-testimonials.testimonials.3.company"),
       content: t("messages.hero-testimonials.testimonials.3.content"),
       rating: 5,
-      avatar: getAssetUrl("/assets/images/testimonials/Fateme_Sharif_Dini_menteeno.jpeg"),
+      avatar: getAssetUrl(
+        "/assets/images/testimonials/Fateme_Sharif_Dini_menteeno.jpeg"
+      ),
       linkedin: t("messages.hero-testimonials.testimonials.3.linkedin"),
     },
     {
@@ -50,7 +56,9 @@ const HeroTestimonials = () => {
       company: t("messages.hero-testimonials.testimonials.4.company"),
       content: t("messages.hero-testimonials.testimonials.4.content"),
       rating: 5,
-      avatar: getAssetUrl("/assets/images/testimonials/ElhamRivaz_menteeno.jpeg"),
+      avatar: getAssetUrl(
+        "/assets/images/testimonials/ElhamRivaz_menteeno.jpeg"
+      ),
       linkedin: t("messages.hero-testimonials.testimonials.4.linkedin"),
     },
     {
@@ -60,7 +68,9 @@ const HeroTestimonials = () => {
       company: t("messages.hero-testimonials.testimonials.5.company"),
       content: t("messages.hero-testimonials.testimonials.5.content"),
       rating: 5,
-      avatar: getAssetUrl("/assets/images/testimonials/taniya_atiye_ghorbani_menteeno.jpg"),
+      avatar: getAssetUrl(
+        "/assets/images/testimonials/taniya_atiye_ghorbani_menteeno.jpg"
+      ),
       linkedin: t("messages.hero-testimonials.testimonials.5.linkedin"),
     },
   ];
