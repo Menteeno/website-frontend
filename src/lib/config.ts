@@ -35,9 +35,9 @@ export const ENVIRONMENT_CONFIGS = {
     assetPrefix: "",
   },
   "github-pages": {
-    baseUrl: "https://menteeno.github.io/website-frontend",
-    basePath: "/website-frontend",
-    assetPrefix: "/website-frontend",
+    baseUrl: "https://menteeno.app",
+    basePath: "",
+    assetPrefix: "",
   },
   custom: {
     baseUrl: process.env.NEXT_PUBLIC_BASE_URL || "https://menteeno.app",
@@ -116,6 +116,11 @@ export function getLocalizedUrl(locale: string, path: string = ""): string {
 export function getAssetUrl(path: string): string {
   const config = getAppConfig();
   const cleanPath = path.startsWith("/") ? path : `/${path}`;
+
+  // For GitHub Pages with custom domain, always return full URL
+  if (config.isGitHubPages) {
+    return `${config.baseUrl}${cleanPath}`;
+  }
 
   if (config.assetPrefix) {
     return `${config.baseUrl}${cleanPath}`;
