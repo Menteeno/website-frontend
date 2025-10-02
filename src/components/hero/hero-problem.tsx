@@ -207,8 +207,8 @@ const HeroProblem = () => {
           i % 3 === 0
             ? "rounded-full"
             : i % 3 === 1
-            ? "rounded-sm"
-            : "rounded-none"
+              ? "rounded-sm"
+              : "rounded-none"
         )}
         style={{
           left: `${rng.next() * 100}%`,
@@ -407,7 +407,10 @@ const HeroProblem = () => {
           }
         }
       `}</style>
-      <div className="flex gap-6 sm:gap-8 lg:gap-10 flex-col items-center justify-center max-w-7xl mx-auto px-4 py-12 sm:py-16 lg:py-20">
+      <div
+        id="hero-problem"
+        className="flex gap-6 sm:gap-8 lg:gap-10 flex-col items-center justify-center max-w-7xl mx-auto px-4 py-12 sm:py-16 lg:py-20"
+      >
         <div className="text-center space-y-4 sm:space-y-6">
           <h2 className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-center leading-tight sm:leading-relaxed px-4">
             {t("messages.hero-problem.title")}

@@ -62,7 +62,7 @@
   "messages": {
     "home-header": {
       "title": "Menteeno",
-      "description": "In Menteeno, you are supposed to learn how to boost your skills in both your personal and professional life. With a personalized path, real training, an experienced mentor, and a growing community. It's for everyone who is looking for growth.",
+      "description": "In Menteeno, you can learn how to enhance your skills in life and work. With a personalized path built specifically for you, practical exercises with real people, professional mentors, and lots of constructive feedback. All this journey alongside people who, like you, are pursuing growth!",
       "title-rotate": {
         "1": "A place to grow",
         "2": "The space for skill development in the workplace",
@@ -173,83 +173,71 @@
         "experience": {
           "title": "Proven Results",
           "description": "Join thousands who have already transformed their careers"
-        },
-        "guarantee": {
-          "title": "30-Day Guarantee",
-          "description": "Not satisfied? Get your money back within 30 days"
         }
       },
       "primary-button": "Start Your Journey",
-      "secondary-button": "Learn More",
-      "disclaimer": "No credit card required • Cancel anytime • 30-day money-back guarantee"
+      "secondary-button": "Learn More"
     },
     "hero-testimonials": {
-      "badge": "What our users say",
+      "badge": "Success stories of communication",
       "title": "Success Stories from Our Community",
-      "description": "Discover how Menteeno has transformed the careers and lives of professionals worldwide.",
+      "description": "See Menteeno through the eyes of successful professionals.",
       "testimonials": {
         "1": {
-          "name": "Sarah Johnson",
-          "role": "Product Manager",
-          "company": "TechCorp",
-          "content": "Menteeno completely transformed my communication skills. The mentorship sessions were incredibly valuable, and I've seen a significant improvement in my team leadership abilities."
+          "name": "Sarina Emadi",
+          "role": "Software Developer",
+          "company": "",
+          "content": "The unique nature of Menteeno sessions has made me really put myself in situations, listen, and learn something new each time, giving me more motivation to participate in sessions. I'm happy to be with you and learned many new things from each of you that will definitely help me in my career and personal life path 😍",
+          "linkedin": "https://www.linkedin.com/in/sarinaemadi"
         },
         "2": {
-          "name": "Ahmed Hassan",
-          "role": "Software Engineer",
-          "company": "StartupXYZ",
-          "content": "The personalized learning path helped me develop soft skills I never knew I needed. Now I'm more confident in presentations and team collaborations."
+          "name": "Homayoun Naji",
+          "role": "Web Developer",
+          "company": "",
+          "content": "I came to thank the Menteeno team for organizing tonight's amazing session🔥 I really agree that this course is different from other courses, I had this feeling from the very beginning and I'm really grateful for the tireless efforts of the Menteeno team❤️ and I also thank the good teammates I had the opportunity to talk to in this session😊",
+          "linkedin": "https://www.linkedin.com/in/homayounnaji/"
         },
         "3": {
-          "name": "Maria Rodriguez",
-          "role": "Marketing Director",
-          "company": "Global Inc",
-          "content": "The real-world challenges and feedback from mentors were game-changers. I've been promoted twice since joining Menteeno!"
+          "name": "Fateme Sharif Dini",
+          "role": "Frontend Developer",
+          "company": "",
+          "content": "I hope you're doing great. The session was very fruitful. The fact that we're exploring the session topic within ourselves at the same time is a very interesting challenge. Another point is the presence of people who are on the same path as us. I completely agree with Elham that Menteeno has a different and attractive approach. Thanks to the amazing Menteeno team and friends present in the sessions, I'm happy to be with you.",
+          "linkedin": "https://www.linkedin.com/in/fateme-sharif-dini/"
         },
         "4": {
-          "name": "David Chen",
-          "role": "Team Lead",
-          "company": "Innovation Labs",
-          "content": "The community aspect is amazing. I've made valuable connections and learned from peers who faced similar challenges in their careers."
+          "name": "Elham Rivaz",
+          "role": "Software Student",
+          "company": "",
+          "content": "Thank you and all team members 🌸 Honestly, I really enjoyed it :) The Menteeno process is really different from any other personal development course and I'm grateful for this new idea (I mean the whole Menteeno space) and your creative think tank✨",
+          "linkedin": "https://www.linkedin.com/in/elham-rivaz-a87053336"
         },
         "5": {
-          "name": "Lisa Thompson",
-          "role": "Business Analyst",
-          "company": "Finance Plus",
-          "content": "Menteeno's approach to soft skills development is unique. The practical exercises and mentorship helped me become a better communicator and leader."
-        },
-        "6": {
-          "name": "Omar Al-Rashid",
-          "role": "Project Manager",
-          "company": "Middle East Corp",
-          "content": "The 30-day guarantee gave me confidence to try it, but I didn't need it. The results speak for themselves - my career has taken off!"
+          "name": "Taniya Atiye Ghorbani",
+          "role": "Soft Skills Specialist",
+          "company": "",
+          "content": "I recently got acquainted with an amazing team with whom we practice soft skills together. One of the first lessons from Menteeno for me was how to introduce myself better. I always didn't know what to say when it was time for introductions in gatherings; but now I've learned that introductions can be simple, impactful and memorable. Thank you to the valuable Menteeno team and dear Saleh Shojaee for this great opportunity 🌱",
+          "linkedin": "https://www.linkedin.com/in/taniya-atiye-ghorbani-69b11b41/"
         }
       },
-      "footer": "Join thousands of professionals who have transformed their careers with Menteeno"
+      "footer": "You could be the next success story!"
     },
     "hero-faq": {
-      "badge": "Frequently Asked Questions",
-      "title": "Got Questions? We've Got Answers",
-      "description": "Find answers to the most common questions about Menteeno and how we can help you develop your soft skills.",
+      "badge": "Got questions? Menteeno has got you covered",
+      "title": "Got questions? Menteeno has got you covered",
+      "description": "Answers to common questions about Menteeno and how we help you grow and strengthen your skills are here.",
       "questions": {
         "what-is-menteeno": "What is Menteeno?",
         "how-does-it-work": "How does Menteeno work?",
-        "who-is-it-for": "Who is Menteeno for?",
-        "mentorship-sessions": "What are the mentorship sessions like?",
-        "learning-path": "How is the learning path personalized?",
-        "pricing": "What are the pricing options?",
-        "guarantee": "What is the 30-day guarantee?",
-        "support": "What kind of support do you provide?"
+        "learning-path": "What is your unique learning path like?",
+        "schedule": "How is the course scheduling?",
+        "start": "Where and how do I start?"
       },
       "answers": {
-        "what-is-menteeno": "Menteeno is a comprehensive soft skills development platform that provides personalized learning paths, expert mentorship, real-world practice opportunities, and a supportive community to help professionals enhance their communication, leadership, and teamwork abilities.",
-        "how-does-it-work": "Menteeno works by first assessing your current soft skills through our evaluation system. Based on your results, we create a personalized learning plan. You'll have access to mentorship sessions with industry experts, participate in real-world challenges, and receive continuous feedback to track your progress.",
-        "who-is-it-for": "Menteeno is designed for professionals at any career stage who want to improve their soft skills. Whether you're a recent graduate, mid-level manager, or senior executive, our platform adapts to your specific needs and goals.",
-        "mentorship-sessions": "Our mentorship sessions are one-on-one private meetings with experienced professionals in your field. Each session lasts 60 minutes and focuses on specific soft skills areas. You'll receive personalized guidance, practical advice, and actionable strategies to improve your professional relationships and communication.",
-        "learning-path": "Your learning path is created based on your initial skills assessment and personal goals. It includes a mix of interactive modules, practical exercises, real-world scenarios, and regular evaluations. The path adapts as you progress, ensuring you're always working on the most relevant skills for your development.",
-        "pricing": "We offer flexible pricing plans to fit different needs and budgets. Our basic plan includes access to the learning platform and community, while premium plans add mentorship sessions and advanced features. All plans come with our 30-day money-back guarantee.",
-        "guarantee": "We're so confident in our platform that we offer a 30-day money-back guarantee. If you're not satisfied with your progress or the quality of our service within the first 30 days, we'll refund your payment in full, no questions asked.",
-        "support": "We provide comprehensive support through multiple channels: email support for technical issues, community forums for peer support, regular check-ins with your assigned mentor, and access to our knowledge base with helpful resources and guides."
+        "what-is-menteeno": "A comprehensive platform for developing vital and valuable human skills, which are soft skills. With unique methods tailored specifically for you in the form of games and exercises in the real world and direct and effective communication with colleagues in your professional field.",
+        "how-does-it-work": "Our team performs a detailed analysis of your current soft skills and conducts an assessment. Based on the results of this assessment, a personalized learning program specifically designed for you is created. In Menteeno, you will have access to mentorship sessions with experts and participation in real-world simulation challenges and continuous feedback to track your progress!",
+        "learning-path": "Everything is created based on your initial assessment and personal skills. It's a combination of interactive modules, practical exercises, scenarios based on real-world work challenges, and regular evaluations. The designed path is fully compatible with your growth process, and we ensure the path has practical application for you and works on skills appropriate to your development.",
+        "schedule": "Our courses are designed flexibly to be compatible with your work schedule. You can participate at times convenient for you and progress at your own pace.",
+        "start": "To get started, first take an initial assessment of your soft skills. Then our team designs a personalized program for you, and you can begin your learning journey."
       },
       "footer": {
         "question": "Still have questions?",
@@ -737,50 +725,6 @@
         "description": "Please arrive 15 minutes before the start of each section. The program may change based on conditions."
       }
     },
-    "pricing": {
-      "title": "Event Participation Cost",
-      "description": "Transparent and affordable costs for access to all event facilities",
-      "early-bird": {
-        "name": "Early Registration",
-        "period": "Until August 10, 1404",
-        "badge": "Special Offer",
-        "features": {
-          "access": "Full access to all event sections",
-          "materials": "Free educational materials and resources",
-          "networking": "Networking and meeting opportunities",
-          "certificate": "Event participation certificate",
-          "meal": "Complete dinner and reception",
-          "support": "Specialized support and consultation"
-        }
-      },
-      "regular": {
-        "name": "Regular Registration",
-        "period": "From August 11, 1404",
-        "features": {
-          "access": "Full access to all event sections",
-          "materials": "Free educational materials and resources",
-          "networking": "Networking and meeting opportunities",
-          "certificate": "Event participation certificate",
-          "meal": "Complete dinner and reception"
-        }
-      },
-      "discount": "Special Discount",
-      "register-button": "Register Now",
-      "included": {
-        "networking": {
-          "title": "Professional Networking",
-          "description": "Opportunity to meet 35 experts and enthusiasts"
-        },
-        "duration": {
-          "title": "6 Hours Program",
-          "description": "Complete and diverse program throughout the day"
-        },
-        "location": {
-          "title": "Suitable Venue",
-          "description": "Tehran, Technology Park with complete facilities"
-        }
-      }
-    },
     "audience": {
       "title": "Who is this for?",
       "description": "This event is designed for a wide range of technology professionals and enthusiasts",
@@ -946,11 +890,6 @@
         "spots": "Only 35 People",
         "location": "Tehran, Technology Park"
       },
-      "pricing": {
-        "title": "Participation Cost",
-        "discount": "Special Discount",
-        "note": "Includes all facilities and services"
-      },
       "primary-button": "Register Now",
       "secondary-button": "More Information",
       "disclaimer": "Registration continues until capacity is reached"
@@ -1059,6 +998,161 @@
       "content": "If you have any questions about our use of cookies or this Cookie Policy, please contact us.",
       "email_label": "Email:",
       "email": "privacy@menteeno.com"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "description": "Menteeno is a soft skills laboratory for the real world. We believe that professional success is not only dependent on technical expertise — but the ability to work as a team, solve problems, and communicate effectively plays a key role in becoming a vital part of the team. In Menteeno, participants enter real and challenging scenarios as a team; where they have to make decisions, negotiate, and take responsibility — just like the workplace! This experience is accompanied by the presence of a mentor, individual feedback, coaching sessions and the opportunity to learn from the experience of others. If you are looking for real growth in skills that few people teach, Menteeno is for you.",
+    "form": {
+      "title": "Contact Form",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "name_placeholder": "Enter your name",
+      "email_placeholder": "Enter your email",
+      "message_placeholder": "Enter your message",
+      "success_message": "Message sent successfully! We will get back to you soon.",
+      "error_message": "Failed to send message. Please try again later."
+    },
+    "map": {
+      "title": "Our Location on the Map"
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "contact": "Contact Us"
+    },
+    "hero": {
+      "subtitle": "Get in touch with us and ask your questions",
+      "form_subtitle": "Send us your message",
+      "map_subtitle": "Find our location on the map"
+    },
+    "contact_info": {
+      "phone": "Contact Methods",
+      "email": "Email",
+      "telegram": "Telegram",
+      "whatsapp": "WhatsApp",
+      "working_hours": "Working Hours",
+      "address": "Address",
+      "phone_value": "+98-21-91031614",
+      "email_value": "hi@menteeno.app",
+      "telegram_value": "@menteeno",
+      "whatsapp_value": "Send direct message",
+      "working_hours_value": "Saturday to Friday: 9 AM to 6 PM (Mondays off)",
+      "address_value": "Mazandaran, Babolsar, First Minister Street, Babolsar Innovation Center"
+    },
+    "validation": {
+      "message_required": "Message is required"
+    }
+  },
+  "blog": {
+    "title": "Menteeno Blog",
+    "description": "Helpful articles and guides for developing soft skills, professional growth, and improving communication and teamwork skills in programming.",
+    "meta": {
+      "title": "Blog | Menteeno",
+      "description": "Discover expert insights on soft skills, programming, and professional development. Join our community of developers and professionals.",
+      "keywords": "blog, programming, soft skills, career development, teamwork, leadership, mentorship"
+    },
+    "navigation": {
+      "back_to_blog": "Back to Blog",
+      "all_posts": "All Posts",
+      "featured_posts": "Featured Posts",
+      "recent_posts": "Recent Posts"
+    },
+    "filters": {
+      "search_placeholder": "Search articles...",
+      "select_category": "Select Category",
+      "all_categories": "All Categories",
+      "all_tags": "All Tags",
+      "sort_by": "Sort by",
+      "sort_options": {
+        "newest": "Newest",
+        "oldest": "Oldest",
+        "title_asc": "Title A-Z",
+        "title_desc": "Title Z-A",
+        "reading_time": "Reading Time"
+      },
+      "show_featured_only": "Show featured only",
+      "clear_filters": "Clear filters"
+    },
+    "post": {
+      "read_more": "Read more",
+      "read_time": "min read",
+      "reading_time": "minute read",
+      "published_on": "Published on",
+      "updated_on": "Updated on",
+      "author": "Author",
+      "category": "Category",
+      "tags": "Tags",
+      "share": "Share",
+      "copied": "Copied!",
+      "view_count": "views",
+      "like_count": "likes",
+      "comment_count": "comments",
+      "featured": "Featured",
+      "draft": "Draft",
+      "archived": "Archived"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page",
+      "of": "of",
+      "showing": "Showing",
+      "to": "to",
+      "of_total": "of",
+      "results": "results"
+    },
+    "sections": {
+      "related_posts": "Related Articles",
+      "featured_posts": "Featured Articles",
+      "recent_posts": "Recent Articles",
+      "popular_posts": "Popular Articles",
+      "categories": "Categories",
+      "tags": "Tags",
+      "authors": "Authors"
+    },
+    "empty": {
+      "no_posts_found": "No articles found",
+      "no_posts_description": "Try adjusting your search or filter criteria",
+      "no_related_posts": "No related articles found",
+      "no_featured_posts": "No featured articles available",
+      "no_recent_posts": "No recent articles available"
+    },
+    "loading": {
+      "loading_posts": "Loading articles...",
+      "loading_post": "Loading article...",
+      "loading_related": "Loading related articles...",
+      "loading_categories": "Loading categories...",
+      "loading_tags": "Loading tags..."
+    },
+    "error": {
+      "failed_to_load": "Failed to load articles",
+      "failed_to_load_post": "Failed to load article",
+      "post_not_found": "Article not found",
+      "network_error": "Network error. Please try again.",
+      "server_error": "Server error. Please try again later.",
+      "retry": "Retry"
+    },
+    "categories": {
+      "soft-skills": "Soft Skills",
+      "programming": "Programming",
+      "career": "Career",
+      "teamwork": "Teamwork",
+      "leadership": "Leadership"
+    },
+    "tags": {
+      "communication": "Communication",
+      "leadership": "Leadership",
+      "teamwork": "Teamwork",
+      "problem-solving": "Problem Solving",
+      "mentorship": "Mentorship",
+      "career-growth": "Career Growth",
+      "javascript": "JavaScript",
+      "react": "React",
+      "typescript": "TypeScript",
+      "frontend": "Frontend"
     }
   }
 }

@@ -116,30 +116,6 @@ const EventCTA = () => {
           </div>
         </div>
 
-        {/* Pricing Summary */}
-        <Card className="max-w-2xl mx-auto mb-12">
-          <CardContent className="p-8 text-center">
-            <h3 className="text-2xl font-bold text-foreground mb-4">
-              {t("event.cta.pricing.title")}
-            </h3>
-            <div className="flex items-baseline justify-center gap-2 mb-4">
-              <span className="text-4xl font-bold text-primary">۷۷۵,۰۰۰</span>
-              <span className="text-lg text-muted-foreground">تومان</span>
-            </div>
-            <div className="flex items-center justify-center gap-2 mb-6">
-              <span className="text-lg text-muted-foreground line-through">
-                ۹۸۵,۰۰۰ تومان
-              </span>
-              <Badge variant="destructive" className="text-xs">
-                {t("event.cta.pricing.discount")}
-              </Badge>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              {t("event.cta.pricing.note")}
-            </p>
-          </CardContent>
-        </Card>
-
         {/* CTA Buttons */}
         <div className="text-center">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">

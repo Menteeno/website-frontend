@@ -3,7 +3,6 @@ import EventCTA from "@/components/event/event-cta";
 import EventFAQ from "@/components/event/event-faq";
 import EventHero from "@/components/event/event-hero";
 import EventMap from "@/components/event/event-map";
-import EventPricing from "@/components/event/event-pricing";
 import EventSchedule from "@/components/event/event-schedule";
 import EventTargetAudience from "@/components/event/event-target-audience";
 import EventTeam from "@/components/event/event-team";
@@ -32,7 +31,6 @@ export default async function EventPage({ params }: EventPageProps) {
       <EventHero />
       <EventAbout />
       <EventSchedule />
-      <EventPricing />
       <EventTargetAudience />
       <EventTeam />
       <EventMap />
