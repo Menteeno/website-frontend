@@ -1,6 +1,5 @@
 "use client";
 
-import { useLinkLoading } from "@/hooks/use-navigation-loading";
 import Link from "next/link";
 import { ReactNode } from "react";
 
@@ -19,15 +18,8 @@ export function LoadingLink({
   onClick,
   ...props
 }: LoadingLinkProps) {
-  const { handleLinkClick } = useLinkLoading();
-
-  const handleClick = () => {
-    handleLinkClick(href);
-    onClick?.();
-  };
-
   return (
-    <Link href={href} className={className} onClick={handleClick} {...props}>
+    <Link href={href} className={className} {...(onClick && { onClick })} {...props}>
       {children}
     </Link>
   );
