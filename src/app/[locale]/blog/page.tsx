@@ -1,7 +1,7 @@
 import { BlogPageClient } from "@/app/[locale]/blog/blog-page-client";
 import { Footer } from "@/components/footer";
 import Navbar from "@/components/navbar/navbar";
-import { getBlogPosts, getFeaturedPosts, getRecentPosts } from "@/lib/blog";
+import { getBlogPosts } from "@/lib/blog";
 import type { BlogFilters } from "@/types/blog";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -87,11 +87,7 @@ export default async function BlogPage({
     ...(search && { search }),
   };
 
-  const [blogData, featuredPosts, recentPosts] = await Promise.all([
-    getBlogPosts(filters, currentPage, 9),
-    getFeaturedPosts(locale as "en" | "fa", 3),
-    getRecentPosts(locale as "en" | "fa", 5),
-  ]);
+  const blogData = await getBlogPosts(filters, currentPage, 9);
 
   return (
     <>
@@ -102,8 +98,8 @@ export default async function BlogPage({
           categories: blogData.categories,
           tags: blogData.tags,
           pagination: blogData.pagination,
-          featuredPosts,
-          recentPosts,
+          authors: blogData.authors,
+          filters: blogData.filters,
         }}
         initialFilters={filters}
         locale={locale as "en" | "fa"}

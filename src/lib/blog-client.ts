@@ -20,5 +20,7 @@ export async function getBlogPostsClient(
     },
     categories: [],
     tags: [],
+    authors: [],
+    filters,
   };
 }

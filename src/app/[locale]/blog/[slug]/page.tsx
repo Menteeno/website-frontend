@@ -2,11 +2,7 @@ import { BlogDetail } from "@/components/blog/blog-detail";
 import { BlogSidebar } from "@/components/blog/blog-sidebar";
 import { Footer } from "@/components/footer";
 import Navbar from "@/components/navbar/navbar";
-import {
-  getBlogDetail,
-  getFeaturedPosts,
-  getRecentPosts,
-} from "@/lib/blog";
+import { getBlogDetail, getFeaturedPosts, getRecentPosts } from "@/lib/blog";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -43,7 +39,7 @@ export async function generateMetadata({
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
       authors: [post.author.name],
-      tags: post.tags.map(tag => tag.name),
+      tags: post.tags.map((tag) => tag.name),
       locale: locale === "fa" ? "fa_IR" : "en_US",
       images: post.seo.image
         ? [
@@ -123,11 +119,11 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-3">
-              <BlogDetail 
-                post={post} 
+              <BlogDetail
+                post={post}
                 relatedPosts={relatedPosts}
-                prevPost={prevPost}
-                nextPost={nextPost}
+                {...(prevPost && { prevPost })}
+                {...(nextPost && { nextPost })}
               />
             </div>
 
