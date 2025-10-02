@@ -189,40 +189,39 @@
       "description": "Discover how Menteeno has transformed the careers and lives of professionals worldwide.",
       "testimonials": {
         "1": {
-          "name": "Sarah Johnson",
-          "role": "Product Manager",
-          "company": "TechCorp",
-          "content": "Menteeno completely transformed my communication skills. The mentorship sessions were incredibly valuable, and I've seen a significant improvement in my team leadership abilities."
+          "name": "Sarina Emadi",
+          "role": "Software Developer",
+          "company": "",
+          "content": "The unique nature of Menteeno sessions has made me really put myself in situations, listen, and learn something new each time, giving me more motivation to participate in sessions. I'm happy to be with you and learned many new things from each of you that will definitely help me in my career and personal life path 😍",
+          "linkedin": "https://www.linkedin.com/in/sarinaemadi"
         },
         "2": {
-          "name": "Ahmed Hassan",
-          "role": "Software Engineer",
-          "company": "StartupXYZ",
-          "content": "The personalized learning path helped me develop soft skills I never knew I needed. Now I'm more confident in presentations and team collaborations."
+          "name": "Homayoun Naji",
+          "role": "Web Developer",
+          "company": "",
+          "content": "I came to thank the Menteeno team for organizing tonight's amazing session🔥 I really agree that this course is different from other courses, I had this feeling from the very beginning and I'm really grateful for the tireless efforts of the Menteeno team❤️ and I also thank the good teammates I had the opportunity to talk to in this session😊",
+          "linkedin": "https://www.linkedin.com/in/homayounnaji/"
         },
         "3": {
-          "name": "Maria Rodriguez",
-          "role": "Marketing Director",
-          "company": "Global Inc",
-          "content": "The real-world challenges and feedback from mentors were game-changers. I've been promoted twice since joining Menteeno!"
+          "name": "Fateme Sharif Dini",
+          "role": "Frontend Developer",
+          "company": "",
+          "content": "I hope you're doing great. The session was very fruitful. The fact that we're exploring the session topic within ourselves at the same time is a very interesting challenge. Another point is the presence of people who are on the same path as us. I completely agree with Elham that Menteeno has a different and attractive approach. Thanks to the amazing Menteeno team and friends present in the sessions, I'm happy to be with you.",
+          "linkedin": "https://www.linkedin.com/in/fateme-sharif-dini/"
         },
         "4": {
-          "name": "David Chen",
-          "role": "Team Lead",
-          "company": "Innovation Labs",
-          "content": "The community aspect is amazing. I've made valuable connections and learned from peers who faced similar challenges in their careers."
+          "name": "Elham Rivaz",
+          "role": "Software Student",
+          "company": "",
+          "content": "Thank you and all team members 🌸 Honestly, I really enjoyed it :) The Menteeno process is really different from any other personal development course and I'm grateful for this new idea (I mean the whole Menteeno space) and your creative think tank✨",
+          "linkedin": "https://www.linkedin.com/in/elham-rivaz-a87053336"
         },
         "5": {
-          "name": "Lisa Thompson",
-          "role": "Business Analyst",
-          "company": "Finance Plus",
-          "content": "Menteeno's approach to soft skills development is unique. The practical exercises and mentorship helped me become a better communicator and leader."
-        },
-        "6": {
-          "name": "Omar Al-Rashid",
-          "role": "Project Manager",
-          "company": "Middle East Corp",
-          "content": "The 30-day guarantee gave me confidence to try it, but I didn't need it. The results speak for themselves - my career has taken off!"
+          "name": "Taniya Atiye Ghorbani",
+          "role": "Soft Skills Specialist",
+          "company": "",
+          "content": "I recently got acquainted with an amazing team with whom we practice soft skills together. One of the first lessons from Menteeno for me was how to introduce myself better. I always didn't know what to say when it was time for introductions in gatherings; but now I've learned that introductions can be simple, impactful and memorable. Thank you to the valuable Menteeno team and dear Saleh Shojaee for this great opportunity 🌱",
+          "linkedin": "https://www.linkedin.com/in/taniya-atiye-ghorbani-69b11b41/"
         }
       },
       "footer": "Join thousands of professionals who have transformed their careers with Menteeno"

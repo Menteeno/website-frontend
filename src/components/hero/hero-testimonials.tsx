@@ -4,7 +4,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { useTranslation } from "@/hooks/use-translation";
-import { Quote, Star } from "lucide-react";
+import { ExternalLink, Quote, Star } from "lucide-react";
+import Link from "next/link";
 import { MagicCard } from "../magicui/magic-card";
 
 const HeroTestimonials = () => {
@@ -18,7 +19,8 @@ const HeroTestimonials = () => {
       company: t("messages.hero-testimonials.testimonials.1.company"),
       content: t("messages.hero-testimonials.testimonials.1.content"),
       rating: 5,
-      avatar: "/api/placeholder/40/40",
+      avatar: "/assets/images/testimonials/sarinaemadi_menteeno.png",
+      linkedin: t("messages.hero-testimonials.testimonials.1.linkedin"),
     },
     {
       id: 2,
@@ -27,7 +29,8 @@ const HeroTestimonials = () => {
       company: t("messages.hero-testimonials.testimonials.2.company"),
       content: t("messages.hero-testimonials.testimonials.2.content"),
       rating: 5,
-      avatar: "/api/placeholder/40/40",
+      avatar: "/assets/images/testimonials/homayoun_naji_menteeno.jpeg",
+      linkedin: t("messages.hero-testimonials.testimonials.2.linkedin"),
     },
     {
       id: 3,
@@ -36,7 +39,8 @@ const HeroTestimonials = () => {
       company: t("messages.hero-testimonials.testimonials.3.company"),
       content: t("messages.hero-testimonials.testimonials.3.content"),
       rating: 5,
-      avatar: "/api/placeholder/40/40",
+      avatar: "/assets/images/testimonials/Fateme_Sharif_Dini_menteeno.jpeg",
+      linkedin: t("messages.hero-testimonials.testimonials.3.linkedin"),
     },
     {
       id: 4,
@@ -45,7 +49,8 @@ const HeroTestimonials = () => {
       company: t("messages.hero-testimonials.testimonials.4.company"),
       content: t("messages.hero-testimonials.testimonials.4.content"),
       rating: 5,
-      avatar: "/api/placeholder/40/40",
+      avatar: "/assets/images/testimonials/ElhamRivaz_menteeno.jpeg",
+      linkedin: t("messages.hero-testimonials.testimonials.4.linkedin"),
     },
     {
       id: 5,
@@ -54,16 +59,8 @@ const HeroTestimonials = () => {
       company: t("messages.hero-testimonials.testimonials.5.company"),
       content: t("messages.hero-testimonials.testimonials.5.content"),
       rating: 5,
-      avatar: "/api/placeholder/40/40",
-    },
-    {
-      id: 6,
-      name: t("messages.hero-testimonials.testimonials.6.name"),
-      role: t("messages.hero-testimonials.testimonials.6.role"),
-      company: t("messages.hero-testimonials.testimonials.6.company"),
-      content: t("messages.hero-testimonials.testimonials.6.content"),
-      rating: 5,
-      avatar: "/api/placeholder/40/40",
+      avatar: "/assets/images/testimonials/taniya_atiye_ghorbani_menteeno.jpg",
+      linkedin: t("messages.hero-testimonials.testimonials.5.linkedin"),
     },
   ];
 
@@ -120,12 +117,28 @@ const HeroTestimonials = () => {
                         .toUpperCase()}
                     </AvatarFallback>
                   </Avatar>
-                  <div>
-                    <p className="font-semibold text-foreground">
-                      {testimonial.name}
-                    </p>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2">
+                      <p className="font-semibold text-foreground">
+                        {testimonial.name}
+                      </p>
+                      {testimonial.linkedin && (
+                        <Link
+                          href={testimonial.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary hover:text-primary/80 transition-colors"
+                        >
+                          <ExternalLink className="size-4" />
+                        </Link>
+                      )}
+                    </div>
                     <p className="text-sm text-muted-foreground">
-                      {testimonial.role} at {testimonial.company}
+                      {testimonial.role}
+                      {testimonial.company &&
+                        testimonial.company.trim() !== "" &&
+                        !testimonial.company.startsWith("messages.") &&
+                        ` at ${testimonial.company}`}
                     </p>
                   </div>
                 </div>
