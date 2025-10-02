@@ -41,6 +41,41 @@
     "no_account": "حساب کاربری ندارید؟",
     "have_account": "قبلاً حساب کاربری دارید؟",
     "create_one": "ایجاد کنید",
+    "phone_auth": {
+      "title": "به منتینو خوش آمدید",
+      "subtitle": "با شماره تلفن همراه خود وارد شوید",
+      "phone_number": "شماره تلفن همراه",
+      "phone_placeholder": "۰۹۱۲۳۴۵۶۷۸۹",
+      "verification_code": "کد تأیید",
+      "verification_code_placeholder": "۰۰۰۰",
+      "send_code": "ارسال کد تأیید",
+      "verify_code": "تأیید کد",
+      "sending_code": "در حال ارسال کد...",
+      "verifying": "در حال تأیید...",
+      "enter_verification_code": "کد تأیید را وارد کنید",
+      "code_sent_to": "کد ۴ رقمی به شماره {phone} ارسال شد",
+      "didnt_receive_code": "کد را دریافت نکردید؟",
+      "resend_code": "ارسال مجدد کد",
+      "resend_in": "ارسال مجدد در {time}",
+      "join_thousands": "به هزاران یادگیرنده بپیوندید",
+      "welcome_to": "خوش اومدید",
+      "menteeno": "منتینو",
+      "sign_in_subtitle": "با شماره تلفن همراه خود وارد شوید تا سفر یادگیری خود را آغاز کنید",
+      "features": {
+        "title": "چرا منتینو را انتخاب کنید؟",
+        "expert_mentors": "منتورهای متخصص",
+        "expert_mentors_desc": "از متخصصان صنعت با تجربه دنیای واقعی یاد بگیرید",
+        "personalized_learning": "یادگیری شخصی‌سازی‌شده",
+        "personalized_learning_desc": "مسیرهای یادگیری سفارشی متناسب با اهداف و سرعت شما",
+        "real_projects": "پروژه‌های واقعی",
+        "real_projects_desc": "روی پروژه‌های واقعی کار کنید و پورتفولیوی خود را بسازید",
+        "stats": {
+          "students": "۱۰۰۰+ دانشجو",
+          "mentors": "۵۰+ منتور",
+          "support": "پشتیبانی ۲۴/۷"
+        }
+      }
+    },
     "cta": {
       "title": "به ۱۰,۰۰۰+ متخصص در حال رشد مهارت‌هایشان بپیوندید",
       "description": "منتورشیپ شخصی‌سازی‌شده، آموزش واقعی و عضویت در جامعه‌ای حمایت‌کننده از متخصصان هم‌فکر دریافت کنید.",
@@ -1090,6 +1125,7 @@
         }
       },
       "discount": "۲۱٪ تخفیف",
+      "vat-label": "به اضافه‌ی ۱۰٪ مالیات بر ارزش افزوده",
       "register-button": "ثبت‌نام کنید",
       "coming-soon": "به زودی",
       "included": {

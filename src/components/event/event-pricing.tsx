@@ -97,6 +97,13 @@ const EventPricing = () => {
                 </div>
               )}
 
+              {/* Ribbon for early-bird period */}
+              {tier.name === t("event.pricing.early-bird.name") && (
+                <div className="absolute top-4 left-0 bg-orange-500 text-white px-4 py-2 text-sm font-medium shadow-lg">
+                  {tier.period}
+                </div>
+              )}
+
               <CardHeader className="text-center pb-4">
                 <CardTitle className="text-2xl font-bold">
                   {tier.name}
@@ -115,13 +122,21 @@ const EventPricing = () => {
                       <span className="text-lg text-muted-foreground line-through">
                         {tier.originalPrice} {tier.currency}
                       </span>
-                      <Badge variant="destructive" className="text-xs">
+                      <Badge
+                        variant="destructive"
+                        className="text-xs bg-red-600 text-white border-red-600"
+                      >
                         {t("event.pricing.discount")}
                       </Badge>
                     </div>
                   )}
-                  <p className="text-sm text-muted-foreground mt-2">
-                    {tier.period}
+                  {tier.name !== t("event.pricing.early-bird.name") && (
+                    <p className="text-sm text-muted-foreground mt-2">
+                      {tier.period}
+                    </p>
+                  )}
+                  <p className="text-sm text-muted-foreground mt-1">
+                    {t("event.pricing.vat-label")}
                   </p>
                 </div>
               </CardHeader>
