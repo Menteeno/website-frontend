@@ -6,6 +6,13 @@ export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const config = getAppConfig();
+  
+  // Debug logging
+  console.log('Sitemap config:', {
+    baseUrl: config.baseUrl,
+    environment: config.environment,
+    isGitHubPages: config.isGitHubPages
+  });
 
   // Static pages
   const staticPages = [
