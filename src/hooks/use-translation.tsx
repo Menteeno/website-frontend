@@ -14,7 +14,7 @@ const replacePlaceholders = (
   str: string,
   replacements: Record<string, any> = {}
 ): string => {
-  return str.replace(/:(\w+)/g, (match, key) => replacements[key] || match);
+  return str.replace(/\{(\w+)\}/g, (match, key) => replacements[key] || match);
 };
 
 // Hook for client-side translations

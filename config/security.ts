@@ -29,14 +29,14 @@ export const securityHeaders = [
  */
 export const cspHeader = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://www.googletagmanager.com https://www.google-analytics.com;
   style-src 'self' 'unsafe-inline' https://fonts.bunny.net;
-  img-src 'self' blob: data: https:;
+  img-src 'self' blob: data: https: https://www.google-analytics.com https://www.googletagmanager.com;
   font-src 'self' data: https://fonts.bunny.net;
   object-src 'none';
   base-uri 'self';
   form-action 'self';
   frame-ancestors 'none';
   frame-src 'self' https://neshan.org https://www.google.com;
-  connect-src 'self' https://menteeno-backend.chbk.app https://cdn.jsdelivr.net https://unpkg.com;
+  connect-src 'self' https://menteeno-backend.chbk.app https://cdn.jsdelivr.net https://unpkg.com https://www.google-analytics.com https://www.googletagmanager.com;
 `;
