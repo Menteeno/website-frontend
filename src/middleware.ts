@@ -16,22 +16,24 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const pathnameIsMissingLocale = locales.every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+  // Check if pathname already has a locale
+  const pathnameHasLocale = locales.some(
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  // Redirect if there is no locale
-  if (pathnameIsMissingLocale) {
-    const locale = getDefaultLocale();
-    return NextResponse.redirect(new URL(`/${locale}${pathname}`, request.url));
+  // If pathname already has a locale, let it pass through
+  if (pathnameHasLocale) {
+    return NextResponse.next();
   }
 
-  return NextResponse.next();
+  // Redirect if there is no locale
+  const locale = getDefaultLocale();
+  return NextResponse.redirect(new URL(`/${locale}${pathname}`, request.url));
 }
 
 export const config = {
   matcher: [
     // Skip all internal paths (_next, api, _static, favicon.ico)
-    "/((?!_next|api|_static|favicon.ico).*)"
+    "/((?!_next|api|_static|favicon.ico).*)",
   ],
 };
