@@ -2,6 +2,7 @@ import { BlogPageClient } from "@/app/[locale]/blog/blog-page-client";
 import { Footer } from "@/components/footer";
 import Navbar from "@/components/navbar/navbar";
 import { getBlogPosts } from "@/lib/blog";
+import { locales } from "@/lib/i18n";
 import type { BlogFilters } from "@/types/blog";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -11,6 +12,10 @@ interface BlogPageProps {
   params: Promise<{
     locale: string;
   }>;
+}
+
+export async function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
 }
 
 export async function generateMetadata({
