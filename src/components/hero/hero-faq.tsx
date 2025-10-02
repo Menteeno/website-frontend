@@ -50,7 +50,7 @@ const HeroFAQ = () => {
   };
 
   return (
-    <div className="py-16 sm:py-20 lg:py-24 bg-muted/30">
+    <div id="hero-faq" className="py-16 sm:py-20 lg:py-24 bg-muted/30">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">

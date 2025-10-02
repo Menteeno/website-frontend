@@ -65,7 +65,10 @@ const HeroTestimonials = () => {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center max-w-7xl mx-auto px-4">
+    <div
+      id="hero-testimonials"
+      className="min-h-screen flex flex-col items-center justify-center max-w-7xl mx-auto px-4"
+    >
       <div className="text-center mb-12">
         <Badge variant="secondary" className="mb-4 text-sm">
           {t("messages.hero-testimonials.badge")}

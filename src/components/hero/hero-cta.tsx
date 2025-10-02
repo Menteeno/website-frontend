@@ -8,10 +8,13 @@ import { ArrowRight, Star, Users } from "lucide-react";
 import { MagicCard } from "../magicui/magic-card";
 
 const HeroCTA = () => {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center max-w-7xl mx-auto px-4">
+    <div
+      id="hero-cta"
+      className="min-h-screen flex flex-col items-center justify-center max-w-7xl mx-auto px-4"
+    >
       <div className="text-center mb-12">
         <Badge variant="secondary" className="mb-4 text-sm">
           {t("messages.hero-cta.badge")}
@@ -74,13 +77,32 @@ const HeroCTA = () => {
 
       <div className="text-center">
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-          <Button size="lg" className="text-lg px-8 py-6">
+          <Button
+            size="lg"
+            className="text-lg px-8 py-6"
+            onClick={() => {
+              window.location.href = `/${locale}/event`;
+            }}
+          >
             <ArrowRight className="size-5 order-1" />
             <span className="order-2">
               {t("messages.hero-cta.primary-button")}
             </span>
           </Button>
-          <Button variant="outline" size="lg" className="text-lg px-8 py-6">
+          <Button
+            variant="outline"
+            size="lg"
+            className="text-lg px-8 py-6"
+            onClick={() => {
+              const nextSection = document.getElementById("hero-faq");
+              if (nextSection) {
+                nextSection.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }
+            }}
+          >
             {t("messages.hero-cta.secondary-button")}
           </Button>
         </div>
