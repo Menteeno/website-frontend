@@ -64,6 +64,9 @@ const HeroHeader = () => {
             size="lg"
             className="rounded-full text-base"
             aria-label={t("messages.home-header.call-to-action-button")}
+            onClick={() => {
+              window.location.href = `/${locale}/event`;
+            }}
           >
             <ArrowUpRight className="!h-5 !w-5 order-1" />
             <span className="order-2">
@@ -74,10 +77,19 @@ const HeroHeader = () => {
             variant="outline"
             size="lg"
             className="rounded-full text-base shadow-none"
-            aria-label={t("messages.home-header.video-button")}
+            aria-label="Learn More"
+            onClick={() => {
+              const nextSection = document.getElementById("hero-problem");
+              if (nextSection) {
+                nextSection.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start",
+                });
+              }
+            }}
           >
             <CirclePlay className="!h-5 !w-5 mr-2" />
-            {t("messages.home-header.video-button")}
+            بیشتر بدانید
           </Button>
         </div>
       </div>

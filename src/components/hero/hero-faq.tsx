@@ -12,7 +12,7 @@ interface FAQItem {
 }
 
 const HeroFAQ = () => {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const [openItems, setOpenItems] = useState<string[]>([]);
 
   const faqItems: FAQItem[] = [
@@ -27,34 +27,19 @@ const HeroFAQ = () => {
       answer: t("messages.hero-faq.answers.how-does-it-work"),
     },
     {
-      id: "who-is-it-for",
-      question: t("messages.hero-faq.questions.who-is-it-for"),
-      answer: t("messages.hero-faq.answers.who-is-it-for"),
-    },
-    {
-      id: "mentorship-sessions",
-      question: t("messages.hero-faq.questions.mentorship-sessions"),
-      answer: t("messages.hero-faq.answers.mentorship-sessions"),
-    },
-    {
       id: "learning-path",
       question: t("messages.hero-faq.questions.learning-path"),
       answer: t("messages.hero-faq.answers.learning-path"),
     },
     {
-      id: "pricing",
-      question: t("messages.hero-faq.questions.pricing"),
-      answer: t("messages.hero-faq.answers.pricing"),
+      id: "schedule",
+      question: t("messages.hero-faq.questions.schedule"),
+      answer: t("messages.hero-faq.answers.schedule"),
     },
     {
-      id: "guarantee",
-      question: t("messages.hero-faq.questions.guarantee"),
-      answer: t("messages.hero-faq.answers.guarantee"),
-    },
-    {
-      id: "support",
-      question: t("messages.hero-faq.questions.support"),
-      answer: t("messages.hero-faq.answers.support"),
+      id: "start",
+      question: t("messages.hero-faq.questions.start"),
+      answer: t("messages.hero-faq.answers.start"),
     },
   ];
 
@@ -65,7 +50,7 @@ const HeroFAQ = () => {
   };
 
   return (
-    <div className="py-16 sm:py-20 lg:py-24 bg-muted/30">
+    <div id="hero-faq" className="py-16 sm:py-20 lg:py-24 bg-muted/30">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -129,7 +114,7 @@ const HeroFAQ = () => {
             {t("messages.hero-faq.footer.question")}
           </p>
           <a
-            href="#contact"
+            href={`/${locale}/contact-us`}
             className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors duration-200"
           >
             {t("messages.hero-faq.footer.cta")}

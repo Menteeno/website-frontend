@@ -18,6 +18,12 @@ interface EventPageProps {
   }>;
 }
 
+export async function generateStaticParams() {
+  return locales.map((locale) => ({
+    locale,
+  }));
+}
+
 export default async function EventPage({ params }: EventPageProps) {
   const { locale } = await params;
 
@@ -31,8 +37,8 @@ export default async function EventPage({ params }: EventPageProps) {
       <Navbar />
       <EventHero />
       <EventAbout />
-      <EventSchedule />
       <EventPricing />
+      <EventSchedule />
       <EventTargetAudience />
       <EventTeam />
       <EventMap />

@@ -21,7 +21,10 @@ import { Highlighter } from "../magicui/highlighter";
 const HeroIntroduce = () => {
   const { t } = useTranslation();
   return (
-    <div className="py-8 sm:py-12 lg:py-16 grid grid-cols-12 gap-4 sm:gap-6 lg:gap-8 flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div
+      id="hero-introduce"
+      className="py-8 sm:py-12 lg:py-16 grid grid-cols-12 gap-4 sm:gap-6 lg:gap-8 flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+    >
       {/* Mobile: Title above terminal */}
       <div className="block sm:hidden col-span-12 text-center mb-3">
         <h2 className="font-bold text-xl leading-tight">
@@ -47,7 +50,9 @@ const HeroIntroduce = () => {
           </AnimatedSpan>
 
           <AnimatedSpan className="text-green-500">
-            <span>✔ {t("messages.hero-introduce.features.learning-plan")}</span>
+            <span>
+              ✔ {t("messages.hero-introduce.features.learning-plan")}
+            </span>
           </AnimatedSpan>
 
           <AnimatedSpan className="text-green-500">

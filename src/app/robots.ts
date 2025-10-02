@@ -31,7 +31,11 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/admin/", "/private/"],
       },
     ],
-    sitemap: `${config.baseUrl}/sitemap.xml`,
+    sitemap: [
+      `${config.baseUrl}/sitemap.xml`,
+      `${config.baseUrl}/sitemap-blog.xml`,
+      `${config.baseUrl}/sitemap-fa.xml`,
+    ],
     host: config.baseUrl,
   };
 }
