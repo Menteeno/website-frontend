@@ -27,29 +27,19 @@ const HeroFAQ = () => {
       answer: t("messages.hero-faq.answers.how-does-it-work"),
     },
     {
-      id: "who-is-it-for",
-      question: t("messages.hero-faq.questions.who-is-it-for"),
-      answer: t("messages.hero-faq.answers.who-is-it-for"),
-    },
-    {
-      id: "mentorship-sessions",
-      question: t("messages.hero-faq.questions.mentorship-sessions"),
-      answer: t("messages.hero-faq.answers.mentorship-sessions"),
-    },
-    {
       id: "learning-path",
       question: t("messages.hero-faq.questions.learning-path"),
       answer: t("messages.hero-faq.answers.learning-path"),
     },
     {
-      id: "guarantee",
-      question: t("messages.hero-faq.questions.guarantee"),
-      answer: t("messages.hero-faq.answers.guarantee"),
+      id: "schedule",
+      question: t("messages.hero-faq.questions.schedule"),
+      answer: t("messages.hero-faq.answers.schedule"),
     },
     {
-      id: "support",
-      question: t("messages.hero-faq.questions.support"),
-      answer: t("messages.hero-faq.answers.support"),
+      id: "start",
+      question: t("messages.hero-faq.questions.start"),
+      answer: t("messages.hero-faq.answers.start"),
     },
   ];
 

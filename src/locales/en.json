@@ -62,7 +62,7 @@
   "messages": {
     "home-header": {
       "title": "Menteeno",
-      "description": "In Menteeno, you are supposed to learn how to boost your skills in both your personal and professional life. With a personalized path, real training, an experienced mentor, and a growing community. It's for everyone who is looking for growth.",
+      "description": "In Menteeno, you can learn how to enhance your skills in life and work. With a personalized path built specifically for you, practical exercises with real people, professional mentors, and lots of constructive feedback. All this journey alongside people who, like you, are pursuing growth!",
       "title-rotate": {
         "1": "A place to grow",
         "2": "The space for skill development in the workplace",
@@ -179,9 +179,9 @@
       "secondary-button": "Learn More"
     },
     "hero-testimonials": {
-      "badge": "What our users say",
+      "badge": "Success stories of communication",
       "title": "Success Stories from Our Community",
-      "description": "Discover how Menteeno has transformed the careers and lives of professionals worldwide.",
+      "description": "See Menteeno through the eyes of successful professionals.",
       "testimonials": {
         "1": {
           "name": "Sarina Emadi",
@@ -219,29 +219,25 @@
           "linkedin": "https://www.linkedin.com/in/taniya-atiye-ghorbani-69b11b41/"
         }
       },
-      "footer": "Join thousands of professionals who have transformed their careers with Menteeno"
+      "footer": "You could be the next success story!"
     },
     "hero-faq": {
-      "badge": "Frequently Asked Questions",
-      "title": "Got Questions? We've Got Answers",
-      "description": "Find answers to the most common questions about Menteeno and how we can help you develop your soft skills.",
+      "badge": "Got questions? Menteeno has got you covered",
+      "title": "Got questions? Menteeno has got you covered",
+      "description": "Answers to common questions about Menteeno and how we help you grow and strengthen your skills are here.",
       "questions": {
         "what-is-menteeno": "What is Menteeno?",
         "how-does-it-work": "How does Menteeno work?",
-        "who-is-it-for": "Who is Menteeno for?",
-        "mentorship-sessions": "What are the mentorship sessions like?",
-        "learning-path": "How is the learning path personalized?",
-        "guarantee": "What is the 30-day guarantee?",
-        "support": "What kind of support do you provide?"
+        "learning-path": "What is your unique learning path like?",
+        "schedule": "How is the course scheduling?",
+        "start": "Where and how do I start?"
       },
       "answers": {
-        "what-is-menteeno": "Menteeno is a comprehensive soft skills development platform that provides personalized learning paths, expert mentorship, real-world practice opportunities, and a supportive community to help professionals enhance their communication, leadership, and teamwork abilities.",
-        "how-does-it-work": "Menteeno works by first assessing your current soft skills through our evaluation system. Based on your results, we create a personalized learning plan. You'll have access to mentorship sessions with industry experts, participate in real-world challenges, and receive continuous feedback to track your progress.",
-        "who-is-it-for": "Menteeno is designed for professionals at any career stage who want to improve their soft skills. Whether you're a recent graduate, mid-level manager, or senior executive, our platform adapts to your specific needs and goals.",
-        "mentorship-sessions": "Our mentorship sessions are one-on-one private meetings with experienced professionals in your field. Each session lasts 60 minutes and focuses on specific soft skills areas. You'll receive personalized guidance, practical advice, and actionable strategies to improve your professional relationships and communication.",
-        "learning-path": "Your learning path is created based on your initial skills assessment and personal goals. It includes a mix of interactive modules, practical exercises, real-world scenarios, and regular evaluations. The path adapts as you progress, ensuring you're always working on the most relevant skills for your development.",
-        "guarantee": "We're so confident in our platform that we offer a 30-day money-back guarantee. If you're not satisfied with your progress or the quality of our service within the first 30 days, we'll refund your payment in full, no questions asked.",
-        "support": "We provide comprehensive support through multiple channels: email support for technical issues, community forums for peer support, regular check-ins with your assigned mentor, and access to our knowledge base with helpful resources and guides."
+        "what-is-menteeno": "A comprehensive platform for developing vital and valuable human skills, which are soft skills. With unique methods tailored specifically for you in the form of games and exercises in the real world and direct and effective communication with colleagues in your professional field.",
+        "how-does-it-work": "Our team performs a detailed analysis of your current soft skills and conducts an assessment. Based on the results of this assessment, a personalized learning program specifically designed for you is created. In Menteeno, you will have access to mentorship sessions with experts and participation in real-world simulation challenges and continuous feedback to track your progress!",
+        "learning-path": "Everything is created based on your initial assessment and personal skills. It's a combination of interactive modules, practical exercises, scenarios based on real-world work challenges, and regular evaluations. The designed path is fully compatible with your growth process, and we ensure the path has practical application for you and works on skills appropriate to your development.",
+        "schedule": "Our courses are designed flexibly to be compatible with your work schedule. You can participate at times convenient for you and progress at your own pace.",
+        "start": "To get started, first take an initial assessment of your soft skills. Then our team designs a personalized program for you, and you can begin your learning journey."
       },
       "footer": {
         "question": "Still have questions?",
