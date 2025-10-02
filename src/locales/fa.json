@@ -936,6 +936,60 @@
       "primary-button": "ثبت‌نام کنید",
       "secondary-button": "اطلاعات بیشتر",
       "disclaimer": "ثبت‌نام تا تکمیل ظرفیت ادامه دارد"
+    },
+    "pricing": {
+      "title": "قیمت‌گذاری رویداد",
+      "description": "انتخاب بهترین گزینه برای شرکت در رویداد مهارت‌های نرم",
+      "early-bird": {
+        "name": "پیش فروش",
+        "price": "۷۷۵,۰۰۰",
+        "currency": "تومان",
+        "period": "تا ۱۱ مهر ۱۴۰۴",
+        "badge": "محبوب",
+        "features": {
+          "access": "دسترسی کامل به رویداد",
+          "materials": "مدارک و منابع آموزشی",
+          "networking": "شبکه‌سازی با ۳۵ متخصص",
+          "meal": "پذیرایی و میان‌وعده",
+          "discussion": "شرکت در پنل گفت‌وگو",
+          "team-building": "بازی و تمرین تیمی",
+          "menteeno-access": "دسترسی به پلتفرم منتینو",
+          "discount-codes": "کدهای تخفیف ویژه"
+        }
+      },
+      "regular": {
+        "name": "بلیت اصلی",
+        "price": "۹۸۵,۰۰۰",
+        "currency": "تومان",
+        "period": "بعد از ۱۱ مهر ۱۴۰۴",
+        "features": {
+          "access": "دسترسی کامل به رویداد",
+          "materials": "مدارک و منابع آموزشی",
+          "networking": "شبکه‌سازی با ۳۵ متخصص",
+          "meal": "پذیرایی و میان‌وعده",
+          "discussion": "شرکت در پنل گفت‌وگو",
+          "team-building": "بازی و تمرین تیمی",
+          "menteeno-access": "دسترسی به پلتفرم منتینو",
+          "discount-codes": "کدهای تخفیف ویژه"
+        }
+      },
+      "discount": "۲۱٪ تخفیف",
+      "register-button": "ثبت‌نام کنید",
+      "coming-soon": "به زودی",
+      "included": {
+        "networking": {
+          "title": "شبکه‌سازی حرفه‌ای",
+          "description": "ارتباط با ۳۵ متخصص و برنامه‌نویس"
+        },
+        "duration": {
+          "title": "مدت زمان کامل",
+          "description": "۵ ساعت تجربه عملی و یادگیری"
+        },
+        "location": {
+          "title": "مکان برگزاری",
+          "description": "تهران، نیاوران، باغ خسروشاهی"
+        }
+      }
     }
   },
   "cookies": {
