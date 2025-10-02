@@ -43,14 +43,11 @@ export function Analytics({
                 }
               });
               
-              // Enhanced ecommerce tracking for course enrollments
-              gtag('event', 'page_view', {
-                page_title: document.title,
-                page_location: window.location.href,
-                page_path: window.location.pathname,
-                content_group1: 'Website',
-                content_group2: 'Main Site'
-              });
+              // Debug logging for development
+              if (window.location.hostname === 'localhost' || window.location.hostname.includes('dev')) {
+                console.log('Google Analytics initialized with ID: ${googleAnalyticsId}');
+                console.log('DataLayer:', window.dataLayer);
+              }
             `}
           </Script>
         </>
