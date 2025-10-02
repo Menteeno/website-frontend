@@ -42,11 +42,6 @@ const HeroFAQ = () => {
       answer: t("messages.hero-faq.answers.learning-path"),
     },
     {
-      id: "pricing",
-      question: t("messages.hero-faq.questions.pricing"),
-      answer: t("messages.hero-faq.answers.pricing"),
-    },
-    {
       id: "guarantee",
       question: t("messages.hero-faq.questions.guarantee"),
       answer: t("messages.hero-faq.answers.guarantee"),
