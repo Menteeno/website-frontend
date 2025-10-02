@@ -1,6 +1,16 @@
 {
   "common": {
-    "learn_more": "Learn more"
+    "learn_more": "Learn more",
+    "view_all": "View All",
+    "search": "Search...",
+    "filter": "Filter",
+    "no_results": "No results found",
+    "no_results_description": "Try searching with different keywords",
+    "error": "Error",
+    "error_description": "Something went wrong while loading data",
+    "try_again": "Try Again",
+    "save": "Save",
+    "saving": "Saving..."
   },
   "auth": {
     "failed": "These credentials do not match our records.",
@@ -31,6 +41,41 @@
     "no_account": "Don't have an account?",
     "have_account": "Already have an account?",
     "create_one": "Create one",
+    "phone_auth": {
+      "title": "Welcome to Menteeno",
+      "subtitle": "Sign in with your phone number",
+      "phone_number": "Phone Number",
+      "phone_placeholder": "09123456789",
+      "verification_code": "Verification Code",
+      "verification_code_placeholder": "0000",
+      "send_code": "Send Verification Code",
+      "verify_code": "Verify Code",
+      "sending_code": "Sending Code...",
+      "verifying": "Verifying...",
+      "enter_verification_code": "Enter Verification Code",
+      "code_sent_to": "We sent a 4-digit code to {phone}",
+      "didnt_receive_code": "Didn't receive the code?",
+      "resend_code": "Resend Code",
+      "resend_in": "Resend in {time}",
+      "join_thousands": "Join thousands of learners",
+      "welcome_to": "Welcome to",
+      "menteeno": "Menteeno",
+      "sign_in_subtitle": "Sign in with your phone number to start your learning journey",
+      "features": {
+        "title": "Why Choose Menteeno?",
+        "expert_mentors": "Expert Mentors",
+        "expert_mentors_desc": "Learn from industry professionals with real-world experience",
+        "personalized_learning": "Personalized Learning",
+        "personalized_learning_desc": "Customized learning paths tailored to your goals and pace",
+        "real_projects": "Real Projects",
+        "real_projects_desc": "Work on actual projects and build your portfolio",
+        "stats": {
+          "students": "1000+ Students",
+          "mentors": "50+ Mentors",
+          "support": "24/7 Support"
+        }
+      }
+    },
     "cta": {
       "title": "Join 10,000+ professionals growing their skills",
       "description": "Get personalized mentorship, real training, and join a supportive community of like-minded professionals.",
@@ -893,6 +938,61 @@
       "primary-button": "Register Now",
       "secondary-button": "More Information",
       "disclaimer": "Registration continues until capacity is reached"
+    },
+    "pricing": {
+      "title": "Event Pricing",
+      "description": "Choose the best option to participate in the soft skills event",
+      "early-bird": {
+        "name": "Early Bird",
+        "price": "775,000",
+        "currency": "Toman",
+        "period": "Until Mehr 11, 1404",
+        "badge": "Popular",
+        "features": {
+          "access": "Full access to the event",
+          "materials": "Educational materials and resources",
+          "networking": "Networking with 35 professionals",
+          "meal": "Catering and snacks",
+          "discussion": "Participation in discussion panel",
+          "team-building": "Team games and exercises",
+          "menteeno-access": "Access to Menteeno platform",
+          "discount-codes": "Special discount codes"
+        }
+      },
+      "regular": {
+        "name": "Regular Ticket",
+        "price": "985,000",
+        "currency": "Toman",
+        "period": "After Mehr 11, 1404",
+        "features": {
+          "access": "Full access to the event",
+          "materials": "Educational materials and resources",
+          "networking": "Networking with 35 professionals",
+          "meal": "Catering and snacks",
+          "discussion": "Participation in discussion panel",
+          "team-building": "Team games and exercises",
+          "menteeno-access": "Access to Menteeno platform",
+          "discount-codes": "Special discount codes"
+        }
+      },
+      "discount": "21% Discount",
+      "vat-label": "Plus 10% VAT",
+      "register-button": "Register Now",
+      "coming-soon": "Coming Soon",
+      "included": {
+        "networking": {
+          "title": "Professional Networking",
+          "description": "Connection with 35 professionals and developers"
+        },
+        "duration": {
+          "title": "Full Duration",
+          "description": "5 hours of practical experience and learning"
+        },
+        "location": {
+          "title": "Venue",
+          "description": "Tehran, Niavaran, Khosrowshahi Garden"
+        }
+      }
     }
   },
   "cookies": {
@@ -998,6 +1098,112 @@
       "content": "If you have any questions about our use of cookies or this Cookie Policy, please contact us.",
       "email_label": "Email:",
       "email": "privacy@menteeno.com"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome",
+    "welcome_back": "Welcome back, {name}!",
+    "overview": "Overview",
+    "stats": {
+      "total_surveys": "Total Surveys",
+      "active_surveys": "Active Surveys",
+      "total_responses": "Total Responses",
+      "completion_rate": "Completion Rate"
+    },
+    "recent_surveys": "Recent Surveys",
+    "create_survey": "Create Survey",
+    "no_surveys": "No surveys created yet",
+    "no_surveys_description": "Create your first survey and start collecting feedback",
+    "survey_actions": {
+      "view": "View",
+      "edit": "Edit",
+      "duplicate": "Duplicate",
+      "delete": "Delete",
+      "share": "Share",
+      "analytics": "Analytics"
+    },
+    "create_dialog": {
+      "title": "Create New Survey",
+      "survey_title": "Survey Title",
+      "survey_title_placeholder": "Enter your survey title",
+      "survey_description": "Description",
+      "survey_description_placeholder": "Write a brief description about your survey",
+      "is_public": "Public",
+      "is_public_description": "Make survey visible to everyone",
+      "create_button": "Create Survey",
+      "cancel_button": "Cancel"
+    },
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "surveys": "Surveys",
+      "analytics": "Analytics",
+      "responses": "Responses",
+      "settings": "Settings",
+      "profile": "Profile",
+      "logout": "Logout"
+    },
+    "navigation": {
+      "home": "Home",
+      "surveys": "Surveys",
+      "analytics": "Analytics",
+      "responses": "Responses",
+      "settings": "Settings"
+    },
+    "analytics": {
+      "response_trends": "Response Trends",
+      "survey_performance": "Survey Performance",
+      "recent_activity": "Recent Activity",
+      "created": "Created",
+      "responses": "responses",
+      "this_week": "this week",
+      "chart_placeholder": "Chart will be displayed here"
+    },
+    "responses": {
+      "export": "Export",
+      "all_responses": "All Responses",
+      "no_responses": "No responses found",
+      "no_responses_description": "No responses have been received for your surveys yet",
+      "completed": "Completed",
+      "incomplete": "Incomplete",
+      "score": "Score",
+      "view": "View"
+    },
+    "settings": {
+      "description": "Manage your account settings and privacy preferences",
+      "profile": "Profile",
+      "notifications": "Notifications",
+      "privacy": "Privacy",
+      "email_notifications": "Email Notifications",
+      "email_notifications_description": "Receive notifications via email",
+      "push_notifications": "Push Notifications",
+      "push_notifications_description": "Receive notifications in browser",
+      "sms_notifications": "SMS Notifications",
+      "sms_notifications_description": "Receive notifications via SMS",
+      "public_profile": "Public Profile",
+      "public_profile_description": "Make your profile visible to everyone",
+      "show_email": "Show Email",
+      "show_email_description": "Display your email in public profile",
+      "show_mobile": "Show Mobile",
+      "show_mobile_description": "Display your mobile number in public profile"
+    },
+    "survey": {
+      "back_to_dashboard": "Back to Dashboard",
+      "created": "Created",
+      "estimated_time": "Estimated time",
+      "minutes": "minutes",
+      "questions": "questions",
+      "question": "Question",
+      "of": "of",
+      "enter_answer": "Enter your answer",
+      "rate_from": "Rate from",
+      "to": "to",
+      "previous": "Previous",
+      "next": "Next",
+      "submit": "Submit",
+      "footer_text": "Thank you for participating in this survey",
+      "not_found": "Survey not found",
+      "not_found_description": "The requested survey does not exist or has been deleted"
     }
   },
   "contact": {

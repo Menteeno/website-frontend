@@ -1,18 +1,27 @@
 "use client";
 
 import AppLogoIcon from "@/components/app-logo-icon";
+import { BackgroundPattern } from "@/components/hero/background-pattern";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useAuth } from "@/contexts/auth-context";
+import { useAuth } from "@/hooks/use-auth";
 import { useTranslation } from "@/hooks/use-translation";
 import {
   useV1_auth_send_codeMutation,
   useV1_auth_verify_codeMutation,
 } from "@/services/menteenoApi.generated";
-import { ArrowRight, Phone, Shield, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  BookOpen,
+  Phone,
+  Shield,
+  Sparkles,
+  Target,
+  Users,
+} from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -72,6 +81,12 @@ export default function PhoneAuthForm() {
         "Please enter a valid Iranian phone number (09xxxxxxxxx)";
     }
 
+    console.log("Phone validation:", {
+      mobile: formData.mobile,
+      isValid: Object.keys(newErrors).length === 0,
+      errors: newErrors,
+    });
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -111,6 +126,13 @@ export default function PhoneAuthForm() {
     setErrors({});
 
     try {
+      console.log("Sending code to:", formData.mobile);
+      console.log(
+        "API Base URL:",
+        process.env.NEXT_PUBLIC_API_URL ||
+          "https://menteeno-backend.chbk.app/api"
+      );
+
       const result = await sendCode({
         body: {
           mobile: formData.mobile,
@@ -122,10 +144,22 @@ export default function PhoneAuthForm() {
       startCountdown();
     } catch (error: any) {
       console.error("Failed to send code:", error);
+      console.error("Error details:", {
+        status: error?.status,
+        data: error?.data,
+        message: error?.message,
+        originalStatus: error?.originalStatus,
+      });
+
+      // RTK Query error structure
+      const errorMessage =
+        error?.data?.message ||
+        error?.data?.errors?.mobile?.[0] ||
+        error?.message ||
+        "Failed to send verification code. Please try again.";
+
       setErrors({
-        general:
-          error?.data?.message ||
-          "Failed to send verification code. Please try again.",
+        general: errorMessage,
       });
     } finally {
       setIsLoading(false);
@@ -170,10 +204,16 @@ export default function PhoneAuthForm() {
       }
     } catch (error: any) {
       console.error("Failed to verify code:", error);
+
+      // RTK Query error structure
+      const errorMessage =
+        error?.data?.message ||
+        error?.data?.errors?.code?.[0] ||
+        error?.message ||
+        "Invalid verification code. Please try again.";
+
       setErrors({
-        general:
-          error?.data?.message ||
-          "Invalid verification code. Please try again.",
+        general: errorMessage,
       });
     } finally {
       setIsLoading(false);
@@ -207,21 +247,18 @@ export default function PhoneAuthForm() {
   const renderPhoneStep = () => (
     <div className="space-y-6">
       <div>
-        <Label
-          htmlFor="mobile"
-          className="text-sm font-medium text-gray-700 dark:text-gray-300"
-        >
-          Phone Number
+        <Label htmlFor="mobile" className="text-sm font-medium text-foreground">
+          {t("auth.phone_auth.phone_number")}
         </Label>
         <div className="relative mt-1">
-          <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 size-4" />
+          <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground size-4" />
           <Input
             id="mobile"
             type="tel"
             value={formData.mobile}
             onChange={(e) => handleInputChange("mobile", e.target.value)}
             className="pl-10"
-            placeholder="09123456789"
+            placeholder={t("auth.phone_auth.phone_placeholder")}
             disabled={isLoading}
             maxLength={11}
           />
@@ -233,17 +270,18 @@ export default function PhoneAuthForm() {
 
       <Button
         onClick={handleSendCode}
-        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 rounded-lg transition-all duration-200 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+        size="lg"
+        className="w-full rounded-full text-base"
         disabled={isLoading || isSendingCode}
       >
         {isLoading || isSendingCode ? (
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-            Sending Code...
+            {t("auth.phone_auth.sending_code")}
           </div>
         ) : (
           <div className="flex items-center gap-2">
-            Send Verification Code
+            <span>{t("auth.phone_auth.send_code")}</span>
             <ArrowRight className="size-4" />
           </div>
         )}
@@ -254,21 +292,18 @@ export default function PhoneAuthForm() {
   const renderVerificationStep = () => (
     <div className="space-y-6">
       <div className="text-center">
-        <Shield className="mx-auto size-12 text-blue-600 mb-4" />
-        <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-          Enter Verification Code
+        <Shield className="mx-auto size-12 text-primary mb-4" />
+        <h2 className="text-xl font-semibold text-foreground mb-2">
+          {t("auth.phone_auth.enter_verification_code")}
         </h2>
         <p className="text-muted-foreground">
-          We sent a 4-digit code to {formData.mobile}
+          {t("auth.phone_auth.code_sent_to", { phone: formData.mobile })}
         </p>
       </div>
 
       <div>
-        <Label
-          htmlFor="code"
-          className="text-sm font-medium text-gray-700 dark:text-gray-300"
-        >
-          Verification Code
+        <Label htmlFor="code" className="text-sm font-medium text-foreground">
+          {t("auth.phone_auth.verification_code")}
         </Label>
         <div className="relative mt-1">
           <Input
@@ -279,7 +314,7 @@ export default function PhoneAuthForm() {
               handleInputChange("code", e.target.value.replace(/\D/g, ""))
             }
             className="text-center text-lg tracking-widest"
-            placeholder="0000"
+            placeholder={t("auth.phone_auth.verification_code_placeholder")}
             disabled={isLoading}
             maxLength={4}
           />
@@ -291,17 +326,18 @@ export default function PhoneAuthForm() {
 
       <Button
         onClick={handleVerifyCode}
-        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 rounded-lg transition-all duration-200 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+        size="lg"
+        className="w-full rounded-full text-base"
         disabled={isLoading || isVerifyingCode}
       >
         {isLoading || isVerifyingCode ? (
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-            Verifying...
+            {t("auth.phone_auth.verifying")}
           </div>
         ) : (
           <div className="flex items-center gap-2">
-            Verify Code
+            <span>{t("auth.phone_auth.verify_code")}</span>
             <ArrowRight className="size-4" />
           </div>
         )}
@@ -309,41 +345,50 @@ export default function PhoneAuthForm() {
 
       <div className="text-center">
         <p className="text-sm text-muted-foreground mb-2">
-          Didn't receive the code?
+          {t("auth.phone_auth.didnt_receive_code")}
         </p>
         <button
           onClick={handleResendCode}
           disabled={countdown > 0}
-          className="text-sm font-medium text-blue-600 hover:text-blue-700 disabled:text-gray-400 disabled:cursor-not-allowed"
+          className="text-sm font-medium text-primary hover:text-primary/80 disabled:text-muted-foreground disabled:cursor-not-allowed"
         >
-          {countdown > 0 ? `Resend in ${formatTime(countdown)}` : "Resend Code"}
+          {countdown > 0
+            ? t("auth.phone_auth.resend_in", { time: formatTime(countdown) })
+            : t("auth.phone_auth.resend_code")}
         </button>
       </div>
     </div>
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
+    <div className="h-screen flex flex-col lg:flex-row items-center justify-center max-w-7xl mx-auto relative overflow-hidden px-4">
+      <BackgroundPattern />
+
+      {/* Left Side - Content */}
+      <div className="relative z-10 max-w-2xl text-center lg:text-start w-full lg:w-auto flex flex-col justify-center">
         {/* Logo and Header */}
-        <div className="text-center mb-8">
+        <div className="mb-8">
           <Link
             href={`/${locale}`}
-            className="inline-flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white mb-4"
+            className="inline-flex items-center gap-2 text-2xl font-bold text-foreground mb-6"
           >
             <AppLogoIcon className="size-8 fill-current" />
             Menteeno
           </Link>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-            Welcome to Menteeno
-          </h1>
-          <p className="text-muted-foreground">
-            Sign in with your phone number to get started
+
+          <div className="mt-6">
+            <h1 className="font-black text-4xl sm:text-5xl md:text-6xl text-foreground">
+              {t("auth.phone_auth.welcome_to")}
+            </h1>
+          </div>
+
+          <p className="mt-6 text-[17px] md:text-lg text-muted-foreground">
+            {t("auth.phone_auth.sign_in_subtitle")}
           </p>
         </div>
 
         {/* Main Auth Card */}
-        <Card className="shadow-xl border-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
+        <Card className="shadow-xl border-0 bg-card/80 backdrop-blur-sm">
           <CardContent className="p-8">
             {errors.general && (
               <Alert className="mb-6" variant="destructive">
@@ -355,30 +400,77 @@ export default function PhoneAuthForm() {
             {currentStep === "verification" && renderVerificationStep()}
           </CardContent>
         </Card>
+      </div>
 
-        {/* CTA Section */}
-        <div className="mt-8 text-center">
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-6 text-white">
-            <div className="flex items-center justify-center gap-2 mb-3">
-              <Sparkles className="size-5" />
-              <h3 className="text-lg font-semibold">Why Choose Menteeno?</h3>
+      {/* Right Side - Features */}
+      <div className="lg:flex-1 lg:px-8 flex items-center justify-center">
+        <div className="max-w-lg w-full flex flex-col justify-center">
+          <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl p-8 border border-primary/20">
+            <div className="flex items-center justify-center gap-2 mb-6">
+              <Sparkles className="size-6 text-primary" />
+              <h3 className="text-2xl font-bold text-foreground">
+                {t("auth.phone_auth.features.title")}
+              </h3>
             </div>
-            <p className="text-blue-100 mb-4 text-sm leading-relaxed">
-              Join thousands of professionals growing their skills with
-              personalized mentorship
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 text-xs text-blue-100">
-              <div className="flex items-center gap-1">
-                <div className="w-1.5 h-1.5 bg-blue-200 rounded-full" />
-                Personalized Learning
+
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
+                  <Users className="size-6 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">
+                    {t("auth.phone_auth.features.expert_mentors")}
+                  </h4>
+                  <p className="text-muted-foreground text-sm">
+                    {t("auth.phone_auth.features.expert_mentors_desc")}
+                  </p>
+                </div>
               </div>
-              <div className="flex items-center gap-1">
-                <div className="w-1.5 h-1.5 bg-blue-200 rounded-full" />
-                Expert Mentors
+
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
+                  <BookOpen className="size-6 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">
+                    {t("auth.phone_auth.features.personalized_learning")}
+                  </h4>
+                  <p className="text-muted-foreground text-sm">
+                    {t("auth.phone_auth.features.personalized_learning_desc")}
+                  </p>
+                </div>
               </div>
-              <div className="flex items-center gap-1">
-                <div className="w-1.5 h-1.5 bg-blue-200 rounded-full" />
-                Real Projects
+
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
+                  <Target className="size-6 text-primary" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-foreground mb-2">
+                    {t("auth.phone_auth.features.real_projects")}
+                  </h4>
+                  <p className="text-muted-foreground text-sm">
+                    {t("auth.phone_auth.features.real_projects_desc")}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-primary/20">
+              <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full" />
+                  <span>{t("auth.phone_auth.features.stats.students")}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full" />
+                  <span>{t("auth.phone_auth.features.stats.mentors")}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-primary rounded-full" />
+                  <span>{t("auth.phone_auth.features.stats.support")}</span>
+                </div>
               </div>
             </div>
           </div>

@@ -1,6 +1,16 @@
 {
   "common": {
-    "learn_more": "بیشتر بدانید"
+    "learn_more": "بیشتر بدانید",
+    "view_all": "مشاهده همه",
+    "search": "جستجو...",
+    "filter": "فیلتر",
+    "no_results": "نتیجه‌ای یافت نشد",
+    "no_results_description": "با کلمات کلیدی دیگر جستجو کنید",
+    "error": "خطا",
+    "error_description": "مشکلی در بارگذاری داده‌ها پیش آمده است",
+    "try_again": "تلاش مجدد",
+    "save": "ذخیره",
+    "saving": "در حال ذخیره..."
   },
   "auth": {
     "failed": "مشخصات وارد شده با اطاعات ما سازگار نیست.",
@@ -31,6 +41,41 @@
     "no_account": "حساب کاربری ندارید؟",
     "have_account": "قبلاً حساب کاربری دارید؟",
     "create_one": "ایجاد کنید",
+    "phone_auth": {
+      "title": "به منتینو خوش آمدید",
+      "subtitle": "با شماره تلفن همراه خود وارد شوید",
+      "phone_number": "شماره تلفن همراه",
+      "phone_placeholder": "۰۹۱۲۳۴۵۶۷۸۹",
+      "verification_code": "کد تأیید",
+      "verification_code_placeholder": "۰۰۰۰",
+      "send_code": "ارسال کد تأیید",
+      "verify_code": "تأیید کد",
+      "sending_code": "در حال ارسال کد...",
+      "verifying": "در حال تأیید...",
+      "enter_verification_code": "کد تأیید را وارد کنید",
+      "code_sent_to": "کد ۴ رقمی به شماره {phone} ارسال شد",
+      "didnt_receive_code": "کد را دریافت نکردید؟",
+      "resend_code": "ارسال مجدد کد",
+      "resend_in": "ارسال مجدد در {time}",
+      "join_thousands": "به هزاران یادگیرنده بپیوندید",
+      "welcome_to": "خوش اومدید",
+      "menteeno": "منتینو",
+      "sign_in_subtitle": "با شماره تلفن همراه خود وارد شوید تا سفر یادگیری خود را آغاز کنید",
+      "features": {
+        "title": "چرا منتینو را انتخاب کنید؟",
+        "expert_mentors": "منتورهای متخصص",
+        "expert_mentors_desc": "از متخصصان صنعت با تجربه دنیای واقعی یاد بگیرید",
+        "personalized_learning": "یادگیری شخصی‌سازی‌شده",
+        "personalized_learning_desc": "مسیرهای یادگیری سفارشی متناسب با اهداف و سرعت شما",
+        "real_projects": "پروژه‌های واقعی",
+        "real_projects_desc": "روی پروژه‌های واقعی کار کنید و پورتفولیوی خود را بسازید",
+        "stats": {
+          "students": "۱۰۰۰+ دانشجو",
+          "mentors": "۵۰+ منتور",
+          "support": "پشتیبانی ۲۴/۷"
+        }
+      }
+    },
     "cta": {
       "title": "به ۱۰,۰۰۰+ متخصص در حال رشد مهارت‌هایشان بپیوندید",
       "description": "منتورشیپ شخصی‌سازی‌شده، آموزش واقعی و عضویت در جامعه‌ای حمایت‌کننده از متخصصان هم‌فکر دریافت کنید.",
@@ -671,6 +716,112 @@
       "email": "hi@menteeno.app"
     }
   },
+  "dashboard": {
+    "title": "داشبورد",
+    "welcome": "خوش آمدید",
+    "welcome_back": "خوش آمدید، {name}!",
+    "overview": "نمای کلی",
+    "stats": {
+      "total_surveys": "کل نظرسنجی‌ها",
+      "active_surveys": "نظرسنجی‌های فعال",
+      "total_responses": "کل پاسخ‌ها",
+      "completion_rate": "نرخ تکمیل"
+    },
+    "recent_surveys": "نظرسنجی‌های اخیر",
+    "create_survey": "ایجاد نظرسنجی",
+    "no_surveys": "هنوز نظرسنجی‌ای ایجاد نکرده‌اید",
+    "no_surveys_description": "اولین نظرسنجی خود را ایجاد کنید و شروع به جمع‌آوری بازخورد کنید",
+    "survey_actions": {
+      "view": "مشاهده",
+      "edit": "ویرایش",
+      "duplicate": "کپی",
+      "delete": "حذف",
+      "share": "اشتراک‌گذاری",
+      "analytics": "تحلیل‌ها"
+    },
+    "create_dialog": {
+      "title": "ایجاد نظرسنجی جدید",
+      "survey_title": "عنوان نظرسنجی",
+      "survey_title_placeholder": "عنوان نظرسنجی خود را وارد کنید",
+      "survey_description": "توضیحات",
+      "survey_description_placeholder": "توضیحات کوتاهی درباره نظرسنجی بنویسید",
+      "is_public": "عمومی",
+      "is_public_description": "نظرسنجی برای همه قابل مشاهده باشد",
+      "create_button": "ایجاد نظرسنجی",
+      "cancel_button": "لغو"
+    },
+    "sidebar": {
+      "dashboard": "داشبورد",
+      "surveys": "نظرسنجی‌ها",
+      "analytics": "تحلیل‌ها",
+      "responses": "پاسخ‌ها",
+      "settings": "تنظیمات",
+      "profile": "پروفایل",
+      "logout": "خروج"
+    },
+    "navigation": {
+      "home": "خانه",
+      "surveys": "نظرسنجی‌ها",
+      "analytics": "تحلیل‌ها",
+      "responses": "پاسخ‌ها",
+      "settings": "تنظیمات"
+    },
+    "analytics": {
+      "response_trends": "روند پاسخ‌ها",
+      "survey_performance": "عملکرد نظرسنجی‌ها",
+      "recent_activity": "فعالیت‌های اخیر",
+      "created": "ایجاد شده",
+      "responses": "پاسخ",
+      "this_week": "این هفته",
+      "chart_placeholder": "نمودار در اینجا نمایش داده می‌شود"
+    },
+    "responses": {
+      "export": "صادرات",
+      "all_responses": "همه پاسخ‌ها",
+      "no_responses": "پاسخی یافت نشد",
+      "no_responses_description": "هنوز پاسخی برای نظرسنجی‌های شما دریافت نشده است",
+      "completed": "تکمیل شده",
+      "incomplete": "ناتمام",
+      "score": "امتیاز",
+      "view": "مشاهده"
+    },
+    "settings": {
+      "description": "تنظیمات حساب کاربری و حریم خصوصی خود را مدیریت کنید",
+      "profile": "پروفایل",
+      "notifications": "اعلان‌ها",
+      "privacy": "حریم خصوصی",
+      "email_notifications": "اعلان‌های ایمیل",
+      "email_notifications_description": "دریافت اعلان‌ها از طریق ایمیل",
+      "push_notifications": "اعلان‌های فوری",
+      "push_notifications_description": "دریافت اعلان‌ها در مرورگر",
+      "sms_notifications": "اعلان‌های پیامکی",
+      "sms_notifications_description": "دریافت اعلان‌ها از طریق پیامک",
+      "public_profile": "پروفایل عمومی",
+      "public_profile_description": "پروفایل شما برای همه قابل مشاهده باشد",
+      "show_email": "نمایش ایمیل",
+      "show_email_description": "ایمیل شما در پروفایل عمومی نمایش داده شود",
+      "show_mobile": "نمایش شماره همراه",
+      "show_mobile_description": "شماره همراه شما در پروفایل عمومی نمایش داده شود"
+    },
+    "survey": {
+      "back_to_dashboard": "بازگشت به داشبورد",
+      "created": "ایجاد شده",
+      "estimated_time": "زمان تقریبی",
+      "minutes": "دقیقه",
+      "questions": "سوال",
+      "question": "سوال",
+      "of": "از",
+      "enter_answer": "پاسخ خود را وارد کنید",
+      "rate_from": "امتیاز از",
+      "to": "تا",
+      "previous": "قبلی",
+      "next": "بعدی",
+      "submit": "ارسال",
+      "footer_text": "از شما برای شرکت در این نظرسنجی متشکریم",
+      "not_found": "نظرسنجی یافت نشد",
+      "not_found_description": "نظرسنجی مورد نظر وجود ندارد یا حذف شده است"
+    }
+  },
   "event": {
     "hero": {
       "badge": "رویداد ویژه",
@@ -974,6 +1125,7 @@
         }
       },
       "discount": "۲۱٪ تخفیف",
+      "vat-label": "به اضافه‌ی ۱۰٪ مالیات بر ارزش افزوده",
       "register-button": "ثبت‌نام کنید",
       "coming-soon": "به زودی",
       "included": {
