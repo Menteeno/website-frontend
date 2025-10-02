@@ -361,37 +361,35 @@ export default function PhoneAuthForm() {
   );
 
   return (
-    <div className="h-screen flex flex-col lg:flex-row items-center justify-center max-w-7xl mx-auto relative overflow-hidden px-4">
+    <div className="min-h-screen flex flex-col lg:flex-row items-center justify-center max-w-7xl mx-auto relative overflow-hidden px-4 py-4 lg:py-8">
       <BackgroundPattern />
 
-      {/* Left Side - Content */}
-      <div className="relative z-10 max-w-2xl text-center lg:text-start w-full lg:w-auto flex flex-col justify-center">
+      {/* Mobile Layout */}
+      <div className="lg:hidden w-full max-w-md mx-auto">
         {/* Logo and Header */}
-        <div className="mb-8">
+        <div className="text-center mb-6">
           <Link
             href={`/${locale}`}
-            className="inline-flex items-center gap-2 text-2xl font-bold text-foreground mb-6"
+            className="inline-flex items-center gap-2 text-xl font-bold text-foreground mb-4"
           >
-            <AppLogoIcon className="size-8 fill-current" />
+            <AppLogoIcon className="size-6 fill-current" />
             Menteeno
           </Link>
 
-          <div className="mt-6">
-            <h1 className="font-black text-4xl sm:text-5xl md:text-6xl text-foreground">
-              {t("auth.phone_auth.welcome_to")}
-            </h1>
-          </div>
+          <h1 className="font-black text-3xl text-foreground mb-2">
+            {t("auth.phone_auth.welcome_to")}
+          </h1>
 
-          <p className="mt-6 text-[17px] md:text-lg text-muted-foreground">
+          <p className="text-sm text-muted-foreground">
             {t("auth.phone_auth.sign_in_subtitle")}
           </p>
         </div>
 
         {/* Main Auth Card */}
         <Card className="shadow-xl border-0 bg-card/80 backdrop-blur-sm">
-          <CardContent className="p-8">
+          <CardContent className="p-6">
             {errors.general && (
-              <Alert className="mb-6" variant="destructive">
+              <Alert className="mb-4" variant="destructive">
                 <AlertDescription>{errors.general}</AlertDescription>
               </Alert>
             )}
@@ -400,76 +398,135 @@ export default function PhoneAuthForm() {
             {currentStep === "verification" && renderVerificationStep()}
           </CardContent>
         </Card>
+
+        {/* Mobile Features - Compact */}
+        <div className="mt-6 text-center">
+          <div className="flex flex-wrap justify-center gap-4 text-xs text-muted-foreground">
+            <div className="flex items-center gap-1">
+              <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+              <span>{t("auth.phone_auth.features.stats.students")}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+              <span>{t("auth.phone_auth.features.stats.mentors")}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+              <span>{t("auth.phone_auth.features.stats.support")}</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Right Side - Features */}
-      <div className="lg:flex-1 lg:px-8 flex items-center justify-center">
-        <div className="max-w-lg w-full flex flex-col justify-center">
-          <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl p-8 border border-primary/20">
-            <div className="flex items-center justify-center gap-2 mb-6">
-              <Sparkles className="size-6 text-primary" />
-              <h3 className="text-2xl font-bold text-foreground">
-                {t("auth.phone_auth.features.title")}
-              </h3>
+      {/* Desktop Layout */}
+      <div className="hidden lg:flex lg:flex-row lg:items-center lg:justify-center lg:w-full">
+        {/* Left Side - Content */}
+        <div className="relative z-10 max-w-2xl text-center lg:text-start w-full lg:w-1/2 flex flex-col justify-center lg:pr-8">
+          {/* Logo and Header */}
+          <div className="mb-8">
+            <Link
+              href={`/${locale}`}
+              className="inline-flex items-center gap-2 text-2xl font-bold text-foreground mb-6"
+            >
+              <AppLogoIcon className="size-8 fill-current" />
+              Menteeno
+            </Link>
+
+            <div className="mt-6">
+              <h1 className="font-black text-4xl sm:text-5xl md:text-6xl text-foreground">
+                {t("auth.phone_auth.welcome_to")}
+              </h1>
             </div>
 
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
-                  <Users className="size-6 text-primary" />
+            <p className="mt-6 text-[17px] md:text-lg text-muted-foreground">
+              {t("auth.phone_auth.sign_in_subtitle")}
+            </p>
+          </div>
+
+          {/* Main Auth Card */}
+          <Card className="shadow-xl border-0 bg-card/80 backdrop-blur-sm">
+            <CardContent className="p-8">
+              {errors.general && (
+                <Alert className="mb-6" variant="destructive">
+                  <AlertDescription>{errors.general}</AlertDescription>
+                </Alert>
+              )}
+
+              {currentStep === "phone" && renderPhoneStep()}
+              {currentStep === "verification" && renderVerificationStep()}
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Right Side - Features */}
+        <div className="lg:w-1/2 lg:pl-8 flex items-center justify-center">
+          <div className="max-w-lg w-full flex flex-col justify-center">
+            <div className="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl p-8 border border-primary/20">
+              <div className="flex items-center justify-center gap-2 mb-6">
+                <Sparkles className="size-6 text-primary" />
+                <h3 className="text-2xl font-bold text-foreground">
+                  {t("auth.phone_auth.features.title")}
+                </h3>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
+                    <Users className="size-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground mb-2">
+                      {t("auth.phone_auth.features.expert_mentors")}
+                    </h4>
+                    <p className="text-muted-foreground text-sm">
+                      {t("auth.phone_auth.features.expert_mentors_desc")}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-2">
-                    {t("auth.phone_auth.features.expert_mentors")}
-                  </h4>
-                  <p className="text-muted-foreground text-sm">
-                    {t("auth.phone_auth.features.expert_mentors_desc")}
-                  </p>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
+                    <BookOpen className="size-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground mb-2">
+                      {t("auth.phone_auth.features.personalized_learning")}
+                    </h4>
+                    <p className="text-muted-foreground text-sm">
+                      {t("auth.phone_auth.features.personalized_learning_desc")}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
+                    <Target className="size-6 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground mb-2">
+                      {t("auth.phone_auth.features.real_projects")}
+                    </h4>
+                    <p className="text-muted-foreground text-sm">
+                      {t("auth.phone_auth.features.real_projects_desc")}
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
-                  <BookOpen className="size-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-2">
-                    {t("auth.phone_auth.features.personalized_learning")}
-                  </h4>
-                  <p className="text-muted-foreground text-sm">
-                    {t("auth.phone_auth.features.personalized_learning_desc")}
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center">
-                  <Target className="size-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-foreground mb-2">
-                    {t("auth.phone_auth.features.real_projects")}
-                  </h4>
-                  <p className="text-muted-foreground text-sm">
-                    {t("auth.phone_auth.features.real_projects_desc")}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 pt-6 border-t border-primary/20">
-              <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-primary rounded-full" />
-                  <span>{t("auth.phone_auth.features.stats.students")}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-primary rounded-full" />
-                  <span>{t("auth.phone_auth.features.stats.mentors")}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-primary rounded-full" />
-                  <span>{t("auth.phone_auth.features.stats.support")}</span>
+              <div className="mt-8 pt-6 border-t border-primary/20">
+                <div className="flex flex-wrap justify-center gap-6 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-primary rounded-full" />
+                    <span>{t("auth.phone_auth.features.stats.students")}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-primary rounded-full" />
+                    <span>{t("auth.phone_auth.features.stats.mentors")}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-primary rounded-full" />
+                    <span>{t("auth.phone_auth.features.stats.support")}</span>
+                  </div>
                 </div>
               </div>
             </div>
