@@ -5,16 +5,11 @@ import { getBlogPosts } from "@/lib/blog";
 import type { BlogFilters } from "@/types/blog";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
 
 interface BlogPageProps {
   params: Promise<{
     locale: string;
-  }>;
-  searchParams: Promise<{
-    category?: string;
-    tag?: string;
-    search?: string;
-    page?: string;
   }>;
 }
 
@@ -68,42 +63,45 @@ export async function generateMetadata({
   };
 }
 
-export default async function BlogPage({
-  params,
-  searchParams,
-}: BlogPageProps) {
+export default async function BlogPage({ params }: BlogPageProps) {
   const { locale } = await params;
-  const { category, tag, search, page } = await searchParams;
 
   if (!["en", "fa"].includes(locale)) {
     notFound();
   }
 
-  const currentPage = parseInt(page || "1", 10);
+  // Load all posts for static generation - filtering will be handled client-side
   const filters: BlogFilters = {
     locale: locale as "en" | "fa",
-    ...(category && { category }),
-    ...(tag && { tag }),
-    ...(search && { search }),
   };
 
-  const blogData = await getBlogPosts(filters, currentPage, 9);
+  const blogData = await getBlogPosts(filters, 1, 50); // Load more posts for client-side filtering
 
   return (
     <>
       <Navbar />
-      <BlogPageClient
-        initialData={{
-          posts: blogData.posts,
-          categories: blogData.categories,
-          tags: blogData.tags,
-          pagination: blogData.pagination,
-          authors: blogData.authors,
-          filters: blogData.filters,
-        }}
-        initialFilters={filters}
-        locale={locale as "en" | "fa"}
-      />
+      <Suspense
+        fallback={
+          <div className="min-h-screen bg-background pt-20 flex items-center justify-center">
+            Loading...
+          </div>
+        }
+      >
+        <BlogPageClient
+          initialData={{
+            posts: blogData.posts,
+            categories: blogData.categories,
+            tags: blogData.tags,
+            pagination: blogData.pagination,
+            authors: blogData.authors,
+            filters: blogData.filters,
+          }}
+          initialFilters={{
+            locale: locale as "en" | "fa",
+          }}
+          locale={locale as "en" | "fa"}
+        />
+      </Suspense>
       <Footer />
     </>
   );
