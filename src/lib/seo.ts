@@ -221,6 +221,8 @@ export function generateLocalizedMetadata(
       ]
     : baseConfig.keywords;
 
+  const pageUrl = `https://menteeno.app/${locale}`;
+
   const localizedConfig: SEOConfig = {
     ...baseConfig,
     title: isPersian
@@ -229,14 +231,14 @@ export function generateLocalizedMetadata(
     description,
     keywords: persianKeywords,
     locale,
-    canonical: `https://menteeno.app/${locale}`,
+    canonical: pageUrl,
     openGraph: {
       ...baseConfig.openGraph!,
       title: isPersian
         ? `${title} - پلتفرم توسعه مهارت‌های حرفه‌ای`
         : `${title} - Professional Skill Development Platform`,
       description,
-      url: `https://menteeno.app/${locale}`,
+      url: pageUrl,
       locale: locale === "fa" ? "fa_IR" : "en_US",
     },
     twitter: {
@@ -247,7 +249,7 @@ export function generateLocalizedMetadata(
       description,
     },
     alternates: {
-      canonical: `https://menteeno.app/${locale}`,
+      canonical: pageUrl,
       languages: {
         en: "https://menteeno.app/en",
         fa: "https://menteeno.app/fa",
@@ -263,6 +265,20 @@ export function generateLocalizedMetadata(
           "geo.country": "Iran",
           "DC.language": "fa",
           "DC.language.iso": "fa-IR",
+          "DC.title": title,
+          "DC.description": description,
+          "DC.creator": "Menteeno Team",
+          "DC.publisher": "Menteeno",
+          "DC.date.created": new Date().toISOString(),
+          "DC.date.modified": new Date().toISOString(),
+          "DC.subject": persianKeywords.join(", "),
+          "DC.type": "Text",
+          "DC.format": "text/html",
+          "DC.identifier": pageUrl,
+          "DC.source": "https://menteeno.app",
+          "DC.relation": "https://menteeno.app/fa",
+          "DC.coverage": "Iran",
+          "DC.rights": "© 2024 Menteeno. All rights reserved.",
         }
       : baseConfig.other || undefined,
   };

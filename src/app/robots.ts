@@ -30,11 +30,28 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
         disallow: ["/api/", "/admin/", "/private/"],
       },
+      {
+        userAgent: "YandexBot",
+        allow: "/",
+        disallow: ["/api/", "/admin/", "/private/"],
+      },
+      {
+        userAgent: "ParsijooBot",
+        allow: "/",
+        disallow: ["/api/", "/admin/", "/private/"],
+      },
+      {
+        userAgent: "YoozBot",
+        allow: "/",
+        disallow: ["/api/", "/admin/", "/private/"],
+      },
     ],
     sitemap: [
       `${config.baseUrl}/sitemap.xml`,
       `${config.baseUrl}/sitemap-blog.xml`,
       `${config.baseUrl}/sitemap-fa.xml`,
+      `${config.baseUrl}/en/sitemap.xml`,
+      `${config.baseUrl}/fa/sitemap.xml`,
     ],
     host: config.baseUrl,
   };

@@ -2,7 +2,9 @@ import { BlogDetail } from "@/components/blog/blog-detail";
 import { BlogSidebar } from "@/components/blog/blog-sidebar";
 import { Footer } from "@/components/footer";
 import Navbar from "@/components/navbar/navbar";
+import { StructuredData } from "@/components/seo/structured-data";
 import { getBlogDetail, getFeaturedPosts, getRecentPosts } from "@/lib/blog";
+import { generateBreadcrumbStructuredData } from "@/lib/blog-seo";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -59,10 +61,12 @@ export async function generateMetadata({
       images: post.seo.image ? [post.seo.image] : [],
     },
     alternates: {
-      canonical: post.seo.canonicalUrl || `/${locale}/blog/${slug}`,
+      canonical:
+        post.seo.canonicalUrl || `https://menteeno.app/${locale}/blog/${slug}`,
       languages: {
-        en: `/en/blog/${slug}`,
-        fa: `/fa/blog/${slug}`,
+        en: `https://menteeno.app/en/blog/${slug}`,
+        fa: `https://menteeno.app/fa/blog/${slug}`,
+        "x-default": `https://menteeno.app/en/blog/${slug}`,
       },
     },
     robots: {
@@ -113,6 +117,34 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   return (
     <>
+      {/* Structured Data for Blog Post */}
+      <StructuredData
+        type="article"
+        data={{
+          title: post.seo.title,
+          description: post.seo.description,
+          publishedAt: post.publishedAt,
+          modifiedAt: post.updatedAt || post.publishedAt,
+          image: post.seo.image,
+          author: post.author.name,
+          publisher: "Menteeno",
+        }}
+      />
+
+      {/* Breadcrumb Structured Data */}
+      <StructuredData
+        type="breadcrumb"
+        data={{
+          items: generateBreadcrumbStructuredData(
+            locale as "en" | "fa",
+            post
+          ).itemListElement.map((item, index) => ({
+            name: item.name,
+            url: item.item,
+          })),
+        }}
+      />
+
       <Navbar />
       <div className="min-h-screen bg-background pt-20">
         <div className="container mx-auto px-4 py-8">

@@ -1,8 +1,11 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { Analytics } from "./analytics";
 import { BreadcrumbStructuredData } from "./breadcrumb-structured-data";
 import { FAQStructuredData } from "./faq-structured-data";
+import { HydrationSafe } from "./hydration-safe";
+import { PersianFAQStructuredData } from "./persian-faq-structured-data";
 import { StructuredData } from "./structured-data";
 
 interface SEOProviderProps {
@@ -27,6 +30,36 @@ export function SEOProvider({
   customBreadcrumbs,
 }: SEOProviderProps) {
   return (
+    <HydrationSafe>
+      <SEOProviderContent
+        googleAnalyticsId={googleAnalyticsId}
+        googleTagManagerId={googleTagManagerId}
+        facebookPixelId={facebookPixelId}
+        hotjarId={hotjarId}
+        showFAQ={showFAQ}
+        showBreadcrumbs={showBreadcrumbs}
+        customBreadcrumbs={customBreadcrumbs}
+      >
+        {children}
+      </SEOProviderContent>
+    </HydrationSafe>
+  );
+}
+
+function SEOProviderContent({
+  children,
+  googleAnalyticsId,
+  googleTagManagerId,
+  facebookPixelId,
+  hotjarId,
+  showFAQ = true,
+  showBreadcrumbs = true,
+  customBreadcrumbs,
+}: SEOProviderProps) {
+  const pathname = usePathname();
+  const isPersian = pathname.startsWith("/fa");
+
+  return (
     <>
       {/* Analytics */}
       <Analytics
@@ -41,8 +74,9 @@ export function SEOProvider({
       <StructuredData type="website" />
       <StructuredData type="course" />
 
-      {/* FAQ Structured Data */}
-      {showFAQ && <FAQStructuredData />}
+      {/* FAQ Structured Data - Language Specific */}
+      {showFAQ &&
+        (isPersian ? <PersianFAQStructuredData /> : <FAQStructuredData />)}
 
       {/* Breadcrumb Structured Data */}
       {showBreadcrumbs && (
