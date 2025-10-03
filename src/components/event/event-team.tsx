@@ -5,7 +5,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useTranslation } from "@/hooks/use-translation";
 import { getAssetUrl } from "@/lib/config";
 import {
-  Award,
   ExternalLink,
   Github,
   Globe,
@@ -77,21 +76,27 @@ const EventTeam = () => {
     },
   ];
 
-  const organizers = [
-    {
-      name: t("event.team.organizer1.name"),
-      role: t("event.team.organizer1.role"),
-      company: t("event.team.organizer1.company"),
-    },
+  const sponsors = [
     {
       name: t("event.team.organizer2.name"),
       role: t("event.team.organizer2.role"),
       company: t("event.team.organizer2.company"),
+      logo: "https://frontchapter.ir/images/logo.svg",
+      website: "https://frontchapter.ir/",
+    },
+    {
+      name: t("event.team.organizer1.name"),
+      role: t("event.team.organizer1.role"),
+      company: t("event.team.organizer1.company"),
+      logo: "https://tech-house.ir/wp-content/uploads/2025/10/Asset-14@1080x.webp",
+      website: "https://tech-house.ir/",
     },
     {
       name: t("event.team.organizer3.name"),
       role: t("event.team.organizer3.role"),
       company: t("event.team.organizer3.company"),
+      logo: "https://s3.refhub.ir/assets/images/logo.png",
+      website: "https://refhub.ir/",
     },
   ];
 
@@ -224,34 +229,73 @@ const EventTeam = () => {
           ))}
         </div>
 
-        {/* Event Organizers */}
+        {/* Sponsors & Partners */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-center mb-8">
             {t("event.team.organizers.title")}
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {organizers.map((organizer, index) => (
+            {sponsors.map((sponsor, index) => (
               <Card
                 key={index}
-                className="p-6 text-center hover:shadow-md transition-shadow duration-200"
+                className={`text-center hover:shadow-md transition-all duration-200 group ${
+                  index === 1 ? "p-8" : "p-6"
+                }`}
               >
                 <CardContent className="p-0">
-                  <div className="w-16 h-16 bg-primary/15 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <Award className="size-8 text-primary" />
-                  </div>
+                  <a
+                    href={sponsor.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <div
+                      className={`mx-auto mb-4 flex items-center justify-center bg-white rounded-lg shadow-sm group-hover:shadow-md transition-shadow duration-200 p-3 ${
+                        index === 1 ? "w-24 h-24" : "w-20 h-20"
+                      }`}
+                    >
+                      <img
+                        src={sponsor.logo}
+                        alt={sponsor.name}
+                        className="max-w-full max-h-full object-contain"
+                      />
+                    </div>
+                  </a>
 
-                  <h4 className="font-semibold text-lg mb-1">
-                    {organizer.name}
+                  <h4
+                    className={`mb-1 ${
+                      index === 1
+                        ? "font-bold text-xl"
+                        : "font-semibold text-lg"
+                    }`}
+                  >
+                    {sponsor.name}
                   </h4>
 
-                  <p className="text-muted-foreground text-sm mb-2">
-                    {organizer.role}
+                  <p
+                    className={`mb-2 ${
+                      index === 1
+                        ? "text-muted-foreground text-base"
+                        : "text-muted-foreground text-sm"
+                    }`}
+                  >
+                    {sponsor.role}
                   </p>
 
-                  <p className="text-primary text-sm font-medium">
-                    {organizer.company}
-                  </p>
+                  <a
+                    href={sponsor.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center gap-1 text-primary font-medium hover:text-primary/80 transition-colors duration-200 ${
+                      index === 1 ? "text-base font-semibold gap-2" : "text-sm"
+                    }`}
+                  >
+                    {sponsor.company}
+                    <ExternalLink
+                      className={index === 1 ? "size-4" : "size-3"}
+                    />
+                  </a>
                 </CardContent>
               </Card>
             ))}
