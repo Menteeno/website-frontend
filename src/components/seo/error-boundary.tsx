@@ -24,7 +24,7 @@ export class SEOErrorBoundary extends Component<Props, State> {
     return { hasError: true, error };
   }
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+  override componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     // Log the error to console in development
     if (process.env.NODE_ENV === "development") {
       console.error("SEO Error Boundary caught an error:", error, errorInfo);
@@ -34,7 +34,7 @@ export class SEOErrorBoundary extends Component<Props, State> {
     this.props.onError?.(error, errorInfo);
   }
 
-  render() {
+  override render() {
     if (this.state.hasError) {
       // Render fallback UI
       return (

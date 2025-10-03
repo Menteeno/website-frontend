@@ -16,7 +16,7 @@ interface SEOProviderProps {
   hotjarId?: string | undefined;
   showFAQ?: boolean;
   showBreadcrumbs?: boolean;
-  customBreadcrumbs?: Array<{ name: string; url: string }>;
+  customBreadcrumbs?: Array<{ name: string; url: string }> | undefined;
 }
 
 export function SEOProvider({
