@@ -142,6 +142,8 @@ const EventTeam = () => {
                   <div className="flex justify-center gap-2 mt-auto pt-2">
                     <a
                       href={member.social.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="p-2 hover:bg-primary/10 rounded-full transition-colors duration-200"
                       aria-label="LinkedIn"
                     >
@@ -149,6 +151,8 @@ const EventTeam = () => {
                     </a>
                     <a
                       href={member.social.twitter}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="p-2 hover:bg-primary/10 rounded-full transition-colors duration-200"
                       aria-label="Twitter"
                     >
@@ -156,6 +160,8 @@ const EventTeam = () => {
                     </a>
                     <a
                       href={member.social.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="p-2 hover:bg-primary/10 rounded-full transition-colors duration-200"
                       aria-label="GitHub"
                     >
