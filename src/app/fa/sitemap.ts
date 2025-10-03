@@ -3,7 +3,7 @@ import { MetadataRoute } from "next";
 
 export const dynamic = "force-static";
 
-export default function sitemapFa(): MetadataRoute.Sitemap {
+export default function sitemap(): MetadataRoute.Sitemap {
   const config = getAppConfig();
 
   // Persian-specific pages with higher priority
@@ -26,7 +26,6 @@ export default function sitemapFa(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 0.8,
     },
-    // Add more Persian-specific pages as they are created
     {
       url: `${config.baseUrl}/fa/about`,
       lastModified: new Date(),
@@ -34,7 +33,7 @@ export default function sitemapFa(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: `${config.baseUrl}/fa/contact`,
+      url: `${config.baseUrl}/fa/contact-us`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.7,
@@ -56,6 +55,36 @@ export default function sitemapFa(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.9,
+    },
+    {
+      url: `${config.baseUrl}/fa/privacy`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+    {
+      url: `${config.baseUrl}/fa/terms`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+    {
+      url: `${config.baseUrl}/fa/cookies`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    },
+    {
+      url: `${config.baseUrl}/fa/dashboard`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${config.baseUrl}/fa/event`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
     },
   ];
 

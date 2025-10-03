@@ -4,14 +4,20 @@ import { NextRequest, NextResponse } from "next/server";
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
-  // Skip static assets and API routes
+  // Skip static assets, API routes, and sitemap files
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
     pathname.startsWith("/_static") ||
     pathname.startsWith("/assets") ||
     pathname.startsWith("/favicon.ico") ||
-    pathname.includes(".")
+    pathname.includes(".") ||
+    pathname === "/sitemap.xml" ||
+    pathname === "/sitemap-blog.xml" ||
+    pathname === "/robots.txt" ||
+    pathname === "/robots-blog.txt" ||
+    pathname === "/en/sitemap.xml" ||
+    pathname === "/fa/sitemap.xml"
   ) {
     return NextResponse.next();
   }
@@ -37,4 +43,3 @@ export const config = {
     "/((?!_next|api|_static|favicon.ico).*)",
   ],
 };
-
