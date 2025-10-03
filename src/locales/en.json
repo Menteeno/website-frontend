@@ -686,8 +686,8 @@
   "event": {
     "hero": {
       "badge": "Special Event",
-      "title": "Soft Skills for Programmers",
-      "description": "An exceptional opportunity to learn soft skills and professional growth alongside experienced programmers and technology experts",
+      "title": "Your code is great, but can you defend it?",
+      "description": "Soft skills are what transform you from a 'good coder' into a key and valuable team member. In this event, you'll practice these skills in a practical and real environment.",
       "date": "Date",
       "time": "Time",
       "location": "Location",
@@ -913,7 +913,7 @@
     "cta": {
       "badge": "Limited Time",
       "title": "Register for the Event Now",
-      "description": "Limited opportunity to participate in this exceptional event. Reserve your spot and benefit from special advantages.",
+      "description": "Invest in your professional future. Early bird pricing is the best opportunity for this investment.",
       "benefits": {
         "networking": {
           "title": "Professional Networking",
@@ -938,6 +938,37 @@
       "primary-button": "Register Now",
       "secondary-button": "More Information",
       "disclaimer": "Registration continues until capacity is reached"
+    },
+    "data-driven": {
+      "title": "Why Soft Skills Are a Smart Investment for Your Career Future? (A Look at the Statistics)",
+      "description": "Based on reliable research, soft skills are not only complementary to technical skills, but are considered a determining factor in career and team success.",
+      "statistics": {
+        "google": {
+          "title": "Amazing Return on Investment",
+          "description": "Research shows that for every $1 invested in developing soft skills, an extraordinary $11 return on investment (ROI) is achieved.",
+          "source": "Conover Company Research",
+          "sourceUrl": "https://www.conovercompany.com/downloads/readiness_research.pdf"
+        },
+        "future": {
+          "title": "Future Job Market and Necessity of Soft Skills",
+          "description": "Deloitte company report predicts that by 2030, two-thirds of jobs will be heavily dependent on soft skills.",
+          "source": "Deloitte Research",
+          "sourceUrl": "https://www.deloitte.com/au/en/services/economics/perspectives/soft-skills-business-success.html"
+        },
+        "hiring": {
+          "title": "Priority of Soft Skills in Hiring",
+          "description": "LinkedIn's Global Talent Trends report revealed that 92% of hiring managers consider soft skills as important as technical skills (or even more important).",
+          "source": "LinkedIn Global Talent Trends",
+          "sourceUrl": "https://news.linkedin.com/2019/January/linkedin-releases-2019-global-talent-trends-report"
+        },
+        "success": {
+          "title": "Role of Skills in Long-term Career Success",
+          "description": "Joint research by Harvard and Stanford universities has shown that 85% of long-term career success depends on soft skills.",
+          "source": "Harvard & Stanford Research",
+          "sourceUrl": "https://www.nationalsoftskills.org/where-did-this-come-from/"
+        }
+      },
+      "conclusion": "This event is not an expense, but a direct investment in the parts of your abilities that will have the highest return in the long term."
     },
     "pricing": {
       "title": "Event Pricing",

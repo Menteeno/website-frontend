@@ -1,5 +1,6 @@
 import EventAbout from "@/components/event/event-about";
 import EventCTA from "@/components/event/event-cta";
+import EventDataDriven from "@/components/event/event-data-driven";
 import EventFAQ from "@/components/event/event-faq";
 import EventHero from "@/components/event/event-hero";
 import EventMap from "@/components/event/event-map";
@@ -37,6 +38,7 @@ export default async function EventPage({ params }: EventPageProps) {
       <Navbar />
       <EventHero />
       <EventAbout />
+      <EventDataDriven />
       <EventPricing />
       <EventSchedule />
       <EventTargetAudience />
