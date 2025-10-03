@@ -8,6 +8,8 @@ import {
   Award,
   ExternalLink,
   Github,
+  Globe,
+  Instagram,
   Linkedin,
   Mail,
   Twitter,
@@ -26,9 +28,10 @@ const EventTeam = () => {
       avatar: getAssetUrl("/assets/images/team/saleh-shojaei.jpg"),
       social: {
         linkedin: "https://www.linkedin.com/in/salehshojaei/",
-        twitter: "#",
-        github: "#",
+        github: "https://github.com/ssshojaei",
         email: "saleh@menteeno.app",
+        instagram: "https://instagram.com/roxaleh",
+        blog: "https://roxaleh.ir",
       },
     },
     {
@@ -39,9 +42,10 @@ const EventTeam = () => {
       avatar: getAssetUrl("/assets/images/team/amirhossein-darabi.jpg"),
       social: {
         linkedin: "https://www.linkedin.com/in/amirhd/",
-        twitter: "#",
-        github: "#",
-        email: "amir@techhouse.com",
+        twitter: "https://x.com/AmirHD_com/",
+        github: "https://github.com/amirhd",
+        instagram: "https://www.instagram.com/amirhd_com/",
+        email: "amirhd.dev@gmail.com",
       },
     },
     {
@@ -52,9 +56,10 @@ const EventTeam = () => {
       avatar: getAssetUrl("/assets/images/team/masoud-bigi.jpg"),
       social: {
         linkedin: "https://www.linkedin.com/in/merkousha/",
-        twitter: "#",
-        github: "#",
-        email: "masoud@refhub.com",
+        twitter: "https://twitter.com/merkousha",
+        github: "https://github.com/merkousha",
+        instagram: "https://instagram.com/massoud.beygi",
+        email: "merkousha.net@gmail.com",
       },
     },
     {
@@ -64,10 +69,10 @@ const EventTeam = () => {
       expertise: t("event.team.speaker3.expertise"),
       avatar: getAssetUrl("/assets/images/team/menteeno-team.jpg"),
       social: {
-        linkedin: "#",
-        twitter: "#",
-        github: "#",
-        email: "speaker3@menteeno.app",
+        linkedin: "https://www.linkedin.com/company/menteeno/",
+        github: "https://github.com/menteeno",
+        instagram: "https://instagram.com/menteeno.app",
+        email: "hi@menteeno.app",
       },
     },
   ];
@@ -104,9 +109,12 @@ const EventTeam = () => {
         </div>
 
         {/* Main Team Members */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {teamMembers.map((member, index) => (
-            <Card key={index} className="p-0 shadow-none border-none h-full">
+            <Card
+              key={index}
+              className="p-0 shadow-none border-none h-full group hover:shadow-lg transition-all duration-300"
+            >
               <MagicCard
                 gradientColor="oklch(72.3% 0.219 149.579 / .15)"
                 className="p-0 h-full flex flex-col"
@@ -114,66 +122,101 @@ const EventTeam = () => {
                 gradientTo="oklch(72.3% 0.219 149.579 / .4)"
               >
                 <CardContent className="p-6 text-center flex flex-col h-full">
-                  <div className="relative mb-4">
-                    <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden border-2 border-primary/20">
+                  <div className="relative mb-6">
+                    <div className="w-28 h-28 rounded-full mx-auto mb-4 overflow-hidden border-3 border-primary/20 group-hover:border-primary/40 transition-colors duration-300">
                       <img
                         src={member.avatar}
                         alt={member.name}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
-                    <Badge className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground">
+                    <Badge className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground text-xs px-3 py-1">
                       {member.role}
                     </Badge>
                   </div>
 
-                  <h3 className="font-semibold text-lg mb-2">{member.name}</h3>
+                  <h3 className="font-bold text-xl mb-3 text-foreground">
+                    {member.name}
+                  </h3>
 
-                  <p className="text-muted-foreground text-sm mb-4 flex-grow min-h-[2.5rem]">
+                  <p className="text-muted-foreground text-sm mb-4 flex-grow min-h-[3rem] leading-relaxed">
                     {member.bio}
                   </p>
 
-                  <div className="mb-4">
-                    <Badge variant="outline" className="text-xs">
+                  <div className="mb-6">
+                    <Badge
+                      variant="outline"
+                      className="text-xs px-3 py-1 bg-background/50"
+                    >
                       {member.expertise}
                     </Badge>
                   </div>
 
-                  <div className="flex justify-center gap-2 mt-auto pt-2">
-                    <a
-                      href={member.social.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 hover:bg-primary/10 rounded-full transition-colors duration-200"
-                      aria-label="LinkedIn"
-                    >
-                      <Linkedin className="size-4 text-muted-foreground hover:text-primary" />
-                    </a>
-                    <a
-                      href={member.social.twitter}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 hover:bg-primary/10 rounded-full transition-colors duration-200"
-                      aria-label="Twitter"
-                    >
-                      <Twitter className="size-4 text-muted-foreground hover:text-primary" />
-                    </a>
-                    <a
-                      href={member.social.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 hover:bg-primary/10 rounded-full transition-colors duration-200"
-                      aria-label="GitHub"
-                    >
-                      <Github className="size-4 text-muted-foreground hover:text-primary" />
-                    </a>
-                    <a
-                      href={`mailto:${member.social.email}`}
-                      className="p-2 hover:bg-primary/10 rounded-full transition-colors duration-200"
-                      aria-label="Email"
-                    >
-                      <Mail className="size-4 text-muted-foreground hover:text-primary" />
-                    </a>
+                  <div className="flex justify-center gap-1 mt-auto pt-4 flex-wrap">
+                    {member.social.linkedin && (
+                      <a
+                        href={member.social.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1.5 hover:bg-muted rounded-full transition-colors duration-200"
+                        aria-label="LinkedIn"
+                      >
+                        <Linkedin className="size-4 text-muted-foreground hover:text-foreground" />
+                      </a>
+                    )}
+                    {member.social.twitter && (
+                      <a
+                        href={member.social.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1.5 hover:bg-muted rounded-full transition-colors duration-200"
+                        aria-label="Twitter"
+                      >
+                        <Twitter className="size-4 text-muted-foreground hover:text-foreground" />
+                      </a>
+                    )}
+                    {member.social.github && (
+                      <a
+                        href={member.social.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1.5 hover:bg-muted rounded-full transition-colors duration-200"
+                        aria-label="GitHub"
+                      >
+                        <Github className="size-4 text-muted-foreground hover:text-foreground" />
+                      </a>
+                    )}
+                    {member.social.instagram && (
+                      <a
+                        href={member.social.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1.5 hover:bg-muted rounded-full transition-colors duration-200"
+                        aria-label="Instagram"
+                      >
+                        <Instagram className="size-4 text-muted-foreground hover:text-foreground" />
+                      </a>
+                    )}
+                    {member.social.email && (
+                      <a
+                        href={`mailto:${member.social.email}`}
+                        className="p-1.5 hover:bg-muted rounded-full transition-colors duration-200"
+                        aria-label="Email"
+                      >
+                        <Mail className="size-4 text-muted-foreground hover:text-foreground" />
+                      </a>
+                    )}
+                    {member.social.blog && (
+                      <a
+                        href={member.social.blog}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-1.5 hover:bg-muted rounded-full transition-colors duration-200"
+                        aria-label="Blog"
+                      >
+                        <Globe className="size-4 text-muted-foreground hover:text-foreground" />
+                      </a>
+                    )}
                   </div>
                 </CardContent>
               </MagicCard>
