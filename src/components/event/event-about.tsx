@@ -41,28 +41,33 @@ const EventAbout = () => {
   const eventImages = [
     {
       id: 1,
-      src: getAssetUrl("/assets/images/event/001.jpg"),
-      alt: "Historic mansion event venue",
-    },
-    {
-      id: 2,
       src: getAssetUrl("/assets/images/event/002.jpg"),
       alt: "Grand library hall event venue",
     },
     {
-      id: 3,
+      id: 2,
       src: getAssetUrl("/assets/images/event/003.jpg"),
       alt: "Conference hall event venue",
     },
     {
-      id: 4,
+      id: 3,
       src: getAssetUrl("/assets/images/event/005.jpg"),
       alt: "Event venue space",
     },
     {
+      id: 4,
+      src: getAssetUrl("/assets/images/event/007.jpg"),
+      alt: "Outdoor cafe venue with pool and pergola",
+    },
+    {
       id: 5,
-      src: getAssetUrl("/assets/images/event/006.jpg"),
-      alt: "Meeting space event venue",
+      src: getAssetUrl("/assets/images/event/008.jpg"),
+      alt: "Tech House venue with stone pathway",
+    },
+    {
+      id: 6,
+      src: getAssetUrl("/assets/images/event/009.jpg"),
+      alt: "Grand classical venue with outdoor patio",
     },
   ];
 
