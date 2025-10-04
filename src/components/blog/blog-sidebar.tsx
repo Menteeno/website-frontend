@@ -78,9 +78,7 @@ export function BlogSidebar({
       {recentPosts.length > 0 && (
         <Card>
           <CardHeader>
-            <CardTitle>
-              {t("blog.sections.recent_posts")}
-            </CardTitle>
+            <CardTitle>{t("blog.sections.recent_posts")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -113,9 +111,7 @@ export function BlogSidebar({
       {/* Categories */}
       <Card>
         <CardHeader>
-          <CardTitle>
-            {t("blog.sections.categories")}
-          </CardTitle>
+          <CardTitle>{t("blog.sections.categories")}</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-2">
@@ -159,12 +155,12 @@ export function BlogSidebar({
 
       {/* Tags */}
       <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <TagIcon className="h-5 w-5" />
-              {t("blog.sections.tags")}
-            </CardTitle>
-          </CardHeader>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <TagIcon className="h-5 w-5" />
+            {t("blog.sections.tags")}
+          </CardTitle>
+        </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-2">
             {tags.map((tag) => (
