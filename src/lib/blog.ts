@@ -158,15 +158,19 @@ function transformFrontMatterToBlogPost(
       postCount: 0,
       createdAt: new Date().toISOString(),
     })),
-    author: {
-      id: `${locale}-${data.author?.name || "unknown"}`,
-      name: data.author?.name || "Menteeno Team",
-      email: data.author?.email,
-      avatar: data.author?.avatar,
-      bio: data.author?.bio,
-      social: data.author?.social,
-      locale,
-    },
+    author: (() => {
+      try {
+        return getAuthorInfo(data.author?.name || "Menteeno Team", locale);
+      } catch (error) {
+        console.error("Error getting author info:", error);
+        return {
+          id: `${locale}-unknown`,
+          name: data.author?.name || "Menteeno Team",
+          bio: data.author?.bio || (locale === "fa" ? "نویسنده" : "Author"),
+          locale,
+        };
+      }
+    })(),
     readingTime,
     wordCount,
     featured: Boolean(data.featured),
@@ -256,13 +260,7 @@ export async function getBlogPostBySlug(
     const fileContents = readFileSafely(filePath);
     const { data, content } = matter(fileContents);
 
-    const processedContent = await processMarkdownContent(content);
-    const post = transformFrontMatterToBlogPost(
-      slug,
-      data,
-      processedContent,
-      locale
-    );
+    const post = transformFrontMatterToBlogPost(slug, data, content, locale);
 
     setCache(cacheKey, post);
     return post;
@@ -609,6 +607,61 @@ export function getBlogTags(locale: Locale): BlogTag[] {
   return tags;
 }
 
+// Helper function to get author info by name
+function getAuthorInfo(authorName: string, locale: Locale): BlogAuthor {
+  // Define authors directly to avoid circular dependency
+  const authors: BlogAuthor[] = [
+    {
+      id: `${locale}-saleh-shojaei`,
+      name: locale === "fa" ? "صالح شجاعی" : "Saleh Shojaei",
+      email: "saleh@menteeno.com",
+      avatar: "/assets/images/team/saleh-shojaei.jpg",
+      bio:
+        locale === "fa"
+          ? "بنیان‌گذار منتینو و توسعه‌دهنده فرانت‌اند"
+          : "Founder of Menteeno and Frontend Developer",
+      social: {
+        linkedin: "https://www.linkedin.com/in/salehshojaei/",
+        github: "https://github.com/ssshojaei",
+        twitter: "salehshojaei",
+        blog: "https://roxaleh.ir",
+      },
+      locale,
+    },
+    {
+      id: `${locale}-menteeno-team`,
+      name: locale === "fa" ? "تیم منتینو" : "Menteeno Team",
+      bio: locale === "fa" ? "تیم متخصص در منتینو" : "Expert team at Menteeno",
+      locale,
+    },
+  ];
+
+  // Try to find author by exact name match
+  let author = authors.find((a) => a.name === authorName);
+
+  // If not found, try to find by English name for Saleh Shojaei
+  if (!author && authorName === "Saleh Shojaei") {
+    author = authors.find((a) => a.id.includes("saleh-shojaei"));
+  }
+
+  // If not found, try to find by Persian name for صالح شجاعی
+  if (!author && authorName === "صالح شجاعی") {
+    author = authors.find((a) => a.id.includes("saleh-shojaei"));
+  }
+
+  if (author) {
+    return author;
+  }
+
+  // Fallback for unknown authors
+  return {
+    id: `${locale}-${authorName.toLowerCase().replace(/\s+/g, "-")}`,
+    name: authorName,
+    bio: locale === "fa" ? "نویسنده" : "Author",
+    locale,
+  };
+}
+
 export function getBlogAuthors(locale: Locale): BlogAuthor[] {
   const cacheKey = `authors-${locale}`;
   const cached = getCached<BlogAuthor[]>(cacheKey);
@@ -619,10 +672,17 @@ export function getBlogAuthors(locale: Locale): BlogAuthor[] {
       id: `${locale}-saleh-shojaei`,
       name: locale === "fa" ? "صالح شجاعی" : "Saleh Shojaei",
       email: "saleh@menteeno.com",
+      avatar: "/assets/images/team/saleh-shojaei.jpg",
       bio:
         locale === "fa"
           ? "بنیان‌گذار منتینو و توسعه‌دهنده فرانت‌اند"
           : "Founder of Menteeno and Frontend Developer",
+      social: {
+        linkedin: "https://www.linkedin.com/in/salehshojaei/",
+        github: "https://github.com/ssshojaei",
+        twitter: "salehshojaei",
+        blog: "https://roxaleh.ir",
+      },
       locale,
     },
     {

@@ -15,6 +15,7 @@ export interface BlogAuthor {
     twitter?: string;
     linkedin?: string;
     github?: string;
+    blog?: string;
   };
   locale: Locale;
 }
