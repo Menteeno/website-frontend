@@ -41,11 +41,11 @@ export const BlogCard = memo<BlogCardProps>(
 
     const getCardClasses = () => {
       const baseClasses =
-        "group h-full flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg hover:border-gray-300 transition-all duration-200";
+        "group h-full flex flex-col bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg hover:border-border/80 transition-all duration-200";
 
       switch (variant) {
         case "featured":
-          return `${baseClasses} ring-2 ring-primary/20 bg-gradient-to-br from-primary/5 to-white`;
+          return `${baseClasses} ring-2 ring-primary/20 bg-gradient-to-br from-primary/5 to-card`;
         case "compact":
           return baseClasses;
         default:
@@ -69,14 +69,17 @@ export const BlogCard = memo<BlogCardProps>(
             <div className="absolute top-3 left-3">
               <Badge
                 variant="secondary"
-                className="text-xs bg-white/90 backdrop-blur-sm"
+                className="text-xs bg-background/90 backdrop-blur-sm text-foreground"
               >
                 {post.category.name}
               </Badge>
             </div>
             {post.featured && (
               <div className="absolute top-3 right-3">
-                <Badge variant="default" className="text-xs bg-yellow-500">
+                <Badge
+                  variant="default"
+                  className="text-xs bg-yellow-500 text-yellow-900 dark:text-yellow-100"
+                >
                   {t("blog.post.featured")}
                 </Badge>
               </div>
@@ -104,7 +107,7 @@ export const BlogCard = memo<BlogCardProps>(
           {/* Excerpt */}
           {showExcerpt && (
             <CardDescription
-              className="line-clamp-2 text-sm text-gray-600 leading-relaxed mt-1"
+              className="line-clamp-2 text-sm text-muted-foreground leading-relaxed mt-1"
               dir={isRTL ? "rtl" : "ltr"}
             >
               {post.excerpt}
@@ -136,7 +139,7 @@ export const BlogCard = memo<BlogCardProps>(
 
         {/* Footer */}
         <CardFooter className="px-3 py-2 mt-auto">
-          <div className="flex items-center justify-between w-full text-xs text-gray-500">
+          <div className="flex items-center justify-between w-full text-xs text-muted-foreground">
             <div className="flex items-center gap-3">
               {showAuthor && (
                 <div className="flex items-center gap-1">

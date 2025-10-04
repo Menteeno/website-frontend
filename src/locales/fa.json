@@ -1391,7 +1391,8 @@
       "popular_posts": "مقالات محبوب",
       "categories": "دسته‌بندی‌ها",
       "tags": "برچسب‌ها",
-      "authors": "نویسندگان"
+      "authors": "نویسندگان",
+      "all": "همه"
     },
     "empty": {
       "no_posts_found": "مقاله‌ای یافت نشد",

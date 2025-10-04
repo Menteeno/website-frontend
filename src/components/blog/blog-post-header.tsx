@@ -12,10 +12,7 @@ interface BlogPostHeaderProps {
   onShare?: () => void;
 }
 
-export const BlogPostHeader = memo<BlogPostHeaderProps>(({
-  post,
-  onShare,
-}) => {
+export const BlogPostHeader = memo<BlogPostHeaderProps>(({ post, onShare }) => {
   const { t, locale } = useTranslation();
   const isRTL = locale === "fa";
   const [isSharing, setIsSharing] = useState(false);
@@ -61,7 +58,10 @@ export const BlogPostHeader = memo<BlogPostHeaderProps>(({
           {post.category.name}
         </Badge>
         {post.featured && (
-          <Badge variant="default" className="bg-yellow-500 text-sm">
+          <Badge
+            variant="default"
+            className="bg-yellow-500 text-yellow-900 dark:text-yellow-100 text-sm"
+          >
             {t("blog.post.featured")}
           </Badge>
         )}
@@ -69,7 +69,7 @@ export const BlogPostHeader = memo<BlogPostHeaderProps>(({
 
       {/* Title */}
       <h1
-        className="text-4xl font-bold mb-4 leading-tight"
+        className="text-4xl font-bold mb-4 leading-tight text-foreground"
         dir={isRTL ? "rtl" : "ltr"}
       >
         {post.title}

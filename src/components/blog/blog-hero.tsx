@@ -18,10 +18,10 @@ export function BlogHero() {
 
           {/* Title */}
           <h1
-            className="text-4xl md:text-5xl font-bold mb-6"
+            className="text-4xl md:text-5xl font-bold mb-6 text-foreground"
             dir={isRTL ? "rtl" : "ltr"}
           >
-            {locale === "fa" ? "وبلاگ منتینو" : "Menteeno Blog"}
+            {t("blog.title")}
           </h1>
 
           {/* Description */}
@@ -29,9 +29,7 @@ export function BlogHero() {
             className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed"
             dir={isRTL ? "rtl" : "ltr"}
           >
-            {locale === "fa"
-              ? "مقالات و راهنماهای مفید برای توسعه مهارت‌های نرم و رشد حرفه‌ای. بیاموزید که چگونه مهارت‌های ارتباطی، کار تیمی و رهبری خود را بهبود بخشید."
-              : "Helpful articles and guides for developing soft skills and professional growth. Learn how to improve your communication, teamwork, and leadership skills."}
+            {t("blog.description")}
           </p>
         </div>
       </div>

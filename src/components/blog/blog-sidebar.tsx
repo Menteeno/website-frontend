@@ -43,7 +43,7 @@ export function BlogSidebar({
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <TrendingUpIcon className="h-5 w-5" />
-              {locale === "fa" ? "مقالات ویژه" : "Featured Articles"}
+              {t("blog.sections.featured_posts")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -54,8 +54,8 @@ export function BlogSidebar({
                   href={`/${locale}/blog/${post.slug}`}
                   className="block group"
                 >
-                  <div className="p-3 rounded-lg border hover:bg-muted transition-colors">
-                    <h4 className="font-medium line-clamp-2 group-hover:text-primary transition-colors">
+                  <div className="p-3 rounded-lg border border-border hover:bg-muted transition-colors">
+                    <h4 className="font-medium line-clamp-2 group-hover:text-primary transition-colors text-foreground">
                       {post.title}
                     </h4>
                     <div className="flex items-center gap-2 mt-2 text-sm text-muted-foreground">
@@ -79,7 +79,7 @@ export function BlogSidebar({
         <Card>
           <CardHeader>
             <CardTitle>
-              {locale === "fa" ? "آخرین مقالات" : "Recent Articles"}
+              {t("blog.sections.recent_posts")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -90,8 +90,8 @@ export function BlogSidebar({
                   href={`/${locale}/blog/${post.slug}`}
                   className="block group"
                 >
-                  <div className="p-3 rounded-lg border hover:bg-muted transition-colors">
-                    <h4 className="font-medium line-clamp-2 group-hover:text-primary transition-colors">
+                  <div className="p-3 rounded-lg border border-border hover:bg-muted transition-colors">
+                    <h4 className="font-medium line-clamp-2 group-hover:text-primary transition-colors text-foreground">
                       {post.title}
                     </h4>
                     <div className="flex items-center gap-2 mt-2 text-sm text-muted-foreground">
@@ -114,7 +114,7 @@ export function BlogSidebar({
       <Card>
         <CardHeader>
           <CardTitle>
-            {locale === "fa" ? "دسته‌بندی‌ها" : "Categories"}
+            {t("blog.sections.categories")}
           </CardTitle>
         </CardHeader>
         <CardContent>
@@ -126,8 +126,8 @@ export function BlogSidebar({
               }`}
             >
               <div className="flex items-center justify-between">
-                <span className="text-sm font-medium">
-                  {locale === "fa" ? "همه" : "All"}
+                <span className="text-sm font-medium text-foreground">
+                  {t("blog.sections.all")}
                 </span>
                 <Badge variant="outline" className="text-xs">
                   {categories.reduce((sum, cat) => sum + cat.postCount, 0)}
@@ -144,7 +144,9 @@ export function BlogSidebar({
                 }`}
               >
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium">{category.name}</span>
+                  <span className="text-sm font-medium text-foreground">
+                    {category.name}
+                  </span>
                   <Badge variant="outline" className="text-xs">
                     {category.postCount}
                   </Badge>
@@ -157,12 +159,12 @@ export function BlogSidebar({
 
       {/* Tags */}
       <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <TagIcon className="h-5 w-5" />
-            {locale === "fa" ? "برچسب‌ها" : "Tags"}
-          </CardTitle>
-        </CardHeader>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <TagIcon className="h-5 w-5" />
+              {t("blog.sections.tags")}
+            </CardTitle>
+          </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-2">
             {tags.map((tag) => (
