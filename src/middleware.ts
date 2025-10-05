@@ -32,9 +32,14 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Redirect if there is no locale
+  // Redirect if there is no locale - use Persian as default
   const locale = getDefaultLocale();
-  return NextResponse.redirect(new URL(`/${locale}${pathname}`, request.url));
+  const url = new URL(`/${locale}${pathname}`, request.url);
+
+  // Preserve query parameters
+  url.search = request.nextUrl.search;
+
+  return NextResponse.redirect(url);
 }
 
 export const config = {
