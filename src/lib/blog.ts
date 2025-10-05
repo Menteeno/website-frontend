@@ -18,6 +18,7 @@ import readingTime from "reading-time";
 import { remark } from "remark";
 import remarkGfm from "remark-gfm";
 import remarkHtml from "remark-html";
+import { getTranslation } from "./i18n";
 
 // Constants
 const POSTS_DIRECTORY = path.join(process.cwd(), "content", "blog");
@@ -167,7 +168,9 @@ async function transformFrontMatterToBlogPost(
         return {
           id: `${locale}-unknown`,
           name: data.author?.name || "Menteeno Team",
-          bio: data.author?.bio || (locale === "fa" ? "نویسنده" : "Author"),
+          bio:
+            data.author?.bio ||
+            getTranslation(locale, "blog.author.default_bio"),
           locale,
         };
       }
@@ -619,13 +622,10 @@ function getAuthorInfo(authorName: string, locale: Locale): BlogAuthor {
   const authors: BlogAuthor[] = [
     {
       id: `${locale}-saleh-shojaei`,
-      name: locale === "fa" ? "صالح شجاعی" : "Saleh Shojaei",
+      name: getTranslation(locale, "blog.author.saleh.name"),
       email: "saleh@menteeno.com",
       avatar: "/assets/images/team/saleh-shojaei.jpg",
-      bio:
-        locale === "fa"
-          ? "بنیان‌گذار منتینو و توسعه‌دهنده فرانت‌اند"
-          : "Founder of Menteeno and Frontend Developer",
+      bio: getTranslation(locale, "blog.author.saleh.bio"),
       social: {
         linkedin: "https://www.linkedin.com/in/salehshojaei/",
         github: "https://github.com/ssshojaei",
@@ -636,8 +636,8 @@ function getAuthorInfo(authorName: string, locale: Locale): BlogAuthor {
     },
     {
       id: `${locale}-menteeno-team`,
-      name: locale === "fa" ? "تیم منتینو" : "Menteeno Team",
-      bio: locale === "fa" ? "تیم متخصص در منتینو" : "Expert team at Menteeno",
+      name: getTranslation(locale, "blog.author.team.name"),
+      bio: getTranslation(locale, "blog.author.team.bio"),
       locale,
     },
   ];
@@ -663,7 +663,7 @@ function getAuthorInfo(authorName: string, locale: Locale): BlogAuthor {
   return {
     id: `${locale}-${authorName.toLowerCase().replace(/\s+/g, "-")}`,
     name: authorName,
-    bio: locale === "fa" ? "نویسنده" : "Author",
+    bio: getTranslation(locale, "blog.author.default_bio"),
     locale,
   };
 }
@@ -676,13 +676,10 @@ export function getBlogAuthors(locale: Locale): BlogAuthor[] {
   const authors: BlogAuthor[] = [
     {
       id: `${locale}-saleh-shojaei`,
-      name: locale === "fa" ? "صالح شجاعی" : "Saleh Shojaei",
+      name: getTranslation(locale, "blog.author.saleh.name"),
       email: "saleh@menteeno.com",
       avatar: "/assets/images/team/saleh-shojaei.jpg",
-      bio:
-        locale === "fa"
-          ? "بنیان‌گذار منتینو و توسعه‌دهنده فرانت‌اند"
-          : "Founder of Menteeno and Frontend Developer",
+      bio: getTranslation(locale, "blog.author.saleh.bio"),
       social: {
         linkedin: "https://www.linkedin.com/in/salehshojaei/",
         github: "https://github.com/ssshojaei",
@@ -693,8 +690,8 @@ export function getBlogAuthors(locale: Locale): BlogAuthor[] {
     },
     {
       id: `${locale}-menteeno-team`,
-      name: locale === "fa" ? "تیم منتینو" : "Menteeno Team",
-      bio: locale === "fa" ? "تیم متخصص در منتینو" : "Expert team at Menteeno",
+      name: getTranslation(locale, "blog.author.team.name"),
+      bio: getTranslation(locale, "blog.author.team.bio"),
       locale,
     },
   ];

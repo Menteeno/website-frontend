@@ -1351,6 +1351,18 @@
       "authors": "Authors",
       "all": "All"
     },
+    "author": {
+      "default_bio": "Author",
+      "unknown": "Unknown Author",
+      "saleh": {
+        "name": "Saleh Shojaei",
+        "bio": "Founder of Menteeno and Frontend Developer"
+      },
+      "team": {
+        "name": "Menteeno Team",
+        "bio": "Expert team at Menteeno"
+      }
+    },
     "empty": {
       "no_posts_found": "No articles found",
       "no_posts_description": "Try adjusting your search or filter criteria",
