@@ -120,14 +120,15 @@ function calculateWordCount(content: string): number {
 }
 
 // Data transformation utilities
-function transformFrontMatterToBlogPost(
+async function transformFrontMatterToBlogPost(
   slug: string,
   data: any,
   content: string,
   locale: Locale
-): BlogPost {
+): Promise<BlogPost> {
   const readingTime = calculateReadingTime(content);
   const wordCount = calculateWordCount(content);
+  const processedContent = await processMarkdownContent(content);
 
   return {
     id: `${locale}-${slug}`,
@@ -135,7 +136,7 @@ function transformFrontMatterToBlogPost(
     title: data.title || "Untitled",
     excerpt:
       data.excerpt || content.slice(0, BLOG_CONSTANTS.EXCERPT_LENGTH) + "...",
-    content,
+    content: processedContent,
     publishedAt: data.publishedAt || new Date().toISOString(),
     updatedAt: data.updatedAt,
     createdAt: data.createdAt || data.publishedAt || new Date().toISOString(),
@@ -260,7 +261,12 @@ export async function getBlogPostBySlug(
     const fileContents = readFileSafely(filePath);
     const { data, content } = matter(fileContents);
 
-    const post = transformFrontMatterToBlogPost(slug, data, content, locale);
+    const post = await transformFrontMatterToBlogPost(
+      slug,
+      data,
+      content,
+      locale
+    );
 
     setCache(cacheKey, post);
     return post;

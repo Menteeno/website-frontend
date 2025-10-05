@@ -1,0 +1,175 @@
+/* Custom Markdown Styles */
+.prose {
+  /* Persian text support */
+  font-family:
+    "Vazirmatn",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  line-height: 1.7;
+}
+
+/* Headings */
+.prose h1 {
+  @apply text-3xl font-bold mb-6 mt-8 text-foreground;
+  border-bottom: 2px solid theme("colors.border");
+  padding-bottom: 0.5rem;
+}
+
+.prose h2 {
+  @apply text-2xl font-semibold mb-4 mt-6 text-foreground;
+  border-bottom: 1px solid theme("colors.border");
+  padding-bottom: 0.25rem;
+}
+
+.prose h3 {
+  @apply text-xl font-semibold mb-3 mt-5 text-foreground;
+}
+
+.prose h4 {
+  @apply text-lg font-semibold mb-2 mt-4 text-foreground;
+}
+
+.prose h5 {
+  @apply text-base font-semibold mb-2 mt-3 text-foreground;
+}
+
+.prose h6 {
+  @apply text-sm font-semibold mb-2 mt-3 text-foreground;
+}
+
+/* Paragraphs */
+.prose p {
+  @apply text-foreground mb-4 leading-relaxed;
+}
+
+/* Lists */
+.prose ul {
+  @apply list-disc pl-6 mb-4;
+}
+
+.prose ol {
+  @apply list-decimal pl-6 mb-4;
+}
+
+.prose li {
+  @apply mb-2 text-foreground;
+}
+
+.prose li p {
+  @apply mb-2;
+}
+
+/* Links */
+.prose a {
+  @apply text-primary underline decoration-primary/50 underline-offset-2 transition-colors;
+}
+
+.prose a:hover {
+  @apply decoration-primary;
+}
+
+/* Code */
+.prose code {
+  @apply bg-muted px-2 py-1 rounded text-sm font-mono text-foreground;
+}
+
+.prose pre {
+  @apply bg-muted p-4 rounded-lg overflow-x-auto mb-4;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0;
+}
+
+/* Blockquotes */
+.prose blockquote {
+  @apply border-l-4 border-primary bg-muted/50 pl-4 py-2 rounded-r-md mb-4 italic;
+}
+
+.prose blockquote p {
+  @apply mb-0;
+}
+
+/* Images */
+.prose img {
+  @apply rounded-lg shadow-md mb-4 mx-auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Tables */
+.prose table {
+  @apply border-collapse border border-border w-full mb-4;
+}
+
+.prose th {
+  @apply border border-border bg-muted px-4 py-2 text-left font-semibold;
+}
+
+.prose td {
+  @apply border border-border px-4 py-2;
+}
+
+/* Horizontal rules */
+.prose hr {
+  @apply border-border my-8;
+}
+
+/* Strong/Bold */
+.prose strong {
+  @apply font-bold text-foreground;
+}
+
+/* Emphasis/Italic */
+.prose em {
+  @apply italic text-foreground;
+}
+
+/* RTL Support */
+[dir="rtl"] .prose {
+  text-align: right;
+}
+
+[dir="rtl"] .prose ul,
+[dir="rtl"] .prose ol {
+  @apply pr-6 pl-0;
+}
+
+[dir="rtl"] .prose blockquote {
+  @apply border-r-4 border-l-0 pr-4 pl-0;
+}
+
+/* Custom spacing for better readability */
+.prose > *:first-child {
+  @apply mt-0;
+}
+
+.prose > *:last-child {
+  @apply mb-0;
+}
+
+/* Nested lists */
+.prose ul ul,
+.prose ol ol,
+.prose ul ol,
+.prose ol ul {
+  @apply mt-2 mb-0;
+}
+
+/* Task lists (GitHub Flavored Markdown) */
+.prose input[type="checkbox"] {
+  @apply mr-2;
+}
+
+/* Strikethrough */
+.prose del {
+  @apply line-through text-muted-foreground;
+}
+
+/* Mark/highlight */
+.prose mark {
+  @apply bg-yellow-200 dark:bg-yellow-800 px-1 rounded;
+}

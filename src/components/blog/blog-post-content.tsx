@@ -36,7 +36,7 @@ export const BlogPostContent = memo<BlogPostContentProps>(({ post }) => {
 
       {/* Article Content */}
       <div
-        className="prose prose-lg max-w-none dark:prose-invert prose-headings:font-bold prose-headings:text-foreground prose-p:text-foreground prose-strong:text-foreground prose-code:text-foreground prose-pre:bg-muted prose-blockquote:border-l-primary prose-blockquote:bg-muted/50 prose-blockquote:pl-4 prose-blockquote:py-2 prose-blockquote:rounded-r-md"
+        className="prose prose-lg max-w-none dark:prose-invert"
         dangerouslySetInnerHTML={{ __html: post.content }}
         dir={isRTL ? "rtl" : "ltr"}
       />
