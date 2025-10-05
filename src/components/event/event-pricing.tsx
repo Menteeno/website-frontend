@@ -4,11 +4,50 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useTranslation } from "@/hooks/use-translation";
-import { ArrowRight, Check, Clock, MapPin, Star, Users } from "lucide-react";
+import {
+  ArrowRight,
+  Check,
+  Clock,
+  MapPin,
+  Star,
+  Target,
+  TrendingUp,
+  Users,
+  Zap,
+} from "lucide-react";
+import { useEffect, useState } from "react";
 import { MagicCard } from "../magicui/magic-card";
 
 const EventPricing = () => {
   const { t } = useTranslation();
+  const [currentCTA, setCurrentCTA] = useState(0);
+
+  // CTA options with icons
+  const ctaOptions = [
+    {
+      text: t("event.pricing.register-button"),
+      icon: Zap,
+      color: "text-yellow-400",
+    },
+    {
+      text: t("event.pricing.register-button-alt"),
+      icon: TrendingUp,
+      color: "text-green-400",
+    },
+    {
+      text: t("event.pricing.register-button-urgent"),
+      icon: Target,
+      color: "text-red-400",
+    },
+  ];
+
+  // Rotate CTA every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentCTA((prev) => (prev + 1) % ctaOptions.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [ctaOptions.length]);
 
   const pricingTiers = [
     {
@@ -155,7 +194,11 @@ const EventPricing = () => {
                 <Button
                   asChild={tier.active}
                   disabled={!tier.active}
-                  className={`w-full hover:scale-105 transition-all duration-200 hover:shadow-lg active:scale-95 ${tier.popular ? "bg-primary hover:bg-primary/90" : ""} ${!tier.active ? "cursor-not-allowed" : ""}`}
+                  className={`w-full relative overflow-hidden group ${
+                    tier.active
+                      ? "bg-gradient-to-r from-primary via-primary to-primary/90 hover:from-primary/90 hover:via-primary hover:to-primary text-white shadow-lg hover:shadow-xl transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-out register-button-glow register-button-pulse"
+                      : "cursor-not-allowed opacity-60"
+                  } ${tier.popular ? "ring-2 ring-primary/20 hover:ring-primary/40" : ""}`}
                   variant={tier.popular ? "default" : "outline"}
                   size="lg"
                 >
@@ -164,15 +207,35 @@ const EventPricing = () => {
                       href="https://pay.frontchapter.ir/link/747292"
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-3 py-3 px-6 relative z-10 active:register-button-bounce"
                     >
-                      <ArrowRight className="size-4 order-1" />
-                      <span className="order-2">
-                        {t("event.pricing.register-button")}
+                      {/* Animated background effect */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+
+                      {/* Button content */}
+                      {(() => {
+                        const currentCTAData = ctaOptions[currentCTA];
+                        if (!currentCTAData) return null;
+                        const IconComponent = currentCTAData.icon;
+                        return (
+                          <IconComponent
+                            className={`size-5 transition-all duration-500 ${currentCTAData.color} group-hover:scale-110 cta-icon-pulse`}
+                          />
+                        );
+                      })()}
+                      <span className="font-semibold text-lg tracking-wide transition-all duration-500 cta-text-transition">
+                        {ctaOptions[currentCTA]?.text ||
+                          t("event.pricing.register-button")}
                       </span>
+                      <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-110" />
+
+                      {/* Sparkle effect */}
+                      <div className="absolute top-1 right-1 w-2 h-2 bg-white/60 rounded-full animate-pulse"></div>
+                      <div className="absolute bottom-1 left-1 w-1 h-1 bg-white/40 rounded-full animate-pulse delay-150"></div>
                     </a>
                   ) : (
-                    <span className="flex items-center gap-2">
-                      <span>
+                    <span className="flex items-center gap-2 py-3 px-6">
+                      <span className="text-muted-foreground">
                         {tier.name === t("event.pricing.early-bird.name")
                           ? t("event.pricing.ended")
                           : t("event.pricing.coming-soon")}

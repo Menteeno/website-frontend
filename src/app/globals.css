@@ -251,6 +251,98 @@
     transition: width 0.2s ease-out;
     box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
   }
+
+  /* Enhanced registration button animations */
+  .register-button-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .register-button-glow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transition: left 0.6s ease-in-out;
+  }
+
+  .register-button-glow:hover::before {
+    left: 100%;
+  }
+
+  .register-button-pulse {
+    animation: register-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes register-pulse {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 8px rgba(59, 130, 246, 0);
+    }
+  }
+
+  .register-button-bounce {
+    animation: register-bounce 0.6s ease-in-out;
+  }
+
+  @keyframes register-bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-8px);
+    }
+    60% {
+      transform: translateY(-4px);
+    }
+  }
+
+  /* CTA text transition animation */
+  .cta-text-transition {
+    animation: cta-fade-in 0.5s ease-in-out;
+  }
+
+  @keyframes cta-fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .cta-icon-pulse {
+    animation: cta-icon-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes cta-icon-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+  }
 }
 
 ::view-transition-old(root),

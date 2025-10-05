@@ -692,7 +692,9 @@
       "time": "Time",
       "location": "Location",
       "capacity": "Capacity",
-      "register-button": "Register Now",
+      "register-button": "Start Your Journey Now!",
+      "register-button-alt": "Invest in Your Future",
+      "register-button-urgent": "Limited Spots Available!",
       "learn-more-button": "Learn More",
       "image-placeholder": "Event Venue Image"
     },
@@ -1009,7 +1011,9 @@
       },
       "discount": "21% Discount",
       "vat-label": "Plus 10% VAT",
-      "register-button": "Register Now",
+      "register-button": "Start Your Journey Now!",
+      "register-button-alt": "Invest in Your Future",
+      "register-button-urgent": "Limited Spots Available!",
       "coming-soon": "Coming Soon",
       "ended": "Ended",
       "included": {

@@ -831,7 +831,9 @@
       "time": "ساعت",
       "location": "مکان",
       "capacity": "ظرفیت",
-      "register-button": "ثبت‌نام کنید",
+      "register-button": "همین الان شروع کن!",
+      "register-button-alt": "سرمایه‌گذاری در آینده‌ات",
+      "register-button-urgent": "فقط چند جای خالی باقی مانده!",
       "learn-more-button": "بیشتر بدانید",
       "image-placeholder": "تصویر فضای رویداد"
     },
@@ -1158,7 +1160,9 @@
       },
       "discount": "۲۱٪ تخفیف",
       "vat-label": "به اضافه‌ی ۱۰٪ مالیات بر ارزش افزوده",
-      "register-button": "ثبت‌نام کنید",
+      "register-button": "همین الان شروع کن!",
+      "register-button-alt": "سرمایه‌گذاری در آینده‌ات",
+      "register-button-urgent": "فقط چند جای خالی باقی مانده!",
       "coming-soon": "به زودی",
       "ended": "تمام شد",
       "included": {
