@@ -12,31 +12,12 @@ const EventPricing = () => {
 
   const pricingTiers = [
     {
-      name: t("event.pricing.early-bird.name"),
-      price: t("event.pricing.early-bird.price"),
-      originalPrice: t("event.pricing.regular.price"),
-      currency: t("event.pricing.early-bird.currency"),
-      period: t("event.pricing.early-bird.period"),
-      badge: t("event.pricing.early-bird.badge"),
-      popular: true,
-      active: true,
-      features: [
-        t("event.pricing.early-bird.features.access"),
-        t("event.pricing.early-bird.features.materials"),
-        t("event.pricing.early-bird.features.networking"),
-        t("event.pricing.early-bird.features.meal"),
-        t("event.pricing.early-bird.features.discussion"),
-        t("event.pricing.early-bird.features.team-building"),
-        t("event.pricing.early-bird.features.menteeno-access"),
-        t("event.pricing.early-bird.features.discount-codes"),
-      ],
-    },
-    {
       name: t("event.pricing.regular.name"),
       price: t("event.pricing.regular.price"),
       currency: t("event.pricing.regular.currency"),
       period: t("event.pricing.regular.period"),
-      active: false,
+      popular: true,
+      active: true,
       features: [
         t("event.pricing.regular.features.access"),
         t("event.pricing.regular.features.materials"),
@@ -46,6 +27,26 @@ const EventPricing = () => {
         t("event.pricing.regular.features.team-building"),
         t("event.pricing.regular.features.menteeno-access"),
         t("event.pricing.regular.features.discount-codes"),
+      ],
+    },
+    {
+      name: t("event.pricing.early-bird.name"),
+      price: t("event.pricing.early-bird.price"),
+      originalPrice: t("event.pricing.regular.price"),
+      currency: t("event.pricing.early-bird.currency"),
+      period: t("event.pricing.early-bird.period"),
+      badge: t("event.pricing.early-bird.badge"),
+      popular: false,
+      active: false,
+      features: [
+        t("event.pricing.early-bird.features.access"),
+        t("event.pricing.early-bird.features.materials"),
+        t("event.pricing.early-bird.features.networking"),
+        t("event.pricing.early-bird.features.meal"),
+        t("event.pricing.early-bird.features.discussion"),
+        t("event.pricing.early-bird.features.team-building"),
+        t("event.pricing.early-bird.features.menteeno-access"),
+        t("event.pricing.early-bird.features.discount-codes"),
       ],
     },
   ];
@@ -171,7 +172,11 @@ const EventPricing = () => {
                     </a>
                   ) : (
                     <span className="flex items-center gap-2">
-                      <span>{t("event.pricing.coming-soon")}</span>
+                      <span>
+                        {tier.name === t("event.pricing.early-bird.name")
+                          ? t("event.pricing.ended")
+                          : t("event.pricing.coming-soon")}
+                      </span>
                     </span>
                   )}
                 </Button>

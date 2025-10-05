@@ -978,7 +978,7 @@
         "price": "775,000",
         "currency": "Toman",
         "period": "Until Mehr 11, 1404",
-        "badge": "Popular",
+        "badge": "Ended",
         "features": {
           "access": "Full access to the event",
           "materials": "Educational materials and resources",
@@ -995,6 +995,7 @@
         "price": "985,000",
         "currency": "Toman",
         "period": "After Mehr 11, 1404",
+        "badge": "Popular",
         "features": {
           "access": "Full access to the event",
           "materials": "Educational materials and resources",
@@ -1010,6 +1011,7 @@
       "vat-label": "Plus 10% VAT",
       "register-button": "Register Now",
       "coming-soon": "Coming Soon",
+      "ended": "Ended",
       "included": {
         "networking": {
           "title": "Professional Networking",
