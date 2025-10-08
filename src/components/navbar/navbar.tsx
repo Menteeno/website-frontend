@@ -4,15 +4,11 @@ import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggle
 import { Language } from "@/components/navbar/language";
 import { NavMenu } from "@/components/navbar/nav-menu";
 import { NavigationSheet } from "@/components/navbar/navigation-sheet";
-import { Button } from "@/components/ui/button";
-import { LoadingLink } from "@/components/ui/loading-link";
-import { useAuth } from "@/hooks/use-auth";
 import { useTranslation } from "@/hooks/use-translation";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const { t, locale } = useTranslation();
-  const { user, isAuthenticated } = useAuth();
 
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
@@ -57,41 +53,6 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           <Language />
           <AnimatedThemeToggler />
-
-          {isAuthenticated && user ? (
-            <Button
-              asChild
-              variant="outline"
-              className="hidden sm:inline-flex rounded-full"
-              aria-label={t("messages.navbar.dashboard")}
-            >
-              <LoadingLink href={`/${locale}/dashboard`}>
-                {t("messages.navbar.dashboard")}
-              </LoadingLink>
-            </Button>
-          ) : (
-            <>
-              <Button
-                asChild
-                variant="outline"
-                className="hidden sm:inline-flex rounded-full"
-                aria-label={t("messages.navbar.sign-in")}
-              >
-                <LoadingLink href={`/${locale}/auth`}>
-                  {t("messages.navbar.sign-in")}
-                </LoadingLink>
-              </Button>
-              <Button
-                asChild
-                className="rounded-full"
-                aria-label={t("messages.navbar.sign-up")}
-              >
-                <LoadingLink href={`/${locale}/auth`}>
-                  {t("messages.navbar.sign-up")}
-                </LoadingLink>
-              </Button>
-            </>
-          )}
 
           {/* Mobile Menu */}
           <div className="md:hidden">
