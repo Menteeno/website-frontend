@@ -1,3 +1,4 @@
+import { DirectionHandler } from "@/components/direction-handler";
 import { LoadingBarWrapper } from "@/components/loading-bar-wrapper";
 import { LocaleProvider } from "@/components/locale-provider";
 import { OpenReplayProvider } from "@/components/openreplay-provider";
@@ -35,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html suppressHydrationWarning>
+    <html suppressHydrationWarning dir="rtl" lang="fa">
       <head>
         {/* Google Analytics - Hardcoded for immediate loading */}
         <script
@@ -121,12 +122,13 @@ export default function RootLayout({
                   }
                   
                   const locale = segments[localeIndex];
-                  if (locale === 'fa') {
-                    document.documentElement.setAttribute('dir', 'rtl');
-                    document.documentElement.setAttribute('lang', 'fa');
-                  } else {
+                  if (locale === 'en') {
                     document.documentElement.setAttribute('dir', 'ltr');
                     document.documentElement.setAttribute('lang', 'en');
+                  } else {
+                    // Default to RTL for Persian and any other locale
+                    document.documentElement.setAttribute('dir', 'rtl');
+                    document.documentElement.setAttribute('lang', 'fa');
                   }
                 } catch (e) {}
               })();
@@ -156,7 +158,10 @@ export default function RootLayout({
               facebookPixelId={process.env.NEXT_PUBLIC_FB_PIXEL_ID}
               hotjarId={process.env.NEXT_PUBLIC_HOTJAR_ID}
             >
-              <LocaleProvider>{children}</LocaleProvider>
+              <LocaleProvider>
+                <DirectionHandler />
+                {children}
+              </LocaleProvider>
             </SEOProvider>
           </OpenReplayProvider>
         </LoadingProvider>

@@ -11,18 +11,12 @@ import {
   ChevronRightIcon,
   CirclePlay,
 } from "lucide-react";
-import { useEffect, useState } from "react";
 import { WordRotate } from "../magicui/word-rotate";
 import { BackgroundPattern } from "./background-pattern";
 
 const HeroHeader = () => {
   const { t, locale } = useTranslation();
-  const [direction, setDirection] = useState<string>("ltr");
-
-  useEffect(() => {
-    // Set direction based on locale
-    setDirection(locale === "fa" ? "rtl" : "ltr");
-  }, [locale]);
+  const direction = locale === "fa" ? "rtl" : "ltr";
 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto">
