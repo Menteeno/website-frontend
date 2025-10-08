@@ -40,7 +40,7 @@ const EventHero = () => {
               <p className="text-sm text-muted-foreground">
                 {t("event.hero.date")}
               </p>
-              <p className="font-semibold">۱۸ مرداد ۱۴۰۴</p>
+              <p className="font-semibold">{t("event.hero.date_value")}</p>
             </div>
           </div>
 
@@ -50,7 +50,7 @@ const EventHero = () => {
               <p className="text-sm text-muted-foreground">
                 {t("event.hero.time")}
               </p>
-              <p className="font-semibold">۱۵:۰۰ - ۲۰:۰۰</p>
+              <p className="font-semibold">{t("event.hero.time_value")}</p>
             </div>
           </div>
 
@@ -60,7 +60,7 @@ const EventHero = () => {
               <p className="text-sm text-muted-foreground">
                 {t("event.hero.location")}
               </p>
-              <p className="font-semibold">تهران، نیاوران، باغ خسروشاهی</p>
+              <p className="font-semibold">{t("event.hero.location_value")}</p>
             </div>
           </div>
 
@@ -70,7 +70,7 @@ const EventHero = () => {
               <p className="text-sm text-muted-foreground">
                 {t("event.hero.capacity")}
               </p>
-              <p className="font-semibold">۳۵ نفر</p>
+              <p className="font-semibold">{t("event.hero.capacity_value")}</p>
             </div>
           </div>
         </div>
