@@ -69,8 +69,13 @@ export function GlobalErrorHandler() {
 // Health check component for monitoring
 export function HealthCheck() {
   useEffect(() => {
-    // Simple health check
+    // Simple health check - only for non-static deployments
     const checkHealth = async () => {
+      // Skip health check for static exports (GitHub Pages)
+      if (process.env.NEXT_PUBLIC_DEPLOYMENT_ENV === "github-pages") {
+        return;
+      }
+
       try {
         const response = await fetch("/api/health", {
           method: "GET",

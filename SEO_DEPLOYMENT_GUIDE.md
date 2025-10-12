@@ -61,8 +61,8 @@ curl -I https://menteeno.app/about
 curl -I https://menteeno.app/contact
 curl -I https://menteeno.app/login
 
-# Test health endpoint
-curl https://menteeno.app/api/health
+# Note: API endpoints not available in static export (GitHub Pages)
+# Health monitoring is handled client-side
 ```
 
 ### 3. Verify SEO Elements

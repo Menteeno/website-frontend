@@ -119,7 +119,8 @@ https://menteeno.app/blgo
 # API ENDPOINTS - FOR HEALTH MONITORING
 # =============================================================================
 
-https://menteeno.app/api/health
+# Note: API endpoints are not available in static export (GitHub Pages)
+# Health monitoring is handled client-side for static deployments
 
 # =============================================================================
 # NOTES FOR MANUAL VERIFICATION
