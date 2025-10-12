@@ -1,0 +1,168 @@
+# Google Search Console Reindex Request
+# Generated on: 2024-10-07
+# 
+# This file contains URLs that should be submitted for reindexing in Google Search Console
+# after implementing SEO fixes for indexing and crawling issues.
+#
+# Instructions:
+# 1. Copy the URLs below
+# 2. Go to Google Search Console > URL Inspection
+# 3. Paste each URL and click "Request Indexing"
+# 4. Monitor the indexing status over the next few days
+
+# =============================================================================
+# MAIN PAGES - HIGH PRIORITY
+# =============================================================================
+
+# Root pages
+https://menteeno.app/
+https://menteeno.app/en
+https://menteeno.app/fa
+
+# Authentication pages
+https://menteeno.app/en/auth
+https://menteeno.app/fa/auth
+
+# Contact pages
+https://menteeno.app/en/contact-us
+https://menteeno.app/fa/contact-us
+
+# Blog pages
+https://menteeno.app/en/blog
+https://menteeno.app/fa/blog
+
+# Dashboard pages
+https://menteeno.app/en/dashboard
+https://menteeno.app/fa/dashboard
+https://menteeno.app/en/dashboard/surveys
+https://menteeno.app/fa/dashboard/surveys
+https://menteeno.app/en/dashboard/responses
+https://menteeno.app/fa/dashboard/responses
+https://menteeno.app/en/dashboard/analytics
+https://menteeno.app/fa/dashboard/analytics
+https://menteeno.app/en/dashboard/settings
+https://menteeno.app/fa/dashboard/settings
+
+# Event pages
+https://menteeno.app/en/event
+https://menteeno.app/fa/event
+
+# Survey pages
+https://menteeno.app/en/survey
+https://menteeno.app/fa/survey
+
+# Legal pages
+https://menteeno.app/en/privacy
+https://menteeno.app/fa/privacy
+https://menteeno.app/en/terms
+https://menteeno.app/fa/terms
+https://menteeno.app/en/cookies
+https://menteeno.app/fa/cookies
+
+# Demo pages
+https://menteeno.app/en/i18n-demo
+https://menteeno.app/fa/i18n-demo
+
+# =============================================================================
+# SITEMAPS - CRITICAL FOR CRAWLING
+# =============================================================================
+
+# Main sitemaps
+https://menteeno.app/sitemap.xml
+https://menteeno.app/sitemap-blog.xml
+https://menteeno.app/sitemap-fa.xml
+https://menteeno.app/en/sitemap.xml
+https://menteeno.app/fa/sitemap.xml
+
+# =============================================================================
+# ROBOTS.TXT - IMPORTANT FOR CRAWLING RULES
+# =============================================================================
+
+https://menteeno.app/robots.txt
+https://menteeno.app/robots-fa.txt
+
+# =============================================================================
+# REDIRECTED PAGES - SHOULD NOW RETURN PROPER REDIRECTS
+# =============================================================================
+
+# Common 404 patterns that now redirect
+https://menteeno.app/about
+https://menteeno.app/contact
+https://menteeno.app/courses
+https://menteeno.app/mentorship
+https://menteeno.app/events
+https://menteeno.app/surveys
+https://menteeno.app/analytics
+https://menteeno.app/settings
+https://menteeno.app/responses
+
+# Legacy redirects
+https://menteeno.app/home
+https://menteeno.app/login
+https://menteeno.app/signup
+https://menteeno.app/fa/home
+https://menteeno.app/fa/login
+https://menteeno.app/fa/signup
+https://menteeno.app/en/home
+https://menteeno.app/en/login
+https://menteeno.app/en/signup
+
+# Typo redirects
+https://menteeno.app/contatc-us
+https://menteeno.app/contatc
+https://menteeno.app/dashbord
+https://menteeno.app/dash
+https://menteeno.app/blg
+https://menteeno.app/blgo
+
+# =============================================================================
+# API ENDPOINTS - FOR HEALTH MONITORING
+# =============================================================================
+
+https://menteeno.app/api/health
+
+# =============================================================================
+# NOTES FOR MANUAL VERIFICATION
+# =============================================================================
+
+# 1. Verify that all URLs return 200 status codes (except redirects)
+# 2. Check that canonical tags are properly set on all pages
+# 3. Ensure robots.txt allows crawling of all important pages
+# 4. Verify that sitemaps are accessible and contain all pages
+# 5. Test redirect chains to ensure they're not too long
+# 6. Check that pages have proper meta descriptions and titles
+# 7. Verify that alternate language tags are correctly implemented
+
+# =============================================================================
+# EXPECTED IMPROVEMENTS AFTER REINDEXING
+# =============================================================================
+
+# - 57 Not found (404) errors should be resolved through redirects
+# - 25 duplicate without canonical issues should be fixed
+# - 18 page with redirect errors should be simplified
+# - 2 pages excluded by noindex tags should be corrected
+# - 2 pages blocked by robots.txt should be accessible
+# - 2 alternate pages with proper canonical tag issues should be resolved
+# - 1 server error (5xx) should be prevented
+# - 25 crawled but not indexed pages should be indexed
+# - 1 discovered but not indexed page should be indexed
+
+# =============================================================================
+# MONITORING COMMANDS
+# =============================================================================
+
+# Test key URLs with curl:
+# curl -I https://menteeno.app/
+# curl -I https://menteeno.app/fa
+# curl -I https://menteeno.app/en
+# curl -I https://menteeno.app/sitemap.xml
+# curl -I https://menteeno.app/robots.txt
+
+# Check redirects:
+# curl -I https://menteeno.app/about
+# curl -I https://menteeno.app/contact
+# curl -I https://menteeno.app/login
+
+# Verify canonical tags:
+# curl -s https://menteeno.app/fa | grep -i canonical
+# curl -s https://menteeno.app/en | grep -i canonical

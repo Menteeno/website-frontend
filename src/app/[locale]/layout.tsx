@@ -1,3 +1,9 @@
+import {
+  ErrorBoundary,
+  GlobalErrorHandler,
+  HealthCheck,
+} from "@/components/error-handler";
+import { CanonicalProvider } from "@/components/seo/canonical-provider";
 import { PersianSEO } from "@/components/seo/persian-seo";
 import { ThemeProvider } from "@/contexts/theme-context";
 import {
@@ -57,7 +63,15 @@ export default async function LocaleLayout({
   return (
     <ReduxProvider>
       <ThemeProvider>
-        <PersianSEO locale={locale}>{children}</PersianSEO>
+        <ErrorBoundary>
+          <CanonicalProvider>
+            <PersianSEO locale={locale}>
+              <GlobalErrorHandler />
+              <HealthCheck />
+              {children}
+            </PersianSEO>
+          </CanonicalProvider>
+        </ErrorBoundary>
       </ThemeProvider>
     </ReduxProvider>
   );
