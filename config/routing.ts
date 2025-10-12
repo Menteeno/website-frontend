@@ -231,4 +231,181 @@ export const redirects = [
     destination: "/fa",
     permanent: true,
   },
+
+  // 404 URL redirects - Author pages (redirect to blog)
+  {
+    source: "/en/authors/:author",
+    destination: "/en/blog",
+    permanent: true,
+  },
+  {
+    source: "/fa/authors/:author",
+    destination: "/fa/blog",
+    permanent: true,
+  },
+
+  // 404 URL redirects - Category pages (redirect to blog)
+  {
+    source: "/en/categories/:category",
+    destination: "/en/blog",
+    permanent: true,
+  },
+  {
+    source: "/fa/categories/:category",
+    destination: "/fa/blog",
+    permanent: true,
+  },
+
+  // 404 URL redirects - Tag pages (redirect to blog)
+  {
+    source: "/en/tags/:tag",
+    destination: "/en/blog",
+    permanent: true,
+  },
+  {
+    source: "/fa/tags/:tag",
+    destination: "/fa/blog",
+    permanent: true,
+  },
+
+  // 404 URL redirects - Blog posts (redirect to blog)
+  {
+    source: "/en/blog/post-:slug",
+    destination: "/en/blog",
+    permanent: true,
+  },
+  {
+    source: "/fa/blog/post-:slug",
+    destination: "/fa/blog",
+    permanent: true,
+  },
+
+  // 404 URL redirects - Section pages (redirect to main page)
+  {
+    source: "/en/sections",
+    destination: "/en",
+    permanent: true,
+  },
+  {
+    source: "/en/sections/",
+    destination: "/en",
+    permanent: true,
+  },
+  {
+    source: "/fa/sections",
+    destination: "/fa",
+    permanent: true,
+  },
+  {
+    source: "/fa/sections/",
+    destination: "/fa",
+    permanent: true,
+  },
+
+  // 404 URL redirects - Specific page redirects
+  {
+    source: "/fa/privacy-policy",
+    destination: "/fa/privacy",
+    permanent: true,
+  },
+  {
+    source: "/fa/privacy-policy/",
+    destination: "/fa/privacy",
+    permanent: true,
+  },
+  {
+    source: "/en/contract",
+    destination: "/en/terms",
+    permanent: true,
+  },
+  {
+    source: "/en/contract/",
+    destination: "/en/terms",
+    permanent: true,
+  },
+  {
+    source: "/fa/contact",
+    destination: "/fa/contact-us",
+    permanent: true,
+  },
+  {
+    source: "/fa/contact/",
+    destination: "/fa/contact-us",
+    permanent: true,
+  },
+  {
+    source: "/fa/mentorship",
+    destination: "/fa",
+    permanent: true,
+  },
+  {
+    source: "/fa/mentorship/",
+    destination: "/fa",
+    permanent: true,
+  },
+  {
+    source: "/fa/courses",
+    destination: "/fa",
+    permanent: true,
+  },
+  {
+    source: "/fa/courses/",
+    destination: "/fa",
+    permanent: true,
+  },
+
+  // Search functionality redirects
+  {
+    source: "/search",
+    destination: "/fa",
+    permanent: true,
+  },
+  {
+    source: "/en/search",
+    destination: "/en",
+    permanent: true,
+  },
+  {
+    source: "/fa/search",
+    destination: "/fa",
+    permanent: true,
+  },
+
+  // Static file redirects
+  {
+    source: "/fa/searchindex.json",
+    destination: "/fa",
+    permanent: true,
+  },
+  {
+    source: "/en/searchindex.json",
+    destination: "/en",
+    permanent: true,
+  },
+
+  // GitHub-related redirects
+  {
+    source: "/fa/blob/master/LICENSE",
+    destination: "/fa",
+    permanent: true,
+  },
+  {
+    source: "/en/blob/master/LICENSE",
+    destination: "/en",
+    permanent: true,
+  },
+
+  // CDN and external service redirects
+  {
+    source: "/cdn-cgi/l/email-protection",
+    destination: "/fa",
+    permanent: true,
+  },
+
+  // Font file redirects
+  {
+    source: "/_next/static/media/:path*",
+    destination: "/fa",
+    permanent: true,
+  },
 ];
