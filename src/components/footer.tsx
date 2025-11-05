@@ -220,7 +220,9 @@ export function Footer({ className }: FooterProps) {
                     maxWidth: "100%",
                     height: "auto",
                   }}
-                  code="KXVHS2AQjQeKw406oftew9I2G2N5WR31"
+                  {...({
+                    code: "KXVHS2AQjQeKw406oftew9I2G2N5WR31",
+                  } as React.ImgHTMLAttributes<HTMLImageElement>)}
                 />
               </a>
             </div>
