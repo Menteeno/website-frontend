@@ -79,6 +79,19 @@ const headersConfig = {
           },
         ],
       },
+      {
+        source: "/(.*\\.wasm)",
+        headers: [
+          {
+            key: "Content-Type",
+            value: "application/wasm",
+          },
+          {
+            key: "Cache-Control",
+            value: cacheConfig.static,
+          },
+        ],
+      },
     ];
   },
 };

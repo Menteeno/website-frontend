@@ -27,15 +27,22 @@ export function Footer({ className }: FooterProps) {
 
       <div className="container mx-auto px-4 pt-8 pb-4 md:pt-12 md:pb-8 relative z-10 bg-gradient-to-b from-background to-muted/20">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 mb-4 md:mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-4 md:mb-8 lg:grid-cols-[2fr_1fr_2fr_auto]">
           {/* Brand Section */}
-          <div className="space-y-3 md:space-y-4">
+          <div className="space-y-3 md:space-y-4 min-w-0">
             <div className="space-y-2 md:space-y-2">
               <h3 className="text-lg md:text-lg font-semibold text-foreground">
                 {t("footer.brand.name")}
               </h3>
               <p className="text-sm md:text-sm text-muted-foreground leading-relaxed">
-                {t("footer.brand.description")}
+                {t("footer.brand.description")
+                  .split("، ")
+                  .map((part, index, array) => (
+                    <span key={index}>
+                      {part}
+                      {index < array.length - 1 && <br />}
+                    </span>
+                  ))}
               </p>
             </div>
             <div className="flex items-center space-x-2">
@@ -56,7 +63,7 @@ export function Footer({ className }: FooterProps) {
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-3 md:space-y-4">
+          <div className="space-y-3 md:space-y-4 min-w-0">
             <h4 className="text-sm md:text-sm font-semibold text-foreground">
               {t("footer.quick_links.title")}
             </h4>
@@ -81,7 +88,9 @@ export function Footer({ className }: FooterProps) {
                 className="justify-start h-10 md:h-auto p-2 md:p-0 text-sm md:text-sm text-muted-foreground hover:text-foreground"
                 asChild
               >
-                <a href={`/${locale}/contact-us`}>{t("footer.quick_links.contact")}</a>
+                <a href={`/${locale}/contact-us`}>
+                  {t("footer.quick_links.contact")}
+                </a>
               </Button>
               <Button
                 variant="ghost"
@@ -94,7 +103,7 @@ export function Footer({ className }: FooterProps) {
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-2 md:space-y-3">
+          <div className="space-y-2 md:space-y-3 min-w-0">
             <h4 className="text-sm md:text-sm font-semibold text-foreground">
               {t("footer.contact.title")}
             </h4>
@@ -189,6 +198,31 @@ export function Footer({ className }: FooterProps) {
                   </svg>
                 </a>
               </Button>
+            </div>
+          </div>
+
+          {/* eNamad Trust Seal */}
+          <div className="space-y-3 md:space-y-4 flex flex-col items-start md:items-center lg:items-start min-w-0">
+            <div className="flex justify-center md:justify-start lg:justify-center w-full">
+              <a
+                referrerPolicy="origin"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://trustseal.enamad.ir/?id=668967&Code=KXVHS2AQjQeKw406oftew9I2G2N5WR31"
+                className="inline-block"
+              >
+                <img
+                  referrerPolicy="origin"
+                  src="https://trustseal.enamad.ir/logo.aspx?id=668967&Code=KXVHS2AQjQeKw406oftew9I2G2N5WR31"
+                  alt="eNamad Trust Seal"
+                  style={{
+                    cursor: "pointer",
+                    maxWidth: "100%",
+                    height: "auto",
+                  }}
+                  code="KXVHS2AQjQeKw406oftew9I2G2N5WR31"
+                />
+              </a>
             </div>
           </div>
         </div>
