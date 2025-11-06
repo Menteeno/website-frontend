@@ -125,7 +125,7 @@ const EventCTA = () => {
               className="text-lg px-8 py-6 hover:scale-105 transition-all duration-200 hover:shadow-lg"
             >
               <a
-                href="https://pay.frontchapter.ir/link/747292"
+                href="https://pay.menteeno.app/link/754439"
                 target="_blank"
                 rel="noopener noreferrer"
               >

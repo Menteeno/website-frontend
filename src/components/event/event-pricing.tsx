@@ -20,22 +20,23 @@ const EventPricing = () => {
 
   const pricingTiers = [
     {
-      id: "group",
-      name: t("event.pricing.group.name"),
-      price: t("event.pricing.group.price"),
-      currency: t("event.pricing.group.currency"),
-      period: t("event.pricing.group.period"),
-      badge: t("event.pricing.group.badge"),
-      active: true,
+      id: "regular",
+      name: t("event.pricing.regular.name"),
+      price: t("event.pricing.regular.price"),
+      currency: t("event.pricing.regular.currency"),
+      period: t("event.pricing.regular.period"),
+      badge: null,
+      popular: false,
+      active: false,
       features: [
-        t("event.pricing.group.features.access"),
-        t("event.pricing.group.features.materials"),
-        t("event.pricing.group.features.networking"),
-        t("event.pricing.group.features.meal"),
-        t("event.pricing.group.features.discussion"),
-        t("event.pricing.group.features.team-building"),
-        t("event.pricing.group.features.menteeno-access"),
-        t("event.pricing.group.features.discount-codes"),
+        t("event.pricing.regular.features.access"),
+        t("event.pricing.regular.features.materials"),
+        t("event.pricing.regular.features.networking"),
+        t("event.pricing.regular.features.meal"),
+        t("event.pricing.regular.features.discussion"),
+        t("event.pricing.regular.features.team-building"),
+        t("event.pricing.regular.features.menteeno-access"),
+        t("event.pricing.regular.features.discount-codes"),
       ],
     },
     {
@@ -60,23 +61,22 @@ const EventPricing = () => {
       ],
     },
     {
-      id: "regular",
-      name: t("event.pricing.regular.name"),
-      price: t("event.pricing.regular.price"),
-      currency: t("event.pricing.regular.currency"),
-      period: t("event.pricing.regular.period"),
-      badge: null,
-      popular: false,
+      id: "group",
+      name: t("event.pricing.group.name"),
+      price: t("event.pricing.group.price"),
+      currency: t("event.pricing.group.currency"),
+      period: t("event.pricing.group.period"),
+      badge: t("event.pricing.group.badge"),
       active: false,
       features: [
-        t("event.pricing.regular.features.access"),
-        t("event.pricing.regular.features.materials"),
-        t("event.pricing.regular.features.networking"),
-        t("event.pricing.regular.features.meal"),
-        t("event.pricing.regular.features.discussion"),
-        t("event.pricing.regular.features.team-building"),
-        t("event.pricing.regular.features.menteeno-access"),
-        t("event.pricing.regular.features.discount-codes"),
+        t("event.pricing.group.features.access"),
+        t("event.pricing.group.features.materials"),
+        t("event.pricing.group.features.networking"),
+        t("event.pricing.group.features.meal"),
+        t("event.pricing.group.features.discussion"),
+        t("event.pricing.group.features.team-building"),
+        t("event.pricing.group.features.menteeno-access"),
+        t("event.pricing.group.features.discount-codes"),
       ],
     },
   ];
@@ -205,7 +205,7 @@ const EventPricing = () => {
                 >
                   {tier.active ? (
                     <a
-                      href="https://pay.frontchapter.ir/link/747292"
+                      href="https://pay.menteeno.app/link/754439"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2"
