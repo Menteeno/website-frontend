@@ -41,33 +41,43 @@ const EventAbout = () => {
   const eventImages = [
     {
       id: 1,
-      src: getAssetUrl("/assets/images/event/002.jpg"),
-      alt: "Grand library hall event venue",
+      src: getAssetUrl("/assets/images/event/gallery/001.jpg"),
+      alt: "خانه فناوری - Tech House outdoor sign with pathway leading to building",
     },
     {
       id: 2,
-      src: getAssetUrl("/assets/images/event/003.jpg"),
-      alt: "Conference hall event venue",
+      src: getAssetUrl("/assets/images/event/gallery/002.jpg"),
+      alt: "Grand white building with classical architecture, porch and columns",
     },
     {
       id: 3,
-      src: getAssetUrl("/assets/images/event/005.jpg"),
-      alt: "Event venue space",
+      src: getAssetUrl("/assets/images/event/gallery/003.jpg"),
+      alt: "Two-story indoor library and lobby space with decorative elements",
     },
     {
       id: 4,
-      src: getAssetUrl("/assets/images/event/007.jpg"),
-      alt: "Outdoor cafe venue with pool and pergola",
+      src: getAssetUrl("/assets/images/event/gallery/004.jpg"),
+      alt: "Four men engaged in discussion around a table with cards and papers",
     },
     {
       id: 5,
-      src: getAssetUrl("/assets/images/event/008.jpg"),
-      alt: "Tech House venue with stone pathway",
+      src: getAssetUrl("/assets/images/event/gallery/005.jpg"),
+      alt: "Indoor event exhibition with Mentino and Jamaran Technology House banners",
     },
     {
       id: 6,
-      src: getAssetUrl("/assets/images/event/009.jpg"),
-      alt: "Grand classical venue with outdoor patio",
+      src: getAssetUrl("/assets/images/event/gallery/006.jpg"),
+      alt: "Workshop and meeting room with participants at tables",
+    },
+    {
+      id: 7,
+      src: getAssetUrl("/assets/images/event/gallery/007.jpg"),
+      alt: "Six young men playing card game around a wooden table",
+    },
+    {
+      id: 8,
+      src: getAssetUrl("/assets/images/event/gallery/008.jpg"),
+      alt: "Group photo of 25-30 people in front of white building with banners",
     },
   ];
 
