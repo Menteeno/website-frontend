@@ -17,14 +17,24 @@ const EventFAQ = () => {
 
   const faqItems: FAQItem[] = [
     {
-      id: "who-can-attend",
-      question: t("event.faq.questions.who-can-attend"),
-      answer: t("event.faq.answers.who-can-attend"),
+      id: "what-is-about",
+      question: t("event.faq.questions.what-is-about"),
+      answer: t("event.faq.answers.what-is-about"),
     },
     {
-      id: "experience-required",
-      question: t("event.faq.questions.experience-required"),
-      answer: t("event.faq.answers.experience-required"),
+      id: "only-games",
+      question: t("event.faq.questions.only-games"),
+      answer: t("event.faq.answers.only-games"),
+    },
+    {
+      id: "previous-events",
+      question: t("event.faq.questions.previous-events"),
+      answer: t("event.faq.answers.previous-events"),
+    },
+    {
+      id: "only-developers",
+      question: t("event.faq.questions.only-developers"),
+      answer: t("event.faq.answers.only-developers"),
     },
     {
       id: "what-to-bring",
@@ -32,24 +42,24 @@ const EventFAQ = () => {
       answer: t("event.faq.answers.what-to-bring"),
     },
     {
-      id: "capacity",
-      question: t("event.faq.questions.capacity"),
-      answer: t("event.faq.answers.capacity"),
-    },
-    {
       id: "what-will-learn",
       question: t("event.faq.questions.what-will-learn"),
       answer: t("event.faq.answers.what-will-learn"),
     },
     {
-      id: "metro-access",
-      question: t("event.faq.questions.metro-access"),
-      answer: t("event.faq.answers.metro-access"),
+      id: "duration",
+      question: t("event.faq.questions.duration"),
+      answer: t("event.faq.answers.duration"),
     },
     {
-      id: "parking",
-      question: t("event.faq.questions.parking"),
-      answer: t("event.faq.answers.parking"),
+      id: "capacity",
+      question: t("event.faq.questions.capacity"),
+      answer: t("event.faq.answers.capacity"),
+    },
+    {
+      id: "location",
+      question: t("event.faq.questions.location"),
+      answer: t("event.faq.answers.location"),
     },
   ];
 
