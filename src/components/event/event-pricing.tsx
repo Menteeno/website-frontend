@@ -173,9 +173,6 @@ const EventPricing = () => {
                   <p className="text-xs text-muted-foreground mt-2">
                     {tier.period}
                   </p>
-                  <p className="text-xs text-muted-foreground">
-                    {t("event.pricing.vat-label")}
-                  </p>
                 </div>
               </CardHeader>
 
