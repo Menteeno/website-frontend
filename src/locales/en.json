@@ -1013,6 +1013,23 @@
           "discount-codes": "Special discount codes"
         }
       },
+      "group": {
+        "name": "Group Purchase",
+        "price": "700,000",
+        "currency": "Toman",
+        "period": "Minimum 3 people",
+        "badge": "Special",
+        "features": {
+          "access": "Full access to the event",
+          "materials": "Educational materials and resources",
+          "networking": "Networking with 35 professionals",
+          "meal": "Catering and snacks",
+          "discussion": "Participation in discussion panel",
+          "team-building": "Team games and exercises",
+          "menteeno-access": "Access to Menteeno platform",
+          "discount-codes": "Special discount codes"
+        }
+      },
       "discount": "21% Discount",
       "vat-label": "Plus 10% VAT",
       "register-button": "Start Your Journey Now!",
