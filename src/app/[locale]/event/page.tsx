@@ -39,10 +39,10 @@ export default async function EventPage({ params }: EventPageProps) {
       <EventHero />
       <EventAbout />
       <EventDataDriven />
-      <EventPricing />
       <EventSchedule />
       <EventTargetAudience />
       <EventTeam />
+      <EventPricing />
       <EventMap />
       <EventFAQ />
       <EventCTA />
