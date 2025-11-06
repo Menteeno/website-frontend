@@ -217,7 +217,7 @@ const EventPricing = () => {
                     </a>
                   ) : (
                     <span className="font-semibold">
-                      {tier.id === "regular"
+                      {tier.id === "regular" || tier.id === "group"
                         ? t("event.pricing.coming-soon")
                         : t("event.pricing.ended")}
                     </span>
