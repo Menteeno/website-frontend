@@ -5,6 +5,8 @@ import { Language } from "@/components/navbar/language";
 import { NavMenu } from "@/components/navbar/nav-menu";
 import { NavigationSheet } from "@/components/navbar/navigation-sheet";
 import { useTranslation } from "@/hooks/use-translation";
+import { cn } from "@/lib/utils";
+import { PanelLeft } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
@@ -31,18 +33,14 @@ const Navbar = () => {
     };
   }, []); // The empty dependency array ensures this effect runs only once on mount
 
-  // Base classes for the navbar
-  const baseClasses = "fixed z-30 inset-x-4 h-16 transition-all mx-auto ";
-
-  // Conditional classes based on the isScrolled state
-  const scrolledClasses =
-    "shadow-lg top-6 py-0 border max-w-screen-xl bg-background/50 backdrop-blur rounded-full";
-  const topClasses =
-    "max-w-full top-0 py-12 bg-gradient-to-b from-background from-60% to-transparent";
-
   return (
     <nav
-      className={`${baseClasses} ${isScrolled ? scrolledClasses : topClasses}`}
+      className={cn(
+        "fixed z-30 inset-x-4 h-16 transition-all mx-auto",
+        isScrolled
+          ? "shadow-lg top-6 py-0 border max-w-screen-xl bg-background/50 backdrop-blur rounded-full"
+          : "max-w-full top-0 py-12 bg-gradient-to-b from-background from-60% to-transparent"
+      )}
     >
       <div className="h-full flex items-center justify-between mx-auto px-4">
         <AppLogoIcon className="size-8 fill-foreground mx-4" />
@@ -51,6 +49,19 @@ const Navbar = () => {
         <NavMenu className="hidden md:block" />
 
         <div className="flex items-center gap-3">
+          <a
+            href="https://console.menteeno.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(
+              "hidden md:flex items-center gap-2 h-9 px-3 rounded-md",
+              "hover:bg-accent hover:text-accent-foreground",
+              "transition-colors text-sm"
+            )}
+          >
+            <PanelLeft className="size-4" />
+            <span>{t("messages.navbar.user-panel")}</span>
+          </a>
           <Language />
           <AnimatedThemeToggler />
 

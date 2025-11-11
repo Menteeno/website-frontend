@@ -3,20 +3,53 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { useTranslation } from "@/hooks/use-translation";
 import {
   ArrowRight,
   Check,
   Clock,
+  Copy,
   MapPin,
   Star,
   Users,
   UsersRound,
 } from "lucide-react";
+import { useState } from "react";
 import { MagicCard } from "../magicui/magic-card";
 
 const EventPricing = () => {
   const { t } = useTranslation();
+  const [isGroupModalOpen, setIsGroupModalOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const discountCode = "GROUP03";
+
+  const handleCopyCode = async () => {
+    try {
+      await navigator.clipboard.writeText(discountCode);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Failed to copy:", err);
+    }
+  };
+
+  const handleContinueToBuy = () => {
+    window.open(
+      "https://console.menteeno.app/events/soft-skils-for-developers/buy",
+      "_blank",
+      "noopener,noreferrer"
+    );
+    setIsGroupModalOpen(false);
+  };
 
   const pricingTiers = [
     {
@@ -67,7 +100,7 @@ const EventPricing = () => {
       currency: t("event.pricing.group.currency"),
       period: t("event.pricing.group.period"),
       badge: t("event.pricing.group.badge"),
-      active: false,
+      active: true,
       features: [
         t("event.pricing.group.features.access"),
         t("event.pricing.group.features.materials"),
@@ -191,38 +224,54 @@ const EventPricing = () => {
                   ))}
                 </ul>
 
-                <Button
-                  asChild={tier.active}
-                  disabled={!tier.active}
-                  className={`w-full ${
-                    tier.active
-                      ? tier.popular
-                        ? "bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl"
-                        : "bg-foreground hover:bg-foreground/90 text-background"
-                      : "bg-muted text-muted-foreground cursor-not-allowed border border-border"
-                  }`}
-                  size="lg"
-                >
-                  {tier.active ? (
-                    <a
-                      href="https://pay.menteeno.app/link/754439"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2"
+                {tier.active ? (
+                  tier.id === "group" ? (
+                    <Button
+                      onClick={() => setIsGroupModalOpen(true)}
+                      className="w-full bg-foreground hover:bg-foreground/90 text-background"
+                      size="lg"
                     >
                       <span className="font-semibold">
                         {t("event.pricing.register-button")}
                       </span>
                       <ArrowRight className="size-4" />
-                    </a>
+                    </Button>
                   ) : (
+                    <Button
+                      asChild
+                      className={`w-full ${
+                        tier.popular
+                          ? "bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg hover:shadow-xl"
+                          : "bg-foreground hover:bg-foreground/90 text-background"
+                      }`}
+                      size="lg"
+                    >
+                      <a
+                        href="https://console.menteeno.app/events/soft-skils-for-developers-pre-order/buy"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2"
+                      >
+                        <span className="font-semibold">
+                          {t("event.pricing.register-button")}
+                        </span>
+                        <ArrowRight className="size-4" />
+                      </a>
+                    </Button>
+                  )
+                ) : (
+                  <Button
+                    disabled
+                    className="w-full bg-muted text-muted-foreground cursor-not-allowed border border-border"
+                    size="lg"
+                  >
                     <span className="font-semibold">
-                      {tier.id === "regular" || tier.id === "group"
+                      {tier.id === "regular"
                         ? t("event.pricing.coming-soon")
                         : t("event.pricing.ended")}
                     </span>
-                  )}
-                </Button>
+                  </Button>
+                )}
               </CardContent>
             </Card>
           ))}
@@ -255,6 +304,65 @@ const EventPricing = () => {
             </Card>
           ))}
         </div>
+
+        {/* Group Purchase Discount Code Modal */}
+        <Dialog open={isGroupModalOpen} onOpenChange={setIsGroupModalOpen}>
+          <DialogContent className="sm:max-w-md">
+            <DialogHeader>
+              <DialogTitle className="text-2xl font-bold text-center">
+                کد تخفیف ویژه خرید گروهی
+              </DialogTitle>
+              <DialogDescription className="text-center pt-2">
+                برای خرید گروهی (حداقل ۳ نفر) از کد تخفیف زیر استفاده کنید
+              </DialogDescription>
+            </DialogHeader>
+            <div className="py-6">
+              <div className="bg-muted rounded-lg p-6 text-center space-y-4">
+                <div className="space-y-2">
+                  <p className="text-sm text-muted-foreground">کد تخفیف شما:</p>
+                  <div className="flex items-center justify-center gap-3">
+                    <code className="text-3xl font-bold text-foreground font-mono tracking-wider bg-background px-4 py-2 rounded border">
+                      {discountCode}
+                    </code>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={handleCopyCode}
+                      className="shrink-0"
+                    >
+                      {copied ? (
+                        <Check className="size-5 text-green-500" />
+                      ) : (
+                        <Copy className="size-5" />
+                      )}
+                    </Button>
+                  </div>
+                  {copied && (
+                    <p className="text-sm text-green-500 font-medium">
+                      کد کپی شد!
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
+            <DialogFooter className="flex-col sm:flex-row gap-2">
+              <Button
+                variant="outline"
+                onClick={() => setIsGroupModalOpen(false)}
+                className="w-full sm:w-auto"
+              >
+                بستن
+              </Button>
+              <Button
+                onClick={handleContinueToBuy}
+                className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground"
+              >
+                ادامه به صفحه خرید
+                <ArrowRight className="size-4 ms-2" />
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
       </div>
     </div>
   );

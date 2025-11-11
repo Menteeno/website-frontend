@@ -124,7 +124,8 @@
       "blog": "Blog",
       "contact-us": "Contact Us",
       "sign-in": "Sign In",
-      "sign-up": "Sign Up"
+      "sign-up": "Sign Up",
+      "user-panel": "User Panel"
     },
     "hero-introduce": {
       "terminal-command": "> sudo apt install menteeno-soft-skills",

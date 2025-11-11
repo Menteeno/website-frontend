@@ -6,7 +6,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useTranslation } from "@/hooks/use-translation";
-import { Menu } from "lucide-react";
+import { Menu, PanelLeft } from "lucide-react";
 import AppLogo from "../app-logo";
 import { NavMenu } from "./nav-menu";
 
@@ -29,6 +29,23 @@ export const NavigationSheet = () => {
         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
         <AppLogo className="fill-foreground" />
         <NavMenu orientation="vertical" className="mt-12" />
+        <div className="mt-6 pt-6 border-t">
+          <Button
+            variant="ghost"
+            className="w-full justify-start gap-2"
+            asChild
+          >
+            <a
+              href="https://console.menteeno.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2"
+            >
+              <PanelLeft className="size-5" />
+              <span>{t("messages.navbar.user-panel")}</span>
+            </a>
+          </Button>
+        </div>
       </SheetContent>
     </Sheet>
   );

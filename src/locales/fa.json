@@ -124,7 +124,8 @@
       "blog": "وبلاگ",
       "contact-us": "ارتباط با ما",
       "sign-in": "ورود",
-      "sign-up": "ثبت‌نام"
+      "sign-up": "ثبت‌نام",
+      "user-panel": "پنل کاربری"
     },
     "hero-introduce": {
       "terminal-command": "sudo apt install menteeno-soft-skills",
@@ -1136,7 +1137,7 @@
         "name": "پیش فروش",
         "price": "۸۹۰,۰۰۰",
         "currency": "تومان",
-        "period": "تا ۱۸ آبان",
+        "period": "تا ۲۲ آبان",
         "badge": "پایان یافته",
         "features": {
           "access": "دسترسی کامل به رویداد",
@@ -1153,7 +1154,7 @@
         "name": "بلیت اصلی",
         "price": "۱,۲۹۰,۰۰۰",
         "currency": "تومان",
-        "period": "بعد از ۱۸ آبان",
+        "period": "بعد از ۲۲ آبان",
         "badge": "محبوب",
         "features": {
           "access": "دسترسی کامل به رویداد",

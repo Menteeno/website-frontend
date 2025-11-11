@@ -125,7 +125,7 @@ const EventCTA = () => {
               className="text-lg px-8 py-6 hover:scale-105 transition-all duration-200 hover:shadow-lg"
             >
               <a
-                href="https://pay.menteeno.app/link/754439"
+                href="https://console.menteeno.app/events/soft-skils-for-developers/buy"
                 target="_blank"
                 rel="noopener noreferrer"
               >
