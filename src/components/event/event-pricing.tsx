@@ -247,7 +247,7 @@ const EventPricing = () => {
                       size="lg"
                     >
                       <a
-                        href="https://console.menteeno.app/events/soft-skils-for-developers-pre-order/buy"
+                        href="https://console.menteeno.app/events/soft-skils-for-developers/buy"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2"
