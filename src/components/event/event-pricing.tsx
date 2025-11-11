@@ -30,7 +30,7 @@ const EventPricing = () => {
   const [isGroupModalOpen, setIsGroupModalOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const discountCode = "GROUP03";
+  const discountCode = t("event.pricing.modal.discount-code");
 
   const handleCopyCode = async () => {
     try {
@@ -310,16 +310,18 @@ const EventPricing = () => {
           <DialogContent className="sm:max-w-md">
             <DialogHeader>
               <DialogTitle className="text-2xl font-bold text-center">
-                کد تخفیف ویژه خرید گروهی
+                {t("event.pricing.modal.title")}
               </DialogTitle>
               <DialogDescription className="text-center pt-2">
-                برای خرید گروهی (حداقل ۳ نفر) از کد تخفیف زیر استفاده کنید
+                {t("event.pricing.modal.description")}
               </DialogDescription>
             </DialogHeader>
             <div className="py-6">
               <div className="bg-muted rounded-lg p-6 text-center space-y-4">
                 <div className="space-y-2">
-                  <p className="text-sm text-muted-foreground">کد تخفیف شما:</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t("event.pricing.modal.discount-code-label")}
+                  </p>
                   <div className="flex items-center justify-center gap-3">
                     <code className="text-3xl font-bold text-foreground font-mono tracking-wider bg-background px-4 py-2 rounded border">
                       {discountCode}
@@ -339,7 +341,7 @@ const EventPricing = () => {
                   </div>
                   {copied && (
                     <p className="text-sm text-green-500 font-medium">
-                      کد کپی شد!
+                      {t("event.pricing.modal.copied-message")}
                     </p>
                   )}
                 </div>
@@ -351,13 +353,13 @@ const EventPricing = () => {
                 onClick={() => setIsGroupModalOpen(false)}
                 className="w-full sm:w-auto"
               >
-                بستن
+                {t("event.pricing.modal.close")}
               </Button>
               <Button
                 onClick={handleContinueToBuy}
                 className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground"
               >
-                ادامه به صفحه خرید
+                {t("event.pricing.modal.continue-to-buy")}
                 <ArrowRight className="size-4 ms-2" />
               </Button>
             </DialogFooter>

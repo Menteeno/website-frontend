@@ -1050,6 +1050,15 @@
           "title": "Venue",
           "description": "Tehran, Niavaran, Khosrowshahi Garden"
         }
+      },
+      "modal": {
+        "title": "Group Purchase Special Discount Code",
+        "description": "Use the discount code below for group purchase (minimum 3 people)",
+        "discount-code": "GROUP03",
+        "discount-code-label": "Your discount code:",
+        "copied-message": "Code copied!",
+        "close": "Close",
+        "continue-to-buy": "Continue to Purchase Page"
       }
     }
   },
