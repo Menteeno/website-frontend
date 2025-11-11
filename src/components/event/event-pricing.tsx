@@ -14,6 +14,7 @@ import {
 import { useTranslation } from "@/hooks/use-translation";
 import {
   ArrowRight,
+  ArrowLeft,
   Check,
   Clock,
   Copy,
@@ -256,7 +257,7 @@ const EventPricing = ({ activeTier = "early-bird" }: EventPricingProps) => {
                       </div>
                     )}
 
-                    <div className="mb-6">
+                    <div>
                       {/* Prices in one line */}
                       <div className="flex items-baseline justify-center lg:justify-start gap-3 flex-wrap">
                         {activeTierData.originalPrice && (
@@ -267,7 +268,7 @@ const EventPricing = ({ activeTier = "early-bird" }: EventPricingProps) => {
                             <span className="text-lg text-red-500 line-through font-bold">
                               {activeTierData.currency}
                             </span>
-                            <span className="text-muted-foreground">→</span>
+                            <span className="text-muted-foreground">←</span>
                           </>
                         )}
                         <span className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
@@ -278,22 +279,6 @@ const EventPricing = ({ activeTier = "early-bird" }: EventPricingProps) => {
                         </span>
                       </div>
                     </div>
-
-                    <Button
-                      asChild
-                      className="w-full lg:w-auto bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all font-semibold px-8"
-                      size="lg"
-                    >
-                      <a
-                        href="https://console.menteeno.app/events/soft-skils-for-developers/buy"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center justify-center gap-2"
-                      >
-                        <span>{t("event.pricing.register-button")}</span>
-                        <ArrowRight className="size-4" />
-                      </a>
-                    </Button>
                   </div>
 
                   {/* Countdown Timer - Right Side */}
@@ -352,6 +337,30 @@ const EventPricing = ({ activeTier = "early-bird" }: EventPricingProps) => {
                       </div>
                     </div>
                   </div>
+                </div>
+              </CardContent>
+
+              {/* CTA Button Section - Center */}
+              <CardContent className="p-6 border-b border-border/50">
+                <div className="flex flex-col items-center justify-center">
+                  <Button
+                    asChild
+                    className="group w-full max-w-md bg-primary hover:bg-primary/90 text-primary-foreground shadow-md hover:shadow-lg transition-all font-semibold"
+                    size="lg"
+                  >
+                    <a
+                      href="https://console.menteeno.app/events/soft-skils-for-developers/buy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2"
+                    >
+                      <ArrowLeft className="size-4 group-hover:-translate-x-1 transition-transform" />
+                      <span>{t("event.pricing.register-button-cta")}</span>
+                    </a>
+                  </Button>
+                  <p className="mt-3 text-xs text-muted-foreground text-center">
+                    فرصت محدود! همین الان ثبت‌نام کنید
+                  </p>
                 </div>
               </CardContent>
 
@@ -518,8 +527,8 @@ const EventPricing = ({ activeTier = "early-bird" }: EventPricingProps) => {
                 onClick={handleContinueToBuy}
                 className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground"
               >
+                <ArrowLeft className="size-4 me-2" />
                 {t("event.pricing.modal.continue-to-buy")}
-                <ArrowRight className="size-4 ms-2" />
               </Button>
             </DialogFooter>
           </DialogContent>
