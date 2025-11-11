@@ -55,7 +55,7 @@ const Navbar = () => {
             rel="noopener noreferrer"
             className={cn(
               "hidden md:flex items-center gap-2 h-9 px-3 rounded-md",
-              "hover:bg-accent hover:text-accent-foreground",
+              "bg-primary text-primary-foreground hover:bg-primary/90",
               "transition-colors text-sm"
             )}
           >
