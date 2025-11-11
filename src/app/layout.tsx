@@ -1,3 +1,4 @@
+import { ChatwootWidget } from "@/components/chatwoot-widget";
 import { DirectionHandler } from "@/components/direction-handler";
 import { LoadingBarWrapper } from "@/components/loading-bar-wrapper";
 import { LocaleProvider } from "@/components/locale-provider";
@@ -161,6 +162,7 @@ export default function RootLayout({
               <LocaleProvider>
                 <DirectionHandler />
                 {children}
+                <ChatwootWidget />
               </LocaleProvider>
             </SEOProvider>
           </OpenReplayProvider>
