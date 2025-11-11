@@ -125,7 +125,7 @@
       "contact-us": "ارتباط با ما",
       "sign-in": "ورود",
       "sign-up": "ثبت‌نام",
-      "user-panel": "پنل کاربری"
+      "user-panel": "[کُنسول] کاربری"
     },
     "hero-introduce": {
       "terminal-command": "sudo apt install menteeno-soft-skills",
@@ -1136,9 +1136,9 @@
       "early-bird": {
         "name": "پیش فروش",
         "price": "۸۹۰,۰۰۰",
-        "currency": "تومان",
+        "currency": "تومانءءء",
         "period": "تا ۲۲ آبان",
-        "badge": "پایان یافته",
+        "badge": "محبوب",
         "features": {
           "access": "دسترسی کامل به رویداد",
           "materials": "مدارک و منابع آموزشی",
@@ -1153,7 +1153,7 @@
       "regular": {
         "name": "بلیت اصلی",
         "price": "۱,۲۹۰,۰۰۰",
-        "currency": "تومان",
+        "currency": "تومانءءء",
         "period": "بعد از ۲۲ آبان",
         "badge": "محبوب",
         "features": {
@@ -1170,7 +1170,7 @@
       "group": {
         "name": "خرید گروهی",
         "price": "۶۸۰,۰۰۰",
-        "currency": "تومان",
+        "currency": "تومانءءء",
         "period": "حداقل ۳ نفر",
         "badge": "ویژه",
         "features": {
@@ -1185,11 +1185,21 @@
         }
       },
       "discount": "۲۱٪ تخفیف",
+      "original-price-label": "قیمت اصلی",
+      "features-title": "امکانات و مزایا",
       "register-button": "همین الان شروع کن!",
       "register-button-alt": "سرمایه‌گذاری در آینده‌ات",
       "register-button-urgent": "فقط چند جای خالی باقی مانده!",
       "coming-soon": "از ۲۳ آبان ۱۴۰۴",
       "ended": "تمام شد",
+      "countdown": {
+        "title": "زمان باقی‌مانده تا پایان پیش‌فروش",
+        "subtitle": "فرصت محدود! همین الان ثبت‌نام کنید",
+        "days": "روز",
+        "hours": "ساعت",
+        "minutes": "دقیقه",
+        "seconds": "ثانیه"
+      },
       "included": {
         "networking": {
           "title": "شبکه‌سازی حرفه‌ای",
@@ -1203,6 +1213,11 @@
           "title": "مکان برگزاری",
           "description": "تهران، نیاوران، باغ خسروشاهی"
         }
+      },
+      "group-discount": {
+        "title": "تخفیف ویژه خرید گروهی",
+        "description": "اگر بیشتر از ۳ نفر به صورت گروهی خرید کنید، می‌توانید ۴۷ درصد تخفیف از قیمت اصلی بلیت بگیرید.",
+        "button": "دریافت کد تخفیف"
       },
       "modal": {
         "title": "کد تخفیف ویژه خرید گروهی",

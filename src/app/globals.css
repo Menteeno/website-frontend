@@ -33,7 +33,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-dana: "DanaVariableFont", "Dana", sans-serif;
+  --font-dana: "DanaVariableFont", sans-serif;
   --font-sans:
     "Instrument Sans", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -375,4 +375,16 @@
       transform: rotate(-5deg) scale(0.9);
     }
   }
+}
+/* Persian number styling */
+.persian-number {
+  -moz-font-feature-settings: "ss02";
+  -webkit-font-feature-settings: "ss02";
+  font-feature-settings: "ss02";
+}
+
+.persian-number-fixed-width {
+  -moz-font-feature-settings: "ss03";
+  -webkit-font-feature-settings: "ss03";
+  font-feature-settings: "ss03";
 }
