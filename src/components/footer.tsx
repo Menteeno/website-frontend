@@ -82,13 +82,6 @@ export function Footer({ className }: FooterProps) {
                 variant="ghost"
                 size="sm"
                 className="justify-start h-10 md:h-auto p-2 md:p-0 text-sm md:text-sm text-muted-foreground hover:text-foreground"
-              >
-                {t("footer.quick_links.services")}
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="justify-start h-10 md:h-auto p-2 md:p-0 text-sm md:text-sm text-muted-foreground hover:text-foreground"
                 asChild
               >
                 <a href={`/${locale}/contact-us`}>
