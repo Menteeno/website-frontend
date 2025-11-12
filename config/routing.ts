@@ -36,8 +36,13 @@ export const redirects = [
   // Common 404 patterns - redirect to closest valid page
   {
     source: "/about",
-    destination: "/fa",
+    destination: "/fa/about-us",
     permanent: true,
+  },
+  {
+    source: "/about-us",
+    destination: "/fa/about-us",
+    permanent: false,
   },
   {
     source: "/contact",

@@ -24,7 +24,9 @@ export type Messages = typeof enMessages;
 
 // Get nested value from object using dot notation
 const getNestedValue = (obj: any, path: string): string => {
-  return path.split(".").reduce((current, key) => current?.[key], obj) || path;
+  const result = path.split(".").reduce((current, key) => current?.[key], obj);
+  // Return the result if it exists (including empty strings), otherwise return the key
+  return result !== undefined && result !== null ? result : path;
 };
 
 // Replace placeholders in string

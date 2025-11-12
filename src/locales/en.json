@@ -1440,5 +1440,117 @@
       "typescript": "TypeScript",
       "frontend": "Frontend"
     }
+  },
+  "about": {
+    "title": "About Us",
+    "description": "Menteeno is a comprehensive platform for developing vital and valuable human skills, which are soft skills. In Menteeno, you can learn how to enhance your skills in life and work. With a personalized path built specifically for you, practical exercises with real people, professional mentors, and lots of constructive feedback. All this journey alongside people who, like you, are pursuing growth!",
+    "breadcrumb": {
+      "home": "Home",
+      "about": "About Us"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "We help programmers strengthen their soft skills and become key, irreplaceable team members. Through games and practical exercises, direct communication with colleagues, mentorship sessions, and continuous feedback."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "We want to build a community of programmers who excel not just in coding, but also in communication, teamwork, leadership, and problem-solving. Menteeno is a place to grow, where you can debug communication bugs, not just code bugs."
+    },
+    "values": {
+      "title": "Our Values",
+      "description": "Core values that Menteeno is built upon",
+      "practical_learning": {
+        "title": "Practical Learning",
+        "description": "We believe that real learning happens through practice and experience in simulated environments, not just through theoretical study."
+      },
+      "personalization": {
+        "title": "Personalization",
+        "description": "Each individual has their own unique learning path designed based on initial assessment and personal skills."
+      },
+      "community": {
+        "title": "Community & Collaboration",
+        "description": "Learning alongside others and with the support of a community of like-minded professionals creates a richer and more effective experience."
+      },
+      "continuous_feedback": {
+        "title": "Continuous Feedback",
+        "description": "Constructive and continuous feedback from mentors, coaches, and support team is the key to progress and growth."
+      }
+    },
+    "approach": {
+      "title": "Our Approach",
+      "description": "Menteeno teaches soft skills through unique and different methods",
+      "features": {
+        "mentorship": {
+          "title": "Private Mentorship",
+          "description": "Three private mentorship sessions with real experts who share their real-world experiences."
+        },
+        "personalized_learning": {
+          "title": "Personalized Learning Program",
+          "description": "A fully personalized learning program designed based on your initial assessment and personal skills."
+        },
+        "practical_exercises": {
+          "title": "Practical Exercises",
+          "description": "Practice teamwork, leadership, and networking skills in simulated environments that recreate real work conditions."
+        },
+        "support": {
+          "title": "Dedicated Support",
+          "description": "Dedicated support throughout your growth journey to ensure you reach your goals."
+        },
+        "feedback": {
+          "title": "Constructive Feedback",
+          "description": "Real feedback from mentors, coaches, and support team that helps you identify your strengths and weaknesses."
+        },
+        "evaluation": {
+          "title": "Regular Evaluation",
+          "description": "Measuring and evaluating progress with designed tests so you can track your growth."
+        },
+        "challenges": {
+          "title": "Real Challenges",
+          "description": "Real challenges and practical exercises in a simulated environment that prepare you for real work situations."
+        }
+      }
+    },
+    "team": {
+      "title": "Our Team",
+      "description": "Meet the people who build Menteeno",
+      "member1": {
+        "name": "Saleh Shojaei",
+        "role": "Founder & CEO",
+        "bio": "Founder and leader of Menteeno. With years of programming experience, he established Menteeno to strengthen soft skills."
+      },
+      "member2": {
+        "name": "Ali Golkar",
+        "role": "CTO & Lead Designer",
+        "bio": "Designer and technical manager of the Menteeno team. Responsible for platform design and technical management, combining creativity and technical expertise.",
+        "social": {
+          "linkedin": "https://www.linkedin.com/in/aligolkarali/",
+          "github": "",
+          "email": "",
+          "instagram": "https://www.instagram.com/aligolkar.ir/"
+        }
+      },
+      "member3": {
+        "name": "Reyhane Maleki",
+        "role": "Social Media Manager",
+        "bio": "Responsible for videography, editing, and social media management. Captures Menteeno's events and activities through video and social content.",
+        "social": {
+          "linkedin": "https://www.linkedin.com/in/reyhane-maleki-18387627b/",
+          "github": "",
+          "email": "",
+          "instagram": "https://www.instagram.com/ryhstm_/"
+        }
+      },
+      "member4": {
+        "name": "Pardis Shojaei",
+        "role": "R&D Lead",
+        "bio": "Responsible for research and development of Menteeno's games and courses. Continuously researching new methods for teaching soft skills.",
+        "social": {
+          "linkedin": "https://www.linkedin.com/in/pardis-shojaei-5600182b0/",
+          "github": "",
+          "email": "",
+          "instagram": "https://www.instagram.com/shpaardis/"
+        }
+      }
+    }
   }
 }

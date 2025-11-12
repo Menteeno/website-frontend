@@ -38,7 +38,7 @@ const EventTeam = () => {
       role: t("event.team.speaker1.role"),
       bio: t("event.team.speaker1.bio"),
       expertise: t("event.team.speaker1.expertise"),
-      avatar: getAssetUrl("/assets/images/team/amirhossein-darabi.jpg"),
+      avatar: getAssetUrl("/assets/images/event/team/amirhossein-darabi.jpg"),
       social: {
         linkedin: "https://www.linkedin.com/in/amirhd/",
         twitter: "https://x.com/AmirHD_com/",
@@ -52,7 +52,7 @@ const EventTeam = () => {
       role: t("event.team.speaker2.role"),
       bio: t("event.team.speaker2.bio"),
       expertise: t("event.team.speaker2.expertise"),
-      avatar: getAssetUrl("/assets/images/team/masoud-bigi.jpg"),
+      avatar: getAssetUrl("/assets/images/event/team/masoud-bigi.jpg"),
       social: {
         linkedin: "https://www.linkedin.com/in/merkousha/",
         twitter: "https://twitter.com/merkousha",
@@ -66,7 +66,7 @@ const EventTeam = () => {
       role: t("event.team.speaker3.role"),
       bio: t("event.team.speaker3.bio"),
       expertise: t("event.team.speaker3.expertise"),
-      avatar: getAssetUrl("/assets/images/team/menteeno-team.jpg"),
+      avatar: getAssetUrl("/assets/images/event/team/menteeno-team.jpg"),
       social: {
         linkedin: "https://www.linkedin.com/company/menteeno/",
         github: "https://github.com/menteeno",
