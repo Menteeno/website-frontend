@@ -4,15 +4,19 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useTranslation } from "@/hooks/use-translation";
 import { getAssetUrl } from "@/lib/config";
 import { Heart, Lightbulb, Target, Users } from "lucide-react";
+import { useEffect, useRef } from "react";
 import "swiper/css";
 import "swiper/css/effect-cards";
 import "swiper/css/pagination";
 import { Autoplay, EffectCards, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as SwiperType } from "swiper";
 import { MagicCard } from "../magicui/magic-card";
 
 const EventAbout = () => {
   const { t } = useTranslation();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const swiperRef = useRef<SwiperType | null>(null);
 
   const features = [
     {
@@ -37,49 +41,119 @@ const EventAbout = () => {
     },
   ];
 
-  // Local event images for the slider
-  const eventImages = [
+  // Local event media (images and videos) for the slider
+  const eventMedia = [
     {
       id: 1,
+      type: "video" as const,
+      src: getAssetUrl("/assets/videos/event/menteeno_event_01.mp4"),
+      alt: "Menteeno event video highlights",
+      poster: getAssetUrl("/assets/videos/event/menteeno_event_01_poster.jpg"),
+    },
+    {
+      id: 2,
+      type: "image" as const,
       src: getAssetUrl("/assets/images/event/gallery/001.jpg"),
       alt: "خانه فناوری - Tech House outdoor sign with pathway leading to building",
     },
     {
-      id: 2,
+      id: 3,
+      type: "image" as const,
       src: getAssetUrl("/assets/images/event/gallery/002.jpg"),
       alt: "Grand white building with classical architecture, porch and columns",
     },
     {
-      id: 3,
+      id: 4,
+      type: "image" as const,
       src: getAssetUrl("/assets/images/event/gallery/003.jpg"),
       alt: "Two-story indoor library and lobby space with decorative elements",
     },
     {
-      id: 4,
+      id: 5,
+      type: "image" as const,
       src: getAssetUrl("/assets/images/event/gallery/004.jpg"),
       alt: "Four men engaged in discussion around a table with cards and papers",
     },
     {
-      id: 5,
+      id: 6,
+      type: "image" as const,
       src: getAssetUrl("/assets/images/event/gallery/005.jpg"),
       alt: "Indoor event exhibition with Mentino and Jamaran Technology House banners",
     },
     {
-      id: 6,
+      id: 7,
+      type: "image" as const,
       src: getAssetUrl("/assets/images/event/gallery/006.jpg"),
       alt: "Workshop and meeting room with participants at tables",
     },
     {
-      id: 7,
+      id: 8,
+      type: "image" as const,
       src: getAssetUrl("/assets/images/event/gallery/007.jpg"),
       alt: "Six young men playing card game around a wooden table",
     },
     {
-      id: 8,
+      id: 9,
+      type: "image" as const,
       src: getAssetUrl("/assets/images/event/gallery/008.jpg"),
       alt: "Group photo of 25-30 people in front of white building with banners",
     },
   ];
+
+  // Autoplay video when it comes into view or when its slide becomes active
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const playVideo = () => {
+      video.play().catch((error) => {
+        // Autoplay was prevented, which is fine
+        console.log("Video autoplay prevented:", error);
+      });
+    };
+
+    const pauseVideo = () => {
+      video.pause();
+    };
+
+    // Intersection Observer for when section comes into view
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Check if video slide is active in Swiper
+            const swiper = swiperRef.current;
+            if (swiper) {
+              const activeIndex = swiper.realIndex;
+              const videoIndex = eventMedia.findIndex(
+                (m) => m.type === "video"
+              );
+              if (activeIndex === videoIndex) {
+                playVideo();
+              }
+            } else {
+              playVideo();
+            }
+          } else {
+            pauseVideo();
+          }
+        });
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of section is visible
+      }
+    );
+
+    // Observe the parent container
+    const container = video.closest("#about");
+    if (container) {
+      observer.observe(container);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <div id="about" className="py-16 sm:py-20 lg:py-24 bg-muted/30">
@@ -163,23 +237,62 @@ const EventAbout = () => {
                 grabCursor={true}
                 modules={[EffectCards, Autoplay, Pagination]}
                 loop={true}
-                autoplay={{
-                  delay: 3000,
-                  disableOnInteraction: false,
-                }}
+                autoplay={false}
+                // autoplay={{
+                //   delay: 3000,
+                //   disableOnInteraction: false,
+                // }}
                 pagination={{
                   clickable: true,
                 }}
                 className="w-full h-80"
+                onSwiper={(swiper) => {
+                  swiperRef.current = swiper;
+                }}
+                onSlideChange={(swiper) => {
+                  const activeIndex = swiper.realIndex;
+                  const videoIndex = eventMedia.findIndex(
+                    (m) => m.type === "video"
+                  );
+                  const video = videoRef.current;
+
+                  if (activeIndex === videoIndex && video) {
+                    // Video slide is active, try to play
+                    video.play().catch((error) => {
+                      console.log("Video autoplay prevented:", error);
+                    });
+                  } else if (video) {
+                    // Other slide is active, pause video
+                    video.pause();
+                  }
+                }}
               >
-                {eventImages.map((image) => (
-                  <SwiperSlide key={image.id}>
+                {eventMedia.map((media) => (
+                  <SwiperSlide key={media.id}>
                     <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-lg">
-                      <img
-                        src={image.src}
-                        alt={image.alt}
-                        className="w-full h-full object-cover"
-                      />
+                      {media.type === "video" ? (
+                        <video
+                          ref={videoRef}
+                          src={media.src}
+                          poster={media.poster}
+                          className="w-full h-full object-cover"
+                          controls
+                          playsInline
+                          muted
+                          autoPlay
+                          preload="metadata"
+                          width={1280}
+                          height={720}
+                        >
+                          Your browser does not support the video tag.
+                        </video>
+                      ) : (
+                        <img
+                          src={media.src}
+                          alt={media.alt}
+                          className="w-full h-full object-cover"
+                        />
+                      )}
                     </div>
                   </SwiperSlide>
                 ))}
