@@ -11,6 +11,33 @@ interface FooterProps {
   className?: string;
 }
 
+const openChatwoot = () => {
+  // Try to open Chatwoot widget
+  if (typeof window !== "undefined") {
+    // Check if Chatwoot is available
+    const chatwoot = (window as any).$chatwoot || (window as any).chatwoot;
+    if (chatwoot) {
+      if (typeof chatwoot.toggle === "function") {
+        chatwoot.toggle();
+      } else if (typeof chatwoot.open === "function") {
+        chatwoot.open();
+      }
+    } else {
+      // If not available yet, wait a bit and try again
+      setTimeout(() => {
+        const chatwootRetry = (window as any).$chatwoot || (window as any).chatwoot;
+        if (chatwootRetry) {
+          if (typeof chatwootRetry.toggle === "function") {
+            chatwootRetry.toggle();
+          } else if (typeof chatwootRetry.open === "function") {
+            chatwootRetry.open();
+          }
+        }
+      }, 500);
+    }
+  }
+};
+
 export function Footer({ className }: FooterProps) {
   const { t, locale } = useTranslation();
   const currentYear = new Date().getFullYear();
@@ -92,6 +119,7 @@ export function Footer({ className }: FooterProps) {
                 variant="ghost"
                 size="sm"
                 className="justify-start h-10 md:h-auto p-2 md:p-0 text-sm md:text-sm text-muted-foreground hover:text-foreground"
+                onClick={openChatwoot}
               >
                 {t("footer.quick_links.support")}
               </Button>

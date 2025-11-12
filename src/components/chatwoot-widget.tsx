@@ -14,6 +14,11 @@ declare global {
     chatwootSDK?: {
       run: (config: { websiteToken: string; baseUrl: string }) => void;
     };
+    $chatwoot?: {
+      toggle: () => void;
+      open: () => void;
+      close: () => void;
+    };
   }
 }
 
@@ -36,7 +41,10 @@ export function ChatwootWidget() {
     if (existingScript) {
       // Script already exists, try to initialize if SDK is available
       const initChatwoot = () => {
-        if (window.chatwootSDK && typeof window.chatwootSDK.run === "function") {
+        if (
+          window.chatwootSDK &&
+          typeof window.chatwootSDK.run === "function"
+        ) {
           try {
             window.chatwootSDK.run({
               websiteToken: "yPrT88KjBkgmBZGReXXSnCp8",
@@ -64,7 +72,10 @@ export function ChatwootWidget() {
     script.onload = () => {
       // Initialize Chatwoot after script loads
       const initChatwoot = () => {
-        if (window.chatwootSDK && typeof window.chatwootSDK.run === "function") {
+        if (
+          window.chatwootSDK &&
+          typeof window.chatwootSDK.run === "function"
+        ) {
           try {
             window.chatwootSDK.run({
               websiteToken: "yPrT88KjBkgmBZGReXXSnCp8",
@@ -95,4 +106,3 @@ export function ChatwootWidget() {
 
   return null;
 }
-
