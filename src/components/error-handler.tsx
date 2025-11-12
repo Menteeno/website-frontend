@@ -76,6 +76,15 @@ export function HealthCheck() {
         return;
       }
 
+      // Skip health check for localhost:3000
+      if (typeof window !== "undefined") {
+        const hostname = window.location.hostname;
+        const port = window.location.port;
+        if (hostname === "localhost" && port === "3000") {
+          return;
+        }
+      }
+
       try {
         const response = await fetch("/api/health", {
           method: "GET",
