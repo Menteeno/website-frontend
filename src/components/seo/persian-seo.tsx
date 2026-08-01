@@ -2,6 +2,7 @@
 
 import { structuredData } from "@/lib/seo";
 import { StructuredData } from "./structured-data";
+import { absoluteUrl } from "@/lib/site";
 
 interface PersianSEOProps {
   locale: string;
@@ -41,13 +42,13 @@ export function PersianSEO({ locale, children }: PersianSEOProps) {
       <meta name="twitter:creator" content="@menteeno" />
 
       {/* Persian-specific canonical and alternate links */}
-      <link rel="canonical" href="https://menteeno.app/fa" />
-      <link rel="alternate" hrefLang="fa" href="https://menteeno.app/fa" />
-      <link rel="alternate" hrefLang="en" href="https://menteeno.app/en" />
+      <link rel="canonical" href={absoluteUrl("/fa")} />
+      <link rel="alternate" hrefLang="fa" href={absoluteUrl("/fa")} />
+      <link rel="alternate" hrefLang="en" href={absoluteUrl("/en")} />
       <link
         rel="alternate"
         hrefLang="x-default"
-        href="https://menteeno.app/fa"
+        href={absoluteUrl("/fa")}
       />
 
       {/* Persian-specific search engines */}

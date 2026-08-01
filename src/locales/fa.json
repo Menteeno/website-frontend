@@ -509,7 +509,7 @@
     },
     "contact": {
       "title": "ارتباط با ما",
-      "email": "hi@menteeno.app",
+      "email": "hi@{siteDomain}",
       "location": "مازندران، بابلسر، خیابان طالقانی، مرکز نوآوری"
     },
     "social": {
@@ -618,7 +618,7 @@
       "title": "تماس با ما",
       "content": "اگر سوالی درباره این سیاست حریم خصوصی یا شیوه‌های حریم خصوصی ما دارید، لطفاً با ما تماس بگیرید:",
       "email_label": "ایمیل:",
-      "email": "hi@menteeno.app"
+      "email": "hi@{siteDomain}"
     }
   },
   "terms": {
@@ -714,7 +714,7 @@
       "title": "اطلاعات تماس",
       "content": "اگر سوالی درباره این شرایط استفاده دارید، لطفاً با ما تماس بگیرید:",
       "email_label": "ایمیل:",
-      "email": "hi@menteeno.app"
+      "email": "hi@{siteDomain}"
     }
   },
   "dashboard": {
@@ -1333,7 +1333,7 @@
       "title": "تماس با ما",
       "content": "اگر سوالی در مورد استفاده ما از کوکی‌ها یا این سیاست کوکی دارید، لطفاً با ما تماس بگیرید.",
       "email_label": "ایمیل:",
-      "email": "privacy@menteeno.com"
+      "email": "privacy@{siteDomain}"
     }
   },
   "contact": {
@@ -1372,7 +1372,7 @@
       "working_hours": "ساعات کاری",
       "address": "آدرس",
       "phone_value": "۰۲۱-۹۱۰۳۱۶۱۴",
-      "email_value": "hi@menteeno.app",
+      "email_value": "hi@{siteDomain}",
       "telegram_value": "@menteeno",
       "whatsapp_value": "ارسال مستقیم پیام",
       "working_hours_value": "شنبه تا جمعه: ۹ صبح تا ۶ عصر (دوشنبه‌ها تعطیل)",

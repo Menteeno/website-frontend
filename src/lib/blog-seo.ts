@@ -2,6 +2,7 @@ import type { BlogPost, Locale } from "@/types/blog";
 
 import { getAssetUrl } from "./config";
 import { getBaseUrl } from "./env";
+import { getSiteOrigin, siteEmails } from "./site";
 
 // Generate structured data for blog posts
 export function generateBlogStructuredData(post: BlogPost) {
@@ -112,7 +113,7 @@ export function generateOrganizationStructuredData() {
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
-      email: "hello@menteeno.com",
+      email: siteEmails.hello(),
     },
   };
 }
@@ -155,7 +156,7 @@ export function generateBlogSitemapData(posts: BlogPost[]) {
 
 // Generate robots.txt content
 export function generateRobotsTxtContent() {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://menteeno.com";
+  const baseUrl = getSiteOrigin();
 
   return `User-agent: *
 Allow: /
@@ -228,7 +229,7 @@ export function generateHreflangTags(slug: string) {
     {
       rel: "alternate",
       hreflang: "x-default",
-      href: `${baseUrl}/en/blog/${slug}`,
+      href: `${baseUrl}/fa/blog/${slug}`,
     },
   ];
 }

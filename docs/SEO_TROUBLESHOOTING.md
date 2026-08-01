@@ -107,11 +107,11 @@ import { BlogImage, HeroImage, ThumbnailImage } from '@/components/seo/optimized
 ```typescript
 // In your metadata
 alternates: {
-  canonical: `https://menteeno.app/${locale}/blog/${slug}`,
+  canonical: `https://menteeno.ir/${locale}/blog/${slug}`,
   languages: {
-    en: `https://menteeno.app/en/blog/${slug}`,
-    fa: `https://menteeno.app/fa/blog/${slug}`,
-    "x-default": `https://menteeno.app/en/blog/${slug}`,
+    en: `https://menteeno.ir/en/blog/${slug}`,
+    fa: `https://menteeno.ir/fa/blog/${slug}`,
+    "x-default": `https://menteeno.ir/en/blog/${slug}`,
   },
 }
 ```
@@ -169,7 +169,7 @@ const seoData = {
   description: "Your meta description",
   keywords: ["keyword1", "keyword2"],
   locale: "fa",
-  url: "https://menteeno.app/fa/page",
+  url: "https://menteeno.ir/fa/page",
   images: [{ src: "/image.jpg", alt: "Image description" }],
   headings: [
     { level: 1, text: "Main Heading" },
@@ -317,7 +317,7 @@ Ensure basic SEO works even if advanced features fail:
 // Always include basic meta tags
 <meta name="description" content="Fallback description" />
 <meta name="keywords" content="fallback, keywords" />
-<link rel="canonical" href="https://menteeno.app/fa" />
+<link rel="canonical" href="https://menteeno.ir/fa" />
 ```
 
 ## Contact and Support

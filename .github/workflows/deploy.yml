@@ -52,6 +52,8 @@ jobs:
         env:
           GITHUB_PAGES: true
           NEXT_PUBLIC_DEPLOYMENT_ENV: github-pages
+          NEXT_PUBLIC_BASE_URL: https://menteeno.ir
+          NEXT_PUBLIC_DEFAULT_LOCALE: fa
 
       - name: Restore middleware
         run: |

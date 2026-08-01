@@ -1,6 +1,6 @@
 # Google Analytics Troubleshooting Guide
 
-## Issue: Google Tag Manager not detected on menteeno.app
+## Issue: Google Tag Manager not detected on menteeno.ir
 
 ### Problem Analysis
 
@@ -10,7 +10,7 @@ The Google Analytics ID `G-ELCJW5JXCB` is configured but not being detected by G
 
 - **Google Analytics ID**: `G-ELCJW5JXCB`
 - **Google Tag Manager ID**: `GTM-5FDNSG37`
-- **Environment**: Production (menteeno.app)
+- **Environment**: Production (menteeno.ir)
 
 ### Solutions Applied
 
@@ -43,24 +43,24 @@ npm run dev
 ##### Production Testing
 
 1. **Browser Developer Tools**:
-   - Open menteeno.app
+   - Open menteeno.ir
    - Check Network tab for `gtag/js?id=G-ELCJW5JXCB` request
    - Check Console for any errors
    - Verify `window.gtag` function exists
 
 2. **Google Analytics Real-time Reports**:
    - Go to GA4 Real-time reports
-   - Visit menteeno.app
+   - Visit menteeno.ir
    - Check if page views appear within 30 seconds
 
 3. **Google Tag Assistant**:
    - Install Google Tag Assistant browser extension
-   - Visit menteeno.app
+   - Visit menteeno.ir
    - Check if GA4 tag is detected
 
 4. **Manual Verification**:
    ```javascript
-   // Run in browser console on menteeno.app
+   // Run in browser console on menteeno.ir
    console.log("GA ID:", window.gtag ? "Loaded" : "Not loaded");
    console.log("DataLayer:", window.dataLayer);
    ```

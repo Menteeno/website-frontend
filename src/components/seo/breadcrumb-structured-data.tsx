@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { StructuredData } from "./structured-data";
+import { absoluteUrl, getSiteOrigin } from "@/lib/site";
 
 interface BreadcrumbItem {
   name: string;
@@ -27,7 +28,7 @@ export function BreadcrumbStructuredData({
     // Auto-generate breadcrumbs from pathname
     const segments = pathname.split("/").filter(Boolean);
     const breadcrumbs: BreadcrumbItem[] = [
-      { name: "Home", url: "https://menteeno.app" },
+      { name: "Home", url: getSiteOrigin() },
     ];
 
     let currentPath = "";
@@ -37,7 +38,7 @@ export function BreadcrumbStructuredData({
         segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, " ");
       breadcrumbs.push({
         name: name,
-        url: `https://menteeno.app${currentPath}`,
+        url: absoluteUrl(currentPath),
       });
     });
 

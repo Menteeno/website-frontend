@@ -14,6 +14,7 @@ import {
   Twitter,
 } from "lucide-react";
 import { MagicCard } from "../magicui/magic-card";
+import { siteEmails } from "@/lib/site";
 
 export const AboutUsTeam = () => {
   const { t } = useTranslation();
@@ -33,7 +34,7 @@ export const AboutUsTeam = () => {
       social: {
         linkedin: "https://www.linkedin.com/in/salehshojaei/",
         github: "https://github.com/ssshojaei",
-        email: "saleh@menteeno.app",
+        email: siteEmails.saleh(),
         instagram: "https://instagram.com/roxaleh",
         blog: "https://roxaleh.ir",
       },

@@ -1,27 +1,38 @@
-// Environment configuration
+import { getDefaultApiUrl, getSiteOrigin } from "./site";
+
+// Environment configuration — domain defaults live in `src/lib/site.ts`
 export const ENV = {
   // Base URLs
-  BASE_URL: process.env.NEXT_PUBLIC_BASE_URL || "https://menteeno.app",
-  API_URL: process.env.NEXT_PUBLIC_API_URL || "https://menteeno.app/api",
-  
+  get BASE_URL() {
+    return getSiteOrigin();
+  },
+  get API_URL() {
+    return getDefaultApiUrl();
+  },
+
   // App Information
   APP_NAME: process.env.NEXT_PUBLIC_APP_NAME || "Menteeno",
-  APP_DESCRIPTION: process.env.NEXT_PUBLIC_APP_DESCRIPTION || "Professional Skill Development Platform",
-  
+  APP_DESCRIPTION:
+    process.env.NEXT_PUBLIC_APP_DESCRIPTION ||
+    "پلتفرم توسعه مهارت‌های حرفه‌ای",
+
   // Environment
   DEPLOYMENT_ENV: process.env.NEXT_PUBLIC_DEPLOYMENT_ENV || "production",
   IS_PRODUCTION: process.env.NEXT_PUBLIC_DEPLOYMENT_ENV === "production",
   IS_DEVELOPMENT: process.env.NEXT_PUBLIC_DEPLOYMENT_ENV === "development",
-  
+  DEFAULT_LOCALE: process.env.NEXT_PUBLIC_DEFAULT_LOCALE || "fa",
+
   // Social Media
   TWITTER_HANDLE: process.env.NEXT_PUBLIC_TWITTER_HANDLE || "@menteeno",
-  LINKEDIN_URL: process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://linkedin.com/company/menteeno",
+  LINKEDIN_URL:
+    process.env.NEXT_PUBLIC_LINKEDIN_URL ||
+    "https://linkedin.com/company/menteeno",
   GITHUB_URL: process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com/menteeno",
-  
+
   // Analytics (Optional)
   GA_ID: process.env.NEXT_PUBLIC_GA_ID,
   SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,
-} as const;
+};
 
 // Helper functions
 export function getBaseUrl(): string {
@@ -76,30 +87,30 @@ export function buildApiUrl(endpoint: string): string {
   return `${apiUrl}${cleanEndpoint}`;
 }
 
-export function buildBlogUrl(slug: string, locale: "en" | "fa" = "en"): string {
+export function buildBlogUrl(slug: string, locale: "en" | "fa" = "fa"): string {
   return buildUrl(`/${locale}/blog/${slug}`);
 }
 
-export function buildBlogListUrl(locale: "en" | "fa" = "en"): string {
+export function buildBlogListUrl(locale: "en" | "fa" = "fa"): string {
   return buildUrl(`/${locale}/blog`);
 }
 
 // Validation
 export function validateEnvironment(): { isValid: boolean; errors: string[] } {
   const errors: string[] = [];
-  
+
   if (!ENV.BASE_URL) {
     errors.push("NEXT_PUBLIC_BASE_URL is required");
   }
-  
+
   if (!ENV.API_URL) {
     errors.push("NEXT_PUBLIC_API_URL is required");
   }
-  
+
   if (!ENV.APP_NAME) {
     errors.push("NEXT_PUBLIC_APP_NAME is required");
   }
-  
+
   return {
     isValid: errors.length === 0,
     errors,

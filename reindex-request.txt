@@ -15,105 +15,105 @@
 # =============================================================================
 
 # Root pages
-https://menteeno.app/
-https://menteeno.app/en
-https://menteeno.app/fa
+https://menteeno.ir/
+https://menteeno.ir/en
+https://menteeno.ir/fa
 
 # Authentication pages
-https://menteeno.app/en/auth
-https://menteeno.app/fa/auth
+https://menteeno.ir/en/auth
+https://menteeno.ir/fa/auth
 
 # Contact pages
-https://menteeno.app/en/contact-us
-https://menteeno.app/fa/contact-us
+https://menteeno.ir/en/contact-us
+https://menteeno.ir/fa/contact-us
 
 # Blog pages
-https://menteeno.app/en/blog
-https://menteeno.app/fa/blog
+https://menteeno.ir/en/blog
+https://menteeno.ir/fa/blog
 
 # Dashboard pages
-https://menteeno.app/en/dashboard
-https://menteeno.app/fa/dashboard
-https://menteeno.app/en/dashboard/surveys
-https://menteeno.app/fa/dashboard/surveys
-https://menteeno.app/en/dashboard/responses
-https://menteeno.app/fa/dashboard/responses
-https://menteeno.app/en/dashboard/analytics
-https://menteeno.app/fa/dashboard/analytics
-https://menteeno.app/en/dashboard/settings
-https://menteeno.app/fa/dashboard/settings
+https://menteeno.ir/en/dashboard
+https://menteeno.ir/fa/dashboard
+https://menteeno.ir/en/dashboard/surveys
+https://menteeno.ir/fa/dashboard/surveys
+https://menteeno.ir/en/dashboard/responses
+https://menteeno.ir/fa/dashboard/responses
+https://menteeno.ir/en/dashboard/analytics
+https://menteeno.ir/fa/dashboard/analytics
+https://menteeno.ir/en/dashboard/settings
+https://menteeno.ir/fa/dashboard/settings
 
 # Event pages
-https://menteeno.app/en/event
-https://menteeno.app/fa/event
+https://menteeno.ir/en/event
+https://menteeno.ir/fa/event
 
 # Survey pages
-https://menteeno.app/en/survey
-https://menteeno.app/fa/survey
+https://menteeno.ir/en/survey
+https://menteeno.ir/fa/survey
 
 # Legal pages
-https://menteeno.app/en/privacy
-https://menteeno.app/fa/privacy
-https://menteeno.app/en/terms
-https://menteeno.app/fa/terms
-https://menteeno.app/en/cookies
-https://menteeno.app/fa/cookies
+https://menteeno.ir/en/privacy
+https://menteeno.ir/fa/privacy
+https://menteeno.ir/en/terms
+https://menteeno.ir/fa/terms
+https://menteeno.ir/en/cookies
+https://menteeno.ir/fa/cookies
 
 # Demo pages
-https://menteeno.app/en/i18n-demo
-https://menteeno.app/fa/i18n-demo
+https://menteeno.ir/en/i18n-demo
+https://menteeno.ir/fa/i18n-demo
 
 # =============================================================================
 # SITEMAPS - CRITICAL FOR CRAWLING
 # =============================================================================
 
 # Main sitemaps
-https://menteeno.app/sitemap.xml
-https://menteeno.app/sitemap-blog.xml
-https://menteeno.app/sitemap-fa.xml
-https://menteeno.app/en/sitemap.xml
-https://menteeno.app/fa/sitemap.xml
+https://menteeno.ir/sitemap.xml
+https://menteeno.ir/sitemap-blog.xml
+https://menteeno.ir/sitemap-fa.xml
+https://menteeno.ir/en/sitemap.xml
+https://menteeno.ir/fa/sitemap.xml
 
 # =============================================================================
 # ROBOTS.TXT - IMPORTANT FOR CRAWLING RULES
 # =============================================================================
 
-https://menteeno.app/robots.txt
-https://menteeno.app/robots-fa.txt
+https://menteeno.ir/robots.txt
+https://menteeno.ir/robots-fa.txt
 
 # =============================================================================
 # REDIRECTED PAGES - SHOULD NOW RETURN PROPER REDIRECTS
 # =============================================================================
 
 # Common 404 patterns that now redirect
-https://menteeno.app/about
-https://menteeno.app/contact
-https://menteeno.app/courses
-https://menteeno.app/mentorship
-https://menteeno.app/events
-https://menteeno.app/surveys
-https://menteeno.app/analytics
-https://menteeno.app/settings
-https://menteeno.app/responses
+https://menteeno.ir/about
+https://menteeno.ir/contact
+https://menteeno.ir/courses
+https://menteeno.ir/mentorship
+https://menteeno.ir/events
+https://menteeno.ir/surveys
+https://menteeno.ir/analytics
+https://menteeno.ir/settings
+https://menteeno.ir/responses
 
 # Legacy redirects
-https://menteeno.app/home
-https://menteeno.app/login
-https://menteeno.app/signup
-https://menteeno.app/fa/home
-https://menteeno.app/fa/login
-https://menteeno.app/fa/signup
-https://menteeno.app/en/home
-https://menteeno.app/en/login
-https://menteeno.app/en/signup
+https://menteeno.ir/home
+https://menteeno.ir/login
+https://menteeno.ir/signup
+https://menteeno.ir/fa/home
+https://menteeno.ir/fa/login
+https://menteeno.ir/fa/signup
+https://menteeno.ir/en/home
+https://menteeno.ir/en/login
+https://menteeno.ir/en/signup
 
 # Typo redirects
-https://menteeno.app/contatc-us
-https://menteeno.app/contatc
-https://menteeno.app/dashbord
-https://menteeno.app/dash
-https://menteeno.app/blg
-https://menteeno.app/blgo
+https://menteeno.ir/contatc-us
+https://menteeno.ir/contatc
+https://menteeno.ir/dashbord
+https://menteeno.ir/dash
+https://menteeno.ir/blg
+https://menteeno.ir/blgo
 
 # =============================================================================
 # API ENDPOINTS - FOR HEALTH MONITORING
@@ -153,17 +153,17 @@ https://menteeno.app/blgo
 # =============================================================================
 
 # Test key URLs with curl:
-# curl -I https://menteeno.app/
-# curl -I https://menteeno.app/fa
-# curl -I https://menteeno.app/en
-# curl -I https://menteeno.app/sitemap.xml
-# curl -I https://menteeno.app/robots.txt
+# curl -I https://menteeno.ir/
+# curl -I https://menteeno.ir/fa
+# curl -I https://menteeno.ir/en
+# curl -I https://menteeno.ir/sitemap.xml
+# curl -I https://menteeno.ir/robots.txt
 
 # Check redirects:
-# curl -I https://menteeno.app/about
-# curl -I https://menteeno.app/contact
-# curl -I https://menteeno.app/login
+# curl -I https://menteeno.ir/about
+# curl -I https://menteeno.ir/contact
+# curl -I https://menteeno.ir/login
 
 # Verify canonical tags:
-# curl -s https://menteeno.app/fa | grep -i canonical
-# curl -s https://menteeno.app/en | grep -i canonical
+# curl -s https://menteeno.ir/fa | grep -i canonical
+# curl -s https://menteeno.ir/en | grep -i canonical

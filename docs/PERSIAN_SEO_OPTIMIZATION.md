@@ -120,7 +120,7 @@ This document outlines the comprehensive Persian SEO optimizations implemented f
   "@type": "Organization",
   "name": "منتینو",
   "alternateName": "Menteeno",
-  "url": "https://menteeno.app/fa",
+  "url": "https://menteeno.ir/fa",
   "description": "پلتفرم توسعه مهارت‌های حرفه‌ای با منتورشیپ شخصی‌سازی‌شده و آموزش عملی",
   "contactPoint": {
     "@type": "ContactPoint",

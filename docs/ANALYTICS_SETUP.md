@@ -29,7 +29,7 @@ This guide will help you set up Google Analytics 4 (GA4) and Google Search Conso
 3. **Set Up Data Stream**
    - Go to **Admin** → **Data Streams**
    - Click **Add stream** → **Web**
-   - Enter your website URL: `https://menteeno.app`
+   - Enter your website URL: `https://menteeno.ir`
    - Stream name: `Menteeno Website`
    - Copy the **Measurement ID** (format: `G-XXXXXXXXXX`)
 
@@ -76,7 +76,7 @@ This guide will help you set up Google Analytics 4 (GA4) and Google Search Conso
 2. **Add Property**
    - Click "Add property"
    - Choose "URL prefix" method
-   - Enter your website URL: `https://menteeno.app`
+   - Enter your website URL: `https://menteeno.ir`
    - Click "Continue"
 
 ### Step 2: Verify Ownership
@@ -87,7 +87,7 @@ Choose one of these verification methods:
 
 1. Download the HTML verification file from GSC
 2. Upload it to your `public/` folder
-3. Ensure it's accessible at `https://menteeno.app/google[random-string].html`
+3. Ensure it's accessible at `https://menteeno.ir/google[random-string].html`
 4. Click "Verify" in GSC
 
 #### Method 2: HTML Meta Tag
@@ -109,12 +109,12 @@ Choose one of these verification methods:
 
 1. **Submit Main Sitemap**
    - Go to **Sitemaps** in GSC
-   - Add sitemap: `https://menteeno.app/sitemap.xml`
+   - Add sitemap: `https://menteeno.ir/sitemap.xml`
    - Click "Submit"
 
 2. **Submit Additional Sitemaps**
-   - Blog sitemap: `https://menteeno.app/sitemap-blog.xml`
-   - Persian sitemap: `https://menteeno.app/sitemap-fa.xml`
+   - Blog sitemap: `https://menteeno.ir/sitemap-blog.xml`
+   - Persian sitemap: `https://menteeno.ir/sitemap-fa.xml`
 
 ### Step 4: Configure International Targeting
 

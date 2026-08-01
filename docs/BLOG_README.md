@@ -253,7 +253,7 @@ const structuredData = generateBlogStructuredData(post);
 
 ### Environment Variables
 ```env
-NEXT_PUBLIC_BASE_URL=https://menteeno.com
+NEXT_PUBLIC_BASE_URL=https://menteeno.ir
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 NEXT_PUBLIC_SENTRY_DSN=https://...
 ```

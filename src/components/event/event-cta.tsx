@@ -13,6 +13,7 @@ import {
   Users,
 } from "lucide-react";
 import { MagicCard } from "../magicui/magic-card";
+import { getConsoleUrl } from "@/lib/site";
 
 const EventCTA = () => {
   const { t } = useTranslation();
@@ -125,7 +126,7 @@ const EventCTA = () => {
               className="text-lg px-8 py-6 hover:scale-105 transition-all duration-200 hover:shadow-lg"
             >
               <a
-                href="https://console.menteeno.app/events/soft-skils-for-developers/buy"
+                href={getConsoleUrl("/events/soft-skils-for-developers/buy")}
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { MagicCard } from "../magicui/magic-card";
+import { getConsoleUrl } from "@/lib/site";
 
 interface EventPricingProps {
   activeTier?: "early-bird" | "regular";
@@ -84,7 +85,7 @@ const EventPricing = ({ activeTier = "early-bird" }: EventPricingProps) => {
 
   const handleContinueToBuy = () => {
     window.open(
-      "https://console.menteeno.app/events/soft-skils-for-developers/buy",
+      getConsoleUrl("/events/soft-skils-for-developers/buy"),
       "_blank",
       "noopener,noreferrer"
     );
@@ -349,7 +350,7 @@ const EventPricing = ({ activeTier = "early-bird" }: EventPricingProps) => {
                     size="lg"
                   >
                     <a
-                      href="https://console.menteeno.app/events/soft-skils-for-developers/buy"
+                      href={getConsoleUrl("/events/soft-skils-for-developers/buy")}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2"

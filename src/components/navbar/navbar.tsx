@@ -8,6 +8,7 @@ import { useTranslation } from "@/hooks/use-translation";
 import { cn } from "@/lib/utils";
 import { PanelLeft } from "lucide-react";
 import { useEffect, useState } from "react";
+import { getConsoleUrl } from "@/lib/site";
 
 const Navbar = () => {
   const { t, locale } = useTranslation();
@@ -50,7 +51,7 @@ const Navbar = () => {
 
         <div className="flex items-center gap-3">
           <a
-            href="https://console.menteeno.app/"
+            href={getConsoleUrl()}
             target="_blank"
             rel="noopener noreferrer"
             className={cn(

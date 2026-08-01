@@ -1,6 +1,9 @@
 /**
- * Centralized configuration for different deployment environments
+ * Centralized configuration for different deployment environments.
+ * Domain defaults come from `src/lib/site.ts` (DEFAULT_SITE_ORIGIN).
  */
+
+import { getDefaultApiUrl, getSiteOrigin } from "./site";
 
 export type DeploymentEnvironment =
   | "development"
@@ -23,28 +26,35 @@ export interface AppConfig {
 /**
  * Environment configuration mapping
  */
-export const ENVIRONMENT_CONFIGS = {
-  development: {
-    baseUrl: "http://localhost:3000",
-    basePath: "",
-    assetPrefix: "",
-  },
-  production: {
-    baseUrl: "https://menteeno.app",
-    basePath: "",
-    assetPrefix: "",
-  },
-  "github-pages": {
-    baseUrl: "https://menteeno.app",
-    basePath: "",
-    assetPrefix: "",
-  },
-  custom: {
-    baseUrl: process.env.NEXT_PUBLIC_BASE_URL || "https://menteeno.app",
-    basePath: process.env.NEXT_PUBLIC_BASE_PATH || "",
-    assetPrefix: process.env.NEXT_PUBLIC_ASSET_PREFIX || "",
-  },
-} as const;
+export function getEnvironmentConfigs() {
+  const siteOrigin = getSiteOrigin();
+
+  return {
+    development: {
+      baseUrl: "http://localhost:3000",
+      basePath: "",
+      assetPrefix: "",
+    },
+    production: {
+      baseUrl: siteOrigin,
+      basePath: "",
+      assetPrefix: "",
+    },
+    "github-pages": {
+      baseUrl: siteOrigin,
+      basePath: "",
+      assetPrefix: "",
+    },
+    custom: {
+      baseUrl: siteOrigin,
+      basePath: process.env.NEXT_PUBLIC_BASE_PATH || "",
+      assetPrefix: process.env.NEXT_PUBLIC_ASSET_PREFIX || "",
+    },
+  } as const;
+}
+
+/** @deprecated Prefer getEnvironmentConfigs() — kept for any external imports */
+export const ENVIRONMENT_CONFIGS = getEnvironmentConfigs();
 
 /**
  * Get the current deployment environment
@@ -73,17 +83,17 @@ export function getDeploymentEnvironment(): DeploymentEnvironment {
  */
 export function getAppConfig(): AppConfig {
   const environment = getDeploymentEnvironment();
-  const envConfig = ENVIRONMENT_CONFIGS[environment];
+  const envConfig = getEnvironmentConfigs()[environment];
   const isGitHubPages = environment === "github-pages";
   const isProduction = environment === "production" || isGitHubPages;
 
   return {
     baseUrl: envConfig.baseUrl,
-    apiUrl: process.env.NEXT_PUBLIC_API_URL || `${envConfig.baseUrl}/api`,
+    apiUrl: getDefaultApiUrl(),
     appName: process.env.NEXT_PUBLIC_APP_NAME || "Menteeno",
     appDescription:
       process.env.NEXT_PUBLIC_APP_DESCRIPTION ||
-      "Professional Skill Development Platform",
+      "پلتفرم توسعه مهارت‌های حرفه‌ای",
     isGitHubPages,
     isProduction,
     environment,

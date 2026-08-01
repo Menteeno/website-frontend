@@ -1,9 +1,10 @@
+import { getSiteOrigin } from "@/lib/site";
 import { generateBlogSitemapData } from "@/lib/blog-seo";
 import { getAllBlogPosts } from "@/lib/blog";
 import type { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://menteeno.com";
+  const baseUrl = getSiteOrigin();
   
   // Get all blog posts for both locales
   const [enPosts, faPosts] = await Promise.all([

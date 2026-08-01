@@ -1,10 +1,10 @@
-# Custom Domain Deployment Guide - menteeno.app
+# Custom Domain Deployment Guide - menteeno.ir
 
-This guide will help you deploy your Menteeno website to the custom domain `menteeno.app` using GitHub Pages.
+This guide will help you deploy your Menteeno website to the custom domain `menteeno.ir` using GitHub Pages.
 
 ## Prerequisites
 
-1. **Domain Ownership**: You must own the `menteeno.app` domain
+1. **Domain Ownership**: You must own the `menteeno.ir` domain
 2. **GitHub Repository**: Your code should be in a GitHub repository
 3. **DNS Provider Access**: Access to your domain's DNS settings
 
@@ -30,7 +30,7 @@ This guide will help you deploy your Menteeno website to the custom domain `ment
 
 Add the following DNS records to your domain provider:
 
-#### For Root Domain (menteeno.app):
+#### For Root Domain (menteeno.ir):
 
 ```
 Type: A
@@ -54,7 +54,7 @@ Value: 185.199.111.153
 TTL: 300
 ```
 
-#### For WWW Subdomain (www.menteeno.app):
+#### For WWW Subdomain (www.menteeno.ir):
 
 ```
 Type: CNAME
@@ -82,7 +82,7 @@ TTL: 300
 ### 3.1 Add Domain to GitHub Pages
 
 1. Go to your repository **Settings** → **Pages**
-2. In the **Custom domain** field, enter: `menteeno.app`
+2. In the **Custom domain** field, enter: `menteeno.ir`
 3. Check **Enforce HTTPS** (this will be available after DNS propagation)
 4. Click **Save**
 
@@ -102,7 +102,7 @@ Your site will automatically deploy when you push to the `main` branch. The GitH
 1. Build your Next.js application
 2. Generate static files in the `out` directory
 3. Deploy to GitHub Pages
-4. Make your site available at `https://menteeno.app`
+4. Make your site available at `https://menteeno.ir`
 
 ### 4.2 Manual Deployment Test
 
@@ -187,7 +187,7 @@ The following environment variables are used during deployment:
 - [ ] Repository permissions configured
 - [ ] Custom domain added in GitHub Pages settings
 - [ ] HTTPS enforced
-- [ ] Site accessible at https://menteeno.app
+- [ ] Site accessible at https://menteeno.ir
 - [ ] All internal links working correctly
 - [ ] Images and assets loading properly
 
@@ -200,4 +200,4 @@ If you encounter any issues:
 3. Check GitHub Pages status page for service issues
 4. Review the troubleshooting section above
 
-Your site should be live at `https://menteeno.app` once all steps are completed!
+Your site should be live at `https://menteeno.ir` once all steps are completed!

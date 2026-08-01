@@ -4,6 +4,7 @@ import {
   generateLocalizedMetadata as generateSEO,
   generateViewport,
 } from "./seo";
+import { interpolateSiteDomain } from "./site";
 
 // Import locale files
 import enMessages from "@/locales/en.json";
@@ -49,7 +50,7 @@ export const getTranslation = (
 
   const localeMessages = messages[locale as Locale] || messages.fa;
   const translation = getNestedValue(localeMessages, key);
-  return replacePlaceholders(translation, replacements);
+  return interpolateSiteDomain(replacePlaceholders(translation, replacements));
 };
 
 // Client-side translation hook
@@ -87,8 +88,14 @@ export const isValidLocale = (locale: string): locale is Locale => {
   return locales.includes(locale as Locale);
 };
 
-// Utility function to get the default locale
-export const getDefaultLocale = (): Locale => "fa";
+// Utility function to get the default locale (Persian is primary)
+export const getDefaultLocale = (): Locale => {
+  const fromEnv = process.env.NEXT_PUBLIC_DEFAULT_LOCALE;
+  if (fromEnv && isValidLocale(fromEnv)) {
+    return fromEnv;
+  }
+  return "fa";
+};
 
 // Utility function to get locale from pathname
 export const getLocaleFromPathname = (pathname: string): Locale => {

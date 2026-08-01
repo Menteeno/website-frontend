@@ -5,7 +5,7 @@
 - **Build:** ✅ Successful (48 pages generated)
 - **Git Push:** ✅ Completed
 - **GitHub Actions:** 🔄 Running
-- **Live Site:** ✅ https://menteeno.app
+- **Live Site:** ✅ https://menteeno.ir
 
 ## 🧪 Verification Results
 
@@ -27,11 +27,11 @@ Use the URLs from `reindex-request.txt`:
 **High Priority URLs:**
 
 ```
-https://menteeno.app/
-https://menteeno.app/fa
-https://menteeno.app/en
-https://menteeno.app/sitemap.xml
-https://menteeno.app/robots.txt
+https://menteeno.ir/
+https://menteeno.ir/fa
+https://menteeno.ir/en
+https://menteeno.ir/sitemap.xml
+https://menteeno.ir/robots.txt
 ```
 
 **Steps:**
@@ -45,16 +45,16 @@ https://menteeno.app/robots.txt
 
 ```bash
 # Test redirects
-curl -I https://menteeno.app/about
-curl -I https://menteeno.app/contact
-curl -I https://menteeno.app/login
+curl -I https://menteeno.ir/about
+curl -I https://menteeno.ir/contact
+curl -I https://menteeno.ir/login
 
 # Test canonical tags
-curl -s https://menteeno.app/fa | grep -i canonical
-curl -s https://menteeno.app/en | grep -i canonical
+curl -s https://menteeno.ir/fa | grep -i canonical
+curl -s https://menteeno.ir/en | grep -i canonical
 
 # Test health endpoint
-curl https://menteeno.app/api/health
+curl https://menteeno.ir/api/health
 ```
 
 ### 4. Monitor Progress

@@ -74,15 +74,15 @@ ${hotjarId ? `NEXT_PUBLIC_HOTJAR_ID=${hotjarId}` : "# NEXT_PUBLIC_HOTJAR_ID="}
 
 2. Google Search Console:
    - Go to https://search.google.com/search-console/
-   - Add property: https://menteeno.app
+   - Add property: https://menteeno.ir
    - Choose verification method:
      * HTML file upload (recommended)
      * HTML meta tag
      * Google Analytics (if GA4 is working)
    - Submit sitemaps:
-     * https://menteeno.app/sitemap.xml
-     * https://menteeno.app/sitemap-blog.xml
-     * https://menteeno.app/sitemap-fa.xml
+     * https://menteeno.ir/sitemap.xml
+     * https://menteeno.ir/sitemap-blog.xml
+     * https://menteeno.ir/sitemap-fa.xml
 
 3. Testing:
    - Run: npm run dev

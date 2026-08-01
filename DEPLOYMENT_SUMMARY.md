@@ -2,7 +2,7 @@
 
 ## ✅ Deployment Setup Complete
 
-Your Menteeno website is now fully configured for deployment to `menteeno.app` using GitHub Pages.
+Your Menteeno website is now fully configured for deployment to `menteeno.ir` using GitHub Pages.
 
 ## 📁 Files Modified/Created
 
@@ -25,7 +25,7 @@ Your Menteeno website is now fully configured for deployment to `menteeno.app` u
 1. Go to your GitHub repository settings
 2. Navigate to **Settings** → **Pages**
 3. Under **Source**, select **GitHub Actions**
-4. In **Custom domain**, enter: `menteeno.app`
+4. In **Custom domain**, enter: `menteeno.ir`
 5. Check **Enforce HTTPS**
 
 ### 2. Repository Permissions
@@ -38,7 +38,7 @@ Your Menteeno website is now fully configured for deployment to `menteeno.app` u
 
 Add these DNS records to your domain provider:
 
-#### For Root Domain (menteeno.app):
+#### For Root Domain (menteeno.ir):
 
 ```
 Type: A
@@ -62,7 +62,7 @@ Value: 185.199.111.153
 TTL: 300
 ```
 
-#### For WWW Subdomain (www.menteeno.app):
+#### For WWW Subdomain (www.menteeno.ir):
 
 ```
 Type: CNAME
@@ -75,7 +75,7 @@ TTL: 300
 
 1. Push your changes to the `main` branch
 2. The GitHub Action will automatically build and deploy your site
-3. Your site will be available at `https://menteeno.app`
+3. Your site will be available at `https://menteeno.ir`
 
 ## 🔧 Build Configuration
 
@@ -122,7 +122,7 @@ ls -la out/
 
 After deployment, verify:
 
-- [ ] Site loads at https://menteeno.app
+- [ ] Site loads at https://menteeno.ir
 - [ ] HTTPS is enforced
 - [ ] All pages and routes work correctly
 - [ ] Images and assets load properly
@@ -145,6 +145,6 @@ If you encounter issues:
 
 ## 🎉 Success!
 
-Your Menteeno website is ready for deployment to `menteeno.app`!
+Your Menteeno website is ready for deployment to `menteeno.ir`!
 
-The deployment will be automatic on every push to the `main` branch, and your site will be live at `https://menteeno.app`.
+The deployment will be automatic on every push to the `main` branch, and your site will be live at `https://menteeno.ir`.

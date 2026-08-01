@@ -7,6 +7,7 @@ import { getBlogDetail, getFeaturedPosts, getRecentPosts } from "@/lib/blog";
 import { generateBreadcrumbStructuredData } from "@/lib/blog-seo";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { absoluteUrl } from "@/lib/site";
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -62,11 +63,11 @@ export async function generateMetadata({
     },
     alternates: {
       canonical:
-        post.seo.canonicalUrl || `https://menteeno.app/${locale}/blog/${slug}`,
+        post.seo.canonicalUrl || absoluteUrl(`/${locale}/blog/${slug}`),
       languages: {
-        en: `https://menteeno.app/en/blog/${slug}`,
-        fa: `https://menteeno.app/fa/blog/${slug}`,
-        "x-default": `https://menteeno.app/en/blog/${slug}`,
+        en: absoluteUrl(`/en/blog/${slug}`),
+        fa: absoluteUrl(`/fa/blog/${slug}`),
+        "x-default": absoluteUrl(`/fa/blog/${slug}`),
       },
     },
     robots: {

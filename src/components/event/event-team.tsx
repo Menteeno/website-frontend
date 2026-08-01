@@ -14,6 +14,7 @@ import {
   Twitter,
 } from "lucide-react";
 import { MagicCard } from "../magicui/magic-card";
+import { siteEmails } from "@/lib/site";
 
 const EventTeam = () => {
   const { t } = useTranslation();
@@ -28,7 +29,7 @@ const EventTeam = () => {
       social: {
         linkedin: "https://www.linkedin.com/in/salehshojaei/",
         github: "https://github.com/ssshojaei",
-        email: "saleh@menteeno.app",
+        email: siteEmails.saleh(),
         instagram: "https://instagram.com/roxaleh",
         blog: "https://roxaleh.ir",
       },
@@ -71,7 +72,7 @@ const EventTeam = () => {
         linkedin: "https://www.linkedin.com/company/menteeno/",
         github: "https://github.com/menteeno",
         instagram: "https://instagram.com/menteeno.app",
-        email: "hi@menteeno.app",
+        email: siteEmails.hi(),
       },
     },
   ];
@@ -314,7 +315,7 @@ const EventTeam = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
-                  href="mailto:hi@menteeno.app"
+                  href={`mailto:${siteEmails.hi()}`}
                   className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors duration-200"
                 >
                   <Mail className="size-4" />

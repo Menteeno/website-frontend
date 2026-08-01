@@ -9,6 +9,7 @@ import { useTranslation } from "@/hooks/use-translation";
 import { Menu, PanelLeft } from "lucide-react";
 import AppLogo from "../app-logo";
 import { NavMenu } from "./nav-menu";
+import { getConsoleUrl } from "@/lib/site";
 
 export const NavigationSheet = () => {
   const { t, locale } = useTranslation();
@@ -36,7 +37,7 @@ export const NavigationSheet = () => {
             asChild
           >
             <a
-              href="https://console.menteeno.app/"
+              href={getConsoleUrl()}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2"

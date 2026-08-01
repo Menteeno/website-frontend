@@ -8,7 +8,7 @@ export function generateMetadata({
   title,
   description,
   path = "",
-  locale = "en",
+  locale = "fa",
   image = "/og-image.jpg",
 }: {
   title?: string;

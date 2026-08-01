@@ -37,6 +37,7 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
 
-Sitemap: https://menteeno.app/sitemap.xml
-Sitemap: https://menteeno.app/sitemap-fa.xml
-Host: https://menteeno.app
+# Domain is set in src/lib/site.ts (DEFAULT_SITE_ORIGIN) and src/app/robots.ts
+Sitemap: /sitemap.xml
+Sitemap: /sitemap-fa.xml
+Host: https://menteeno.ir

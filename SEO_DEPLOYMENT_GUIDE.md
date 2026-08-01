@@ -50,16 +50,16 @@ npm start
 
 ```bash
 # Test key URLs
-curl -I https://menteeno.app/
-curl -I https://menteeno.app/fa
-curl -I https://menteeno.app/en
-curl -I https://menteeno.app/sitemap.xml
-curl -I https://menteeno.app/robots.txt
+curl -I https://menteeno.ir/
+curl -I https://menteeno.ir/fa
+curl -I https://menteeno.ir/en
+curl -I https://menteeno.ir/sitemap.xml
+curl -I https://menteeno.ir/robots.txt
 
 # Test redirects
-curl -I https://menteeno.app/about
-curl -I https://menteeno.app/contact
-curl -I https://menteeno.app/login
+curl -I https://menteeno.ir/about
+curl -I https://menteeno.ir/contact
+curl -I https://menteeno.ir/login
 
 # Note: API endpoints not available in static export (GitHub Pages)
 # Health monitoring is handled client-side
@@ -69,18 +69,18 @@ curl -I https://menteeno.app/login
 
 ```bash
 # Check canonical tags
-curl -s https://menteeno.app/fa | grep -i canonical
-curl -s https://menteeno.app/en | grep -i canonical
+curl -s https://menteeno.ir/fa | grep -i canonical
+curl -s https://menteeno.ir/en | grep -i canonical
 
 # Check meta tags
-curl -s https://menteeno.app/fa | grep -i "meta name"
-curl -s https://menteeno.app/en | grep -i "meta name"
+curl -s https://menteeno.ir/fa | grep -i "meta name"
+curl -s https://menteeno.ir/en | grep -i "meta name"
 
 # Check robots.txt
-curl -s https://menteeno.app/robots.txt
+curl -s https://menteeno.ir/robots.txt
 
 # Check sitemap
-curl -s https://menteeno.app/sitemap.xml
+curl -s https://menteeno.ir/sitemap.xml
 ```
 
 ## 🔍 Google Search Console Actions
@@ -96,9 +96,9 @@ Use the URLs from `reindex-request.txt`:
 ### 2. Submit Updated Sitemaps
 
 - Go to Google Search Console > Sitemaps
-- Submit: `https://menteeno.app/sitemap.xml`
-- Submit: `https://menteeno.app/sitemap-blog.xml`
-- Submit: `https://menteeno.app/sitemap-fa.xml`
+- Submit: `https://menteeno.ir/sitemap.xml`
+- Submit: `https://menteeno.ir/sitemap-blog.xml`
+- Submit: `https://menteeno.ir/sitemap-fa.xml`
 
 ### 3. Monitor Indexing Status
 
@@ -139,13 +139,13 @@ Use the URLs from `reindex-request.txt`:
 
 ```bash
 # Check site health
-curl https://menteeno.app/api/health
+curl https://menteeno.ir/api/health
 
 # Verify sitemaps
-curl -s https://menteeno.app/sitemap.xml | head -20
+curl -s https://menteeno.ir/sitemap.xml | head -20
 
 # Check robots.txt
-curl -s https://menteeno.app/robots.txt
+curl -s https://menteeno.ir/robots.txt
 ```
 
 ### 2. Monthly SEO Audit
@@ -169,24 +169,24 @@ curl -s https://menteeno.app/robots.txt
 1. **Check redirect chains:**
 
    ```bash
-   curl -I https://menteeno.app/about
+   curl -I https://menteeno.ir/about
    ```
 
 2. **Verify canonical tags:**
 
    ```bash
-   curl -s https://menteeno.app/fa | grep canonical
+   curl -s https://menteeno.ir/fa | grep canonical
    ```
 
 3. **Test robots.txt:**
 
    ```bash
-   curl -s https://menteeno.app/robots.txt
+   curl -s https://menteeno.ir/robots.txt
    ```
 
 4. **Check sitemap accessibility:**
    ```bash
-   curl -s https://menteeno.app/sitemap.xml
+   curl -s https://menteeno.ir/sitemap.xml
    ```
 
 ### Common Issues and Solutions:

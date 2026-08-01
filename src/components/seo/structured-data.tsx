@@ -2,6 +2,7 @@
 
 import { structuredData } from "@/lib/seo";
 import { SEOSafeWrapper } from "./error-boundary";
+import { absoluteUrl } from "@/lib/site";
 
 interface StructuredDataProps {
   type:
@@ -71,7 +72,7 @@ function StructuredDataContent({ type, data }: StructuredDataProps) {
               name: "Menteeno",
               logo: {
                 "@type": "ImageObject",
-                url: "https://menteeno.com/logo.png",
+                url: absoluteUrl("/logo.png"),
               },
             },
             datePublished: data?.publishedAt,

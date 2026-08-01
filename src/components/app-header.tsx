@@ -35,6 +35,7 @@ import { BookOpen, Folder, LayoutGrid, Menu, Search } from "lucide-react";
 import Link from "next/link";
 import AppLogo from "./app-logo";
 import AppLogoIcon from "./app-logo-icon";
+import { siteEmails } from "@/lib/site";
 
 // This will be moved inside the component to be locale-aware
 
@@ -66,7 +67,7 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
     user: {
       id: 1,
       name: "User",
-      email: "hi@menteeno.app",
+      email: siteEmails.hi(),
       email_verified_at: null,
       avatar: "",
       created_at: new Date().toISOString(),

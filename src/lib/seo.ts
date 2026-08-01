@@ -1,5 +1,6 @@
 import { Metadata, Viewport } from "next";
 import { getTranslation } from "./i18n";
+import { absoluteUrl, getSiteOrigin } from "./site";
 
 export interface SEOConfig {
   title: string;
@@ -67,54 +68,56 @@ export interface SEOConfig {
   other?: Record<string, string> | undefined;
 }
 
-export const defaultSEOConfig: SEOConfig = {
-  title: "Menteeno - Professional Skill Development Platform",
+export function getDefaultSEOConfig(): SEOConfig {
+  const origin = getSiteOrigin();
+  return {
+  title: "منتینو - پلتفرم توسعه مهارت‌های حرفه‌ای",
   description:
-    "Transform your professional skills with personalized mentorship, real-world training, and expert guidance. Join thousands of professionals growing their careers with Menteeno.",
+    "مهارت‌های حرفه‌ای خود را با منتورشیپ شخصی‌سازی‌شده، آموزش عملی و راهنمایی متخصصان متحول کنید.",
   keywords: [
+    "توسعه مهارت‌های حرفه‌ای",
+    "رشد شغلی",
+    "منتورشیپ",
+    "مهارت‌های نرم",
+    "آموزش حرفه‌ای",
+    "توسعه فردی",
+    "رهبری",
+    "کار تیمی",
+    "شبکه‌سازی",
+    "مربیگری حرفه‌ای",
     "professional development",
     "skill development",
     "mentorship",
     "career growth",
     "soft skills",
-    "leadership training",
-    "teamwork skills",
-    "networking",
-    "personal growth",
-    "professional training",
-    "career advancement",
-    "skill enhancement",
-    "mentor program",
-    "professional coaching",
-    "workplace skills",
   ],
-  canonical: "https://menteeno.app",
-  locale: "en",
+  canonical: origin,
+  locale: "fa",
   openGraph: {
-    title: "Menteeno - Professional Skill Development Platform",
+    title: "منتینو - پلتفرم توسعه مهارت‌های حرفه‌ای",
     description:
-      "Transform your professional skills with personalized mentorship, real-world training, and expert guidance.",
-    url: "https://menteeno.app",
+      "مهارت‌های حرفه‌ای خود را با منتورشیپ شخصی‌سازی‌شده، آموزش عملی و راهنمایی متخصصان متحول کنید.",
+    url: origin,
     siteName: "Menteeno",
     images: [
       {
-        url: "https://menteeno.app/og-image.jpg",
+        url: `${origin}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "Menteeno - Professional Skill Development Platform",
+        alt: "منتینو - پلتفرم توسعه مهارت‌های حرفه‌ای",
       },
     ],
-    locale: "en_US",
+    locale: "fa_IR",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     site: "@menteeno",
     creator: "@menteeno",
-    title: "Menteeno - Professional Skill Development Platform",
+    title: "منتینو - پلتفرم توسعه مهارت‌های حرفه‌ای",
     description:
-      "Transform your professional skills with personalized mentorship, real-world training, and expert guidance.",
-    images: ["https://menteeno.app/twitter-image.jpg"],
+      "مهارت‌های حرفه‌ای خود را با منتورشیپ شخصی‌سازی‌شده، آموزش عملی و راهنمایی متخصصان متحول کنید.",
+    images: [`${origin}/twitter-image.jpg`],
   },
   robots: {
     index: true,
@@ -128,10 +131,10 @@ export const defaultSEOConfig: SEOConfig = {
     },
   },
   alternates: {
-    canonical: "https://menteeno.app",
+    canonical: origin,
     languages: {
-      en: "https://menteeno.app/en",
-      fa: "https://menteeno.app/fa",
+      en: `${origin}/en`,
+      fa: `${origin}/fa`,
     },
   },
   verification: {
@@ -153,9 +156,13 @@ export const defaultSEOConfig: SEOConfig = {
     email: false,
   },
 };
+}
+
+/** @deprecated Use getDefaultSEOConfig() */
+export const defaultSEOConfig = getDefaultSEOConfig();
 
 export function generateViewport(config: Partial<SEOConfig> = {}): Viewport {
-  const seoConfig = { ...defaultSEOConfig, ...config };
+  const seoConfig = { ...getDefaultSEOConfig(), ...config };
 
   return {
     width: "device-width",
@@ -166,7 +173,7 @@ export function generateViewport(config: Partial<SEOConfig> = {}): Viewport {
 }
 
 export function generateMetadata(config: Partial<SEOConfig> = {}): Metadata {
-  const seoConfig = { ...defaultSEOConfig, ...config };
+  const seoConfig = { ...getDefaultSEOConfig(), ...config };
 
   return {
     title: {
@@ -202,7 +209,8 @@ export function generateLocalizedMetadata(
   locale: string,
   config: Partial<SEOConfig> = {}
 ): Metadata {
-  const baseConfig = { ...defaultSEOConfig, ...config };
+  const origin = getSiteOrigin();
+  const baseConfig = { ...getDefaultSEOConfig(), ...config };
 
   // Get localized content
   const title = getTranslation(locale, "messages.home-header.title");
@@ -221,7 +229,7 @@ export function generateLocalizedMetadata(
       ]
     : baseConfig.keywords;
 
-  const pageUrl = `https://menteeno.app/${locale}`;
+  const pageUrl = absoluteUrl(`/${locale}`);
 
   const localizedConfig: SEOConfig = {
     ...baseConfig,
@@ -251,8 +259,8 @@ export function generateLocalizedMetadata(
     alternates: {
       canonical: pageUrl,
       languages: {
-        en: "https://menteeno.app/en",
-        fa: "https://menteeno.app/fa",
+        en: absoluteUrl("/en"),
+        fa: absoluteUrl("/fa"),
       },
     },
     // Persian-specific meta tags
@@ -275,8 +283,8 @@ export function generateLocalizedMetadata(
           "DC.type": "Text",
           "DC.format": "text/html",
           "DC.identifier": pageUrl,
-          "DC.source": "https://menteeno.app",
-          "DC.relation": "https://menteeno.app/fa",
+          "DC.source": origin,
+          "DC.relation": absoluteUrl("/fa"),
           "DC.coverage": "Iran",
           "DC.rights": "© 2024 Menteeno. All rights reserved.",
         }
@@ -289,25 +297,25 @@ export function generateLocalizedMetadata(
 export function generatePageMetadata(
   pageTitle: string,
   pageDescription: string,
-  locale: string = "en",
+  locale: string = "fa",
   config: Partial<SEOConfig> = {}
 ): Metadata {
-  const baseConfig = { ...defaultSEOConfig, ...config };
+  const baseConfig = { ...getDefaultSEOConfig(), ...config };
 
   return generateMetadata({
     ...baseConfig,
     title: `${pageTitle} | ${baseConfig.title}`,
     description: pageDescription,
-    canonical: `https://menteeno.app/${locale}/${pageTitle
+    canonical: absoluteUrl(`/${locale}/${pageTitle
       .toLowerCase()
-      .replace(/\s+/g, "-")}`,
+      .replace(/\s+/g, "-")}`),
     openGraph: {
       ...baseConfig.openGraph!,
       title: `${pageTitle} | ${baseConfig.title}`,
       description: pageDescription,
-      url: `https://menteeno.app/${locale}/${pageTitle
+      url: absoluteUrl(`/${locale}/${pageTitle
         .toLowerCase()
-        .replace(/\s+/g, "-")}`,
+        .replace(/\s+/g, "-")}`),
     },
     twitter: {
       ...baseConfig.twitter!,
@@ -390,78 +398,23 @@ export const seoKeywords = {
   },
 };
 
-export const structuredData = {
-  organization: {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "Menteeno",
-    url: "https://menteeno.app",
-    logo: "https://menteeno.app/logo.png",
-    description:
-      "Professional skill development platform with personalized mentorship and real-world training",
-    foundingDate: "2024",
-    contactPoint: {
-      "@type": "ContactPoint",
-      telephone: "+1-555-0123",
-      contactType: "customer service",
-      availableLanguage: ["English", "Persian"],
-    },
-    sameAs: [
-      "https://twitter.com/menteeno",
-      "https://linkedin.com/company/menteeno",
-      "https://facebook.com/menteeno",
-    ],
-  },
-  website: {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "Menteeno",
-    url: "https://menteeno.app",
-    description: "Professional skill development platform",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: "https://menteeno.app/search?q={search_term_string}",
-      "query-input": "required name=search_term_string",
-    },
-  },
-  course: {
-    "@context": "https://schema.org",
-    "@type": "Course",
-    name: "Professional Skill Development Program",
-    description:
-      "Comprehensive professional skill development with personalized mentorship",
-    provider: {
-      "@type": "Organization",
-      name: "Menteeno",
-      url: "https://menteeno.app",
-    },
-    courseMode: "online",
-    educationalLevel: "beginner to advanced",
-    teaches: [
-      "Leadership skills",
-      "Teamwork and collaboration",
-      "Communication skills",
-      "Networking",
-      "Professional development",
-    ],
-  },
-  // Persian-specific structured data
-  persian: {
+export function getStructuredData() {
+  const origin = getSiteOrigin();
+  return {
     organization: {
       "@context": "https://schema.org",
       "@type": "Organization",
-      name: "منتینو",
-      alternateName: "Menteeno",
-      url: "https://menteeno.app/fa",
-      logo: "https://menteeno.app/logo.png",
+      name: "Menteeno",
+      url: origin,
+      logo: `${origin}/logo.png`,
       description:
-        "پلتفرم توسعه مهارت‌های حرفه‌ای با منتورشیپ شخصی‌سازی‌شده و آموزش عملی",
+        "Professional skill development platform with personalized mentorship and real-world training",
       foundingDate: "2024",
       contactPoint: {
         "@type": "ContactPoint",
         telephone: "+1-555-0123",
         contactType: "customer service",
-        availableLanguage: ["Persian", "English"],
+        availableLanguage: ["English", "Persian"],
       },
       sameAs: [
         "https://twitter.com/menteeno",
@@ -469,55 +422,120 @@ export const structuredData = {
         "https://facebook.com/menteeno",
       ],
     },
+    website: {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "Menteeno",
+      url: origin,
+      description: "Professional skill development platform",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: `${origin}/search?q={search_term_string}`,
+        "query-input": "required name=search_term_string",
+      },
+    },
     course: {
       "@context": "https://schema.org",
       "@type": "Course",
-      name: "برنامه توسعه مهارت‌های حرفه‌ای",
-      description: "توسعه جامع مهارت‌های حرفه‌ای با منتورشیپ شخصی‌سازی‌شده",
+      name: "Professional Skill Development Program",
+      description:
+        "Comprehensive professional skill development with personalized mentorship",
       provider: {
         "@type": "Organization",
-        name: "منتینو",
-        url: "https://menteeno.app/fa",
+        name: "Menteeno",
+        url: origin,
       },
       courseMode: "online",
-      educationalLevel: "مبتدی تا پیشرفته",
+      educationalLevel: "beginner to advanced",
       teaches: [
-        "مهارت‌های رهبری",
-        "کار تیمی و همکاری",
-        "مهارت‌های ارتباطی",
-        "شبکه‌سازی",
-        "توسعه حرفه‌ای",
+        "Leadership skills",
+        "Teamwork and collaboration",
+        "Communication skills",
+        "Networking",
+        "Professional development",
       ],
     },
-    faq: {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "منتینو چیست؟",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "منتینو پلتفرمی برای توسعه مهارت‌های حرفه‌ای است که منتورشیپ شخصی‌سازی‌شده، آموزش عملی و راهنمایی متخصصان را ارائه می‌دهد.",
-          },
+    // Persian-specific structured data
+    persian: {
+      organization: {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "منتینو",
+        alternateName: "Menteeno",
+        url: `${origin}/fa`,
+        logo: `${origin}/logo.png`,
+        description:
+          "پلتفرم توسعه مهارت‌های حرفه‌ای با منتورشیپ شخصی‌سازی‌شده و آموزش عملی",
+        foundingDate: "2024",
+        contactPoint: {
+          "@type": "ContactPoint",
+          telephone: "+1-555-0123",
+          contactType: "customer service",
+          availableLanguage: ["Persian", "English"],
         },
-        {
-          "@type": "Question",
-          name: "برنامه منتورشیپ منتینو چگونه کار می‌کند؟",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "برنامه منتورشیپ ما شما را با متخصصان باتجربه متصل می‌کند که از طریق سه جلسه منتورشیپ خصوصی، راهنمایی شخصی‌سازی‌شده ارائه می‌دهند.",
-          },
+        sameAs: [
+          "https://twitter.com/menteeno",
+          "https://linkedin.com/company/menteeno",
+          "https://facebook.com/menteeno",
+        ],
+      },
+      course: {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        name: "برنامه توسعه مهارت‌های حرفه‌ای",
+        description: "توسعه جامع مهارت‌های حرفه‌ای با منتورشیپ شخصی‌سازی‌شده",
+        provider: {
+          "@type": "Organization",
+          name: "منتینو",
+          url: `${origin}/fa`,
         },
-        {
-          "@type": "Question",
-          name: "چه نوع مهارت‌هایی می‌توانم در منتینو توسعه دهم؟",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "منتینو بر توسعه مهارت‌های نرم از جمله رهبری، کار تیمی، ارتباطات، شبکه‌سازی و حل مسئله تمرکز دارد.",
+        courseMode: "online",
+        educationalLevel: "مبتدی تا پیشرفته",
+        teaches: [
+          "مهارت‌های رهبری",
+          "کار تیمی و همکاری",
+          "مهارت‌های ارتباطی",
+          "شبکه‌سازی",
+          "توسعه حرفه‌ای",
+        ],
+      },
+      faq: {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "منتینو چیست؟",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "منتینو پلتفرمی برای توسعه مهارت‌های حرفه‌ای است که منتورشیپ شخصی‌سازی‌شده، آموزش عملی و راهنمایی متخصصان را ارائه می‌دهد.",
+            },
           },
-        },
-      ],
+          {
+            "@type": "Question",
+            name: "برنامه منتورشیپ منتینو چگونه کار می‌کند؟",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "برنامه منتورشیپ ما شما را با متخصصان باتجربه متصل می‌کند که از طریق سه جلسه منتورشیپ خصوصی، راهنمایی شخصی‌سازی‌شده ارائه می‌دهند.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "چه نوع مهارت‌هایی می‌توانم در منتینو توسعه دهم؟",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "منتینو بر توسعه مهارت‌های نرم از جمله رهبری، کار تیمی، ارتباطات، شبکه‌سازی و حل مسئله تمرکز دارد.",
+            },
+          },
+        ],
+      },
     },
+  };
+}
+
+/** Lazy accessor so existing imports keep working with a live origin. */
+export const structuredData = new Proxy({} as ReturnType<typeof getStructuredData>, {
+  get(_target, prop, receiver) {
+    return Reflect.get(getStructuredData(), prop, receiver);
   },
-};
+});

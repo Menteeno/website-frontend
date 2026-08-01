@@ -70,7 +70,7 @@ NEXT_PUBLIC_FB_PIXEL_ID=1234567890123456
 NEXT_PUBLIC_HOTJAR_ID=1234567
 
 # Site Configuration
-NEXT_PUBLIC_SITE_URL=https://menteeno.app
+NEXT_PUBLIC_SITE_URL=https://menteeno.ir
 NEXT_PUBLIC_SITE_NAME=Menteeno
 
 # Verification

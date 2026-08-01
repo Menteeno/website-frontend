@@ -1,3 +1,4 @@
+import { getSiteOrigin } from "./site";
 /**
  * SEO Validation Utilities
  * Comprehensive validation for SEO elements
@@ -251,7 +252,7 @@ export function validateURL(
   }
 
   // Check for trailing slash consistency
-  if (url.endsWith("/") && url !== "https://menteeno.app/") {
+  if (url.endsWith("/") && url !== `${getSiteOrigin()}/`) {
     suggestions.push("Consider removing trailing slash for consistency");
   }
 

@@ -17,7 +17,7 @@ This project is configured to deploy automatically to GitHub Pages when changes 
 3. **Deploy:**
    - Push changes to the `main` branch
    - The GitHub Action will automatically build and deploy your site
-   - Your site will be available at: `https://menteeno.app`
+   - Your site will be available at: `https://menteeno.ir`
 
 ## Manual Deployment
 
@@ -57,6 +57,6 @@ The following environment variables are used during GitHub Pages build:
 
 ## Notes
 
-- The site will be available at `https://menteeno.app`
+- The site will be available at `https://menteeno.ir`
 - All internal links and assets will automatically use the correct base path
 - The deployment is automatic on every push to the `main` branch

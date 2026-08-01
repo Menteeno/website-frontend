@@ -15,7 +15,7 @@ NEXT_PUBLIC_BASE_URL=http://localhost:3000
 
 # For production deployment
 NEXT_PUBLIC_DEPLOYMENT_ENV=production
-NEXT_PUBLIC_BASE_URL=https://menteeno.app
+NEXT_PUBLIC_BASE_URL=https://menteeno.ir
 
 # For GitHub Pages
 NEXT_PUBLIC_DEPLOYMENT_ENV=github-pages
@@ -23,7 +23,7 @@ NEXT_PUBLIC_BASE_URL=https://menteeno.github.io/website-frontend
 
 # For custom domain
 NEXT_PUBLIC_DEPLOYMENT_ENV=custom
-NEXT_PUBLIC_BASE_URL=https://menteeno.com
+NEXT_PUBLIC_BASE_URL=https://menteeno.ir
 ```
 
 ### 2. Build Commands
@@ -49,7 +49,7 @@ pnpm run build:custom
 | Environment | Base URL | Use Case |
 |-------------|----------|----------|
 | `development` | `http://localhost:3000` | Local development |
-| `production` | `https://menteeno.app` | Production deployment |
+| `production` | `https://menteeno.ir` | Production deployment |
 | `github-pages` | `https://menteeno.github.io/website-frontend` | GitHub Pages |
 | `custom` | Configurable via env vars | Any custom domain |
 
@@ -77,9 +77,9 @@ NEXT_PUBLIC_BASE_URL=http://localhost:3000
 ### 2. Production Domain
 ```bash
 NEXT_PUBLIC_DEPLOYMENT_ENV=production
-NEXT_PUBLIC_BASE_URL=https://menteeno.app
+NEXT_PUBLIC_BASE_URL=https://menteeno.ir
 ```
-**Result**: `https://menteeno.app`
+**Result**: `https://menteeno.ir`
 
 ### 3. GitHub Pages
 ```bash
@@ -91,16 +91,16 @@ NEXT_PUBLIC_BASE_URL=https://menteeno.github.io/website-frontend
 ### 4. Custom Domain
 ```bash
 NEXT_PUBLIC_DEPLOYMENT_ENV=custom
-NEXT_PUBLIC_BASE_URL=https://menteeno.com
+NEXT_PUBLIC_BASE_URL=https://menteeno.ir
 ```
-**Result**: `https://menteeno.com`
+**Result**: `https://menteeno.ir`
 
 ### 5. Subdomain
 ```bash
 NEXT_PUBLIC_DEPLOYMENT_ENV=custom
-NEXT_PUBLIC_BASE_URL=https://app.menteeno.com
+NEXT_PUBLIC_BASE_URL=https://app.menteeno.ir
 ```
-**Result**: `https://app.menteeno.com`
+**Result**: `https://app.menteeno.ir`
 
 ### 6. Subpath Deployment
 ```bash
@@ -117,14 +117,14 @@ NEXT_PUBLIC_ASSET_PREFIX=/app
 ```bash
 # Switch to custom domain
 NEXT_PUBLIC_DEPLOYMENT_ENV=custom
-NEXT_PUBLIC_BASE_URL=https://menteeno.com
+NEXT_PUBLIC_BASE_URL=https://menteeno.ir
 pnpm run build:custom
 ```
 
 ### Method 2: Direct Environment Override
 ```bash
 # Override for one-time build
-NEXT_PUBLIC_BASE_URL=https://menteeno.com pnpm build
+NEXT_PUBLIC_BASE_URL=https://menteeno.ir pnpm build
 ```
 
 ### Method 3: Multiple Environment Files
@@ -158,7 +158,7 @@ cp .env.local .env.custom
 ```bash
 # Set environment variables in Vercel dashboard
 NEXT_PUBLIC_DEPLOYMENT_ENV=production
-NEXT_PUBLIC_BASE_URL=https://menteeno.app
+NEXT_PUBLIC_BASE_URL=https://menteeno.ir
 ```
 
 ### GitHub Pages

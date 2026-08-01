@@ -3,6 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { useTranslation } from "@/hooks/use-translation";
 import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { siteEmails } from "@/lib/site";
 
 export function ContactInfo() {
   const { t, locale } = useTranslation();
@@ -20,7 +21,7 @@ export function ContactInfo() {
       icon: Mail,
       label: t("contact.contact_info.email"),
       value: t("contact.contact_info.email_value"),
-      href: "mailto:hi@menteeno.app",
+      href: `mailto:${siteEmails.hi()}`,
       color: "text-green-600",
       bgColor: "bg-green-50",
     },

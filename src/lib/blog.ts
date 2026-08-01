@@ -19,6 +19,7 @@ import { remark } from "remark";
 import remarkGfm from "remark-gfm";
 import remarkHtml from "remark-html";
 import { getTranslation } from "./i18n";
+import { siteEmails } from "./site";
 
 // Constants
 const POSTS_DIRECTORY = path.join(process.cwd(), "content", "blog");
@@ -623,7 +624,7 @@ function getAuthorInfo(authorName: string, locale: Locale): BlogAuthor {
     {
       id: `${locale}-saleh-shojaei`,
       name: getTranslation(locale, "blog.author.saleh.name"),
-      email: "saleh@menteeno.com",
+      email: siteEmails.saleh(),
       avatar: "/assets/images/team/saleh-shojaei.jpg",
       bio: getTranslation(locale, "blog.author.saleh.bio"),
       social: {
@@ -677,7 +678,7 @@ export function getBlogAuthors(locale: Locale): BlogAuthor[] {
     {
       id: `${locale}-saleh-shojaei`,
       name: getTranslation(locale, "blog.author.saleh.name"),
-      email: "saleh@menteeno.com",
+      email: siteEmails.saleh(),
       avatar: "/assets/images/team/saleh-shojaei.jpg",
       bio: getTranslation(locale, "blog.author.saleh.bio"),
       social: {

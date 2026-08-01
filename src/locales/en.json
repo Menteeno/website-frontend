@@ -477,7 +477,7 @@
     },
     "contact": {
       "title": "Get in Touch",
-      "email": "hi@menteeno.app",
+      "email": "hi@{siteDomain}",
       "location": "Mazandaran, Babolsar, Taleghani Street, Innovation Center"
     },
     "social": {
@@ -585,7 +585,7 @@
       "title": "Contact Us",
       "content": "If you have any questions about this Privacy Policy or our privacy practices, please contact us:",
       "email_label": "Email:",
-      "email": "hi@menteeno.app"
+      "email": "hi@{siteDomain}"
     }
   },
   "terms": {
@@ -681,7 +681,7 @@
       "title": "Contact Information",
       "content": "If you have any questions about these Terms of Service, please contact us:",
       "email_label": "Email:",
-      "email": "hi@menteeno.app"
+      "email": "hi@{siteDomain}"
     }
   },
   "event": {
@@ -1164,7 +1164,7 @@
       "title": "Contact Us",
       "content": "If you have any questions about our use of cookies or this Cookie Policy, please contact us.",
       "email_label": "Email:",
-      "email": "privacy@menteeno.com"
+      "email": "privacy@{siteDomain}"
     }
   },
   "dashboard": {
@@ -1309,7 +1309,7 @@
       "working_hours": "Working Hours",
       "address": "Address",
       "phone_value": "+98-21-91031614",
-      "email_value": "hi@menteeno.app",
+      "email_value": "hi@{siteDomain}",
       "telegram_value": "@menteeno",
       "whatsapp_value": "Send direct message",
       "working_hours_value": "Saturday to Friday: 9 AM to 6 PM (Mondays off)",
