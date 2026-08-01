@@ -25,7 +25,22 @@ export const AboutUsTeam = () => {
     return val && val !== key && val !== "" ? val : undefined;
   };
 
-  const teamMembers = [
+  type TeamSocial = {
+    linkedin?: string | undefined;
+    github?: string | undefined;
+    email?: string | undefined;
+    instagram?: string | undefined;
+    blog?: string | undefined;
+    twitter?: string | undefined;
+  };
+
+  const teamMembers: Array<{
+    name: string;
+    role: string;
+    bio: string;
+    avatar: string;
+    social: TeamSocial;
+  }> = [
     {
       name: t("about.team.member1.name"),
       role: t("about.team.member1.role"),
