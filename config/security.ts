@@ -38,5 +38,6 @@ export const cspHeader = `
   form-action 'self';
   frame-ancestors 'none';
   frame-src 'self' https://neshan.org https://www.google.com https://app.chatwoot.com;
-  connect-src 'self' https://menteeno-backend.chbk.app https://cdn.jsdelivr.net https://unpkg.com https://www.google-analytics.com https://www.googletagmanager.com https://openreplay.com https://app.openreplay.com https://app.chatwoot.com blob:;
+  worker-src 'self' blob:;
+  connect-src 'self' https://menteeno-backend.chbk.app https://cdn.jsdelivr.net https://unpkg.com https://*.google-analytics.com https://*.google.com https://www.google-analytics.com https://www.googletagmanager.com https://openreplay.com https://app.openreplay.com https://app.chatwoot.com https://hzghfjadfektvrunysdh.supabase.co blob:;
 `;
