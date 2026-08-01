@@ -60,6 +60,8 @@ jobs:
           # Public analytics IDs (safe in CI — already exposed in the browser)
           NEXT_PUBLIC_GA_ID: G-ELCJW5JXCB
           NEXT_PUBLIC_GTM_ID: GTM-5FDNSG37
+          NEXT_PUBLIC_HOTJAR_ID: "2342900"
+          NEXT_PUBLIC_OPENREPLAY_PROJECT_KEY: QgGRgZEwmnWiJS453Ahh
 
       - name: Restore middleware
         run: |
