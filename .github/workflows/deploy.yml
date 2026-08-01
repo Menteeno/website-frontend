@@ -53,7 +53,13 @@ jobs:
           GITHUB_PAGES: true
           NEXT_PUBLIC_DEPLOYMENT_ENV: github-pages
           NEXT_PUBLIC_BASE_URL: https://menteeno.ir
+          NEXT_PUBLIC_API_URL: https://menteeno.ir/api
           NEXT_PUBLIC_DEFAULT_LOCALE: fa
+          NEXT_PUBLIC_APP_NAME: Menteeno
+          NEXT_PUBLIC_APP_DESCRIPTION: پلتفرم توسعه مهارت‌های حرفه‌ای
+          # Public analytics IDs (safe in CI — already exposed in the browser)
+          NEXT_PUBLIC_GA_ID: G-ELCJW5JXCB
+          NEXT_PUBLIC_GTM_ID: GTM-5FDNSG37
 
       - name: Restore middleware
         run: |
