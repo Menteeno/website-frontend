@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Vite LMS (frontend/)
+/frontend/node_modules
+/frontend/dist
+/frontend/.env
+/frontend/.env.local

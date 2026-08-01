@@ -182,3 +182,14 @@ This project is licensed under the MIT License.
 - [Tailwind CSS](https://tailwindcss.com/) - CSS framework
 - [Radix UI](https://www.radix-ui.com/) - UI primitives
 - [Lucide](https://lucide.dev/) - Icon library
+
+
+## LMS panel (`/panel`)
+
+The Supabase course platform is integrated into this Next.js app at **`/panel`** (e.g. `https://menteeno.ir/panel`).
+
+1. Add `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` to `.env.local` (see `.env.example`).
+2. Run SQL in `supabase/migrations/` (and optional seed) in your Supabase project.
+3. `pnpm run dev` then open [http://localhost:3000/panel](http://localhost:3000/panel).
+
+Supabase Auth redirect URL: `http://localhost:3000/panel/auth/callback` (and production `https://menteeno.ir/panel/auth/callback`).

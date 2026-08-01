@@ -1,5 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { ulid } from "ulid";
 
 /**
  * Utility function to merge Tailwind CSS classes
@@ -135,4 +136,110 @@ export function deepClone<T>(obj: T): T {
     return clonedObj;
   }
   return obj;
+}
+
+
+export function createId(): string {
+  return ulid();
+}
+
+export function slugify(value: string): string {
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[\s_]+/g, "-")
+    .replace(/[^\w\u0600-\u06FF-]+/g, "")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+/** Format stored amounts. App currency is تومان (IRT). */
+export function formatPrice(
+  amount: number,
+  currency = "IRT",
+  locale = "fa-IR",
+): string {
+  if (amount <= 0) {
+    return locale.startsWith("fa") ? "رایگان" : "Free";
+  }
+
+  const normalized = currency.toUpperCase();
+  const isToman =
+    normalized === "IRT" || normalized === "TOMAN" || normalized === "TMN";
+  const formatted = amount.toLocaleString(locale, { maximumFractionDigits: 0 });
+
+  if (isToman) {
+    return locale.startsWith("fa")
+      ? `${formatted} تومان`
+      : `${formatted} Tomans`;
+  }
+
+  if (normalized === "IRR") {
+    return locale.startsWith("fa") ? `${formatted} ریال` : `${formatted} Rials`;
+  }
+
+  try {
+    return new Intl.NumberFormat(locale, {
+      style: "currency",
+      currency: normalized,
+      maximumFractionDigits: 0,
+    }).format(amount);
+  } catch {
+    return `${formatted} ${normalized}`;
+  }
+}
+
+export function courseFinalPrice(
+  price: number,
+  salePrice: number | null,
+): number {
+  if (salePrice !== null && salePrice >= 0) {
+    return salePrice;
+  }
+  return price;
+}
+
+/** Schema.org expects ISO 4217; convert تومان → ریال when needed. */
+export function priceForSchema(
+  amount: number,
+  currency = "IRT",
+): { price: number; priceCurrency: string } {
+  const normalized = currency.toUpperCase();
+  if (normalized === "IRT" || normalized === "TOMAN" || normalized === "TMN") {
+    return { price: amount * 10, priceCurrency: "IRR" };
+  }
+  return { price: amount, priceCurrency: normalized || "IRR" };
+}
+
+export function absoluteUrl(path: string): string {
+  const origin = typeof window !== "undefined" ? window.location.origin : "";
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  return `${origin}${normalizedPath}`;
+}
+
+export function embedVideo(
+  url: string | null,
+): { kind: "iframe" | "video" | "none"; src: string } {
+  if (!url) {
+    return { kind: "none", src: "" };
+  }
+  if (url.includes("youtube.com/watch")) {
+    const id = new URL(url).searchParams.get("v");
+    return { kind: "iframe", src: `https://www.youtube.com/embed/${id}` };
+  }
+  if (url.includes("youtu.be/")) {
+    const id = url.split("youtu.be/")[1]?.split(/[?&]/)[0];
+    return { kind: "iframe", src: `https://www.youtube.com/embed/${id}` };
+  }
+  if (url.includes("aparat.com/v/")) {
+    const id = url.split("/v/")[1]?.split(/[?/]/)[0];
+    return {
+      kind: "iframe",
+      src: `https://www.aparat.com/video/video/embed/videohash/${id}/vt/frame`,
+    };
+  }
+  if (/\.(mp4|webm|ogg)(\?|$)/i.test(url)) {
+    return { kind: "video", src: url };
+  }
+  return { kind: "iframe", src: url };
 }

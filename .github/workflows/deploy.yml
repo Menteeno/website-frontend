@@ -3,8 +3,12 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - '.github/workflows/supabase-keepalive.yml'
   pull_request:
     branches: [main]
+    paths-ignore:
+      - '.github/workflows/supabase-keepalive.yml'
 
 permissions:
   contents: read
@@ -56,12 +60,21 @@ jobs:
           NEXT_PUBLIC_GTM_ID: GTM-5FDNSG37
           NEXT_PUBLIC_HOTJAR_ID: "2342900"
           NEXT_PUBLIC_OPENREPLAY_PROJECT_KEY: QgGRgZEwmnWiJS453Ahh
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL || secrets.VITE_SUPABASE_URL }}
+          NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY || secrets.VITE_SUPABASE_ANON_KEY || secrets.VITE_SUPABASE_PUBLISHABLE_KEY }}
 
       - name: Restore middleware
         if: always()
         run: |
           if [ -f "src/middleware.ts.bak" ]; then
             mv src/middleware.ts.bak src/middleware.ts
+          fi
+
+      - name: Panel SPA deep-link fallback
+        run: |
+          # GitHub Pages serves 404.html for unknown paths; reuse panel shell for /panel/* refreshes
+          if [ -f out/panel/index.html ]; then
+            cp out/panel/index.html out/404.html
           fi
 
       - name: Upload artifact
