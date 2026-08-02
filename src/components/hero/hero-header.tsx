@@ -87,15 +87,19 @@ const HeroHeader = () => {
           </Button>
         </div>
       </div>
-      <div className="lg:flex-1">
-        <DotLottieReact
-          className="lg:w-[600px] md:w-[500px] relative z-10"
-          src={getAssetUrl("/assets/images/friends.lottie")}
-          loop
-          autoplay
-          width="800px"
-          height="600px"
-        />
+      {/* Hero Animation */}
+      <div className="lg:flex-1 flex justify-center lg:justify-end relative z-20">
+        <div className="relative w-full max-w-xl aspect-[4/3]">
+          <DotLottieReact
+            src={getAssetUrl("/assets/images/soft-skills.lottie")}
+            loop
+            autoplay
+            renderConfig={{
+              autoResize: false,
+            }}
+            className="w-full h-full"
+          />
+        </div>
       </div>
     </div>
   );

@@ -7,6 +7,8 @@ import { BookOpen, LayoutDashboard, Users } from "lucide-react";
 import { SiteHeader } from "@/components/panel/public-layout";
 import { usePanelTranslation } from "@/features/panel/i18n/use-panel-translation";
 import { cn } from "@/lib/utils";
+import Navbar from "@/components/navbar/navbar"
+import { Footer } from "@/components/footer"
 
 const links = [
   { href: "/panel/admin", end: true, icon: LayoutDashboard, labelKey: "admin.dashboard" },
@@ -20,6 +22,7 @@ export function AdminLayout({ children }: { children: ReactNode }) {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <Navbar />
       <SiteHeader />
       <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-4 py-8 md:flex-row">
         <aside className="w-full shrink-0 md:w-56">
@@ -54,6 +57,7 @@ export function AdminLayout({ children }: { children: ReactNode }) {
         </aside>
         <div className="min-w-0 flex-1">{children}</div>
       </div>
+      <Footer />
     </div>
   );
 }

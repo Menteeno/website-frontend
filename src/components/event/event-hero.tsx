@@ -101,17 +101,15 @@ const EventHero = () => {
 
       {/* Event Animation */}
       <div className="lg:flex-1 flex justify-center lg:justify-end relative z-20">
-        <div className="relative w-full max-w-lg lg:max-w-xl xl:max-w-2xl">
+        <div className="relative w-full max-w-xl aspect-[4/3]">
           <DotLottieReact
             src={getAssetUrl("/assets/images/soft-skills.lottie")}
             loop
             autoplay
-            width="100%"
-            height="auto"
             renderConfig={{
-              autoResize: true,
+              autoResize: false,
             }}
-            className="relative z-20 w-full h-auto"
+            className="w-full h-full"
           />
         </div>
       </div>
