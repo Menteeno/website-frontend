@@ -40,6 +40,10 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Supabase local CLI cache
+supabase/.temp
+supabase/.branches
+
 # Vite LMS (frontend/)
 /frontend/node_modules
 /frontend/dist

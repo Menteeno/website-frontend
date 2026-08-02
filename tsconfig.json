@@ -39,6 +39,7 @@
     "node_modules",
     "**/*.test.ts",
     "**/*.test.tsx",
-    "scripts/__tests__"
+    "scripts/__tests__",
+    "supabase/functions"
   ]
 }

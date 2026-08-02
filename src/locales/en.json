@@ -1581,7 +1581,8 @@
       "account": "My account",
       "admin": "Admin",
       "logout": "Log out",
-      "profile": "Profile"
+      "profile": "Profile",
+      "payments": "Payments"
     },
     "auth": {
       "loginTitle": "Log in",
@@ -1624,6 +1625,7 @@
       "empty": "No published courses yet.",
       "details": "Course details",
       "enroll": "Enroll",
+      "buy": "Buy course",
       "enrolled": "You are enrolled",
       "startLearning": "Start learning",
       "watchFree": "Watch free",
@@ -1651,6 +1653,27 @@
       "lockedLesson": "Enroll in the course to view this lesson.",
       "profileTitle": "Edit profile",
       "profileSaved": "Profile saved."
+    },
+    "payments": {
+      "title": "Payments",
+      "description": "Your course payment history",
+      "empty": "No payments yet.",
+      "viewAll": "View all",
+      "amount": "Amount",
+      "refNumber": "Reference",
+      "unknownCourse": "Deleted course",
+      "redirecting": "Redirecting to gateway…",
+      "startFailed": "Could not start payment.",
+      "successTitle": "Payment successful",
+      "failedTitle": "Payment failed",
+      "successDescription": "Your purchase was confirmed and the course was added to your account.",
+      "failedDescription": "Payment was not completed or verified. If you were charged, contact support.",
+      "status": {
+        "pending": "Pending",
+        "paid": "Paid",
+        "failed": "Failed",
+        "cancelled": "Cancelled"
+      }
     },
     "admin": {
       "title": "Admin",
