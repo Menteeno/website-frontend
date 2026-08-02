@@ -1,7 +1,8 @@
 import { createClient } from "@supabase/supabase-js";
 import type { Database } from "@/types/database";
 
-function buildClient() {
+/** Anon Supabase client for build-time SSG / static params (no session). */
+export function getBuildTimeSupabase() {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key =
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
@@ -26,7 +27,7 @@ const PLACEHOLDER_ID = "_";
 export async function getPublishedCourseStaticParams(): Promise<
   Array<{ slug: string }>
 > {
-  const supabase = buildClient();
+  const supabase = getBuildTimeSupabase();
   if (!supabase) {
     return [{ slug: PLACEHOLDER_SLUG }];
   }
@@ -54,7 +55,7 @@ export async function getPublishedCourseStaticParams(): Promise<
 export async function getPublishedCourseLessonStaticParams(): Promise<
   Array<{ slug: string; lessonId: string }>
 > {
-  const supabase = buildClient();
+  const supabase = getBuildTimeSupabase();
   if (!supabase) {
     return [{ slug: PLACEHOLDER_SLUG, lessonId: PLACEHOLDER_ID }];
   }
@@ -123,7 +124,7 @@ export async function getPublishedCourseLessonStaticParams(): Promise<
 export async function getPublishedCourseIdStaticParams(): Promise<
   Array<{ courseId: string }>
 > {
-  const supabase = buildClient();
+  const supabase = getBuildTimeSupabase();
   if (!supabase) {
     return [{ courseId: PLACEHOLDER_ID }];
   }
@@ -148,7 +149,7 @@ export async function getPublishedAccountLessonStaticParams(): Promise<
   Array<{ courseId: string; lessonId: string }>
 > {
   const courseParams = await getPublishedCourseLessonStaticParams();
-  const supabase = buildClient();
+  const supabase = getBuildTimeSupabase();
   if (!supabase) {
     return [{ courseId: PLACEHOLDER_ID, lessonId: PLACEHOLDER_ID }];
   }

@@ -2,7 +2,6 @@
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import { toast } from "sonner";
 import { Seo } from "@/components/panel/seo";
 import { Badge } from "@/components/ui/badge";
@@ -10,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { useAuth } from "@/features/panel/auth/auth-context";
-import { routeParam } from "@/features/panel/lib/params";
+import type { PublicCourseDetail } from "@/features/panel/lib/course-static-data";
 import { useTranslation } from "@/hooks/use-translation";
 import { getPublicStorageUrl, supabase } from "@/lib/supabase";
 import {
@@ -20,103 +19,45 @@ import {
   formatPrice,
   priceForSchema,
 } from "@/lib/utils";
-import type { Chapter } from "@/types/database";
 
-type LessonSummary = {
-  id: string;
-  chapter_id: string;
-  title: string;
-  duration: number | null;
-  order: number;
-  is_free: boolean;
+type CourseDetailPageProps = {
+  /** Public course payload from SSG / server — enrollment stays client-only. */
+  initialData: PublicCourseDetail;
 };
 
-type ChapterWithLessons = Chapter & { lessons: LessonSummary[] };
-
-export function CourseDetailPage() {
-  const params = useParams();
-  const slug = routeParam(params.slug);
+export function CourseDetailPage({ initialData }: CourseDetailPageProps) {
+  const { course, chapters } = initialData;
   const { t, locale: lang } = useTranslation();
   const { user } = useAuth();
   const queryClient = useQueryClient();
   const locale = lang === "fa" ? "fa-IR" : "en-US";
 
-  const { data, isLoading } = useQuery({
-    queryKey: ["course", slug, user?.id],
+  const { data: enrollment = null } = useQuery({
+    queryKey: ["course-enrollment", course.id, user?.id],
     queryFn: async () => {
-      const { data: course, error } = await supabase
-        .from("courses")
-        .select("*")
-        .eq("slug", slug)
-        .maybeSingle();
-      if (error) {
-        throw error;
-      }
-      if (!course) {
+      if (!user) {
         return null;
       }
-
-      const { data: chapters, error: chaptersError } = await supabase
-        .from("chapters")
+      const { data: enrollmentData } = await supabase
+        .from("user_courses")
         .select("*")
         .eq("course_id", course.id)
-        .order("order", { ascending: true });
-      if (chaptersError) {
-        throw chaptersError;
-      }
-
-      let enrollment = null;
-      if (user) {
-        const { data: enrollmentData } = await supabase
-          .from("user_courses")
-          .select("*")
-          .eq("course_id", course.id)
-          .eq("user_id", user.id)
-          .neq("status", "dropped")
-          .maybeSingle();
-        enrollment = enrollmentData;
-      }
-
-      const { data: summaries, error: summaryError } = await supabase
-        .from("lesson_summaries")
-        .select("*")
-        .eq("course_id", course.id)
-        .order("order", { ascending: true });
-      if (summaryError) {
-        throw summaryError;
-      }
-
-      const lessons: LessonSummary[] = (summaries ?? []).map((row) => ({
-        id: row.id,
-        chapter_id: row.chapter_id,
-        title: row.title,
-        duration: row.duration,
-        order: row.order,
-        is_free: row.is_free,
-      }));
-
-      const chaptersWithLessons: ChapterWithLessons[] = chapters.map(
-        (chapter) => ({
-          ...chapter,
-          lessons: lessons
-            .filter((lesson) => lesson.chapter_id === chapter.id)
-            .sort((a, b) => a.order - b.order),
-        }),
-      );
-
-      return { course, chapters: chaptersWithLessons, enrollment };
+        .eq("user_id", user.id)
+        .neq("status", "dropped")
+        .maybeSingle();
+      return enrollmentData;
     },
-    enabled: Boolean(slug),
+    enabled: Boolean(user),
   });
 
   const enrollMutation = useMutation({
     mutationFn: async () => {
-      if (!user || !data?.course) {
+      if (!user) {
         throw new Error("auth required");
       }
       const { error } = await supabase.from("user_courses").insert({
         id: createId(),
-        course_id: data.course.id,
+        course_id: course.id,
         user_id: user.id,
         status: "enrolled",
       });
@@ -126,21 +67,23 @@ export function CourseDetailPage() {
     },
     onSuccess: async () => {
       toast.success(t("panel.common.success"));
-      await queryClient.invalidateQueries({ queryKey: ["course", slug] });
+      await queryClient.invalidateQueries({
+        queryKey: ["course-enrollment", course.id],
+      });
     },
     onError: (error: Error) => toast.error(error.message),
   });
 
   const buyMutation = useMutation({
     mutationFn: async () => {
-      if (!user || !data?.course) {
+      if (!user) {
         throw new Error("auth required");
       }
       const { data: result, error } = await supabase.functions.invoke<{
         paymentUrl?: string;
         error?: string;
       }>("create-payment", {
-        body: { courseId: data.course.id },
+        body: { courseId: course.id },
       });
       if (error) {
         let message = error.message;
@@ -168,29 +111,6 @@ export function CourseDetailPage() {
     onError: (error: Error) => toast.error(error.message),
   });
 
-  if (isLoading) {
-    return (
-      <p className="text-[var(--color-muted-foreground)]">
-        {t("panel.common.loading")}
-      </p>
-    );
-  }
-
-  if (!data?.course) {
-    return (
-      <>
-        <Seo
-          title={t("panel.common.notFound")}
-          description={t("panel.common.notFound")}
-          path={`/panel/courses/${slug}`}
-          noIndex
-        />
-        <p>{t("panel.common.notFound")}</p>
-      </>
-    );
-  }
-
-  const { course, chapters, enrollment } = data;
   const cover = getPublicStorageUrl("course-covers", course.cover_path);
   const price = courseFinalPrice(course.price, course.sale_price);
   const firstFreeLesson = chapters
@@ -202,7 +122,7 @@ export function CourseDetailPage() {
     course.description?.slice(0, 160) ||
     t("panel.courses.seoFallback", { title: course.title });
   const schemaPrice = priceForSchema(price, course.currency);
-  const courseUrl = absoluteUrl(`/courses/${course.slug}`);
+  const courseUrl = absoluteUrl(`/panel/courses/${course.slug}`);
   const hasSale =
     course.sale_price !== null &&
     course.sale_price >= 0 &&
@@ -223,7 +143,7 @@ export function CourseDetailPage() {
           "@type": "ListItem",
           position: 2,
           name: t("panel.nav.courses"),
-          item: absoluteUrl("/courses"),
+          item: absoluteUrl("/panel/courses"),
         },
         {
           "@type": "ListItem",
@@ -266,7 +186,7 @@ export function CourseDetailPage() {
               name: firstFreeLesson.title,
               isAccessibleForFree: true,
               url: absoluteUrl(
-                `/courses/${course.slug}/lessons/${firstFreeLesson.id}`,
+                `/panel/courses/${course.slug}/lessons/${firstFreeLesson.id}`,
               ),
             },
           }
@@ -427,9 +347,9 @@ export function CourseDetailPage() {
               ) : (
                 chapter.lessons.map((lesson) => {
                   const lessonPath = lesson.is_free
-                    ? `/courses/${course.slug}/lessons/${lesson.id}`
+                    ? `/panel/courses/${course.slug}/lessons/${lesson.id}`
                     : enrollment
-                      ? `/account/courses/${course.id}/lessons/${lesson.id}`
+                      ? `/panel/account/courses/${course.id}/lessons/${lesson.id}`
                       : null;
 
                   return (
