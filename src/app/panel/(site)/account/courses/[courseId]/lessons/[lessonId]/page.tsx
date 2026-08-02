@@ -1,7 +1,8 @@
 import { LessonPlayerPage } from "@/features/panel/account/pages/lesson-player-page";
+import { getPublishedAccountLessonStaticParams } from "@/features/panel/lib/static-params";
 
-export function generateStaticParams() {
-  return [{ courseId: "_", lessonId: "_" }];
+export async function generateStaticParams() {
+  return getPublishedAccountLessonStaticParams();
 }
 
 export default function Page() {

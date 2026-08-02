@@ -1,7 +1,8 @@
 import { PublicLessonPage } from "@/features/panel/courses/pages/public-lesson-page";
+import { getPublishedCourseLessonStaticParams } from "@/features/panel/lib/static-params";
 
-export function generateStaticParams() {
-  return [{ slug: "_", lessonId: "_" }];
+export async function generateStaticParams() {
+  return getPublishedCourseLessonStaticParams();
 }
 
 export default function Page() {
