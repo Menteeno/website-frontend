@@ -1,3 +1,5 @@
+"use client";
+
 import {
   DropdownMenuGroup,
   DropdownMenuItem,
@@ -5,23 +7,24 @@ import {
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import { UserInfo } from "@/components/user-info";
-import { useLogout } from "@/hooks/use-logout";
 import { useMobileNavigation } from "@/hooks/use-mobile-navigation";
+import { useTranslation } from "@/hooks/use-translation";
 import { type User } from "@/types";
 import { LogOut, Settings } from "lucide-react";
 import Link from "next/link";
 
 interface UserMenuContentProps {
   user: User;
+  onSignOut?: () => void | Promise<void>;
 }
 
-export function UserMenuContent({ user }: UserMenuContentProps) {
+export function UserMenuContent({ user, onSignOut }: UserMenuContentProps) {
   const cleanup = useMobileNavigation();
-  const { logout, isLoggingOut } = useLogout();
+  const { t } = useTranslation();
 
   const handleLogout = () => {
     cleanup();
-    logout();
+    void onSignOut?.();
   };
 
   return (
@@ -36,23 +39,19 @@ export function UserMenuContent({ user }: UserMenuContentProps) {
         <DropdownMenuItem asChild>
           <Link
             className="block w-full"
-            href="/profile/edit"
+            href="/panel/account/profile"
             onClick={cleanup}
           >
             <Settings className="mr-2" />
-            Settings
+            {t("panel.nav.profile")}
           </Link>
         </DropdownMenuItem>
       </DropdownMenuGroup>
       <DropdownMenuSeparator />
       <DropdownMenuItem asChild>
-        <button
-          className="block w-full"
-          onClick={handleLogout}
-          disabled={isLoggingOut}
-        >
+        <button className="block w-full" onClick={handleLogout}>
           <LogOut className="mr-2" />
-          {isLoggingOut ? "Logging out..." : "Log out"}
+          {t("panel.nav.logout")}
         </button>
       </DropdownMenuItem>
     </>

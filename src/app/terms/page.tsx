@@ -1,7 +1,6 @@
 "use client";
 
 import { Footer } from "@/components/footer";
-import Navbar from "@/components/navbar/navbar";
 import { useTranslation } from "@/hooks/use-translation";
 
 export default function TermsPage() {
@@ -13,7 +12,6 @@ function TermsContent() {
 
   return (
     <>
-      <Navbar />
       <div className="min-h-screen bg-background pt-20">
         <div className="container mx-auto px-4 py-8 md:py-12">
           <div className="max-w-4xl mx-auto">

@@ -1,6 +1,5 @@
 import { BlogPageClient } from "@/app/blog/blog-page-client";
 import { Footer } from "@/components/footer";
-import Navbar from "@/components/navbar/navbar";
 import { getBlogPosts } from "@/lib/blog";
 import type { BlogFilters } from "@/types/blog";
 import { Metadata } from "next";
@@ -39,7 +38,6 @@ export default async function BlogPage() {
 
   return (
     <>
-      <Navbar />
       <Suspense
         fallback={
           <div className="min-h-screen bg-background pt-20 flex items-center justify-center">

@@ -8,8 +8,10 @@ import { CanonicalProvider } from "@/components/seo/canonical-provider";
 import { PersianSEO } from "@/components/seo/persian-seo";
 import { ResourceHints } from "@/components/seo/performance";
 import { SEOProvider } from "@/components/seo/seo-provider";
+import { AppHeader } from "@/components/app-header";
 import { ThemeProvider } from "@/contexts/theme-context";
 import { LoadingProvider } from "@/contexts/loading-context";
+import { AuthProvider } from "@/features/panel/auth/auth-context";
 import { getAssetUrl } from "@/lib/config";
 import { generateMetadata, generateViewport } from "@/lib/metadata";
 import { ReduxProvider } from "@/providers/redux-provider";
@@ -157,7 +159,10 @@ export default function RootLayout({
                         <PersianSEO locale="fa">
                           <GlobalErrorHandler />
                           <HealthCheck />
-                          {children}
+                          <AuthProvider>
+                            <AppHeader />
+                            {children}
+                          </AuthProvider>
                           <ChatwootWidget />
                         </PersianSEO>
                       </CanonicalProvider>

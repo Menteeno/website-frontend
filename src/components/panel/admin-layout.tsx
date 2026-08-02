@@ -4,11 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { BookOpen, LayoutDashboard, Users } from "lucide-react";
-import { SiteHeader } from "@/components/panel/public-layout";
+import { Footer } from "@/components/footer";
 import { useTranslation } from "@/hooks/use-translation";
 import { cn } from "@/lib/utils";
-import Navbar from "@/components/navbar/navbar"
-import { Footer } from "@/components/footer"
 
 const links = [
   { href: "/panel/admin", end: true, icon: LayoutDashboard, labelKey: "panel.admin.dashboard" },
@@ -22,9 +20,7 @@ export function AdminLayout({ children }: { children: ReactNode }) {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Navbar />
-      <SiteHeader />
-      <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-4 py-8 md:flex-row">
+      <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col gap-6 px-4 pb-8 pt-28 md:flex-row">
         <aside className="w-full shrink-0 md:w-56">
           <div className="rounded-lg border bg-card p-3">
             <p className="mb-3 px-2 text-sm font-semibold text-muted-foreground">
@@ -48,7 +44,7 @@ export function AdminLayout({ children }: { children: ReactNode }) {
                     )}
                   >
                     <link.icon className="h-4 w-4" />
-                    {t(`panel.${link.labelKey}`)}
+                    {t(link.labelKey)}
                   </Link>
                 );
               })}

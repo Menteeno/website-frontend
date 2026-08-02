@@ -9,12 +9,10 @@ import EventSchedule from "@/components/event/event-schedule";
 import EventTargetAudience from "@/components/event/event-target-audience";
 import EventTeam from "@/components/event/event-team";
 import { Footer } from "@/components/footer";
-import Navbar from "@/components/navbar/navbar";
 
 export default function EventPage() {
   return (
     <>
-      <Navbar />
       <EventHero />
       <EventAbout />
       <EventDataDriven />

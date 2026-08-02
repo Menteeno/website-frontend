@@ -4,7 +4,6 @@ import { ContactForm } from "@/components/contact/contact-form";
 import { ContactInfo } from "@/components/contact/contact-info";
 import { ContactMap } from "@/components/contact/contact-map";
 import { Footer } from "@/components/footer";
-import Navbar from "@/components/navbar/navbar";
 import { getTranslation } from "@/lib/i18n";
 
 export default async function ContactUsPage() {
@@ -13,7 +12,6 @@ export default async function ContactUsPage() {
 
   return (
     <>
-      <Navbar />
       <div className="min-h-screen bg-background">
         {/* Hero Section */}
         <div className="relative py-20 lg:py-32">

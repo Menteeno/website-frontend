@@ -1,7 +1,6 @@
 import { BlogDetail } from "@/components/blog/blog-detail";
 import { BlogSidebar } from "@/components/blog/blog-sidebar";
 import { Footer } from "@/components/footer";
-import Navbar from "@/components/navbar/navbar";
 import { StructuredData } from "@/components/seo/structured-data";
 import { getBlogDetail, getFeaturedPosts, getRecentPosts } from "@/lib/blog";
 import { generateBreadcrumbStructuredData } from "@/lib/blog-seo";
@@ -136,8 +135,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           })),
         }}
       />
-
-      <Navbar />
       <div className="min-h-screen bg-background pt-20">
         <div className="container mx-auto px-4 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">

@@ -1,6 +1,5 @@
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Footer } from "@/components/footer";
-import Navbar from "@/components/navbar/navbar";
 import { AboutUsTeam } from "@/components/about-us/about-us-team";
 import { getTranslation } from "@/lib/i18n";
 import { BackgroundPattern } from "@/components/hero/background-pattern";
@@ -11,7 +10,6 @@ export default async function AboutUsPage() {
 
   return (
     <>
-      <Navbar />
       <div className="min-h-screen bg-background">
         {/* Hero Section */}
         <div className="relative py-12 lg:py-16 overflow-hidden">
