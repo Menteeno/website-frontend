@@ -2,7 +2,6 @@
 
 import { structuredData } from "@/lib/seo";
 import { StructuredData } from "./structured-data";
-import { absoluteUrl } from "@/lib/site";
 
 interface PersianSEOProps {
   locale?: string;
@@ -16,52 +15,12 @@ export function PersianSEO({ locale = "fa", children }: PersianSEOProps) {
 
   return (
     <>
-      {/* Persian-specific structured data */}
       <StructuredData
         type="organization"
         data={structuredData.persian.organization}
       />
       <StructuredData type="course" data={structuredData.persian.course} />
       <StructuredData type="faq" data={structuredData.persian.faq} />
-
-      {/* Persian-specific meta tags */}
-      <meta name="language" content="fa" />
-      <meta name="content-language" content="fa-IR" />
-      <meta name="geo.region" content="IR" />
-      <meta name="geo.country" content="Iran" />
-      <meta name="DC.language" content="fa" />
-      <meta name="DC.language.iso" content="fa-IR" />
-
-      {/* Persian-specific Open Graph */}
-      <meta property="og:locale" content="fa_IR" />
-
-      {/* Persian-specific Twitter */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@menteeno" />
-      <meta name="twitter:creator" content="@menteeno" />
-
-      {/* Persian-specific canonical */}
-      <link rel="canonical" href={absoluteUrl("/")} />
-
-      {/* Persian-specific search engines */}
-      <meta name="googlebot" content="index, follow" />
-      <meta name="bingbot" content="index, follow" />
-      <meta name="yandexbot" content="index, follow" />
-      <meta
-        name="robots"
-        content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-      />
-
-      {/* Persian-specific verification tags */}
-      <meta
-        name="google-site-verification"
-        content="your-google-verification-code"
-      />
-      <meta
-        name="yandex-verification"
-        content="your-yandex-verification-code"
-      />
-
       {children}
     </>
   );

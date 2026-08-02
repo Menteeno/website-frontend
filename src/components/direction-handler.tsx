@@ -9,5 +9,5 @@ export function DirectionHandler() {
     document.documentElement.setAttribute("lang", "fa");
   }, []);
 
-  return null; // This component doesn't render anything
+  return null;
 }

@@ -68,6 +68,7 @@ export function generateMetadata({
       canonical: pageUrl,
       languages: {
         fa: getUrl(path),
+        "x-default": getUrl(path),
       },
     },
     openGraph: {

@@ -8,15 +8,29 @@ export const cacheConfig = {
 };
 
 /**
- * Redirects configuration
+ * Minimal SEO migration redirects (Persian-only site, no locale architecture).
+ *
+ * Keep only:
+ * - URLs that likely exist in Google / old bookmarks
+ * - Real path renames to current pages
+ *
+ * Do NOT add:
+ * - Guessed soft-404 → homepage dumps
+ * - Typo redirects
+ * - English locale routes
+ * - Internal /_next asset redirects
  */
 export const redirects = [
-  // Root redirects
+  // --- Homepage alias ---
+  // Old/marketing "home" path → current root.
   {
     source: "/home",
     destination: "/",
     permanent: true,
   },
+
+  // --- Auth path renames ---
+  // Former auth entrypoints now live at /auth.
   {
     source: "/login",
     destination: "/auth",
@@ -28,7 +42,7 @@ export const redirects = [
     permanent: true,
   },
 
-  // Common 404 patterns - redirect to closest valid page
+  // --- Public page slug renames ---
   {
     source: "/about",
     destination: "/about-us",
@@ -40,25 +54,31 @@ export const redirects = [
     permanent: true,
   },
   {
-    source: "/courses",
-    destination: "/",
+    source: "/privacy-policy",
+    destination: "/privacy",
     permanent: true,
   },
   {
-    source: "/mentorship",
-    destination: "/",
+    source: "/contract",
+    destination: "/terms",
     permanent: true,
   },
+
+  // --- Event plural → singular ---
+  // Current page is /event; old /events URLs may be indexed.
   {
     source: "/events",
     destination: "/event",
     permanent: true,
   },
   {
-    source: "/events/:path*",
+    source: "/events/:path+",
     destination: "/event",
     permanent: true,
   },
+
+  // --- Dashboard path nesting ---
+  // Former flat dashboard URLs → nested /dashboard/* routes that still exist.
   {
     source: "/surveys",
     destination: "/dashboard/surveys",
@@ -80,7 +100,16 @@ export const redirects = [
     permanent: true,
   },
 
-  // Legacy locale-prefixed URLs now served at root
+  // --- Legacy /fa prefix strip (SEO migration only) ---
+  // Site used to expose /fa/*; those URLs may still be in the index.
+  // There is no /fa locale app route anymore — strip the prefix to the
+  // current unprefixed Persian URLs. Special-case auth so /fa/login and
+  // /fa/signup land on /auth in one hop (not /login → /auth).
+  {
+    source: "/fa",
+    destination: "/",
+    permanent: true,
+  },
   {
     source: "/fa/home",
     destination: "/",
@@ -96,170 +125,11 @@ export const redirects = [
     destination: "/auth",
     permanent: true,
   },
+  // :path+ avoids matching bare /fa (empty capture previously caused
+  // Location: "" and an infinite reload loop).
   {
-    source: "/fa/:path*",
-    destination: "/:path*",
-    permanent: true,
-  },
-
-  // Legacy URL patterns
-  {
-    source: "/old/:path*",
-    destination: "/",
-    permanent: true,
-  },
-  {
-    source: "/legacy/:path*",
-    destination: "/",
-    permanent: true,
-  },
-  {
-    source: "/v1/:path*",
-    destination: "/",
-    permanent: true,
-  },
-  {
-    source: "/beta/:path*",
-    destination: "/",
-    permanent: true,
-  },
-
-  // Common typos and variations
-  {
-    source: "/contatc-us",
-    destination: "/contact-us",
-    permanent: true,
-  },
-  {
-    source: "/contatc",
-    destination: "/contact-us",
-    permanent: true,
-  },
-  {
-    source: "/dashbord",
-    destination: "/dashboard",
-    permanent: true,
-  },
-  {
-    source: "/dash",
-    destination: "/dashboard",
-    permanent: true,
-  },
-  {
-    source: "/blg",
-    destination: "/blog",
-    permanent: true,
-  },
-  {
-    source: "/blgo",
-    destination: "/blog",
-    permanent: true,
-  },
-
-  // API and system redirects
-  {
-    source: "/api/old/:path*",
-    destination: "/api",
-    permanent: true,
-  },
-  {
-    source: "/admin/old/:path*",
-    destination: "/",
-    permanent: true,
-  },
-
-  // 404 URL redirects - Author pages (redirect to blog)
-  {
-    source: "/authors/:author",
-    destination: "/blog",
-    permanent: true,
-  },
-
-  // 404 URL redirects - Category pages (redirect to blog)
-  {
-    source: "/categories/:category",
-    destination: "/blog",
-    permanent: true,
-  },
-
-  // 404 URL redirects - Tag pages (redirect to blog)
-  {
-    source: "/tags/:tag",
-    destination: "/blog",
-    permanent: true,
-  },
-
-  // 404 URL redirects - Blog posts (redirect to blog)
-  {
-    source: "/blog/post-:slug",
-    destination: "/blog",
-    permanent: true,
-  },
-
-  // 404 URL redirects - Section pages (redirect to main page)
-  {
-    source: "/sections",
-    destination: "/",
-    permanent: true,
-  },
-  {
-    source: "/sections/",
-    destination: "/",
-    permanent: true,
-  },
-
-  // 404 URL redirects - Specific page redirects
-  {
-    source: "/privacy-policy",
-    destination: "/privacy",
-    permanent: true,
-  },
-  {
-    source: "/privacy-policy/",
-    destination: "/privacy",
-    permanent: true,
-  },
-  {
-    source: "/contract",
-    destination: "/terms",
-    permanent: true,
-  },
-  {
-    source: "/contract/",
-    destination: "/terms",
-    permanent: true,
-  },
-
-  // Search functionality redirects
-  {
-    source: "/search",
-    destination: "/",
-    permanent: true,
-  },
-  {
-    source: "/searchindex.json",
-    destination: "/",
-    permanent: true,
-  },
-
-  // GitHub-related redirects
-  {
-    source: "/blob/master/LICENSE",
-    destination: "/",
-    permanent: true,
-  },
-
-  // CDN and external service redirects
-  {
-    source: "/cdn-cgi/l/email-protection",
-    destination: "/",
-    permanent: true,
-  },
-
-  // Font file redirects
-  {
-    source: "/_next/static/media/:path*",
-    destination: "/",
+    source: "/fa/:path+",
+    destination: "/:path+",
     permanent: true,
   },
 ];

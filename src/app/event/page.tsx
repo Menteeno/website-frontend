@@ -9,10 +9,23 @@ import EventSchedule from "@/components/event/event-schedule";
 import EventTargetAudience from "@/components/event/event-target-audience";
 import EventTeam from "@/components/event/event-team";
 import { Footer } from "@/components/footer";
+import { buildEventJsonLd } from "@/lib/event-json-ld";
+import { buildPageMetadata } from "@/lib/page-seo";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = buildPageMetadata("event");
 
 export default function EventPage() {
+  const eventJsonLd = buildEventJsonLd();
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(eventJsonLd),
+        }}
+      />
       <EventHero />
       <EventAbout />
       <EventDataDriven />

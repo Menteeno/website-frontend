@@ -43,6 +43,7 @@ export const getTranslation = (
   key: string,
   replacements: Record<string, any> = {}
 ): string => {
+  void locale;
   const localeMessages = messages.fa;
   const translation = getNestedValue(localeMessages, key);
   return interpolateSiteDomain(replacePlaceholders(translation, replacements));

@@ -13,7 +13,8 @@ import { ThemeProvider } from "@/contexts/theme-context";
 import { LoadingProvider } from "@/contexts/loading-context";
 import { AuthProvider } from "@/features/panel/auth/auth-context";
 import { getAssetUrl } from "@/lib/config";
-import { generateMetadata, generateViewport } from "@/lib/metadata";
+import { generateViewport } from "@/lib/metadata";
+import { buildPageMetadata } from "@/lib/page-seo";
 import { ReduxProvider } from "@/providers/redux-provider";
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -30,11 +31,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = generateMetadata({
-  title: "Menteeno - Professional Skill Development Platform",
-  description:
-    "Transform your professional skills with personalized mentorship, real-world training, and expert guidance. Join thousands of professionals growing their careers with Menteeno.",
-});
+export const metadata: Metadata = buildPageMetadata("home");
 
 export const viewport: Viewport = generateViewport();
 
@@ -118,7 +115,7 @@ export default function RootLayout({
                   const appearance = localStorage.getItem('appearance') || 'system';
                   const isDark = appearance === 'dark' || (appearance === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
                   document.documentElement.classList.toggle('dark', isDark);
-                  
+
                   // Persian-only site - always RTL
                   document.documentElement.setAttribute('dir', 'rtl');
                   document.documentElement.setAttribute('lang', 'fa');

@@ -259,6 +259,7 @@ export function generateLocalizedMetadata(
       canonical: pageUrl,
       languages: {
         fa: absoluteUrl("/"),
+        "x-default": absoluteUrl("/"),
       },
     },
     // Persian-specific meta tags
