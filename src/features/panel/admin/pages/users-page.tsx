@@ -1,7 +1,7 @@
 "use client";
 
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { useTranslation } from '@/features/panel/i18n/use-panel-translation'
+import { useTranslation } from '@/hooks/use-translation'
 import { toast } from 'sonner'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Switch } from '@/components/ui/switch'
@@ -33,21 +33,21 @@ export function AdminUsersPage() {
       }
     },
     onSuccess: async () => {
-      toast.success(t('common.success'))
+      toast.success(t('panel.common.success'))
       await queryClient.invalidateQueries({ queryKey: ['admin-users'] })
     },
     onError: (error: Error) => toast.error(error.message),
   })
 
   if (isLoading) {
-    return <p className="text-[var(--color-muted-foreground)]">{t('common.loading')}</p>
+    return <p className="text-[var(--color-muted-foreground)]">{t('panel.common.loading')}</p>
   }
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold">{t('admin.users')}</h1>
-        <p className="mt-1 text-sm text-[var(--color-muted-foreground)]">{t('admin.usersHint')}</p>
+        <h1 className="text-2xl font-bold">{t('panel.admin.users')}</h1>
+        <p className="mt-1 text-sm text-[var(--color-muted-foreground)]">{t('panel.admin.usersHint')}</p>
       </div>
 
       <div className="space-y-3">
@@ -61,7 +61,7 @@ export function AdminUsersPage() {
                 <CardDescription dir="ltr">{user.email}</CardDescription>
               </div>
               <label className="flex items-center gap-2 text-sm">
-                <span>{t('admin.makeAdmin')}</span>
+                <span>{t('panel.admin.makeAdmin')}</span>
                 <Switch
                   checked={user.is_admin}
                   onCheckedChange={(checked) =>

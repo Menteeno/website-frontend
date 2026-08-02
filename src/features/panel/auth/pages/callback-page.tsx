@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect } from 'react'
-import { useTranslation } from '@/features/panel/i18n/use-panel-translation'
+import { useTranslation } from "@/hooks/use-translation";
 import { supabase } from '@/lib/supabase'
 
 export function AuthCallbackPage() {
@@ -37,5 +37,5 @@ export function AuthCallbackPage() {
     }
   }, [router])
 
-  return <div className="p-8 text-center text-[var(--color-muted-foreground)]">{t('common.loading')}</div>
+  return <div className="p-8 text-center text-[var(--color-muted-foreground)]">{t('panel.common.loading')}</div>
 }

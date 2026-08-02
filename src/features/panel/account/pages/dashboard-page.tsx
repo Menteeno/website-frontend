@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useQuery } from '@tanstack/react-query'
-import { useTranslation } from '@/features/panel/i18n/use-panel-translation'
+import { useTranslation } from '@/hooks/use-translation'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { useAuth } from '@/features/panel/auth/auth-context'
@@ -49,24 +49,24 @@ export function AccountDashboardPage() {
   })
 
   if (isLoading) {
-    return <p className="text-[var(--color-muted-foreground)]">{t('common.loading')}</p>
+    return <p className="text-[var(--color-muted-foreground)]">{t('panel.common.loading')}</p>
   }
 
   return (
     <div className="space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
-        <h1 className="text-3xl font-bold">{t('account.title')}</h1>
+        <h1 className="text-3xl font-bold">{t('panel.account.title')}</h1>
         <Button asChild variant="outline">
-          <Link href="/panel/account/profile">{t('nav.profile')}</Link>
+          <Link href="/panel/account/profile">{t('panel.nav.profile')}</Link>
         </Button>
       </div>
 
-      <h2 className="text-xl font-semibold">{t('account.myCourses')}</h2>
+      <h2 className="text-xl font-semibold">{t('panel.account.myCourses')}</h2>
       {enrollments.length === 0 ? (
         <p className="text-[var(--color-muted-foreground)]">
-          {t('account.noCourses')}{' '}
+          {t('panel.account.noCourses')}{' '}
           <Link className="text-[var(--color-primary)] hover:underline" href="/panel/courses">
-            {t('nav.courses')}
+            {t('panel.nav.courses')}
           </Link>
         </p>
       ) : (
@@ -87,7 +87,7 @@ export function AccountDashboardPage() {
                 </CardHeader>
                 <CardContent>
                   <Button asChild>
-                    <Link href={`/panel/account/courses/${course.id}`}>{t('account.continue')}</Link>
+                    <Link href={`/panel/account/courses/${course.id}`}>{t('panel.account.continue')}</Link>
                   </Button>
                 </CardContent>
               </Card>

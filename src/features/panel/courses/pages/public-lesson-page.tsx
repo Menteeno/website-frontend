@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import { routeParam } from "@/features/panel/lib/params";
 import { useMemo } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { useTranslation } from '@/features/panel/i18n/use-panel-translation'
+import { useTranslation } from '@/hooks/use-translation'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -81,17 +81,17 @@ export function PublicLessonPage() {
   const media = useMemo(() => embedVideo(data?.lesson.video_url ?? null), [data?.lesson.video_url])
 
   if (isLoading) {
-    return <p className="text-[var(--color-muted-foreground)]">{t('common.loading')}</p>
+    return <p className="text-[var(--color-muted-foreground)]">{t('panel.common.loading')}</p>
   }
 
   if (!data) {
-    return <p>{t('common.notFound')}</p>
+    return <p>{t('panel.common.notFound')}</p>
   }
 
   const { course, lesson, chapter, canAccess } = data
   const description =
     lesson.content?.slice(0, 160) ||
-    t('courses.freePreviewSeo', { lesson: lesson.title, course: course.title })
+    t('panel.courses.freePreviewSeo', { lesson: lesson.title, course: course.title })
 
   return (
     <article className="space-y-6">
@@ -119,13 +119,13 @@ export function PublicLessonPage() {
         <ol className="flex flex-wrap items-center gap-2">
           <li>
             <Link className="hover:text-[var(--color-primary)]" href="/panel">
-              {t('nav.home')}
+              {t('panel.nav.home')}
             </Link>
           </li>
           <li aria-hidden>/</li>
           <li>
             <Link className="hover:text-[var(--color-primary)]" href="/panel/courses">
-              {t('nav.courses')}
+              {t('panel.nav.courses')}
             </Link>
           </li>
           <li aria-hidden>/</li>
@@ -143,21 +143,21 @@ export function PublicLessonPage() {
         <p className="text-sm text-[var(--color-muted-foreground)]">{chapter?.title}</p>
         <div className="flex flex-wrap items-center gap-3">
           <h1 className="text-3xl font-bold">{lesson.title}</h1>
-          {lesson.is_free ? <Badge variant="secondary">{t('courses.freePreview')}</Badge> : null}
+          {lesson.is_free ? <Badge variant="secondary">{t('panel.courses.freePreview')}</Badge> : null}
         </div>
       </header>
 
       {!canAccess ? (
         <Card>
           <CardContent className="space-y-4 p-6">
-            <p>{t('account.lockedLesson')}</p>
+            <p>{t('panel.account.lockedLesson')}</p>
             <div className="flex flex-wrap gap-3">
               <Button asChild>
-                <Link href={`/panel/courses/${course.slug}`}>{t('courses.details')}</Link>
+                <Link href={`/panel/courses/${course.slug}`}>{t('panel.courses.details')}</Link>
               </Button>
               {!user ? (
                 <Button asChild variant="outline">
-                  <Link href="/panel/login">{t('nav.login')}</Link>
+                  <Link href="/panel/login">{t('panel.nav.login')}</Link>
                 </Button>
               ) : null}
             </div>
@@ -181,7 +181,7 @@ export function PublicLessonPage() {
                 <video controls className="aspect-video w-full bg-black" src={media.src} />
               ) : (
                 <div className="flex aspect-video items-center justify-center bg-[var(--color-muted)] text-sm text-[var(--color-muted-foreground)]">
-                  {t('courses.noVideo')}
+                  {t('panel.courses.noVideo')}
                 </div>
               )}
             </CardContent>
@@ -195,17 +195,17 @@ export function PublicLessonPage() {
 
           <div className="flex flex-wrap gap-3">
             <Button asChild variant="outline">
-              <Link href={`/panel/courses/${course.slug}`}>{t('common.back')}</Link>
+              <Link href={`/panel/courses/${course.slug}`}>{t('panel.common.back')}</Link>
             </Button>
             {user ? (
               <Button asChild>
                 <Link href={`/panel/account/courses/${course.id}/lessons/${lesson.id}`}>
-                  {t('account.continue')}
+                  {t('panel.account.continue')}
                 </Link>
               </Button>
             ) : (
               <Button asChild>
-                <Link href={`/panel/courses/${course.slug}`}>{t('courses.enroll')}</Link>
+                <Link href={`/panel/courses/${course.slug}`}>{t('panel.courses.enroll')}</Link>
               </Button>
             )}
           </div>

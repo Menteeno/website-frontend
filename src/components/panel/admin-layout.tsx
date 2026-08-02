@@ -5,19 +5,19 @@ import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { BookOpen, LayoutDashboard, Users } from "lucide-react";
 import { SiteHeader } from "@/components/panel/public-layout";
-import { usePanelTranslation } from "@/features/panel/i18n/use-panel-translation";
+import { useTranslation } from "@/hooks/use-translation";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/navbar/navbar"
 import { Footer } from "@/components/footer"
 
 const links = [
-  { href: "/panel/admin", end: true, icon: LayoutDashboard, labelKey: "admin.dashboard" },
-  { href: "/panel/admin/courses", end: false, icon: BookOpen, labelKey: "admin.courses" },
-  { href: "/panel/admin/users", end: false, icon: Users, labelKey: "admin.users" },
+  { href: "/panel/admin", end: true, icon: LayoutDashboard, labelKey: "panel.admin.dashboard" },
+  { href: "/panel/admin/courses", end: false, icon: BookOpen, labelKey: "panel.admin.courses" },
+  { href: "/panel/admin/users", end: false, icon: Users, labelKey: "panel.admin.users" },
 ] as const;
 
 export function AdminLayout({ children }: { children: ReactNode }) {
-  const { t } = usePanelTranslation();
+  const { t } = useTranslation();
   const pathname = usePathname();
 
   return (
@@ -28,7 +28,7 @@ export function AdminLayout({ children }: { children: ReactNode }) {
         <aside className="w-full shrink-0 md:w-56">
           <div className="rounded-lg border bg-card p-3">
             <p className="mb-3 px-2 text-sm font-semibold text-muted-foreground">
-              {t("admin.title")}
+              {t("panel.admin.title")}
             </p>
             <nav className="flex flex-col gap-1">
               {links.map((link) => {
@@ -48,7 +48,7 @@ export function AdminLayout({ children }: { children: ReactNode }) {
                     )}
                   >
                     <link.icon className="h-4 w-4" />
-                    {t(link.labelKey)}
+                    {t(`panel.${link.labelKey}`)}
                   </Link>
                 );
               })}

@@ -7,8 +7,8 @@ import { NavigationSheet } from "@/components/navbar/navigation-sheet";
 import { useTranslation } from "@/hooks/use-translation";
 import { cn } from "@/lib/utils";
 import { PanelLeft } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
-import { getConsoleUrl } from "@/lib/site";
 
 const Navbar = () => {
   const { t, locale } = useTranslation();
@@ -50,10 +50,8 @@ const Navbar = () => {
         <NavMenu className="hidden md:block" />
 
         <div className="flex items-center gap-3">
-          <a
-            href={getConsoleUrl()}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/panel/login"
             className={cn(
               "hidden md:flex items-center gap-2 h-9 px-3 rounded-md",
               "bg-primary text-primary-foreground hover:bg-primary/90",
@@ -62,7 +60,7 @@ const Navbar = () => {
           >
             <PanelLeft className="size-4" />
             <span>{t("messages.navbar.user-panel")}</span>
-          </a>
+          </Link>
           <Language />
           <AnimatedThemeToggler />
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from 'react'
-import { useTranslation } from '@/features/panel/i18n/use-panel-translation'
+import { useTranslation } from '@/hooks/use-translation'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -53,9 +53,9 @@ export function ProfilePage() {
         throw error
       }
       await refreshProfile()
-      toast.success(t('account.profileSaved'))
+      toast.success(t('panel.account.profileSaved'))
     } catch (error) {
-      toast.error(error instanceof Error ? error.message : t('common.error'))
+      toast.error(error instanceof Error ? error.message : t('panel.common.error'))
     } finally {
       setLoading(false)
     }
@@ -65,14 +65,14 @@ export function ProfilePage() {
     <div className="mx-auto max-w-lg">
       <Card>
         <CardHeader>
-          <CardTitle>{t('account.profileTitle')}</CardTitle>
-          <CardDescription>{t('auth.completeProfileHint')}</CardDescription>
+          <CardTitle>{t('panel.account.profileTitle')}</CardTitle>
+          <CardDescription>{t('panel.auth.completeProfileHint')}</CardDescription>
         </CardHeader>
         <CardContent>
           <form className="flex flex-col gap-4" onSubmit={(e) => void onSubmit(e)}>
             <div className="grid grid-cols-2 gap-3">
               <div className="space-y-2">
-                <Label htmlFor="first_name">{t('auth.firstName')}</Label>
+                <Label htmlFor="first_name">{t('panel.auth.firstName')}</Label>
                 <Input
                   id="first_name"
                   required
@@ -81,7 +81,7 @@ export function ProfilePage() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="last_name">{t('auth.lastName')}</Label>
+                <Label htmlFor="last_name">{t('panel.auth.lastName')}</Label>
                 <Input
                   id="last_name"
                   required
@@ -108,7 +108,7 @@ export function ProfilePage() {
               />
             </div>
             <Button type="submit" disabled={loading}>
-              {t('common.save')}
+              {t('panel.common.save')}
             </Button>
           </form>
         </CardContent>

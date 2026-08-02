@@ -5,11 +5,11 @@ import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/features/panel/auth/auth-context";
-import { usePanelTranslation } from "@/features/panel/i18n/use-panel-translation";
+import { useTranslation } from "@/hooks/use-translation";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
-  const { t, locale, changeLanguage } = usePanelTranslation();
+  const { t, locale, changeLanguage } = useTranslation();
   const { user, isAdmin, signOut } = useAuth();
   const pathname = usePathname();
 
@@ -28,33 +28,33 @@ export function SiteHeader() {
           href="/panel"
           className="text-xl font-bold tracking-tight text-primary"
         >
-          {t("common.appName")}
+          {t("panel.common.appName")}
         </Link>
         <nav className="flex flex-wrap items-center justify-end gap-1 text-sm sm:gap-2">
           <Link href="/panel/courses" className={navClass("/panel/courses")}>
-            {t("nav.courses")}
+            {t("panel.nav.courses")}
           </Link>
           {user ? (
             <>
               <Link href="/panel/account" className={navClass("/panel/account")}>
-                {t("nav.account")}
+                {t("panel.nav.account")}
               </Link>
               {isAdmin ? (
                 <Link href="/panel/admin" className={navClass("/panel/admin")}>
-                  {t("nav.admin")}
+                  {t("panel.nav.admin")}
                 </Link>
               ) : null}
               <Button variant="ghost" size="sm" onClick={() => void signOut()}>
-                {t("nav.logout")}
+                {t("panel.nav.logout")}
               </Button>
             </>
           ) : (
             <>
               <Button variant="ghost" size="sm" asChild>
-                <Link href="/panel/login">{t("nav.login")}</Link>
+                <Link href="/panel/login">{t("panel.nav.login")}</Link>
               </Button>
               <Button size="sm" asChild>
-                <Link href="/panel/register">{t("nav.register")}</Link>
+                <Link href="/panel/register">{t("panel.nav.register")}</Link>
               </Button>
             </>
           )}

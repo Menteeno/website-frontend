@@ -4,34 +4,42 @@ import { getTranslation, isValidLocale, type Locale } from "@/lib/i18n";
 import { usePathname, useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 
-// Get nested value from object using dot notation
+const STORAGE_KEY = "menteeno-locale";
+
 const getNestedValue = (obj: any, path: string): string => {
   return path.split(".").reduce((current, key) => current?.[key], obj) || path;
 };
 
-// Replace placeholders in string
 const replacePlaceholders = (
   str: string,
   replacements: Record<string, any> = {}
 ): string => {
-  return str.replace(/\{(\w+)\}/g, (match, key) => replacements[key] || match);
+  return str
+    .replace(/:(\w+)/g, (match, key) => replacements[key] ?? match)
+    .replace(/\{(\w+)\}/g, (match, key) => replacements[key] ?? match);
 };
 
-// Hook for client-side translations
+function applyDocumentDirection(locale: string): void {
+  if (typeof document === "undefined") return;
+  document.documentElement.lang = locale;
+  document.documentElement.dir = locale === "fa" ? "rtl" : "ltr";
+}
+
 export const useTranslation = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [locale, setLocale] = useState<Locale>("fa");
 
-  // Extract locale from pathname
   useEffect(() => {
     const segments = pathname.split("/");
     const pathLocale = segments[1];
 
     if (pathLocale && isValidLocale(pathLocale)) {
       setLocale(pathLocale);
+      applyDocumentDirection(pathLocale);
     } else {
       setLocale("fa");
+      applyDocumentDirection("fa");
     }
   }, [pathname]);
 
@@ -55,13 +63,17 @@ export const useTranslation = () => {
         return;
       }
 
-      // Remove current locale from pathname and add new one
+      try {
+        window.localStorage.setItem(STORAGE_KEY, newLocale);
+      } catch {
+        // localStorage may be unavailable
+      }
+
+      applyDocumentDirection(newLocale);
+
       const segments = pathname.split("/");
-
-      // Check if the first segment is a locale
-      const isFirstSegmentLocale = segments[1] && isValidLocale(segments[1]);
-
-      // If first segment is a locale, remove it; otherwise keep all segments
+      const isFirstSegmentLocale =
+        segments[1] && isValidLocale(segments[1]);
       const pathWithoutLocale = isFirstSegmentLocale
         ? segments.slice(2).join("/")
         : segments.slice(1).join("/");

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { routeParam } from "@/features/panel/lib/params";
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { useTranslation } from '@/features/panel/i18n/use-panel-translation'
+import { useTranslation } from '@/hooks/use-translation'
 import { toast } from 'sonner'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -30,10 +30,10 @@ type ChapterWithLessons = Chapter & { lessons: LessonSummary[] }
 export function CourseDetailPage() {
     const params = useParams()
   const slug = routeParam(params.slug)
-  const { t, i18n } = useTranslation()
+  const { t, locale: lang } = useTranslation()
   const { user } = useAuth()
   const queryClient = useQueryClient()
-  const locale = i18n.language === 'fa' ? 'fa-IR' : 'en-US'
+  const locale = lang === 'fa' ? 'fa-IR' : 'en-US'
 
   const { data, isLoading } = useQuery({
     queryKey: ['course', slug, user?.id],
@@ -117,21 +117,21 @@ export function CourseDetailPage() {
       }
     },
     onSuccess: async () => {
-      toast.success(t('common.success'))
+      toast.success(t('panel.common.success'))
       await queryClient.invalidateQueries({ queryKey: ['course', slug] })
     },
     onError: (error: Error) => toast.error(error.message),
   })
 
   if (isLoading) {
-    return <p className="text-[var(--color-muted-foreground)]">{t('common.loading')}</p>
+    return <p className="text-[var(--color-muted-foreground)]">{t('panel.common.loading')}</p>
   }
 
   if (!data?.course) {
     return (
       <>
-        <Seo title={t('common.notFound')} description={t('common.notFound')} path={`/panel/courses/${slug}`} noIndex />
-        <p>{t('common.notFound')}</p>
+        <Seo title={t('panel.common.notFound')} description={t('panel.common.notFound')} path={`/panel/courses/${slug}`} noIndex />
+        <p>{t('panel.common.notFound')}</p>
       </>
     )
   }
@@ -144,7 +144,7 @@ export function CourseDetailPage() {
   const seoDescription =
     course.short_description ||
     course.description?.slice(0, 160) ||
-    t('courses.seoFallback', { title: course.title })
+    t('panel.courses.seoFallback', { title: course.title })
   const schemaPrice = priceForSchema(price, course.currency)
   const courseUrl = absoluteUrl(`/courses/${course.slug}`)
   const hasSale = course.sale_price !== null && course.sale_price >= 0 && course.sale_price < course.price
@@ -154,8 +154,8 @@ export function CourseDetailPage() {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: t('nav.home'), item: absoluteUrl('/') },
-        { '@type': 'ListItem', position: 2, name: t('nav.courses'), item: absoluteUrl('/courses') },
+        { '@type': 'ListItem', position: 1, name: t('panel.nav.home'), item: absoluteUrl('/') },
+        { '@type': 'ListItem', position: 2, name: t('panel.nav.courses'), item: absoluteUrl('/courses') },
         { '@type': 'ListItem', position: 3, name: course.title, item: courseUrl },
       ],
     },
@@ -206,7 +206,7 @@ export function CourseDetailPage() {
         path={`/panel/courses/${course.slug}`}
         image={cover}
         type="product"
-        locale={i18n.language === 'fa' ? 'fa_IR' : 'en_US'}
+        locale={lang === 'fa' ? 'fa_IR' : 'en_US'}
         jsonLd={jsonLd}
       />
 
@@ -214,13 +214,13 @@ export function CourseDetailPage() {
         <ol className="flex flex-wrap items-center gap-2">
           <li>
             <Link className="hover:text-[var(--color-primary)]" href="/panel">
-              {t('nav.home')}
+              {t('panel.nav.home')}
             </Link>
           </li>
           <li aria-hidden>/</li>
           <li>
             <Link className="hover:text-[var(--color-primary)]" href="/panel/courses">
-              {t('nav.courses')}
+              {t('panel.nav.courses')}
             </Link>
           </li>
           <li aria-hidden>/</li>
@@ -243,21 +243,21 @@ export function CourseDetailPage() {
                 {formatPrice(course.price, course.currency, locale)}
               </span>
             ) : null}
-            {enrollment ? <Badge variant="secondary">{t('courses.enrolled')}</Badge> : null}
-            {firstFreeLesson ? <Badge variant="outline">{t('courses.hasFreePreview')}</Badge> : null}
+            {enrollment ? <Badge variant="secondary">{t('panel.courses.enrolled')}</Badge> : null}
+            {firstFreeLesson ? <Badge variant="outline">{t('panel.courses.hasFreePreview')}</Badge> : null}
           </div>
           <div className="flex flex-wrap gap-3">
             {firstFreeLesson ? (
               <Button asChild>
                 <Link href={`/panel/courses/${course.slug}/lessons/${firstFreeLesson.id}`}>
-                  {t('courses.watchFree')}
+                  {t('panel.courses.watchFree')}
                 </Link>
               </Button>
             ) : null}
             {enrollment && firstLesson ? (
               <Button asChild variant={firstFreeLesson ? 'outline' : 'default'}>
                 <Link href={`/panel/account/courses/${course.id}/lessons/${firstLesson.id}`}>
-                  {t('courses.startLearning')}
+                  {t('panel.courses.startLearning')}
                 </Link>
               </Button>
             ) : null}
@@ -267,12 +267,12 @@ export function CourseDetailPage() {
                 onClick={() => enrollMutation.mutate()}
                 disabled={enrollMutation.isPending}
               >
-                {t('courses.enroll')}
+                {t('panel.courses.enroll')}
               </Button>
             ) : null}
             {!enrollment && !user ? (
               <Button asChild variant="outline">
-                <Link href="/panel/login">{t('courses.enroll')}</Link>
+                <Link href="/panel/login">{t('panel.courses.enroll')}</Link>
               </Button>
             ) : null}
           </div>
@@ -284,14 +284,14 @@ export function CourseDetailPage() {
           {cover ? (
             <img
               src={cover}
-              alt={t('courses.coverAlt', { title: course.title })}
+              alt={t('panel.courses.coverAlt', { title: course.title })}
               className="h-56 w-full object-cover"
               width={640}
               height={224}
             />
           ) : (
             <div className="flex h-56 items-center justify-center bg-[var(--color-muted)]">
-              {t('common.appName')}
+              {t('panel.common.appName')}
             </div>
           )}
         </Card>
@@ -301,7 +301,7 @@ export function CourseDetailPage() {
 
       <section className="space-y-4" aria-labelledby="syllabus-heading">
         <h2 id="syllabus-heading" className="text-2xl font-semibold">
-          {t('courses.chapters')}
+          {t('panel.courses.chapters')}
         </h2>
         {chapters.map((chapter) => (
           <Card key={chapter.id}>
@@ -310,7 +310,7 @@ export function CourseDetailPage() {
             </CardHeader>
             <CardContent className="space-y-2">
               {chapter.lessons.length === 0 ? (
-                <p className="text-sm text-[var(--color-muted-foreground)]">{t('courses.empty')}</p>
+                <p className="text-sm text-[var(--color-muted-foreground)]">{t('panel.courses.empty')}</p>
               ) : (
                 chapter.lessons.map((lesson) => {
                   const lessonPath = lesson.is_free
@@ -334,17 +334,17 @@ export function CourseDetailPage() {
                         )}
                       </div>
                       <div className="flex shrink-0 items-center gap-2">
-                        {lesson.is_free ? <Badge variant="outline">{t('common.free')}</Badge> : null}
+                        {lesson.is_free ? <Badge variant="outline">{t('panel.common.free')}</Badge> : null}
                         {lesson.is_free ? (
                           <Button asChild size="sm" variant="ghost">
                             <Link href={`/panel/courses/${course.slug}/lessons/${lesson.id}`}>
-                              {t('courses.watchFree')}
+                              {t('panel.courses.watchFree')}
                             </Link>
                           </Button>
                         ) : enrollment && user ? (
                           <Button asChild size="sm" variant="ghost">
                             <Link href={`/panel/account/courses/${course.id}/lessons/${lesson.id}`}>
-                              {t('courses.startLearning')}
+                              {t('panel.courses.startLearning')}
                             </Link>
                           </Button>
                         ) : null}

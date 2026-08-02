@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import { routeParam } from "@/features/panel/lib/params";
 import { useEffect, useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { useTranslation } from '@/features/panel/i18n/use-panel-translation'
+import { useTranslation } from '@/hooks/use-translation'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -130,7 +130,7 @@ export function AdminCourseEditPage() {
       }
     },
     onSuccess: async () => {
-      toast.success(t('common.success'))
+      toast.success(t('panel.common.success'))
       await queryClient.invalidateQueries({ queryKey: ['admin-course', courseId] })
       await queryClient.invalidateQueries({ queryKey: ['admin-courses'] })
     },
@@ -143,7 +143,7 @@ export function AdminCourseEditPage() {
       const { error } = await supabase.from('chapters').insert({
         id: createId(),
         course_id: courseId,
-        title: `${t('admin.chapters')} ${order + 1}`,
+        title: `${t('panel.admin.chapters')} ${order + 1}`,
         order,
       })
       if (error) {
@@ -192,7 +192,7 @@ export function AdminCourseEditPage() {
       const { error } = await supabase.from('lessons').insert({
         id: createId(),
         chapter_id: chapterId,
-        title: `${t('admin.lessons')} ${order + 1}`,
+        title: `${t('panel.admin.lessons')} ${order + 1}`,
         order,
         is_free: false,
       })
@@ -223,7 +223,7 @@ export function AdminCourseEditPage() {
       }
     },
     onSuccess: async () => {
-      toast.success(t('common.success'))
+      toast.success(t('panel.common.success'))
       await queryClient.invalidateQueries({ queryKey: ['admin-course', courseId] })
     },
     onError: (error: Error) => toast.error(error.message),
@@ -243,21 +243,21 @@ export function AdminCourseEditPage() {
   })
 
   if (isLoading || !form || !data) {
-    return <p className="text-[var(--color-muted-foreground)]">{t('common.loading')}</p>
+    return <p className="text-[var(--color-muted-foreground)]">{t('panel.common.loading')}</p>
   }
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between gap-3">
-        <h1 className="text-2xl font-bold">{t('admin.editCourse')}</h1>
+        <h1 className="text-2xl font-bold">{t('panel.admin.editCourse')}</h1>
         <Button asChild variant="outline">
-          <Link href="/panel/admin/courses">{t('common.back')}</Link>
+          <Link href="/panel/admin/courses">{t('panel.common.back')}</Link>
         </Button>
       </div>
 
       <Card>
         <CardHeader>
-          <CardTitle className="text-base">{t('admin.editCourse')}</CardTitle>
+          <CardTitle className="text-base">{t('panel.admin.editCourse')}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="grid gap-4 sm:grid-cols-2">
@@ -278,7 +278,7 @@ export function AdminCourseEditPage() {
             </div>
           </div>
           <div className="space-y-2">
-            <Label>{t('courses.details')}</Label>
+            <Label>{t('panel.courses.details')}</Label>
             <Input
               value={form.short_description}
               onChange={(e) => setForm({ ...form, short_description: e.target.value })}
@@ -294,7 +294,7 @@ export function AdminCourseEditPage() {
           </div>
           <div className="grid gap-4 sm:grid-cols-3">
             <div className="space-y-2">
-              <Label>{t('admin.status')}</Label>
+              <Label>{t('panel.admin.status')}</Label>
               <Select
                 value={form.status}
                 onValueChange={(value: CourseStatus) => setForm({ ...form, status: value })}
@@ -303,14 +303,14 @@ export function AdminCourseEditPage() {
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="draft">{t('admin.draft')}</SelectItem>
-                  <SelectItem value="published">{t('admin.published')}</SelectItem>
-                  <SelectItem value="archived">{t('admin.archived')}</SelectItem>
+                  <SelectItem value="draft">{t('panel.admin.draft')}</SelectItem>
+                  <SelectItem value="published">{t('panel.admin.published')}</SelectItem>
+                  <SelectItem value="archived">{t('panel.admin.archived')}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
             <div className="space-y-2">
-              <Label>{t('courses.price')}</Label>
+              <Label>{t('panel.courses.price')}</Label>
               <Input
                 type="number"
                 dir="ltr"
@@ -329,7 +329,7 @@ export function AdminCourseEditPage() {
             </div>
           </div>
           <div className="space-y-2">
-            <Label>{t('admin.cover')}</Label>
+            <Label>{t('panel.admin.cover')}</Label>
             <Input
               type="file"
               accept="image/*"
@@ -337,14 +337,14 @@ export function AdminCourseEditPage() {
             />
           </div>
           <Button onClick={() => saveCourse.mutate()} disabled={saveCourse.isPending}>
-            {t('common.save')}
+            {t('panel.common.save')}
           </Button>
         </CardContent>
       </Card>
 
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-semibold">{t('admin.chapters')}</h2>
-        <Button onClick={() => addChapter.mutate()}>{t('admin.addChapter')}</Button>
+        <h2 className="text-xl font-semibold">{t('panel.admin.chapters')}</h2>
+        <Button onClick={() => addChapter.mutate()}>{t('panel.admin.addChapter')}</Button>
       </div>
 
       {data.chapters.map((chapter) => (
@@ -354,14 +354,14 @@ export function AdminCourseEditPage() {
           t={t}
           onSaveChapter={(payload) => updateChapter.mutate(payload)}
           onDeleteChapter={() => {
-            if (window.confirm(t('admin.deleteConfirm'))) {
+            if (window.confirm(t('panel.admin.deleteConfirm'))) {
               deleteChapter.mutate(chapter.id)
             }
           }}
           onAddLesson={() => addLesson.mutate(chapter.id)}
           onSaveLesson={(lesson) => updateLesson.mutate(lesson)}
           onDeleteLesson={(id) => {
-            if (window.confirm(t('admin.deleteConfirm'))) {
+            if (window.confirm(t('panel.admin.deleteConfirm'))) {
               deleteLesson.mutate(id)
             }
           }}
@@ -406,7 +406,7 @@ function ChapterEditor({
   return (
     <Card>
       <CardHeader className="space-y-3">
-        <CardTitle className="text-base">{t('admin.chapters')}</CardTitle>
+        <CardTitle className="text-base">{t('panel.admin.chapters')}</CardTitle>
         <div className="grid gap-3 sm:grid-cols-[1fr_120px_auto_auto]">
           <Input value={title} onChange={(e) => setTitle(e.target.value)} />
           <Input
@@ -419,18 +419,18 @@ function ChapterEditor({
             size="sm"
             onClick={() => onSaveChapter({ id: chapter.id, title, order })}
           >
-            {t('common.save')}
+            {t('panel.common.save')}
           </Button>
           <Button size="sm" variant="destructive" onClick={onDeleteChapter}>
-            {t('common.delete')}
+            {t('panel.common.delete')}
           </Button>
         </div>
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="flex justify-between">
-          <h3 className="font-medium">{t('admin.lessons')}</h3>
+          <h3 className="font-medium">{t('panel.admin.lessons')}</h3>
           <Button size="sm" variant="secondary" onClick={onAddLesson}>
-            {t('admin.addLesson')}
+            {t('panel.admin.addLesson')}
           </Button>
         </div>
         {chapter.lessons.map((lesson) => (
@@ -494,7 +494,7 @@ function LessonEditor({
       </div>
       <Input
         dir="ltr"
-        placeholder={t('admin.videoUrl')}
+        placeholder={t('panel.admin.videoUrl')}
         value={state.video_url}
         onChange={(e) => setState((s) => ({ ...s, video_url: e.target.value }))}
       />
@@ -509,7 +509,7 @@ function LessonEditor({
             checked={state.is_free}
             onCheckedChange={(checked) => setState((s) => ({ ...s, is_free: checked }))}
           />
-          {t('admin.isFree')}
+          {t('panel.admin.isFree')}
         </label>
         <div className="flex gap-2">
           <Button
@@ -525,10 +525,10 @@ function LessonEditor({
               })
             }
           >
-            {t('common.save')}
+            {t('panel.common.save')}
           </Button>
           <Button size="sm" variant="destructive" onClick={onDelete}>
-            {t('common.delete')}
+            {t('panel.common.delete')}
           </Button>
         </div>
       </div>

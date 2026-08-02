@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { useTranslation } from '@/features/panel/i18n/use-panel-translation'
+import { useTranslation } from '@/hooks/use-translation'
 import { toast } from 'sonner'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -35,7 +35,7 @@ export function AdminCoursesPage() {
   const createMutation = useMutation({
     mutationFn: async () => {
       const id = createId()
-      const title = t('admin.newCourse')
+      const title = t('panel.admin.newCourse')
       const { data, error } = await supabase
         .from('courses')
         .insert({
@@ -69,22 +69,22 @@ export function AdminCoursesPage() {
       }
     },
     onSuccess: async () => {
-      toast.success(t('common.success'))
+      toast.success(t('panel.common.success'))
       await queryClient.invalidateQueries({ queryKey: ['admin-courses'] })
     },
     onError: (error: Error) => toast.error(error.message),
   })
 
   if (isLoading) {
-    return <p className="text-[var(--color-muted-foreground)]">{t('common.loading')}</p>
+    return <p className="text-[var(--color-muted-foreground)]">{t('panel.common.loading')}</p>
   }
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between gap-3">
-        <h1 className="text-2xl font-bold">{t('admin.courses')}</h1>
+        <h1 className="text-2xl font-bold">{t('panel.admin.courses')}</h1>
         <Button onClick={() => createMutation.mutate()} disabled={createMutation.isPending}>
-          {t('admin.newCourse')}
+          {t('panel.admin.newCourse')}
         </Button>
       </div>
 
@@ -98,22 +98,22 @@ export function AdminCoursesPage() {
                   /{course.slug}
                 </p>
               </div>
-              <Badge variant="secondary">{t(`admin.${course.status}`)}</Badge>
+              <Badge variant="secondary">{t(`panel.admin.${course.status}`)}</Badge>
             </CardHeader>
             <CardContent className="flex gap-2">
               <Button asChild size="sm">
-                <Link href={`/panel/admin/courses/${course.id}`}>{t('common.edit')}</Link>
+                <Link href={`/panel/admin/courses/${course.id}`}>{t('panel.common.edit')}</Link>
               </Button>
               <Button
                 size="sm"
                 variant="destructive"
                 onClick={() => {
-                  if (window.confirm(t('admin.deleteConfirm'))) {
+                  if (window.confirm(t('panel.admin.deleteConfirm'))) {
                     deleteMutation.mutate(course.id)
                   }
                 }}
               >
-                {t('common.delete')}
+                {t('panel.common.delete')}
               </Button>
             </CardContent>
           </Card>

@@ -5,7 +5,7 @@ import { useParams } from "next/navigation";
 import { routeParam } from "@/features/panel/lib/params";
 import { useMemo, useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { useTranslation } from '@/features/panel/i18n/use-panel-translation'
+import { useTranslation } from '@/hooks/use-translation'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -95,7 +95,7 @@ export function LessonPlayerPage() {
         .eq('user_id', user!.id)
     },
     onSuccess: async () => {
-      toast.success(t('common.success'))
+      toast.success(t('panel.common.success'))
       await queryClient.invalidateQueries({ queryKey: ['lesson', lessonId, user?.id] })
       await queryClient.invalidateQueries({ queryKey: ['learn-course', courseId, user?.id] })
     },
@@ -120,22 +120,22 @@ export function LessonPlayerPage() {
     },
     onSuccess: async () => {
       setNote('')
-      toast.success(t('common.success'))
+      toast.success(t('panel.common.success'))
       await queryClient.invalidateQueries({ queryKey: ['lesson', lessonId, user?.id] })
     },
     onError: (error: Error) => toast.error(error.message),
   })
 
   if (isLoading || !data) {
-    return <p className="text-[var(--color-muted-foreground)]">{t('common.loading')}</p>
+    return <p className="text-[var(--color-muted-foreground)]">{t('panel.common.loading')}</p>
   }
 
   if (!data.canAccess) {
     return (
       <div className="space-y-4">
-        <p>{t('account.lockedLesson')}</p>
+        <p>{t('panel.account.lockedLesson')}</p>
         <Button asChild>
-          <Link href={`/panel/courses`}>{t('nav.courses')}</Link>
+          <Link href={`/panel/courses`}>{t('panel.nav.courses')}</Link>
         </Button>
       </div>
     )
@@ -150,13 +150,13 @@ export function LessonPlayerPage() {
         </div>
         <div className="flex gap-2">
           <Button asChild variant="outline">
-            <Link href={`/panel/account/courses/${courseId}`}>{t('common.back')}</Link>
+            <Link href={`/panel/account/courses/${courseId}`}>{t('panel.common.back')}</Link>
           </Button>
           <Button
             onClick={() => completeMutation.mutate()}
             disabled={completeMutation.isPending || data.progress?.is_completed}
           >
-            {data.progress?.is_completed ? t('account.completed') : t('account.markComplete')}
+            {data.progress?.is_completed ? t('panel.account.completed') : t('panel.account.markComplete')}
           </Button>
         </div>
       </div>
@@ -192,12 +192,12 @@ export function LessonPlayerPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle className="text-base">{t('account.notes')}</CardTitle>
+          <CardTitle className="text-base">{t('panel.account.notes')}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <Textarea value={note} onChange={(e) => setNote(e.target.value)} rows={3} />
           <Button onClick={() => noteMutation.mutate()} disabled={noteMutation.isPending}>
-            {t('account.addNote')}
+            {t('panel.account.addNote')}
           </Button>
           <ul className="space-y-2">
             {data.notes.map((item) => (

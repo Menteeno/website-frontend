@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 import { routeParam } from "@/features/panel/lib/params";
 import { useQuery } from '@tanstack/react-query'
-import { useTranslation } from '@/features/panel/i18n/use-panel-translation'
+import { useTranslation } from '@/hooks/use-translation'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { useAuth } from '@/features/panel/auth/auth-context'
@@ -66,7 +66,7 @@ export function CourseLearnPage() {
   })
 
   if (isLoading || !data) {
-    return <p className="text-[var(--color-muted-foreground)]">{t('common.loading')}</p>
+    return <p className="text-[var(--color-muted-foreground)]">{t('panel.common.loading')}</p>
   }
 
   const completed = new Set(data.progress.filter((p) => p.is_completed).map((p) => p.lesson_id))
@@ -78,7 +78,7 @@ export function CourseLearnPage() {
       <div>
         <h1 className="text-3xl font-bold">{data.course.title}</h1>
         <p className="mt-2 text-sm text-[var(--color-muted-foreground)]">
-          {t('account.progress')}: {progressPct}%
+          {t('panel.account.progress')}: {progressPct}%
         </p>
         <div className="mt-2 h-2 overflow-hidden rounded-full bg-[var(--color-muted)]">
           <div
@@ -102,9 +102,9 @@ export function CourseLearnPage() {
               >
                 <span>{lesson.title}</span>
                 <div className="flex items-center gap-2">
-                  {lesson.is_free ? <Badge variant="outline">{t('common.free')}</Badge> : null}
+                  {lesson.is_free ? <Badge variant="outline">{t('panel.common.free')}</Badge> : null}
                   {completed.has(lesson.id) ? (
-                    <Badge variant="secondary">{t('account.completed')}</Badge>
+                    <Badge variant="secondary">{t('panel.account.completed')}</Badge>
                   ) : null}
                 </div>
               </Link>

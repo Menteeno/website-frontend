@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from '@tanstack/react-query'
-import { useTranslation } from '@/features/panel/i18n/use-panel-translation'
+import { useTranslation } from '@/hooks/use-translation'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { supabase } from '@/lib/supabase'
 
@@ -28,18 +28,18 @@ export function AdminDashboardPage() {
   })
 
   if (isLoading || !data) {
-    return <p className="text-[var(--color-muted-foreground)]">{t('common.loading')}</p>
+    return <p className="text-[var(--color-muted-foreground)]">{t('panel.common.loading')}</p>
   }
 
   const stats = [
-    { label: t('admin.statsCourses'), value: data.courses },
-    { label: t('admin.statsPublished'), value: data.published },
-    { label: t('admin.statsUsers'), value: data.users },
+    { label: t('panel.admin.statsCourses'), value: data.courses },
+    { label: t('panel.admin.statsPublished'), value: data.published },
+    { label: t('panel.admin.statsUsers'), value: data.users },
   ]
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl font-bold">{t('admin.dashboard')}</h1>
+      <h1 className="text-2xl font-bold">{t('panel.admin.dashboard')}</h1>
       <div className="grid gap-4 sm:grid-cols-3">
         {stats.map((stat) => (
           <Card key={stat.label}>

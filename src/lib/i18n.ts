@@ -30,12 +30,14 @@ const getNestedValue = (obj: any, path: string): string => {
   return result !== undefined && result !== null ? result : path;
 };
 
-// Replace placeholders in string
+// Replace placeholders in string (supports :key and {key} formats)
 const replacePlaceholders = (
   str: string,
   replacements: Record<string, any> = {}
 ): string => {
-  return str.replace(/:(\w+)/g, (match, key) => replacements[key] || match);
+  return str
+    .replace(/:(\w+)/g, (match, key) => replacements[key] ?? match)
+    .replace(/\{(\w+)\}/g, (match, key) => replacements[key] ?? match);
 };
 
 // Server-side translation function

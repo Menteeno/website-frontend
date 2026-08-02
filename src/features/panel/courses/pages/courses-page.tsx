@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useQuery } from '@tanstack/react-query'
-import { useTranslation } from '@/features/panel/i18n/use-panel-translation'
+import { useTranslation } from '@/hooks/use-translation'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Seo } from '@/components/panel/seo'
@@ -10,7 +10,7 @@ import { getPublicStorageUrl, supabase } from '@/lib/supabase'
 import { courseFinalPrice, formatPrice } from '@/lib/utils'
 
 export function CoursesPage() {
-  const { t, i18n } = useTranslation()
+  const { t, locale } = useTranslation()
 
   const { data: courses = [], isLoading } = useQuery({
     queryKey: ['courses', 'published'],
@@ -28,20 +28,20 @@ export function CoursesPage() {
   })
 
   if (isLoading) {
-    return <p className="text-[var(--color-muted-foreground)]">{t('common.loading')}</p>
+    return <p className="text-[var(--color-muted-foreground)]">{t('panel.common.loading')}</p>
   }
 
   return (
     <div className="space-y-6">
       <Seo
-        title={t('courses.title')}
-        description={t('home.subheadline')}
+        title={t('panel.courses.title')}
+        description={t('panel.home.subheadline')}
         path="/panel/courses"
-        locale={i18n.language === 'fa' ? 'fa_IR' : 'en_US'}
+        locale={locale === 'fa' ? 'fa_IR' : 'en_US'}
       />
-      <h1 className="text-3xl font-bold">{t('courses.title')}</h1>
+      <h1 className="text-3xl font-bold">{t('panel.courses.title')}</h1>
       {courses.length === 0 ? (
-        <p className="text-[var(--color-muted-foreground)]">{t('courses.empty')}</p>
+        <p className="text-[var(--color-muted-foreground)]">{t('panel.courses.empty')}</p>
       ) : (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {courses.map((course) => {
@@ -53,14 +53,14 @@ export function CoursesPage() {
                   {cover ? (
                     <img
                       src={cover}
-                      alt={t('courses.coverAlt', { title: course.title })}
+                      alt={t('panel.courses.coverAlt', { title: course.title })}
                       className="h-40 w-full object-cover"
                       width={480}
                       height={160}
                     />
                   ) : (
                     <div className="flex h-40 items-center justify-center bg-[var(--color-muted)] text-[var(--color-muted-foreground)]">
-                      {t('common.appName')}
+                      {t('panel.common.appName')}
                     </div>
                   )}
                   <CardHeader>
@@ -71,7 +71,7 @@ export function CoursesPage() {
                   </CardHeader>
                   <CardContent>
                     <Badge variant="secondary">
-                      {formatPrice(price, course.currency, i18n.language === 'fa' ? 'fa-IR' : 'en-US')}
+                      {formatPrice(price, course.currency, locale === 'fa' ? 'fa-IR' : 'en-US')}
                     </Badge>
                   </CardContent>
                 </Card>

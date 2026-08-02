@@ -7,9 +7,9 @@ import {
 } from "@/components/ui/sheet";
 import { useTranslation } from "@/hooks/use-translation";
 import { Menu, PanelLeft } from "lucide-react";
+import Link from "next/link";
 import AppLogo from "../app-logo";
 import { NavMenu } from "./nav-menu";
-import { getConsoleUrl } from "@/lib/site";
 
 export const NavigationSheet = () => {
   const { t, locale } = useTranslation();
@@ -36,15 +36,13 @@ export const NavigationSheet = () => {
             className="w-full justify-start gap-2"
             asChild
           >
-            <a
-              href={getConsoleUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/panel/login"
               className="flex items-center gap-2"
             >
               <PanelLeft className="size-5" />
               <span>{t("messages.navbar.user-panel")}</span>
-            </a>
+            </Link>
           </Button>
         </div>
       </SheetContent>

@@ -4,13 +4,13 @@ import { usePathname, useRouter } from "next/navigation";
 import type { ReactNode } from "react";
 import { useEffect } from "react";
 import { useAuth } from "@/features/panel/auth/auth-context";
-import { usePanelTranslation } from "@/features/panel/i18n/use-panel-translation";
+import { useTranslation } from "@/hooks/use-translation";
 
 function Loading() {
-  const { t } = usePanelTranslation();
+  const { t } = useTranslation();
   return (
     <div className="p-8 text-center text-muted-foreground">
-      {t("common.loading")}
+      {t("panel.common.loading")}
     </div>
   );
 }

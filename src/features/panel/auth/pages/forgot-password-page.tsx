@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from 'react'
-import { useTranslation } from '@/features/panel/i18n/use-panel-translation'
+import { useTranslation } from "@/hooks/use-translation";
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -29,9 +29,9 @@ export function ForgotPasswordPage() {
       if (error) {
         throw error
       }
-      toast.success(t('auth.resetSent'))
+      toast.success(t('panel.auth.resetSent'))
     } catch (error) {
-      toast.error(error instanceof Error ? error.message : t('common.error'))
+      toast.error(error instanceof Error ? error.message : t('panel.common.error'))
     } finally {
       setLoading(false)
     }
@@ -41,12 +41,12 @@ export function ForgotPasswordPage() {
     <div className="mx-auto max-w-md">
       <Card>
         <CardHeader>
-          <CardTitle>{t('auth.resetTitle')}</CardTitle>
+          <CardTitle>{t('panel.auth.resetTitle')}</CardTitle>
         </CardHeader>
         <CardContent>
           <form className="flex flex-col gap-4" onSubmit={(e) => void onSubmit(e)}>
             <div className="space-y-2">
-              <Label htmlFor="email">{t('auth.email')}</Label>
+              <Label htmlFor="email">{t('panel.auth.email')}</Label>
               <Input
                 id="email"
                 type="email"
@@ -57,12 +57,12 @@ export function ForgotPasswordPage() {
               />
             </div>
             <Button type="submit" disabled={loading}>
-              {t('auth.sendMagicLink')}
+              {t('panel.auth.sendMagicLink')}
             </Button>
           </form>
           <p className="mt-4 text-sm">
             <Link className="text-[var(--color-primary)] hover:underline" href="/panel/login">
-              {t('common.back')}
+              {t('panel.common.back')}
             </Link>
           </p>
         </CardContent>
