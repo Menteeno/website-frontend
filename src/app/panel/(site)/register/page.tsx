@@ -1,11 +1,14 @@
 "use client";
-import { GuestOnly } from "@/features/panel/auth/route-guards";
-import { RegisterPage } from "@/features/panel/auth/pages/register-page";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
-  return (
-    <GuestOnly>
-      <RegisterPage />
-    </GuestOnly>
-  );
+  const router = useRouter();
+
+  useEffect(() => {
+    router.replace("/panel/login");
+  }, [router]);
+
+  return null;
 }

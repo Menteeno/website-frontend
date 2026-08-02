@@ -1660,6 +1660,7 @@
       "loginWithPassword": "ورود با رمز عبور",
       "loginWithMagicLink": "ورود با لینک ایمیل",
       "loginWithGoogle": "ورود با گوگل",
+      "or": "یا",
       "noAccount": "حساب ندارید؟",
       "hasAccount": "قبلاً ثبت‌نام کرده‌اید؟",
       "resetTitle": "بازیابی رمز عبور",

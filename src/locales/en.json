@@ -1597,6 +1597,7 @@
       "loginWithPassword": "Log in with password",
       "loginWithMagicLink": "Log in with email link",
       "loginWithGoogle": "Continue with Google",
+      "or": "or",
       "noAccount": "Don't have an account?",
       "hasAccount": "Already registered?",
       "resetTitle": "Reset password",

@@ -231,18 +231,15 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
               </div>
             ) : (
               <div className="hidden items-center gap-2 md:flex">
-                <Button variant="ghost" size="sm" asChild>
-                  <Link href="/panel/login">{t("panel.nav.login")}</Link>
-                </Button>
                 <Link
-                  href="/panel/register"
+                  href="/panel/login"
                   className={cn(
                     "flex h-9 items-center gap-2 rounded-md px-3 text-sm",
                     "bg-primary text-primary-foreground transition-colors hover:bg-primary/90",
                   )}
                 >
                   <PanelLeft className="size-4" />
-                  <span>{t("panel.nav.register")}</span>
+                  <span>{t("panel.nav.login")}</span>
                 </Link>
               </div>
             )}
@@ -298,23 +295,15 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                         {t("panel.nav.logout")}
                       </Button>
                     ) : (
-                      <div className="flex flex-col gap-2">
-                        <Button
-                          variant="ghost"
-                          className="w-full justify-start gap-2"
-                          asChild
-                        >
-                          <Link href="/panel/login">
-                            <PanelLeft className="size-5" />
-                            <span>{t("panel.nav.login")}</span>
-                          </Link>
-                        </Button>
-                        <Button className="w-full justify-start gap-2" asChild>
-                          <Link href="/panel/register">
-                            {t("panel.nav.register")}
-                          </Link>
-                        </Button>
-                      </div>
+                      <Button
+                        className="w-full justify-start gap-2"
+                        asChild
+                      >
+                        <Link href="/panel/login">
+                          <PanelLeft className="size-5" />
+                          <span>{t("panel.nav.login")}</span>
+                        </Link>
+                      </Button>
                     )}
                   </div>
                 </SheetContent>
