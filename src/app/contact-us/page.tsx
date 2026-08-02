@@ -5,29 +5,11 @@ import { ContactInfo } from "@/components/contact/contact-info";
 import { ContactMap } from "@/components/contact/contact-map";
 import { Footer } from "@/components/footer";
 import Navbar from "@/components/navbar/navbar";
-import { getTranslation, locales } from "@/lib/i18n";
-import { notFound } from "next/navigation";
+import { getTranslation } from "@/lib/i18n";
 
-interface ContactUsPageProps {
-  params: Promise<{
-    locale: string;
-  }>;
-}
-
-export async function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
-
-export default async function ContactUsPage({ params }: ContactUsPageProps) {
-  const { locale } = await params;
-
-  // Validate locale
-  if (!locales.includes(locale as any)) {
-    notFound();
-  }
-
+export default async function ContactUsPage() {
   // Get translations
-  const t = (key: string) => getTranslation(locale as any, `contact.${key}`);
+  const t = (key: string) => getTranslation("fa", `contact.${key}`);
 
   return (
     <>
@@ -41,11 +23,11 @@ export default async function ContactUsPage({ params }: ContactUsPageProps) {
               breadcrumbs={[
                 {
                   title: t("breadcrumb.home"),
-                  href: `/${locale}`,
+                  href: "/",
                 },
                 {
                   title: t("breadcrumb.contact"),
-                  href: `/${locale}/contact-us`,
+                  href: "/contact-us",
                 },
               ]}
             />

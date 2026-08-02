@@ -64,7 +64,7 @@ export const BlogDetailOptimized = memo<BlogDetailProps>(({
       {/* Back Button */}
       <div className="mb-6">
         <Button variant="ghost" asChild className="gap-2">
-          <Link href={`/${locale}/blog`}>
+          <Link href={`/blog`}>
             {isRTL ? (
               <ArrowRightIcon className="h-4 w-4" />
             ) : (
@@ -113,7 +113,7 @@ export const BlogDetailOptimized = memo<BlogDetailProps>(({
             <div className="flex justify-between items-center gap-4">
               {prevPost ? (
                 <Button variant="outline" asChild className="gap-2">
-                  <Link href={`/${locale}/blog/${prevPost.slug}`}>
+                  <Link href={`/blog/${prevPost.slug}`}>
                     {isRTL ? (
                       <ArrowRightIcon className="h-4 w-4" />
                     ) : (
@@ -130,7 +130,7 @@ export const BlogDetailOptimized = memo<BlogDetailProps>(({
 
               {nextPost && (
                 <Button variant="outline" asChild className="gap-2">
-                  <Link href={`/${locale}/blog/${nextPost.slug}`}>
+                  <Link href={`/blog/${nextPost.slug}`}>
                     <span className="line-clamp-1" dir={isRTL ? "rtl" : "ltr"}>
                       {nextPost.title}
                     </span>

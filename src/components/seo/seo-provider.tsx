@@ -1,6 +1,5 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import { Analytics } from "./analytics";
 import { BreadcrumbStructuredData } from "./breadcrumb-structured-data";
 import { FAQStructuredData } from "./faq-structured-data";
@@ -56,8 +55,8 @@ function SEOProviderContent({
   showBreadcrumbs = true,
   customBreadcrumbs,
 }: SEOProviderProps) {
-  const pathname = usePathname();
-  const isPersian = pathname.startsWith("/fa");
+  // Persian-only site
+  const isPersian = true;
 
   return (
     <>

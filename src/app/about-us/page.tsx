@@ -2,30 +2,12 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { Footer } from "@/components/footer";
 import Navbar from "@/components/navbar/navbar";
 import { AboutUsTeam } from "@/components/about-us/about-us-team";
-import { getTranslation, locales } from "@/lib/i18n";
-import { notFound } from "next/navigation";
+import { getTranslation } from "@/lib/i18n";
 import { BackgroundPattern } from "@/components/hero/background-pattern";
 
-interface AboutUsPageProps {
-  params: Promise<{
-    locale: string;
-  }>;
-}
-
-export async function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
-
-export default async function AboutUsPage({ params }: AboutUsPageProps) {
-  const { locale } = await params;
-
-  // Validate locale
-  if (!locales.includes(locale as any)) {
-    notFound();
-  }
-
+export default async function AboutUsPage() {
   // Get translations
-  const t = (key: string) => getTranslation(locale as any, `about.${key}`);
+  const t = (key: string) => getTranslation("fa", `about.${key}`);
 
   return (
     <>
@@ -40,11 +22,11 @@ export default async function AboutUsPage({ params }: AboutUsPageProps) {
               breadcrumbs={[
                 {
                   title: t("breadcrumb.home"),
-                  href: `/${locale}`,
+                  href: "/",
                 },
                 {
                   title: t("breadcrumb.about"),
-                  href: `/${locale}/about-us`,
+                  href: "/about-us",
                 },
               ]}
             />

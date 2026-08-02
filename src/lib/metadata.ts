@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getAppConfig, getLocalizedUrl, getUrl } from "./config";
+import { getAppConfig, getUrl } from "./config";
 
 /**
  * Generate SEO metadata based on environment and page data
@@ -8,19 +8,17 @@ export function generateMetadata({
   title,
   description,
   path = "",
-  locale = "fa",
   image = "/og-image.jpg",
 }: {
   title?: string;
   description?: string;
   path?: string;
-  locale?: string;
   image?: string;
 } = {}): Metadata {
   const config = getAppConfig();
   const pageTitle = title ? `${title} | ${config.appName}` : config.appName;
   const pageDescription = description || config.appDescription;
-  const pageUrl = path ? getLocalizedUrl(locale, path) : getUrl();
+  const pageUrl = path ? getUrl(path) : getUrl();
   const imageUrl = getUrl(image);
 
   return {
@@ -69,8 +67,7 @@ export function generateMetadata({
     alternates: {
       canonical: pageUrl,
       languages: {
-        en: getLocalizedUrl("en", path),
-        fa: getLocalizedUrl("fa", path),
+        fa: getUrl(path),
       },
     },
     openGraph: {
@@ -86,7 +83,7 @@ export function generateMetadata({
           alt: pageTitle,
         },
       ],
-      locale: locale === "fa" ? "fa_IR" : "en_US",
+      locale: "fa_IR",
       type: "website",
     },
     twitter: {

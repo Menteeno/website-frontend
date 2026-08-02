@@ -3,24 +3,13 @@
 import { Footer } from "@/components/footer";
 import Navbar from "@/components/navbar/navbar";
 import { useTranslation } from "@/hooks/use-translation";
-import { locales } from "@/lib/i18n";
-import { notFound } from "next/navigation";
 
-interface CookiesPageProps {
-  params: Promise<{ locale: string }>;
+export default function CookiesPage() {
+  return <CookiesContent />;
 }
 
-export default function CookiesPage({ params }: CookiesPageProps) {
-  return <CookiesContent params={params} />;
-}
-
-function CookiesContent({ params }: { params: Promise<{ locale: string }> }) {
-  const { t, locale } = useTranslation();
-
-  // Validate locale
-  if (!locales.includes(locale as any)) {
-    notFound();
-  }
+function CookiesContent() {
+  const { t } = useTranslation();
 
   return (
     <>

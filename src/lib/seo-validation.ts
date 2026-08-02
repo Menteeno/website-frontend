@@ -257,7 +257,7 @@ export function validateURL(
   }
 
   // Check for locale in URL
-  if (locale && !url.includes(`/${locale}/`)) {
+  if (locale && !url.includes(`/`)) {
     suggestions.push("URL should include locale for multilingual SEO");
   }
 

@@ -86,7 +86,7 @@ export function LoginPage() {
       <div className="lg:hidden w-full max-w-md mx-auto">
         <div className="text-center mb-6">
           <Link
-            href={`/${locale}`}
+            href={"/"}
             className="inline-flex items-center gap-2 text-xl font-bold text-foreground mb-4"
           >
             <AppLogoIcon className="size-6 fill-current" />
@@ -124,7 +124,7 @@ export function LoginPage() {
         <div className="relative z-10 max-w-2xl text-center lg:text-start w-full lg:w-1/2 flex flex-col justify-center lg:pr-8">
           <div className="mb-8">
             <Link
-              href={`/${locale}`}
+              href={"/"}
               className="inline-flex items-center gap-2 text-2xl font-bold text-foreground mb-6"
             >
               <AppLogoIcon className="size-8 fill-current" />

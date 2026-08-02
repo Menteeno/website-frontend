@@ -87,12 +87,12 @@ export function buildApiUrl(endpoint: string): string {
   return `${apiUrl}${cleanEndpoint}`;
 }
 
-export function buildBlogUrl(slug: string, locale: "en" | "fa" = "fa"): string {
-  return buildUrl(`/${locale}/blog/${slug}`);
+export function buildBlogUrl(slug: string): string {
+  return buildUrl(`/blog/${slug}`);
 }
 
-export function buildBlogListUrl(locale: "en" | "fa" = "fa"): string {
-  return buildUrl(`/${locale}/blog`);
+export function buildBlogListUrl(): string {
+  return buildUrl("/blog");
 }
 
 // Validation

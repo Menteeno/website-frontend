@@ -96,7 +96,7 @@ export const BlogCard = memo<BlogCardProps>(
             )}
           >
             <Link
-              href={`/${locale}/blog/${post.slug}`}
+              href={`/blog/${post.slug}`}
               className="hover:text-primary transition-colors group-hover:text-primary"
               dir={isRTL ? "rtl" : "ltr"}
             >

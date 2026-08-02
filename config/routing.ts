@@ -13,11 +13,6 @@ export const cacheConfig = {
 export const redirects = [
   // Root redirects
   {
-    source: "/",
-    destination: "/fa",
-    permanent: false,
-  },
-  {
     source: "/home",
     destination: "/",
     permanent: true,
@@ -36,192 +31,128 @@ export const redirects = [
   // Common 404 patterns - redirect to closest valid page
   {
     source: "/about",
-    destination: "/fa/about-us",
+    destination: "/about-us",
     permanent: true,
   },
   {
-    source: "/about-us",
-    destination: "/fa/about-us",
-    permanent: false,
-  },
-  {
     source: "/contact",
-    destination: "/fa/contact-us",
+    destination: "/contact-us",
     permanent: true,
   },
   {
     source: "/courses",
-    destination: "/fa",
+    destination: "/",
     permanent: true,
   },
   {
     source: "/mentorship",
-    destination: "/fa",
+    destination: "/",
     permanent: true,
   },
   {
     source: "/events",
-    destination: "/fa/event",
+    destination: "/event",
     permanent: true,
   },
   {
     source: "/events/:path*",
-    destination: "/fa/event",
+    destination: "/event",
     permanent: true,
   },
   {
     source: "/surveys",
-    destination: "/fa/dashboard/surveys",
+    destination: "/dashboard/surveys",
     permanent: true,
   },
   {
     source: "/analytics",
-    destination: "/fa/dashboard/analytics",
+    destination: "/dashboard/analytics",
     permanent: true,
   },
   {
     source: "/settings",
-    destination: "/fa/dashboard/settings",
+    destination: "/dashboard/settings",
     permanent: true,
   },
   {
     source: "/responses",
-    destination: "/fa/dashboard/responses",
+    destination: "/dashboard/responses",
     permanent: true,
   },
 
-  // Redirect common routes to Persian versions
-  {
-    source: "/event",
-    destination: "/fa/event",
-    permanent: false,
-  },
-  {
-    source: "/auth",
-    destination: "/fa/auth",
-    permanent: false,
-  },
-  {
-    source: "/dashboard",
-    destination: "/fa/dashboard",
-    permanent: false,
-  },
-  {
-    source: "/blog",
-    destination: "/fa/blog",
-    permanent: false,
-  },
-  {
-    source: "/contact-us",
-    destination: "/fa/contact-us",
-    permanent: false,
-  },
-  {
-    source: "/privacy",
-    destination: "/fa/privacy",
-    permanent: false,
-  },
-  {
-    source: "/terms",
-    destination: "/fa/terms",
-    permanent: false,
-  },
-  {
-    source: "/cookies",
-    destination: "/fa/cookies",
-    permanent: false,
-  },
-  {
-    source: "/survey",
-    destination: "/fa/survey",
-    permanent: false,
-  },
-
-  // Persian-specific redirects
+  // Legacy locale-prefixed URLs now served at root
   {
     source: "/fa/home",
-    destination: "/fa",
+    destination: "/",
     permanent: true,
   },
   {
     source: "/fa/login",
-    destination: "/fa/auth",
+    destination: "/auth",
     permanent: true,
   },
   {
     source: "/fa/signup",
-    destination: "/fa/auth",
-    permanent: true,
-  },
-
-  // English-specific redirects
-  {
-    source: "/en/home",
-    destination: "/en",
+    destination: "/auth",
     permanent: true,
   },
   {
-    source: "/en/login",
-    destination: "/en/auth",
-    permanent: true,
-  },
-  {
-    source: "/en/signup",
-    destination: "/en/auth",
+    source: "/fa/:path*",
+    destination: "/:path*",
     permanent: true,
   },
 
   // Legacy URL patterns
   {
     source: "/old/:path*",
-    destination: "/fa",
+    destination: "/",
     permanent: true,
   },
   {
     source: "/legacy/:path*",
-    destination: "/fa",
+    destination: "/",
     permanent: true,
   },
   {
     source: "/v1/:path*",
-    destination: "/fa",
+    destination: "/",
     permanent: true,
   },
   {
     source: "/beta/:path*",
-    destination: "/fa",
+    destination: "/",
     permanent: true,
   },
 
   // Common typos and variations
   {
     source: "/contatc-us",
-    destination: "/fa/contact-us",
+    destination: "/contact-us",
     permanent: true,
   },
   {
     source: "/contatc",
-    destination: "/fa/contact-us",
+    destination: "/contact-us",
     permanent: true,
   },
   {
     source: "/dashbord",
-    destination: "/fa/dashboard",
+    destination: "/dashboard",
     permanent: true,
   },
   {
     source: "/dash",
-    destination: "/fa/dashboard",
+    destination: "/dashboard",
     permanent: true,
   },
   {
     source: "/blg",
-    destination: "/fa/blog",
+    destination: "/blog",
     permanent: true,
   },
   {
     source: "/blgo",
-    destination: "/fa/blog",
+    destination: "/blog",
     permanent: true,
   },
 
@@ -233,184 +164,102 @@ export const redirects = [
   },
   {
     source: "/admin/old/:path*",
-    destination: "/fa",
+    destination: "/",
     permanent: true,
   },
 
   // 404 URL redirects - Author pages (redirect to blog)
   {
-    source: "/en/authors/:author",
-    destination: "/en/blog",
-    permanent: true,
-  },
-  {
-    source: "/fa/authors/:author",
-    destination: "/fa/blog",
+    source: "/authors/:author",
+    destination: "/blog",
     permanent: true,
   },
 
   // 404 URL redirects - Category pages (redirect to blog)
   {
-    source: "/en/categories/:category",
-    destination: "/en/blog",
-    permanent: true,
-  },
-  {
-    source: "/fa/categories/:category",
-    destination: "/fa/blog",
+    source: "/categories/:category",
+    destination: "/blog",
     permanent: true,
   },
 
   // 404 URL redirects - Tag pages (redirect to blog)
   {
-    source: "/en/tags/:tag",
-    destination: "/en/blog",
-    permanent: true,
-  },
-  {
-    source: "/fa/tags/:tag",
-    destination: "/fa/blog",
+    source: "/tags/:tag",
+    destination: "/blog",
     permanent: true,
   },
 
   // 404 URL redirects - Blog posts (redirect to blog)
   {
-    source: "/en/blog/post-:slug",
-    destination: "/en/blog",
-    permanent: true,
-  },
-  {
-    source: "/fa/blog/post-:slug",
-    destination: "/fa/blog",
+    source: "/blog/post-:slug",
+    destination: "/blog",
     permanent: true,
   },
 
   // 404 URL redirects - Section pages (redirect to main page)
   {
-    source: "/en/sections",
-    destination: "/en",
+    source: "/sections",
+    destination: "/",
     permanent: true,
   },
   {
-    source: "/en/sections/",
-    destination: "/en",
-    permanent: true,
-  },
-  {
-    source: "/fa/sections",
-    destination: "/fa",
-    permanent: true,
-  },
-  {
-    source: "/fa/sections/",
-    destination: "/fa",
+    source: "/sections/",
+    destination: "/",
     permanent: true,
   },
 
   // 404 URL redirects - Specific page redirects
   {
-    source: "/fa/privacy-policy",
-    destination: "/fa/privacy",
+    source: "/privacy-policy",
+    destination: "/privacy",
     permanent: true,
   },
   {
-    source: "/fa/privacy-policy/",
-    destination: "/fa/privacy",
+    source: "/privacy-policy/",
+    destination: "/privacy",
     permanent: true,
   },
   {
-    source: "/en/contract",
-    destination: "/en/terms",
+    source: "/contract",
+    destination: "/terms",
     permanent: true,
   },
   {
-    source: "/en/contract/",
-    destination: "/en/terms",
-    permanent: true,
-  },
-  {
-    source: "/fa/contact",
-    destination: "/fa/contact-us",
-    permanent: true,
-  },
-  {
-    source: "/fa/contact/",
-    destination: "/fa/contact-us",
-    permanent: true,
-  },
-  {
-    source: "/fa/mentorship",
-    destination: "/fa",
-    permanent: true,
-  },
-  {
-    source: "/fa/mentorship/",
-    destination: "/fa",
-    permanent: true,
-  },
-  {
-    source: "/fa/courses",
-    destination: "/fa",
-    permanent: true,
-  },
-  {
-    source: "/fa/courses/",
-    destination: "/fa",
+    source: "/contract/",
+    destination: "/terms",
     permanent: true,
   },
 
   // Search functionality redirects
   {
     source: "/search",
-    destination: "/fa",
+    destination: "/",
     permanent: true,
   },
   {
-    source: "/en/search",
-    destination: "/en",
-    permanent: true,
-  },
-  {
-    source: "/fa/search",
-    destination: "/fa",
-    permanent: true,
-  },
-
-  // Static file redirects
-  {
-    source: "/fa/searchindex.json",
-    destination: "/fa",
-    permanent: true,
-  },
-  {
-    source: "/en/searchindex.json",
-    destination: "/en",
+    source: "/searchindex.json",
+    destination: "/",
     permanent: true,
   },
 
   // GitHub-related redirects
   {
-    source: "/fa/blob/master/LICENSE",
-    destination: "/fa",
-    permanent: true,
-  },
-  {
-    source: "/en/blob/master/LICENSE",
-    destination: "/en",
+    source: "/blob/master/LICENSE",
+    destination: "/",
     permanent: true,
   },
 
   // CDN and external service redirects
   {
     source: "/cdn-cgi/l/email-protection",
-    destination: "/fa",
+    destination: "/",
     permanent: true,
   },
 
   // Font file redirects
   {
     source: "/_next/static/media/:path*",
-    destination: "/fa",
+    destination: "/",
     permanent: true,
   },
 ];

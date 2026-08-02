@@ -11,7 +11,6 @@ import { absoluteUrl } from "@/lib/site";
 
 interface BlogPostPageProps {
   params: Promise<{
-    locale: string;
     slug: string;
   }>;
 }
@@ -19,9 +18,9 @@ interface BlogPostPageProps {
 export async function generateMetadata({
   params,
 }: BlogPostPageProps): Promise<Metadata> {
-  const { locale, slug } = await params;
+  const { slug } = await params;
 
-  const blogDetail = await getBlogDetail(slug, locale as "en" | "fa");
+  const blogDetail = await getBlogDetail(slug, "fa");
 
   if (!blogDetail) {
     return {
@@ -43,7 +42,7 @@ export async function generateMetadata({
       modifiedTime: post.updatedAt,
       authors: [post.author.name],
       tags: post.tags.map((tag) => tag.name),
-      locale: locale === "fa" ? "fa_IR" : "en_US",
+      locale: "fa_IR",
       images: post.seo.image
         ? [
             {
@@ -62,12 +61,10 @@ export async function generateMetadata({
       images: post.seo.image ? [post.seo.image] : [],
     },
     alternates: {
-      canonical:
-        post.seo.canonicalUrl || absoluteUrl(`/${locale}/blog/${slug}`),
+      canonical: post.seo.canonicalUrl || absoluteUrl(`/blog/${slug}`),
       languages: {
-        en: absoluteUrl(`/en/blog/${slug}`),
-        fa: absoluteUrl(`/fa/blog/${slug}`),
-        "x-default": absoluteUrl(`/fa/blog/${slug}`),
+        fa: absoluteUrl(`/blog/${slug}`),
+        "x-default": absoluteUrl(`/blog/${slug}`),
       },
     },
     robots: {
@@ -88,26 +85,20 @@ export async function generateStaticParams() {
   ];
 
   const params = [];
-  for (const locale of ["en", "fa"]) {
-    for (const slug of slugs) {
-      params.push({ locale, slug });
-    }
+  for (const slug of slugs) {
+    params.push({ slug });
   }
 
   return params;
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { locale, slug } = await params;
-
-  if (!["en", "fa"].includes(locale)) {
-    notFound();
-  }
+  const { slug } = await params;
 
   const [blogDetail, featuredPosts, recentPosts] = await Promise.all([
-    getBlogDetail(slug, locale as "en" | "fa"),
-    getFeaturedPosts(locale as "en" | "fa", 3),
-    getRecentPosts(locale as "en" | "fa", 5),
+    getBlogDetail(slug, "fa"),
+    getFeaturedPosts("fa", 3),
+    getRecentPosts("fa", 5),
   ]);
 
   if (!blogDetail) {
@@ -137,7 +128,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         type="breadcrumb"
         data={{
           items: generateBreadcrumbStructuredData(
-            locale as "en" | "fa",
+            "fa",
             post
           ).itemListElement.map((item, index) => ({
             name: item.name,

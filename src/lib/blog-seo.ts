@@ -33,7 +33,7 @@ export function generateBlogStructuredData(post: BlogPost) {
     dateModified: post.updatedAt || post.publishedAt,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${baseUrl}/${post.locale}/blog/${post.slug}`,
+      "@id": `${baseUrl}/blog/${post.slug}`,
     },
     articleSection: post.category.name,
     keywords: post.seo.keywords.join(", "),
@@ -61,13 +61,13 @@ export function generateBreadcrumbStructuredData(
       "@type": "ListItem",
       position: 1,
       name: locale === "fa" ? "خانه" : "Home",
-      item: `${baseUrl}/${locale}`,
+      item: `${baseUrl}/`,
     },
     {
       "@type": "ListItem",
       position: 2,
       name: locale === "fa" ? "وبلاگ" : "Blog",
-      item: `${baseUrl}/${locale}/blog`,
+      item: `${baseUrl}/blog`,
     },
   ];
 
@@ -76,13 +76,13 @@ export function generateBreadcrumbStructuredData(
       "@type": "ListItem",
       position: 3,
       name: post.category.name,
-      item: `${baseUrl}/${locale}/blog?category=${post.category.slug}`,
+      item: `${baseUrl}/blog?category=${post.category.slug}`,
     });
     breadcrumbs.push({
       "@type": "ListItem",
       position: 4,
       name: post.title,
-      item: `${baseUrl}/${locale}/blog/${post.slug}`,
+      item: `${baseUrl}/blog/${post.slug}`,
     });
   }
 
@@ -141,14 +141,13 @@ export function generateBlogSitemapData(posts: BlogPost[]) {
   const baseUrl = getBaseUrl();
 
   return posts.map((post) => ({
-    url: `${baseUrl}/${post.locale}/blog/${post.slug}`,
+    url: `${baseUrl}/blog/${post.slug}`,
     lastModified: post.updatedAt || post.publishedAt,
     changeFrequency: "monthly" as const,
     priority: post.featured ? 0.8 : 0.6,
     alternates: {
       languages: {
-        en: `${baseUrl}/en/blog/${post.slug}`,
-        fa: `${baseUrl}/fa/blog/${post.slug}`,
+        fa: `${baseUrl}/blog/${post.slug}`,
       },
     },
   }));
@@ -162,12 +161,10 @@ export function generateRobotsTxtContent() {
 Allow: /
 
 Sitemap: ${baseUrl}/sitemap.xml
-Sitemap: ${baseUrl}/sitemap-fa.xml
+Sitemap: ${baseUrl}/sitemap-blog.xml
 
 # Blog specific rules
 Allow: /blog/
-Allow: /en/blog/
-Allow: /fa/blog/
 
 # Disallow admin and private areas
 Disallow: /admin/
@@ -187,7 +184,7 @@ export function generateSocialMetaTags(post: BlogPost) {
     "og:title": post.seo.title,
     "og:description": post.seo.description,
     "og:image": imageUrl,
-    "og:url": `${baseUrl}/${post.locale}/blog/${post.slug}`,
+    "og:url": `${baseUrl}/blog/${post.slug}`,
     "og:type": "article",
     "og:site_name": "Menteeno",
     "og:locale": post.locale === "fa" ? "fa_IR" : "en_US",
@@ -208,7 +205,7 @@ export function generateSocialMetaTags(post: BlogPost) {
 // Generate canonical URL
 export function generateCanonicalUrl(post: BlogPost) {
   const baseUrl = getBaseUrl();
-  return post.seo.canonicalUrl || `${baseUrl}/${post.locale}/blog/${post.slug}`;
+  return post.seo.canonicalUrl || `${baseUrl}/blog/${post.slug}`;
 }
 
 // Generate hreflang tags
@@ -218,18 +215,13 @@ export function generateHreflangTags(slug: string) {
   return [
     {
       rel: "alternate",
-      hreflang: "en",
-      href: `${baseUrl}/en/blog/${slug}`,
-    },
-    {
-      rel: "alternate",
       hreflang: "fa",
-      href: `${baseUrl}/fa/blog/${slug}`,
+      href: `${baseUrl}/blog/${slug}`,
     },
     {
       rel: "alternate",
       hreflang: "x-default",
-      href: `${baseUrl}/fa/blog/${slug}`,
+      href: `${baseUrl}/blog/${slug}`,
     },
   ];
 }

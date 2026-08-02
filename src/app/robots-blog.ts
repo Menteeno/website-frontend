@@ -11,7 +11,7 @@ export default function robots(): MetadataRoute.Robots {
     },
     sitemap: [
       `${getSiteOrigin()}/sitemap.xml`,
-      `${getSiteOrigin()}/sitemap-fa.xml`,
+      `${getSiteOrigin()}/sitemap-blog.xml`,
     ],
   };
 }

@@ -39,7 +39,7 @@ const openChatwoot = () => {
 };
 
 export function Footer({ className }: FooterProps) {
-  const { t, locale } = useTranslation();
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -101,7 +101,7 @@ export function Footer({ className }: FooterProps) {
                 className="justify-start h-10 md:h-auto p-2 md:p-0 text-sm md:text-sm text-muted-foreground hover:text-foreground"
                 asChild
               >
-                <a href={`/${locale}/about-us`}>
+                <a href={`/about-us`}>
                   {t("footer.quick_links.about")}
                 </a>
               </Button>
@@ -111,7 +111,7 @@ export function Footer({ className }: FooterProps) {
                 className="justify-start h-10 md:h-auto p-2 md:p-0 text-sm md:text-sm text-muted-foreground hover:text-foreground"
                 asChild
               >
-                <a href={`/${locale}/contact-us`}>
+                <a href={`/contact-us`}>
                   {t("footer.quick_links.contact")}
                 </a>
               </Button>
@@ -269,7 +269,7 @@ export function Footer({ className }: FooterProps) {
               className="h-8 md:h-auto p-2 md:p-0 text-muted-foreground hover:text-foreground"
               asChild
             >
-              <a href={`/${locale}/privacy`}>{t("footer.legal.privacy")}</a>
+              <a href={`/privacy`}>{t("footer.legal.privacy")}</a>
             </Button>
             <Button
               variant="ghost"
@@ -277,7 +277,7 @@ export function Footer({ className }: FooterProps) {
               className="h-8 md:h-auto p-2 md:p-0 text-muted-foreground hover:text-foreground"
               asChild
             >
-              <a href={`/${locale}/terms`}>{t("footer.legal.terms")}</a>
+              <a href={`/terms`}>{t("footer.legal.terms")}</a>
             </Button>
             <Button
               variant="ghost"
@@ -285,7 +285,7 @@ export function Footer({ className }: FooterProps) {
               className="h-8 md:h-auto p-2 md:p-0 text-muted-foreground hover:text-foreground"
               asChild
             >
-              <a href={`/${locale}/cookies`}>{t("footer.legal.cookies")}</a>
+              <a href={`/cookies`}>{t("footer.legal.cookies")}</a>
             </Button>
           </div>
         </div>

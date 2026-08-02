@@ -26,7 +26,7 @@ export function getSiteHostname(): string {
   }
 }
 
-/** Absolute URL for a path on the main site (e.g. `/fa/blog`). */
+/** Absolute URL for a path on the main site (e.g. `/blog`). */
 export function absoluteUrl(path: string = ""): string {
   const origin = getSiteOrigin();
   if (!path || path === "/") return origin;

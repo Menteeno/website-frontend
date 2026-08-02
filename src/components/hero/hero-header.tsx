@@ -59,7 +59,7 @@ const HeroHeader = () => {
             className="rounded-full text-base"
             aria-label={t("messages.home-header.call-to-action-button")}
             onClick={() => {
-              window.location.href = `/${locale}/event`;
+              window.location.href = `/event`;
             }}
           >
             <ArrowUpRight className="!h-5 !w-5 order-1" />

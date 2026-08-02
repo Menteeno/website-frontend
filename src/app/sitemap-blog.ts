@@ -5,32 +5,22 @@ import type { MetadataRoute } from "next";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = getSiteOrigin();
-  
-  // Get all blog posts for both locales
-  const [enPosts, faPosts] = await Promise.all([
-    getAllBlogPosts("en"),
-    getAllBlogPosts("fa"),
-  ]);
-  
+
+  // Get all blog posts for the Persian locale
+  const faPosts = await getAllBlogPosts("fa");
+
   // Generate sitemap data for all posts
-  const allPosts = [...enPosts, ...faPosts];
-  const blogSitemapData = generateBlogSitemapData(allPosts);
-  
-  // Add main blog pages
+  const blogSitemapData = generateBlogSitemapData(faPosts);
+
+  // Add main blog page
   const blogPages = [
     {
-      url: `${baseUrl}/en/blog`,
-      lastModified: new Date().toISOString(),
-      changeFrequency: "daily" as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/fa/blog`,
+      url: `${baseUrl}/blog`,
       lastModified: new Date().toISOString(),
       changeFrequency: "daily" as const,
       priority: 0.8,
     },
   ];
-  
+
   return [...blogPages, ...blogSitemapData];
 }

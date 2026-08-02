@@ -112,15 +112,6 @@ export function getUrl(path: string = ""): string {
 }
 
 /**
- * Get localized URL
- */
-export function getLocalizedUrl(locale: string, path: string = ""): string {
-  const config = getAppConfig();
-  const cleanPath = path.startsWith("/") ? path : `/${path}`;
-  return `${config.baseUrl}/${locale}${cleanPath}`;
-}
-
-/**
  * Get asset URL with proper prefix
  */
 export function getAssetUrl(path: string): string {

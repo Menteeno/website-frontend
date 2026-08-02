@@ -369,7 +369,7 @@ export default function PhoneAuthForm() {
         {/* Logo and Header */}
         <div className="text-center mb-6">
           <Link
-            href={`/${locale}`}
+            href={"/"}
             className="inline-flex items-center gap-2 text-xl font-bold text-foreground mb-4"
           >
             <AppLogoIcon className="size-6 fill-current" />
@@ -425,7 +425,7 @@ export default function PhoneAuthForm() {
           {/* Logo and Header */}
           <div className="mb-8">
             <Link
-              href={`/${locale}`}
+              href={"/"}
               className="inline-flex items-center gap-2 text-2xl font-bold text-foreground mb-6"
             >
               <AppLogoIcon className="size-8 fill-current" />

@@ -1,13 +1,18 @@
 import { ChatwootWidget } from "@/components/chatwoot-widget";
+import { ErrorBoundary, GlobalErrorHandler, HealthCheck } from "@/components/error-handler";
 import { DirectionHandler } from "@/components/direction-handler";
 import { LoadingBarWrapper } from "@/components/loading-bar-wrapper";
 import { LocaleProvider } from "@/components/locale-provider";
 import { OpenReplayProvider } from "@/components/openreplay-provider";
+import { CanonicalProvider } from "@/components/seo/canonical-provider";
+import { PersianSEO } from "@/components/seo/persian-seo";
 import { ResourceHints } from "@/components/seo/performance";
 import { SEOProvider } from "@/components/seo/seo-provider";
+import { ThemeProvider } from "@/contexts/theme-context";
 import { LoadingProvider } from "@/contexts/loading-context";
 import { getAssetUrl } from "@/lib/config";
 import { generateMetadata, generateViewport } from "@/lib/metadata";
+import { ReduxProvider } from "@/providers/redux-provider";
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
@@ -112,25 +117,9 @@ export default function RootLayout({
                   const isDark = appearance === 'dark' || (appearance === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
                   document.documentElement.classList.toggle('dark', isDark);
                   
-                  // Set direction based on locale
-                  const pathname = window.location.pathname;
-                  const segments = pathname.split('/').filter(segment => segment !== '');
-                  
-                  // Handle GitHub Pages base path
-                  let localeIndex = 0;
-                  if (segments[0] === 'website-frontend') {
-                    localeIndex = 1;
-                  }
-                  
-                  const locale = segments[localeIndex];
-                  if (locale === 'en') {
-                    document.documentElement.setAttribute('dir', 'ltr');
-                    document.documentElement.setAttribute('lang', 'en');
-                  } else {
-                    // Default to RTL for Persian and any other locale
-                    document.documentElement.setAttribute('dir', 'rtl');
-                    document.documentElement.setAttribute('lang', 'fa');
-                  }
+                  // Persian-only site - always RTL
+                  document.documentElement.setAttribute('dir', 'rtl');
+                  document.documentElement.setAttribute('lang', 'fa');
                 } catch (e) {}
               })();
             `,
@@ -161,8 +150,20 @@ export default function RootLayout({
             >
               <LocaleProvider>
                 <DirectionHandler />
-                {children}
-                <ChatwootWidget />
+                <ReduxProvider>
+                  <ThemeProvider>
+                    <ErrorBoundary>
+                      <CanonicalProvider>
+                        <PersianSEO locale="fa">
+                          <GlobalErrorHandler />
+                          <HealthCheck />
+                          {children}
+                          <ChatwootWidget />
+                        </PersianSEO>
+                      </CanonicalProvider>
+                    </ErrorBoundary>
+                  </ThemeProvider>
+                </ReduxProvider>
               </LocaleProvider>
             </SEOProvider>
           </OpenReplayProvider>

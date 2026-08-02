@@ -5,11 +5,11 @@ import { StructuredData } from "./structured-data";
 import { absoluteUrl } from "@/lib/site";
 
 interface PersianSEOProps {
-  locale: string;
+  locale?: string;
   children?: React.ReactNode;
 }
 
-export function PersianSEO({ locale, children }: PersianSEOProps) {
+export function PersianSEO({ locale = "fa", children }: PersianSEOProps) {
   const isPersian = locale === "fa";
 
   if (!isPersian) return <>{children}</>;
@@ -34,22 +34,14 @@ export function PersianSEO({ locale, children }: PersianSEOProps) {
 
       {/* Persian-specific Open Graph */}
       <meta property="og:locale" content="fa_IR" />
-      <meta property="og:locale:alternate" content="en_US" />
 
       {/* Persian-specific Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content="@menteeno" />
       <meta name="twitter:creator" content="@menteeno" />
 
-      {/* Persian-specific canonical and alternate links */}
-      <link rel="canonical" href={absoluteUrl("/fa")} />
-      <link rel="alternate" hrefLang="fa" href={absoluteUrl("/fa")} />
-      <link rel="alternate" hrefLang="en" href={absoluteUrl("/en")} />
-      <link
-        rel="alternate"
-        hrefLang="x-default"
-        href={absoluteUrl("/fa")}
-      />
+      {/* Persian-specific canonical */}
+      <link rel="canonical" href={absoluteUrl("/")} />
 
       {/* Persian-specific search engines */}
       <meta name="googlebot" content="index, follow" />

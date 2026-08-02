@@ -28,7 +28,6 @@ import {
 } from "@/components/ui/tooltip";
 import { UserMenuContent } from "@/components/user-menu-content";
 import { useInitials } from "@/hooks/use-initials";
-import { useTranslation } from "@/hooks/use-translation";
 import { cn } from "@/lib/utils";
 import { type BreadcrumbItem, type NavItem } from "@/types";
 import { BookOpen, Folder, LayoutGrid, Menu, Search } from "lucide-react";
@@ -60,8 +59,6 @@ interface AppHeaderProps {
 }
 
 export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
-  const { locale } = useTranslation();
-
   // TODO: Replace with proper auth state management
   const auth = {
     user: {
@@ -79,7 +76,7 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
   const mainNavItems: NavItem[] = [
     {
       title: "Dashboard",
-      href: `/${locale}/dashboard`,
+      href: `/dashboard`,
       icon: LayoutGrid,
     },
   ];
@@ -147,7 +144,7 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
           </div>
 
           <Link
-            href={`/${locale}/dashboard`}
+            href={`/dashboard`}
             prefetch
             className="flex items-center space-x-2"
           >

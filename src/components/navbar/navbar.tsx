@@ -1,7 +1,6 @@
 "use client";
 import AppLogoIcon from "@/components/app-logo-icon";
 import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
-import { Language } from "@/components/navbar/language";
 import { NavMenu } from "@/components/navbar/nav-menu";
 import { NavigationSheet } from "@/components/navbar/navigation-sheet";
 import { useTranslation } from "@/hooks/use-translation";
@@ -11,7 +10,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const { t, locale } = useTranslation();
+  const { t } = useTranslation();
 
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
@@ -61,7 +60,6 @@ const Navbar = () => {
             <PanelLeft className="size-4" />
             <span>{t("messages.navbar.user-panel")}</span>
           </Link>
-          <Language />
           <AnimatedThemeToggler />
 
           {/* Mobile Menu */}

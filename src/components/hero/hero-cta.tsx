@@ -81,7 +81,7 @@ const HeroCTA = () => {
             size="lg"
             className="text-lg px-8 py-6"
             onClick={() => {
-              window.location.href = `/${locale}/event`;
+              window.location.href = `/event`;
             }}
           >
             <ArrowRight className="size-5 order-1" />

@@ -10,29 +10,8 @@ import EventTargetAudience from "@/components/event/event-target-audience";
 import EventTeam from "@/components/event/event-team";
 import { Footer } from "@/components/footer";
 import Navbar from "@/components/navbar/navbar";
-import { locales } from "@/lib/i18n";
-import { notFound } from "next/navigation";
 
-interface EventPageProps {
-  params: Promise<{
-    locale: string;
-  }>;
-}
-
-export async function generateStaticParams() {
-  return locales.map((locale) => ({
-    locale,
-  }));
-}
-
-export default async function EventPage({ params }: EventPageProps) {
-  const { locale } = await params;
-
-  // Validate locale
-  if (!locales.includes(locale as any)) {
-    notFound();
-  }
-
+export default function EventPage() {
   return (
     <>
       <Navbar />

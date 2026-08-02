@@ -133,8 +133,7 @@ export function getDefaultSEOConfig(): SEOConfig {
   alternates: {
     canonical: origin,
     languages: {
-      en: `${origin}/en`,
-      fa: `${origin}/fa`,
+      fa: origin,
     },
   },
   verification: {
@@ -206,7 +205,7 @@ export function generateMetadata(config: Partial<SEOConfig> = {}): Metadata {
 }
 
 export function generateLocalizedMetadata(
-  locale: string,
+  locale: string = "fa",
   config: Partial<SEOConfig> = {}
 ): Metadata {
   const origin = getSiteOrigin();
@@ -229,7 +228,7 @@ export function generateLocalizedMetadata(
       ]
     : baseConfig.keywords;
 
-  const pageUrl = absoluteUrl(`/${locale}`);
+  const pageUrl = absoluteUrl("/");
 
   const localizedConfig: SEOConfig = {
     ...baseConfig,
@@ -259,8 +258,7 @@ export function generateLocalizedMetadata(
     alternates: {
       canonical: pageUrl,
       languages: {
-        en: absoluteUrl("/en"),
-        fa: absoluteUrl("/fa"),
+        fa: absoluteUrl("/"),
       },
     },
     // Persian-specific meta tags
@@ -284,7 +282,7 @@ export function generateLocalizedMetadata(
           "DC.format": "text/html",
           "DC.identifier": pageUrl,
           "DC.source": origin,
-          "DC.relation": absoluteUrl("/fa"),
+          "DC.relation": origin,
           "DC.coverage": "Iran",
           "DC.rights": "© 2024 Menteeno. All rights reserved.",
         }
@@ -297,25 +295,22 @@ export function generateLocalizedMetadata(
 export function generatePageMetadata(
   pageTitle: string,
   pageDescription: string,
-  locale: string = "fa",
+  _locale: string = "fa",
   config: Partial<SEOConfig> = {}
 ): Metadata {
   const baseConfig = { ...getDefaultSEOConfig(), ...config };
+  const slug = pageTitle.toLowerCase().replace(/\s+/g, "-");
 
   return generateMetadata({
     ...baseConfig,
     title: `${pageTitle} | ${baseConfig.title}`,
     description: pageDescription,
-    canonical: absoluteUrl(`/${locale}/${pageTitle
-      .toLowerCase()
-      .replace(/\s+/g, "-")}`),
+    canonical: absoluteUrl(`/${slug}`),
     openGraph: {
       ...baseConfig.openGraph!,
       title: `${pageTitle} | ${baseConfig.title}`,
       description: pageDescription,
-      url: absoluteUrl(`/${locale}/${pageTitle
-        .toLowerCase()
-        .replace(/\s+/g, "-")}`),
+      url: absoluteUrl(`/${slug}`),
     },
     twitter: {
       ...baseConfig.twitter!,
@@ -456,39 +451,39 @@ export function getStructuredData() {
       ],
     },
     // Persian-specific structured data
-    persian: {
-      organization: {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        name: "منتینو",
-        alternateName: "Menteeno",
-        url: `${origin}/fa`,
-        logo: `${origin}/logo.png`,
-        description:
-          "پلتفرم توسعه مهارت‌های حرفه‌ای با منتورشیپ شخصی‌سازی‌شده و آموزش عملی",
-        foundingDate: "2024",
-        contactPoint: {
-          "@type": "ContactPoint",
-          telephone: "+1-555-0123",
-          contactType: "customer service",
-          availableLanguage: ["Persian", "English"],
-        },
-        sameAs: [
-          "https://twitter.com/menteeno",
-          "https://linkedin.com/company/menteeno",
-          "https://facebook.com/menteeno",
-        ],
-      },
-      course: {
-        "@context": "https://schema.org",
-        "@type": "Course",
-        name: "برنامه توسعه مهارت‌های حرفه‌ای",
-        description: "توسعه جامع مهارت‌های حرفه‌ای با منتورشیپ شخصی‌سازی‌شده",
-        provider: {
+      persian: {
+        organization: {
+          "@context": "https://schema.org",
           "@type": "Organization",
           name: "منتینو",
-          url: `${origin}/fa`,
+          alternateName: "Menteeno",
+          url: origin,
+          logo: `${origin}/logo.png`,
+          description:
+            "پلتفرم توسعه مهارت‌های حرفه‌ای با منتورشیپ شخصی‌سازی‌شده و آموزش عملی",
+          foundingDate: "2024",
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "+1-555-0123",
+            contactType: "customer service",
+            availableLanguage: ["Persian"],
+          },
+          sameAs: [
+            "https://twitter.com/menteeno",
+            "https://linkedin.com/company/menteeno",
+            "https://facebook.com/menteeno",
+          ],
         },
+        course: {
+          "@context": "https://schema.org",
+          "@type": "Course",
+          name: "برنامه توسعه مهارت‌های حرفه‌ای",
+          description: "توسعه جامع مهارت‌های حرفه‌ای با منتورشیپ شخصی‌سازی‌شده",
+          provider: {
+            "@type": "Organization",
+            name: "منتینو",
+            url: origin,
+          },
         courseMode: "online",
         educationalLevel: "مبتدی تا پیشرفته",
         teaches: [

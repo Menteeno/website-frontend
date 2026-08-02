@@ -10,7 +10,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { useTranslation } from "@/hooks/use-translation";
 import { type NavItem } from "@/types";
 import {
   BarChart3,
@@ -40,32 +39,30 @@ const footerNavItems: NavItem[] = [
 ];
 
 export function AppSidebar() {
-  const { locale } = useTranslation();
-
   const mainNavItems: NavItem[] = [
     {
       title: "Dashboard",
-      href: `/${locale}/dashboard`,
+      href: "/dashboard",
       icon: LayoutGrid,
     },
     {
       title: "Surveys",
-      href: `/${locale}/surveys`,
+      href: "/surveys",
       icon: FileText,
     },
     {
       title: "Analytics",
-      href: `/${locale}/analytics`,
+      href: "/analytics",
       icon: BarChart3,
     },
     {
       title: "Responses",
-      href: `/${locale}/responses`,
+      href: "/responses",
       icon: Users,
     },
     {
       title: "Settings",
-      href: `/${locale}/settings`,
+      href: "/settings",
       icon: Settings,
     },
   ];
@@ -76,7 +73,7 @@ export function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <Link href={`/${locale}/dashboard`} prefetch>
+              <Link href="/dashboard" prefetch>
                 <AppLogo />
               </Link>
             </SidebarMenuButton>

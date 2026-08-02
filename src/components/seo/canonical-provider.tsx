@@ -15,22 +15,11 @@ export function CanonicalProvider({ children }: CanonicalProviderProps) {
   // Generate canonical URL
   const canonicalUrl = `${config.baseUrl}${pathname}`;
 
-  // Generate alternate language URLs
-  const alternateUrls = {
-    fa: `${config.baseUrl}/fa${pathname.replace(/^\/[a-z]{2}/, "")}`,
-    en: `${config.baseUrl}/en${pathname.replace(/^\/[a-z]{2}/, "")}`,
-  };
-
   return (
     <>
       <Head>
         {/* Canonical URL */}
         <link rel="canonical" href={canonicalUrl} />
-
-        {/* Alternate language versions */}
-        <link rel="alternate" hrefLang="fa" href={alternateUrls.fa} />
-        <link rel="alternate" hrefLang="en" href={alternateUrls.en} />
-        <link rel="alternate" hrefLang="x-default" href={alternateUrls.fa} />
 
         {/* Prevent duplicate content */}
         <meta

@@ -141,7 +141,7 @@ export default function AuthForm() {
       login(user, mockToken);
 
       // Redirect to dashboard or home
-      window.location.href = `/${locale}/dashboard`;
+      window.location.href = `/dashboard`;
     } catch (error) {
       setErrors({ general: t("auth.general_error") });
     } finally {
@@ -168,7 +168,7 @@ export default function AuthForm() {
         {/* Logo and Header */}
         <div className="text-center mb-8">
           <Link
-            href={`/${locale}`}
+            href={"/"}
             className="inline-flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-white mb-4"
           >
             <AppLogoIcon className="size-8 fill-current" />
@@ -382,7 +382,7 @@ export default function AuthForm() {
                     >
                       {t("auth.agree_to_terms")}{" "}
                       <Link
-                        href={`/${locale}/terms`}
+                        href={`/terms`}
                         className="text-blue-600 hover:text-blue-800 underline"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -391,7 +391,7 @@ export default function AuthForm() {
                       </Link>{" "}
                       {t("auth.and")}{" "}
                       <Link
-                        href={`/${locale}/privacy`}
+                        href={`/privacy`}
                         className="text-blue-600 hover:text-blue-800 underline"
                         target="_blank"
                         rel="noopener noreferrer"

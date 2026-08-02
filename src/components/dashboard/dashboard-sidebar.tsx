@@ -25,38 +25,35 @@ export function DashboardSidebar({ className }: DashboardSidebarProps) {
   const { user, logout } = useAuth();
   const pathname = usePathname();
 
-  // Get current locale from pathname
-  const locale = pathname.split("/")[1] || "en";
-
   const navigationItems = [
     {
       name: t("dashboard.sidebar.dashboard"),
-      href: `/${locale}/dashboard`,
+      href: "/dashboard",
       icon: Home,
       isActive:
-        pathname === `/${locale}/dashboard` || pathname.endsWith("/dashboard"),
+        pathname === "/dashboard" || pathname.endsWith("/dashboard"),
     },
     {
       name: t("dashboard.sidebar.surveys"),
-      href: `/${locale}/dashboard/surveys`,
+      href: `/dashboard/surveys`,
       icon: FileText,
       isActive: pathname.includes("/surveys"),
     },
     {
       name: t("dashboard.sidebar.analytics"),
-      href: `/${locale}/dashboard/analytics`,
+      href: `/dashboard/analytics`,
       icon: BarChart3,
       isActive: pathname.includes("/analytics"),
     },
     {
       name: t("dashboard.sidebar.responses"),
-      href: `/${locale}/dashboard/responses`,
+      href: `/dashboard/responses`,
       icon: Users,
       isActive: pathname.includes("/responses"),
     },
     {
       name: t("dashboard.sidebar.settings"),
-      href: `/${locale}/dashboard/settings`,
+      href: `/dashboard/settings`,
       icon: Settings,
       isActive: pathname.includes("/settings"),
     },

@@ -12,13 +12,12 @@ import { useCallback, useEffect, useMemo } from "react";
 interface BlogPageClientProps {
   initialData: BlogListResponse;
   initialFilters: BlogFilters;
-  locale: "en" | "fa";
+  locale: "fa";
 }
 
 export function BlogPageClient({
   initialData,
   initialFilters,
-  locale,
 }: BlogPageClientProps) {
   const { t } = useTranslation();
   const router = useRouter();
@@ -48,11 +47,11 @@ export function BlogPageClient({
 
       const queryString = params.toString();
       const url = queryString
-        ? `/${locale}/blog?${queryString}`
-        : `/${locale}/blog`;
+        ? `/blog?${queryString}`
+        : `/blog`;
       router.push(url);
     },
-    [locale, router]
+    [router]
   );
 
   const handleFiltersChange = useCallback(

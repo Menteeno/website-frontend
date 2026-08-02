@@ -1,6 +1,5 @@
 "use client";
 
-import { LanguageSwitcher } from "@/components/language-switcher";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -18,7 +17,6 @@ export default function I18nDemoPage() {
     <div className="container mx-auto py-8 px-4">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-3xl font-bold">Next.js i18n Demo</h1>
-        <LanguageSwitcher />
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">
@@ -113,15 +111,12 @@ export default function I18nDemoPage() {
           {`import { useTranslation } from "@/hooks/use-translation";
 
 export function MyComponent() {
-  const { t, locale, changeLanguage } = useTranslation();
+  const { t, locale } = useTranslation();
   
   return (
     <div>
       <h1>{t("messages.home-header.title")}</h1>
       <p>{t("messages.home-header.description")}</p>
-      <button onClick={() => changeLanguage("fa")}>
-        Switch to Persian
-      </button>
     </div>
   );
 }`}

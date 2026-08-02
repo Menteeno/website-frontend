@@ -1,22 +1,15 @@
-import { locales } from "@/lib/i18n";
-
 interface SurveyPageProps {
   params: Promise<{
-    locale: string;
     slug: string;
   }>;
 }
 
 export async function generateStaticParams() {
-  const params = [];
-  for (const locale of locales) {
-    params.push({ locale, slug: "placeholder" });
-  }
-  return params;
+  return [{ slug: "placeholder" }];
 }
 
 export default async function SurveyPage({ params }: SurveyPageProps) {
-  const { locale, slug } = await params;
+  const { slug } = await params;
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center">

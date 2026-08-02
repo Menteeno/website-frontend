@@ -33,19 +33,19 @@ export function LoadingDemo() {
           <h3 className="text-lg font-semibold mb-2">Navigation Links</h3>
           <div className="flex gap-4">
             <LoadingLink
-              href={`/${locale}/dashboard`}
+              href={`/dashboard`}
               className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
             >
               Go to Dashboard
             </LoadingLink>
             <LoadingLink
-              href={`/${locale}/event`}
+              href={`/event`}
               className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
             >
               Go to Event
             </LoadingLink>
             <LoadingLink
-              href={`/${locale}/auth`}
+              href={`/auth`}
               className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600"
             >
               Go to Auth

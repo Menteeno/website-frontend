@@ -3,24 +3,13 @@
 import { Footer } from "@/components/footer";
 import Navbar from "@/components/navbar/navbar";
 import { useTranslation } from "@/hooks/use-translation";
-import { locales } from "@/lib/i18n";
-import { notFound } from "next/navigation";
 
-interface PrivacyPageProps {
-  params: Promise<{ locale: string }>;
+export default function PrivacyPage() {
+  return <PrivacyContent />;
 }
 
-export default function PrivacyPage({ params }: PrivacyPageProps) {
-  return <PrivacyContent params={params} />;
-}
-
-function PrivacyContent({ params }: { params: Promise<{ locale: string }> }) {
-  const { t, locale } = useTranslation();
-
-  // Validate locale
-  if (!locales.includes(locale as any)) {
-    notFound();
-  }
+function PrivacyContent() {
+  const { t } = useTranslation();
 
   return (
     <>
@@ -195,7 +184,7 @@ function PrivacyContent({ params }: { params: Promise<{ locale: string }> }) {
                   </p>
                   <p className="text-muted-foreground leading-relaxed mt-2">
                     <a
-                      href={`/${locale}/cookies`}
+                      href="/cookies"
                       className="text-primary hover:text-primary/80 underline"
                     >
                       {t("footer.legal.cookies")}

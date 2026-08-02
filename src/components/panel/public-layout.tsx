@@ -9,7 +9,7 @@ import { useTranslation } from "@/hooks/use-translation";
 import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
-  const { t, locale, changeLanguage } = useTranslation();
+  const { t } = useTranslation();
   const { user, isAdmin, signOut } = useAuth();
   const pathname = usePathname();
 
@@ -58,14 +58,6 @@ export function SiteHeader() {
               </Button>
             </>
           )}
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => changeLanguage(locale === "fa" ? "en" : "fa")}
-            type="button"
-          >
-            {locale === "fa" ? "EN" : "FA"}
-          </Button>
         </nav>
       </div>
     </header>

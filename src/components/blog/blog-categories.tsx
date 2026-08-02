@@ -41,7 +41,7 @@ export function BlogCategories({
       <CardContent>
         <div className="space-y-2">
           <Link
-            href={`/${locale}/blog`}
+            href={`/blog`}
             className={`block p-3 rounded-lg transition-colors hover:bg-muted ${
               !selectedCategory ? "bg-muted" : ""
             }`}
@@ -59,7 +59,7 @@ export function BlogCategories({
           {categories.map((category) => (
             <Link
               key={category.slug}
-              href={`/${locale}/blog?category=${category.slug}`}
+              href={`/blog?category=${category.slug}`}
               className={`block p-3 rounded-lg transition-colors hover:bg-muted ${
                 selectedCategory === category.slug ? "bg-muted" : ""
               }`}

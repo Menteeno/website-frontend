@@ -3,24 +3,13 @@
 import { Footer } from "@/components/footer";
 import Navbar from "@/components/navbar/navbar";
 import { useTranslation } from "@/hooks/use-translation";
-import { locales } from "@/lib/i18n";
-import { notFound } from "next/navigation";
 
-interface TermsPageProps {
-  params: Promise<{ locale: string }>;
+export default function TermsPage() {
+  return <TermsContent />;
 }
 
-export default function TermsPage({ params }: TermsPageProps) {
-  return <TermsContent params={params} />;
-}
-
-function TermsContent({ params }: { params: Promise<{ locale: string }> }) {
-  const { t, locale } = useTranslation();
-
-  // Validate locale
-  if (!locales.includes(locale as any)) {
-    notFound();
-  }
+function TermsContent() {
+  const { t } = useTranslation();
 
   return (
     <>
