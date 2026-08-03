@@ -43,6 +43,8 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning dir="rtl" lang="fa">
       <head>
+        <meta name="enamad" content="48006262" />
+
         {/* Google Analytics - Hardcoded for immediate loading */}
         <script
           async
